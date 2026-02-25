@@ -1,0 +1,359 @@
+﻿2026-02-17 11:18:10 | INFO | Pipeline started for CSV: .\data\users.csv
+2026-02-17 11:18:10 | INFO | Starting CSV import: .\data\users.csv
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | Imported user: 
+2026-02-17 11:18:11 | INFO | CSV import finished. Total users: 8
+2026-02-17 11:18:12 | INFO | Validation passed for John Smith
+2026-02-17 11:18:13 | INFO | Validation passed for Jane Doe
+2026-02-17 11:18:13 | WARN | Validation error: LastName missing for Michael 
+2026-02-17 11:18:14 | WARN | Validation error: Title missing for Emily Jones
+2026-02-17 11:18:14 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-17 11:18:15 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-17 11:18:15 | WARN | Validation error: Location missing for Anna King
+2026-02-17 11:18:16 | WARN | Validation error: Department missing for Chris Evans
+2026-02-17 11:18:16 | INFO | Pipeline finished. Total users: 8
+2026-02-17 11:22:33 | INFO | Pipeline started for CSV: .\data\users.csv
+2026-02-17 11:22:33 | INFO | Starting CSV import: .\data\users.csv
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:33 | INFO | Imported user: 
+2026-02-17 11:22:34 | INFO | Imported user: 
+2026-02-17 11:22:34 | INFO | CSV import finished. Total users: 8
+2026-02-17 11:22:34 | INFO | Validation passed for John Smith
+2026-02-17 11:22:34 | INFO | Validation passed for Jane Doe
+2026-02-17 11:22:34 | WARN | Validation error: LastName missing for Michael 
+2026-02-17 11:22:34 | WARN | Validation error: Title missing for Emily Jones
+2026-02-17 11:22:34 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-17 11:22:35 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-17 11:22:35 | WARN | Validation error: Location missing for Anna King
+2026-02-17 11:22:35 | WARN | Validation error: Department missing for Chris Evans
+2026-02-17 11:22:35 | INFO | Pipeline finished. Total users: 8
+2026-02-17 11:22:52 | INFO | Pipeline started for CSV: .\data\users.csv
+2026-02-17 11:22:52 | INFO | Starting CSV import: .\data\users.csv
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | Imported user: 
+2026-02-17 11:22:52 | INFO | CSV import finished. Total users: 8
+2026-02-17 11:22:52 | INFO | Validation passed for John Smith
+2026-02-17 11:22:52 | INFO | Validation passed for Jane Doe
+2026-02-17 11:22:52 | WARN | Validation error: LastName missing for Michael 
+2026-02-17 11:22:52 | WARN | Validation error: Title missing for Emily Jones
+2026-02-17 11:22:52 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-17 11:22:52 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-17 11:22:52 | WARN | Validation error: Location missing for Anna King
+2026-02-17 11:22:52 | WARN | Validation error: Department missing for Chris Evans
+2026-02-17 11:22:52 | INFO | Pipeline finished. Total users: 8
+2026-02-17 11:27:07 | INFO | Pipeline started for CSV: .\data\users.csv
+2026-02-17 11:27:07 | INFO | Starting CSV import: .\data\users.csv
+2026-02-17 11:27:07 | INFO | Imported user: John Smith
+2026-02-17 11:27:07 | INFO | Imported user: Jane Doe
+2026-02-17 11:27:07 | INFO | Imported user: Michael 
+2026-02-17 11:27:07 | INFO | Imported user: Emily Jones
+2026-02-17 11:27:07 | INFO | Imported user:  Wilson
+2026-02-17 11:27:07 | INFO | Imported user: Robert Brown
+2026-02-17 11:27:07 | INFO | Imported user: Anna King
+2026-02-17 11:27:07 | INFO | Imported user: Chris Evans
+2026-02-17 11:27:07 | INFO | CSV import finished. Total users: 8
+2026-02-17 11:27:07 | INFO | Validation passed for John Smith
+2026-02-17 11:27:07 | INFO | Validation passed for Jane Doe
+2026-02-17 11:27:07 | WARN | Validation error: LastName missing for Michael 
+2026-02-17 11:27:07 | WARN | Validation error: Title missing for Emily Jones
+2026-02-17 11:27:07 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-17 11:27:07 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-17 11:27:07 | WARN | Validation error: Location missing for Anna King
+2026-02-17 11:27:07 | WARN | Validation error: Department missing for Chris Evans
+2026-02-17 11:27:07 | INFO | Pipeline finished. Total users: 8
+2026-02-17 11:38:30 | INFO | === Starting CSV import: .\data\users.csv ===
+2026-02-17 11:38:30 | INFO | Imported user: John Smith
+2026-02-17 11:38:30 | INFO | Imported user: Jane Doe
+2026-02-17 11:38:30 | INFO | Imported user: Michael 
+2026-02-17 11:38:30 | INFO | Imported user: Emily Jones
+2026-02-17 11:38:30 | INFO | Imported user:  Wilson
+2026-02-17 11:38:30 | INFO | Imported user: Robert Brown
+2026-02-17 11:38:30 | INFO | Imported user: Anna King
+2026-02-17 11:38:30 | INFO | Imported user: Chris Evans
+2026-02-17 11:38:30 | INFO | === CSV import finished. Total users: 8 ===
+2026-02-17 11:38:30 | INFO | Validation passed for John Smith
+2026-02-17 11:38:30 | INFO | Validation passed for Jane Doe
+2026-02-17 11:38:30 | WARN | Validation error: LastName missing for Michael 
+2026-02-17 11:38:30 | WARN | Validation error: Title missing for Emily Jones
+2026-02-17 11:38:30 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-17 11:38:30 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-17 11:38:30 | WARN | Validation error: Location missing for Anna King
+2026-02-17 11:38:30 | WARN | Validation error: Department missing for Chris Evans
+2026-02-17 11:38:30 | INFO | Pipeline finished. Total users: 8
+2026-02-20 09:32:08 | INFO | === Pipeline started. ===
+2026-02-20 09:32:08 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 09:32:08 | INFO | Imported user: John Smith
+2026-02-20 09:32:08 | INFO | Imported user: Jane Doe
+2026-02-20 09:32:08 | INFO | Imported user: Michael 
+2026-02-20 09:32:08 | INFO | Imported user: Emily Jones
+2026-02-20 09:32:08 | INFO | Imported user:  Wilson
+2026-02-20 09:32:08 | INFO | Imported user: Robert Brown
+2026-02-20 09:32:08 | INFO | Imported user: Anna King
+2026-02-20 09:32:08 | INFO | Imported user: Chris Evans
+2026-02-20 09:32:08 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 09:32:08 | INFO | Validation passed for John Smith
+2026-02-20 09:32:08 | INFO | Validation passed for Jane Doe
+2026-02-20 09:32:08 | WARN | Validation error: LastName missing for Michael 
+2026-02-20 09:32:08 | WARN | Validation error: Title missing for Emily Jones
+2026-02-20 09:32:08 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-20 09:32:08 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-20 09:32:08 | WARN | Validation error: Location missing for Anna King
+2026-02-20 09:32:08 | WARN | Validation error: Department missing for Chris Evans
+2026-02-20 09:32:08 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 09:33:45 | INFO | === Pipeline started. ===
+2026-02-20 09:33:45 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 09:33:45 | INFO | Imported user: John Smith
+2026-02-20 09:33:45 | INFO | Imported user: Jane Doe
+2026-02-20 09:33:45 | INFO | Imported user: Michael 
+2026-02-20 09:33:45 | INFO | Imported user: Emily Jones
+2026-02-20 09:33:45 | INFO | Imported user:  Wilson
+2026-02-20 09:33:45 | INFO | Imported user: Robert Brown
+2026-02-20 09:33:45 | INFO | Imported user: Anna King
+2026-02-20 09:33:45 | INFO | Imported user: Chris Evans
+2026-02-20 09:33:45 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 09:33:45 | INFO | Validation passed for John Smith
+2026-02-20 09:33:45 | INFO | Validation passed for Jane Doe
+2026-02-20 09:33:45 | WARN | Validation error: LastName missing for Michael 
+2026-02-20 09:33:45 | WARN | Validation error: Title missing for Emily Jones
+2026-02-20 09:33:45 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-20 09:33:45 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-20 09:33:45 | WARN | Validation error: Location missing for Anna King
+2026-02-20 09:33:45 | WARN | Validation error: Department missing for Chris Evans
+2026-02-20 09:33:45 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 09:35:52 | INFO | === Pipeline started. ===
+2026-02-20 09:35:52 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 09:35:52 | INFO | Imported user: John Smith
+2026-02-20 09:35:52 | INFO | Imported user: Jane Doe
+2026-02-20 09:35:52 | INFO | Imported user: Michael 
+2026-02-20 09:35:52 | INFO | Imported user: Emily Jones
+2026-02-20 09:35:52 | INFO | Imported user:  Wilson
+2026-02-20 09:35:52 | INFO | Imported user: Robert Brown
+2026-02-20 09:35:52 | INFO | Imported user: Anna King
+2026-02-20 09:35:52 | INFO | Imported user: Chris Evans
+2026-02-20 09:35:52 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 09:35:52 | INFO | == Starting loop over users. ==
+2026-02-20 09:35:52 | INFO | Validation passed for John Smith
+2026-02-20 09:35:52 | INFO | Validation passed for Jane Doe
+2026-02-20 09:35:52 | WARN | Validation error: LastName missing for Michael 
+2026-02-20 09:35:52 | WARN | Validation error: Title missing for Emily Jones
+2026-02-20 09:35:52 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-20 09:35:52 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-20 09:35:52 | WARN | Validation error: Location missing for Anna King
+2026-02-20 09:35:53 | WARN | Validation error: Department missing for Chris Evans
+2026-02-20 09:35:53 | INFO | == Finished loop over users. ==
+2026-02-20 09:35:53 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 09:36:45 | INFO | === Pipeline started. ===
+2026-02-20 09:36:45 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 09:36:45 | INFO | Imported user: John Smith
+2026-02-20 09:36:45 | INFO | Imported user: Jane Doe
+2026-02-20 09:36:45 | INFO | Imported user: Michael 
+2026-02-20 09:36:45 | INFO | Imported user: Emily Jones
+2026-02-20 09:36:45 | INFO | Imported user:  Wilson
+2026-02-20 09:36:45 | INFO | Imported user: Robert Brown
+2026-02-20 09:36:45 | INFO | Imported user: Anna King
+2026-02-20 09:36:45 | INFO | Imported user: Chris Evans
+2026-02-20 09:36:45 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 09:36:45 | INFO | == Starting loop over users. ==
+2026-02-20 09:36:45 | INFO | Validation passed for John Smith
+2026-02-20 09:36:45 | INFO | = User processed: John Smith =
+2026-02-20 09:36:45 | INFO | Validation passed for Jane Doe
+2026-02-20 09:36:45 | INFO | = User processed: Jane Doe =
+2026-02-20 09:36:45 | WARN | Validation error: LastName missing for Michael 
+2026-02-20 09:36:45 | INFO | = User processed: Michael  =
+2026-02-20 09:36:46 | WARN |  â†’ Errors: LastName is missing
+2026-02-20 09:36:46 | WARN | Validation error: Title missing for Emily Jones
+2026-02-20 09:36:46 | INFO | = User processed: Emily Jones =
+2026-02-20 09:36:46 | WARN |  â†’ Errors: Title is missing
+2026-02-20 09:36:46 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-20 09:36:46 | INFO | = User processed:  Wilson =
+2026-02-20 09:36:46 | WARN |  â†’ Errors: FirstName is missing
+2026-02-20 09:36:46 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-20 09:36:46 | INFO | = User processed: Robert Brown =
+2026-02-20 09:36:46 | WARN |  â†’ Errors: Manager is missing
+2026-02-20 09:36:46 | WARN | Validation error: Location missing for Anna King
+2026-02-20 09:36:46 | INFO | = User processed: Anna King =
+2026-02-20 09:36:46 | WARN |  â†’ Errors: Location is missing
+2026-02-20 09:36:46 | WARN | Validation error: Department missing for Chris Evans
+2026-02-20 09:36:46 | INFO | = User processed: Chris Evans =
+2026-02-20 09:36:46 | WARN |  â†’ Errors: Department is missing
+2026-02-20 09:36:46 | INFO | == Finished loop over users. ==
+2026-02-20 09:36:47 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 09:42:22 | INFO | === Pipeline started. ===
+2026-02-20 09:42:22 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 09:42:22 | INFO | Imported user: John Smith
+2026-02-20 09:42:22 | INFO | Imported user: Jane Doe
+2026-02-20 09:42:22 | INFO | Imported user: Michael 
+2026-02-20 09:42:22 | INFO | Imported user: Emily Jones
+2026-02-20 09:42:22 | INFO | Imported user:  Wilson
+2026-02-20 09:42:22 | INFO | Imported user: Robert Brown
+2026-02-20 09:42:22 | INFO | Imported user: Anna King
+2026-02-20 09:42:22 | INFO | Imported user: Chris Evans
+2026-02-20 09:42:22 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 09:42:22 | INFO | == Starting looping over users. ==
+2026-02-20 09:42:22 | INFO | Validation passed for John Smith
+2026-02-20 09:42:22 | INFO | = User processed: John Smith =
+2026-02-20 09:42:22 | INFO | Validation passed for Jane Doe
+2026-02-20 09:42:22 | INFO | = User processed: Jane Doe =
+2026-02-20 09:42:22 | WARN | Validation error: LastName missing for Michael 
+2026-02-20 09:42:22 | INFO | = User processed: Michael  =
+2026-02-20 09:42:22 | WARN | Errors: LastName is missing
+2026-02-20 09:42:22 | WARN | Validation error: Title missing for Emily Jones
+2026-02-20 09:42:22 | INFO | = User processed: Emily Jones =
+2026-02-20 09:42:22 | WARN | Errors: Title is missing
+2026-02-20 09:42:22 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-20 09:42:22 | INFO | = User processed:  Wilson =
+2026-02-20 09:42:22 | WARN | Errors: FirstName is missing
+2026-02-20 09:42:22 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-20 09:42:22 | INFO | = User processed: Robert Brown =
+2026-02-20 09:42:22 | WARN | Errors: Manager is missing
+2026-02-20 09:42:22 | WARN | Validation error: Location missing for Anna King
+2026-02-20 09:42:23 | INFO | = User processed: Anna King =
+2026-02-20 09:42:23 | WARN | Errors: Location is missing
+2026-02-20 09:42:23 | WARN | Validation error: Department missing for Chris Evans
+2026-02-20 09:42:23 | INFO | = User processed: Chris Evans =
+2026-02-20 09:42:23 | WARN | Errors: Department is missing
+2026-02-20 09:42:23 | INFO | == Finished looping over users. ==
+2026-02-20 09:42:23 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 10:00:48 | INFO | === Pipeline started. ===
+2026-02-20 10:00:48 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 10:00:48 | INFO | Imported user: John Smith
+2026-02-20 10:00:48 | INFO | Imported user: Jane Doe
+2026-02-20 10:00:48 | INFO | Imported user: Michael 
+2026-02-20 10:00:48 | INFO | Imported user: Emily Jones
+2026-02-20 10:00:48 | INFO | Imported user:  Wilson
+2026-02-20 10:00:48 | INFO | Imported user: Robert Brown
+2026-02-20 10:00:48 | INFO | Imported user: Anna King
+2026-02-20 10:00:48 | INFO | Imported user: Chris Evans
+2026-02-20 10:00:48 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 10:00:49 | INFO | == Starting looping over users. ==
+2026-02-20 10:00:49 | INFO | Validation passed for John Smith
+2026-02-20 10:00:49 | INFO | = User processed: John Smith =
+2026-02-20 10:00:49 | INFO | Validation passed for Jane Doe
+2026-02-20 10:00:49 | INFO | = User processed: Jane Doe =
+2026-02-20 10:00:49 | WARN | Validation error: LastName missing for Michael 
+2026-02-20 10:00:49 | WARN | Validation failed for Michael : LastName is missing
+2026-02-20 10:00:49 | INFO | = User processed: Michael  =
+2026-02-20 10:00:49 | WARN | Validation error: Title missing for Emily Jones
+2026-02-20 10:00:49 | WARN | Validation failed for Emily Jones: Title is missing
+2026-02-20 10:00:49 | INFO | = User processed: Emily Jones =
+2026-02-20 10:00:49 | WARN | Validation error: FirstName missing for  Wilson
+2026-02-20 10:00:49 | WARN | Validation failed for  Wilson: FirstName is missing
+2026-02-20 10:00:49 | INFO | = User processed:  Wilson =
+2026-02-20 10:00:49 | WARN | Validation error: Manager missing for Robert Brown
+2026-02-20 10:00:49 | WARN | Validation failed for Robert Brown: Manager is missing
+2026-02-20 10:00:49 | INFO | = User processed: Robert Brown =
+2026-02-20 10:00:49 | WARN | Validation error: Location missing for Anna King
+2026-02-20 10:00:49 | WARN | Validation failed for Anna King: Location is missing
+2026-02-20 10:00:49 | INFO | = User processed: Anna King =
+2026-02-20 10:00:49 | WARN | Validation error: Department missing for Chris Evans
+2026-02-20 10:00:49 | WARN | Validation failed for Chris Evans: Department is missing
+2026-02-20 10:00:49 | INFO | = User processed: Chris Evans =
+2026-02-20 10:00:49 | INFO | == Finished looping over users. ==
+2026-02-20 10:00:49 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 10:02:42 | INFO | === Pipeline started. ===
+2026-02-20 10:02:42 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 10:02:42 | INFO | Imported user: John Smith
+2026-02-20 10:02:42 | INFO | Imported user: Jane Doe
+2026-02-20 10:02:42 | INFO | Imported user: Michael 
+2026-02-20 10:02:42 | INFO | Imported user: Emily Jones
+2026-02-20 10:02:42 | INFO | Imported user:  Wilson
+2026-02-20 10:02:42 | INFO | Imported user: Robert Brown
+2026-02-20 10:02:42 | INFO | Imported user: Anna King
+2026-02-20 10:02:42 | INFO | Imported user: Chris Evans
+2026-02-20 10:02:42 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 10:02:42 | INFO | == Starting looping over users. ==
+2026-02-20 10:02:42 | INFO | Validation passed for John Smith
+2026-02-20 10:02:42 | INFO | = User processed: John Smith =
+2026-02-20 10:02:42 | INFO | Validation passed for Jane Doe
+2026-02-20 10:02:42 | INFO | = User processed: Jane Doe =
+2026-02-20 10:02:42 | WARN | Validation failed for Michael : LastName is missing
+2026-02-20 10:02:42 | INFO | = User processed: Michael  =
+2026-02-20 10:02:42 | WARN | Validation failed for Emily Jones: Title is missing
+2026-02-20 10:02:42 | INFO | = User processed: Emily Jones =
+2026-02-20 10:02:42 | WARN | Validation failed for  Wilson: FirstName is missing
+2026-02-20 10:02:42 | INFO | = User processed:  Wilson =
+2026-02-20 10:02:42 | WARN | Validation failed for Robert Brown: Manager is missing
+2026-02-20 10:02:42 | INFO | = User processed: Robert Brown =
+2026-02-20 10:02:42 | WARN | Validation failed for Anna King: Location is missing
+2026-02-20 10:02:42 | INFO | = User processed: Anna King =
+2026-02-20 10:02:42 | WARN | Validation failed for Chris Evans: Department is missing
+2026-02-20 10:02:42 | INFO | = User processed: Chris Evans =
+2026-02-20 10:02:42 | INFO | == Finished looping over users. ==
+2026-02-20 10:02:42 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 10:04:30 | INFO | === Pipeline started. ===
+2026-02-20 10:04:30 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 10:04:30 | INFO | Imported user: John Smith
+2026-02-20 10:04:30 | INFO | Imported user: Jane Doe
+2026-02-20 10:04:30 | INFO | Imported user: Michael 
+2026-02-20 10:04:30 | INFO | Imported user: Emily Jones
+2026-02-20 10:04:30 | INFO | Imported user:  Wilson
+2026-02-20 10:04:30 | INFO | Imported user: Robert Brown
+2026-02-20 10:04:30 | INFO | Imported user: Anna King
+2026-02-20 10:04:30 | INFO | Imported user: Chris Evans
+2026-02-20 10:04:30 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 10:04:30 | INFO | == Starting looping over users. ==
+2026-02-20 10:04:30 | INFO | [PASS] Validation passed for John Smith
+2026-02-20 10:04:30 | INFO | = User processed: John Smith =
+2026-02-20 10:04:30 | INFO | [PASS] Validation passed for Jane Doe
+2026-02-20 10:04:30 | INFO | = User processed: Jane Doe =
+2026-02-20 10:04:30 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-02-20 10:04:30 | INFO | = User processed: Michael  =
+2026-02-20 10:04:30 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-02-20 10:04:30 | INFO | = User processed: Emily Jones =
+2026-02-20 10:04:30 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-02-20 10:04:30 | INFO | = User processed:  Wilson =
+2026-02-20 10:04:30 | WARN | [FAIL] Validation failed for Robert Brown: Manager is missing
+2026-02-20 10:04:30 | INFO | = User processed: Robert Brown =
+2026-02-20 10:04:30 | WARN | [FAIL] Validation failed for Anna King: Location is missing
+2026-02-20 10:04:30 | INFO | = User processed: Anna King =
+2026-02-20 10:04:30 | WARN | [FAIL] Validation failed for Chris Evans: Department is missing
+2026-02-20 10:04:30 | INFO | = User processed: Chris Evans =
+2026-02-20 10:04:30 | INFO | == Finished looping over users. ==
+2026-02-20 10:04:30 | INFO | === Pipeline finished. Total users: 8 ===
+2026-02-20 10:14:28 | INFO | === Pipeline started. ===
+2026-02-20 10:14:28 | INFO | == Starting CSV import: .\data\users.csv ==
+2026-02-20 10:14:28 | INFO | Imported user: John Smith
+2026-02-20 10:14:28 | INFO | Imported user: Jane Doe
+2026-02-20 10:14:28 | INFO | Imported user: Michael 
+2026-02-20 10:14:28 | INFO | Imported user: Emily Jones
+2026-02-20 10:14:28 | INFO | Imported user:  Wilson
+2026-02-20 10:14:28 | INFO | Imported user: Robert Brown
+2026-02-20 10:14:28 | INFO | Imported user: Anna King
+2026-02-20 10:14:28 | INFO | Imported user: Chris Evans
+2026-02-20 10:14:28 | INFO | == CSV import finished. Total users: 8 ==
+2026-02-20 10:14:28 | INFO | == Starting looping over users. ==
+2026-02-20 10:14:28 | INFO | [PASS] Validation passed for John Smith
+2026-02-20 10:14:28 | INFO | User processed successfully: John Smith
+2026-02-20 10:14:28 | INFO | [PASS] Validation passed for Jane Doe
+2026-02-20 10:14:28 | INFO | User processed successfully: Jane Doe
+2026-02-20 10:14:28 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-02-20 10:14:28 | WARN | User processed with errors: Michael  will be skipped
+2026-02-20 10:14:28 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-02-20 10:14:28 | WARN | User processed with errors: Emily Jones will be skipped
+2026-02-20 10:14:28 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-02-20 10:14:28 | WARN | User processed with errors:  Wilson will be skipped
+2026-02-20 10:14:28 | WARN | [FAIL] Validation failed for Robert Brown: Manager is missing
+2026-02-20 10:14:28 | WARN | User processed with errors: Robert Brown will be skipped
+2026-02-20 10:14:28 | WARN | [FAIL] Validation failed for Anna King: Location is missing
+2026-02-20 10:14:28 | WARN | User processed with errors: Anna King will be skipped
+2026-02-20 10:14:28 | WARN | [FAIL] Validation failed for Chris Evans: Department is missing
+2026-02-20 10:14:28 | WARN | User processed with errors: Chris Evans will be skipped
+2026-02-20 10:14:28 | INFO | == Finished looping over users. ==
+2026-02-20 10:14:28 | INFO | === Pipeline finished. Total users: 8 ===

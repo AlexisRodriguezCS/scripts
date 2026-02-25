@@ -1,0 +1,8 @@
+﻿2026-02-12 16:09:46 | INFO | Pipeline started for CSV: .\data\users.csv
+2026-02-12 16:09:46 | INFO | Starting CSV import: .\data\users.csv
+2026-02-12 16:09:46 | INFO | Imported user: jsmith
+2026-02-12 16:09:46 | INFO | Imported user: jdoe
+2026-02-12 16:09:46 | INFO | Imported user: bbrown
+2026-02-12 16:09:46 | INFO | Imported user: ajones
+2026-02-12 16:09:46 | INFO | CSV import finished. Total users: 4
+2026-02-12 16:09:46 | INFO | Pipeline finished. Total users: 4
