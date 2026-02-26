@@ -11,6 +11,12 @@ function Invoke-UserOnboarding {
     $users = Import-OnboardingCsv -Path $Path
 
     Write-LogAndVerbose -Message "== Starting looping over users. ==" -Level "INFO"
+
+    $successCount = 0
+    $failedCount = 0
+    $alreadyCount = 0
+    $skippedCount = 0
+
     # Loop through users
     foreach ($user in $users) {
 
@@ -21,17 +27,45 @@ function Invoke-UserOnboarding {
         $user = Test-OnboardingData -PipelineObject $user
 
         # User has errors and will be skipped
-        if ($user.Errors.Count -gt 0) {
-            Write-LogAndVerbose -Message "User processed with errors: $($user.Raw.FirstName) $($user.Raw.LastName) will be skipped" -Level "WARN"
+        if ($user.Status -eq "Skipped") {
+            $skippedCount++
+            Write-LogAndVerbose -Message "[SKIP] User processed with errors: $($user.Raw.FirstName) $($user.Raw.LastName) will be skipped" -Level "WARN"
+            # Log line break
+            Write-LogAndVerbose -Message " "
             continue
         }
         
-        # User was successfully processed
-        Write-LogAndVerbose -Message "User processed successfully: $($user.Raw.FirstName) $($user.Raw.LastName)" -Level "INFO"
+        # Apply policies
+        $user = Policy-Onboarding -PipelineObject $user
+
+        # Plan onboarding actions
+        $user = Plan-Onboarding -PipelineObject $user
+
+        # Build onboarding data
+        $user = Build-Onboarding -PipelineObject $user
+
+        # Testing
+        $user.Status = "Created"
+
+        switch ($user.Status) {
+            "Created"       { $successCount++ }
+            "AlreadyExists" { $alreadyCount++ }
+            "Failed"        { $failedCount++ }
+        }
+
+        # Log line break
+        Write-LogAndVerbose -Message " "
     }
 
     Write-LogAndVerbose -Message "== Finished looping over users. ==" -Level "INFO"
 
     # Finish logging
-    Write-LogAndVerbose -Message "=== Pipeline finished. Total users: $($users.Count) ===" -Level "INFO"
+    Write-LogAndVerbose -Message "
+    === Pipeline Finished ===
+    Total: $($users.Count)
+    Created: $successCount
+    Already Exists: $alreadyCount
+    Failed: $failedCount
+    Skipped (Validation): $skippedCount
+        " -Level "INFO"
 }

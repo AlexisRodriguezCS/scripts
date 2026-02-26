@@ -125,5 +125,19 @@ Allows export to CSV or logging system.
 ## Summary Flow
 
 ```
-Import → Convert → Test → Build → Plan → Execute → Report
+Import: read CSV
+
+Convert: normalize fields
+
+Test: validate required info
+
+Policy: decide groups, DLs, licenses, other rules
+
+Build: generate system-ready attributes (samAccountName, UserPrincipalName, DisplayName, OU)
+
+Plan: compare Policy to current AD/state; build a plan of actions
+
+Execute: apply the plan (create user, add to groups, assign licenses)
+
+Report: log results, counts, pass/fail
 ```

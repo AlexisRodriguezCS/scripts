@@ -19,9 +19,24 @@ function Import-OnboardingCsv {
     # Build pipeline objects
     $pipelineObjects = foreach ($row in $csv) {
         $userObj = [pscustomobject]@{
-            Raw    = $row      # Original CSV data
-            Errors = @()       # Validation errors will go here
-            Plan   = @()       # Actions planned for execution
+            Raw    = [pscustomobject]@{
+            FirstName        = $row.FirstName
+            LastName         = $row.LastName
+            Title            = $row.Title
+            Manager          = $row.Manager
+            Location         = $row.Location
+            Department       = $row.Department
+            Role             = $row.Role
+            EmploymentType   = $row.EmploymentType
+            StartDate        = $row.StartDate
+            DistributionList = $null 
+            ADGroups         = $null
+            License          = $null
+        }
+            Errors = @()        # Validation errors will go here
+            Plan   = @()        # Actions planned for execution
+            Identity = $null      # Identity object 
+            Status  = $null     # Created | AlreadyExists | Failed | Skipped
         }
 
         Write-LogAndVerbose -Message "Imported user: $($row.FirstName) $($row.LastName)" -Level "INFO"

@@ -9,12 +9,12 @@ function ConvertTo-OnboardingStandard
     $rawData = $PipelineObject.Raw
 
     # Trim whitespace
-    $rawData.FirstName = $rawData.FirstName.Trim()
-    $rawData.LastName = $rawData.LastName.Trim()
-    $rawData.Title = $rawData.Title.Trim()
-    $rawData.Manager = $rawData.Manager.Trim()
-    $rawData.Location = $rawData.Location.Trim()
-    $rawData.Department = $rawData.Department.Trim()
+    if ($rawData.FirstName)  { $rawData.FirstName  = $rawData.FirstName.Trim() }
+    if ($rawData.LastName)   { $rawData.LastName   = $rawData.LastName.Trim() }
+    if ($rawData.Title)      { $rawData.Title      = $rawData.Title.Trim() }
+    if ($rawData.Manager)    { $rawData.Manager    = $rawData.Manager.Trim() }
+    if ($rawData.Location)   { $rawData.Location   = $rawData.Location.Trim() }
+    if ($rawData.Department) { $rawData.Department = $rawData.Department.Trim() }
 
     # Get the system’s language capitalization rules
     $textInfo = (Get-Culture).TextInfo
@@ -23,7 +23,22 @@ function ConvertTo-OnboardingStandard
     if ($rawData.FirstName)  { $rawData.FirstName  = $textInfo.ToTitleCase($rawData.FirstName.ToLower()) }
     if ($rawData.LastName)   { $rawData.LastName   = $textInfo.ToTitleCase($rawData.LastName.ToLower()) }
     if ($rawData.Title)      { $rawData.Title      = $textInfo.ToTitleCase($rawData.Title.ToLower()) }
-    if ($rawData.Department) { $rawData.Department = $textInfo.ToTitleCase($rawData.Department.ToLower()) }
+    
+    # Normalize Department with exceptions
+    if ($rawData.Department) {
+        $deptNormalized = $textInfo.ToTitleCase($rawData.Department.ToLower())
+        $exceptions = @{
+            "Hr" = "HR"
+            "It" = "IT"
+            "Qa" = "QA"
+        }
+        # Check if the normalized department is in the exceptions list
+        if ($exceptions.ContainsKey($deptNormalized)) {
+            $rawData.Department = $exceptions[$deptNormalized]
+        } else {
+            $rawData.Department = $deptNormalized
+        }
+    }
 
     return $PipelineObject
 }
