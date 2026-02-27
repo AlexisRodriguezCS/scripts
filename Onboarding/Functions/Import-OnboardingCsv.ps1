@@ -2,7 +2,8 @@ function Import-OnboardingCsv {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
-        [string]$Path
+        [string]$Path,
+        [string]$LogFile
     )
 
     Write-LogAndVerbose -Message "== Starting CSV import: $Path ==" -Level "INFO"

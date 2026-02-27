@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory)]
-    [string]$Path
+    [string]$Path = "$PSScriptRoot\Data\users.csv"
 )
 
 # Dot-source shared modules
@@ -25,5 +24,8 @@ param(
 . "$PSScriptRoot\Actions\Invoke-AddToDistributionList.ps1"
 . "$PSScriptRoot\Actions\Invoke-AssignLicense.ps1"
 
+# Set log file path
+$LogFile = "$PSScriptRoot\Logs\Onboarding.log"
+
 # Run pipeline
-Invoke-UserOnboarding -Path $Path
+Invoke-UserOnboarding -Path $Path -LogFile $LogFile
