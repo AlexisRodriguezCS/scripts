@@ -9,8 +9,8 @@ scripts/
 ├── .github/workflows/      # CI/CD pipelines
 ├── Config/                 # Environment configuration (domain, OU, licensing etc.)
 ├── Modules/Shared/         # Shared functions used across all scripts
-├── Onboarding/             # User onboarding automation
-├── Offboarding/            # User offboarding automation
+├── Onboarding/             # User onboarding automation *(In progress)*
+├── Offboarding/            # User offboarding automation *(Planned)*
 └── Tests/                  # Pester tests
 ```
 
@@ -45,5 +45,4 @@ Edit the files in `Config/` before running:
 ```
 
 ## CI/CD
-
-Uses GitHub Actions with a self-hosted runner for Pester tests and PSScriptAnalyzer on every push.
+*(In progress)*
