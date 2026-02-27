@@ -36,16 +36,16 @@ function Invoke-UserOnboarding {
         }
         
         # Apply policies
-        $user = Policy-Onboarding -PipelineObject $user
+        $user = Set-OnboardingPolicy -PipelineObject $user
 
         # Plan onboarding actions
-        $user = Plan-Onboarding -PipelineObject $user
+        $user = New-OnboardingPlan -PipelineObject $user
 
         # Build onboarding data
-        $user = Build-Onboarding -PipelineObject $user
+        $user = New-OnboardingIdentity -PipelineObject $user
 
-        # Testing
-        $user.Status = "Created"
+        # Execute onboarding
+        $user = Start-Onboarding -PipelineObject $user
 
         switch ($user.Status) {
             "Created"       { $successCount++ }

@@ -1,4 +1,4 @@
-function Build-Onboarding {
+function New-OnboardingIdentity {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]

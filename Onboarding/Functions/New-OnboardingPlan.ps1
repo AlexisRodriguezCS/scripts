@@ -1,4 +1,4 @@
-function Plan-Onboarding {
+function New-OnboardingPlan {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory)]

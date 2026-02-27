@@ -1,4 +1,4 @@
-function Policy-Onboarding {
+function Set-OnboardingPolicy {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory)]
