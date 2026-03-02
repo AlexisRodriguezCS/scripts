@@ -6,13 +6,12 @@ A collection of PowerShell automation scripts for Active Directory and M365 admi
 
 ```
 scripts/
-├── .github/workflows/      # CI/CD pipelines
+├── .github/workflows/      # CI/CD pipelines *(Planned)*
 ├── Config/                 # Environment configuration (domain, OU, licensing etc.)
 ├── Modules/Shared/         # Shared functions used across all scripts
 ├── Onboarding/             # User onboarding automation *(In progress)*
-├── Offboarding/            # User offboarding automation *(Planned
-)*
-└── Tests/                  # Pester tests
+├── Offboarding/            # User offboarding automation *(Planned)*
+└── Tests/                  # Tests *(Planned)*
 ```
 
 ## Scripts
