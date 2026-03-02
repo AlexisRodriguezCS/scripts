@@ -90,7 +90,6 @@ No changes are made to Active Directory at this stage.
 * Creates AD user
 * Assigns groups
 * Applies licensing
-* Supports `-WhatIf`
 
 Execution only occurs if:
 
@@ -99,7 +98,7 @@ Execution only occurs if:
 
 ---
 
-### 7. Report
+### 7. Report(WIP)
 
 Returns structured results per user:
 
@@ -117,7 +116,6 @@ Allows export to CSV or logging system.
 * No stage performs more than one responsibility
 * No AD modification before validation
 * Safe to re-run
-* Supports structured output
 * Internal helpers remain private
 
 ---
