@@ -1,0 +1,5 @@
+{
+    "Domain": "dev.com",
+    "UPNSuffix": "@dev.com",
+    "DefaultOU": "OU=Users,DC=dev,DC=com"
+}

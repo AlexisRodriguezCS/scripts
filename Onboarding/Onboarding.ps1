@@ -19,13 +19,16 @@ param(
 . "$PSScriptRoot\Functions\Start-Onboarding.ps1"
 
 # Dot-source actions
-. "$PSScriptRoot\Actions\Invoke-CreateUser.ps1"
-. "$PSScriptRoot\Actions\Invoke-AddToGroup.ps1"
-. "$PSScriptRoot\Actions\Invoke-AddToDistributionList.ps1"
-. "$PSScriptRoot\Actions\Invoke-AssignLicense.ps1"
+. "$PSScriptRoot\Actions\New-OnboardingUser.ps1"
+. "$PSScriptRoot\Actions\Add-OnboardingGroupMember.ps1"
+. "$PSScriptRoot\Actions\Add-OnboardingDLMember.ps1"
+. "$PSScriptRoot\Actions\Set-OnboardingLicense.ps1"
+
+# Load config
+$Config = Get-Config -Script "Onboarding"
 
 # Set log file path
-$LogFile = "$PSScriptRoot\Logs\Onboarding.log"
+$LogFile = "$PSScriptRoot\$($Config.LogPath)"
 
 # Run pipeline
-Invoke-UserOnboarding -Path $Path -LogFile $LogFile
+Invoke-UserOnboarding -Path $Path -LogFile $LogFile -Config $Config

@@ -10,7 +10,8 @@ scripts/
 ├── Config/                 # Environment configuration (domain, OU, licensing etc.)
 ├── Modules/Shared/         # Shared functions used across all scripts
 ├── Onboarding/             # User onboarding automation *(In progress)*
-├── Offboarding/            # User offboarding automation *(Planned)*
+├── Offboarding/            # User offboarding automation *(Planned
+)*
 └── Tests/                  # Pester tests
 ```
 

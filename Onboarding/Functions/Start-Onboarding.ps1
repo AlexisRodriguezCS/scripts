@@ -2,12 +2,13 @@ function Start-Onboarding {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory)]
+        [string]$LogFile,
         [PSCustomObject]$PipelineObject
     )  
 
     # Skip processing if there are errors from previous steps
     if ($PipelineObject.Status -ne "Valid") {
-        Write-LogAndVerbose -Message "[SKIP] Skipping execution for $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName) due to validation errors: $($PipelineObject.Errors -join ', ')" -Level "WARN"
+        Write-Log -Message "[SKIP] Skipping execution for $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName) due to validation errors: $($PipelineObject.Errors -join ', ')" -Level "WARN" -LogFile $LogFile
         return $PipelineObject
     }
 
@@ -20,7 +21,7 @@ function Start-Onboarding {
     }
     catch {
         # Log AD query failure
-        Write-LogAndVerbose -Message "[ERROR] Failed to query AD for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR"
+        Write-Log -Message "[ERROR] Failed to query AD for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
         $PipelineObject.Errors += "AD pre-check failed"
         $PipelineObject.Status = "Failed"
         return $PipelineObject
@@ -50,17 +51,17 @@ function Start-Onboarding {
                              -DelaySeconds $config.DelaySeconds `
                              -Action  {
                 switch ($action) {
-                    "NewOnboardingUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist }
-                    "AddOnboardingGroupMember" { Add-OnboardingGroupMember -Identity $id -Target $target }
-                    "AddOnboardingDLMember"    { Add-OnboardingDLMember -Identity $id -Target $target }
-                    "SetOnboardingLicense"     { Set-OnboardingLicense -Identity $id -Target $target }
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
                     default                    { throw "Unknown action: $action" }
                 }
             }
         }
         catch {
             # Final failure after retries
-            Write-LogAndVerbose -Message "`t[ERROR] $action failed for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR"
+            Write-Log -Message "`t[ERROR] $action failed for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
             $PipelineObject.Errors += "$action failed"
         }
     }

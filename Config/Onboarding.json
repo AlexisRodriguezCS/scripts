@@ -1,0 +1,9 @@
+{
+    "Domain": "dev.com",
+    "UsernameFormat": "FirstLast",
+    "DefaultLicense": "Microsoft365BusinessBasic",
+    "DefaultDistributionList": "AllStaff",
+    "DefaultGroups": ["GRP-AllStaff"],
+    "DefaultOU": "OU=Users,DC=dev,DC=com",
+    "LogPath": "Logs\\Onboarding.log"
+}

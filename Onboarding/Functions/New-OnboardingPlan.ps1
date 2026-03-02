@@ -2,12 +2,13 @@ function New-OnboardingPlan {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory)]
+        [string]$LogFile,
         [PSCustomObject]$PipelineObject
     )  
 
     # Skip processing if there are errors from previous steps
     if ($PipelineObject.Status -ne "Valid") {
-        Write-LogAndVerbose -Message "[SKIP] Skipping onboarding for $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName) due to validation errors: $($PipelineObject.Errors -join ', ')" -Level "WARN"
+        Write-Log -Message "[SKIP] Skipping onboarding for $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName) due to validation errors: $($PipelineObject.Errors -join ', ')" -Level "WARN" -LogFile $LogFile
         return $PipelineObject
     }
 
@@ -52,8 +53,9 @@ function New-OnboardingPlan {
     }   
     
     # Log planned actions
+    Write-Log -Message "[PLAN] $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)" -Level "INFO" -LogFile $LogFile
     foreach ($item in $PipelineObject.Plan) {
-        Write-LogAndVerbose -Message "$([char]9)[PLAN] $($item.Action): $($item.Target)" -Level "INFO"
+        Write-Log -Message "`t$($item.Action.PadRight(24)): $($item.Target)" -Level "INFO" -LogFile $LogFile
     }
 
     return $PipelineObject

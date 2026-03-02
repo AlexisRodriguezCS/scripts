@@ -1,0 +1,1123 @@
+﻿2026-03-01 19:22:22 | INFO | === Pipeline started. ===
+2026-03-01 19:22:22 | INFO | == Starting looping over users. ==
+2026-03-01 19:22:22 | INFO | == Finished looping over users. ==
+2026-03-01 19:22:22 | INFO | 
+    === Pipeline Finished ===
+    Total: 0
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+        
+2026-03-01 19:54:09 | INFO | === Pipeline started. ===
+2026-03-01 19:54:09 | INFO | == Starting looping over users. ==
+2026-03-01 19:54:09 | INFO | == Finished looping over users. ==
+2026-03-01 19:54:09 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+        
+2026-03-01 19:59:23 | INFO | === Pipeline started. ===
+2026-03-01 19:59:23 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 19:59:23 | INFO | Imported user: John Smith
+2026-03-01 19:59:23 | INFO | Imported user: Jane Doe
+2026-03-01 19:59:23 | INFO | Imported user: Michael 
+2026-03-01 19:59:23 | INFO | Imported user: Emily Jones
+2026-03-01 19:59:23 | INFO | Imported user:  Wilson
+2026-03-01 19:59:23 | INFO | Imported user: Robert Brown
+2026-03-01 19:59:23 | INFO | Imported user: Anna King
+2026-03-01 19:59:23 | INFO | Imported user: Chris Evans
+2026-03-01 19:59:23 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 19:59:23 | INFO | == Starting looping over users. ==
+2026-03-01 19:59:23 | INFO | == Finished looping over users. ==
+2026-03-01 19:59:23 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+        
+2026-03-01 20:04:14 | INFO | === Pipeline started. ===
+2026-03-01 20:04:14 | INFO | == Starting looping over users. ==
+2026-03-01 20:04:14 | INFO | == Finished looping over users. ==
+2026-03-01 20:04:14 | INFO | 
+    === Pipeline Finished ===
+    Total: 0
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+        
+2026-03-01 20:04:27 | INFO | === Pipeline started. ===
+2026-03-01 20:04:27 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 20:04:27 | INFO | Imported user: John Smith
+2026-03-01 20:04:27 | INFO | Imported user: Jane Doe
+2026-03-01 20:04:27 | INFO | Imported user: Michael 
+2026-03-01 20:04:27 | INFO | Imported user: Emily Jones
+2026-03-01 20:04:27 | INFO | Imported user:  Wilson
+2026-03-01 20:04:27 | INFO | Imported user: Robert Brown
+2026-03-01 20:04:27 | INFO | Imported user: Anna King
+2026-03-01 20:04:27 | INFO | Imported user: Chris Evans
+2026-03-01 20:04:27 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 20:04:27 | INFO | == Starting looping over users. ==
+2026-03-01 20:04:27 | INFO | == Finished looping over users. ==
+2026-03-01 20:04:27 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+        
+2026-03-01 20:35:32 | INFO | === Pipeline started. ===
+2026-03-01 20:35:32 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 20:35:32 | INFO | Importing users:
+2026-03-01 20:35:32 | INFO | John Smith
+2026-03-01 20:35:32 | INFO | Jane Doe
+2026-03-01 20:35:32 | INFO | Michael 
+2026-03-01 20:35:32 | INFO | Emily Jones
+2026-03-01 20:35:32 | INFO |  Wilson
+2026-03-01 20:35:32 | INFO | Robert Brown
+2026-03-01 20:35:32 | INFO | Anna King
+2026-03-01 20:35:32 | INFO | Chris Evans
+2026-03-01 20:35:32 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 20:35:32 | INFO | == Starting looping over users. ==
+2026-03-01 20:35:32 | INFO |  
+2026-03-01 20:35:32 | INFO |  
+2026-03-01 20:35:32 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 20:35:32 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 20:35:32 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 20:35:32 | INFO |  
+2026-03-01 20:35:33 | INFO |  
+2026-03-01 20:35:33 | INFO |  
+2026-03-01 20:35:33 | INFO | == Finished looping over users. ==
+2026-03-01 20:35:33 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 20:57:00 | INFO | === Pipeline started. ===
+2026-03-01 20:57:00 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 20:57:00 | INFO | Importing users:
+2026-03-01 20:57:00 | INFO | John Smith
+2026-03-01 20:57:00 | INFO | Jane Doe
+2026-03-01 20:57:00 | INFO | Michael 
+2026-03-01 20:57:00 | INFO | Emily Jones
+2026-03-01 20:57:00 | INFO |  Wilson
+2026-03-01 20:57:00 | INFO | Robert Brown
+2026-03-01 20:57:00 | INFO | Anna King
+2026-03-01 20:57:00 | INFO | Chris Evans
+2026-03-01 20:57:00 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 20:57:00 | INFO | == Starting looping over users. ==
+2026-03-01 20:57:25 | INFO | === Pipeline started. ===
+2026-03-01 20:57:25 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 20:57:25 | INFO | Importing users:
+2026-03-01 20:57:25 | INFO | John Smith
+2026-03-01 20:57:25 | INFO | Jane Doe
+2026-03-01 20:57:25 | INFO | Michael 
+2026-03-01 20:57:25 | INFO | Emily Jones
+2026-03-01 20:57:25 | INFO |  Wilson
+2026-03-01 20:57:25 | INFO | Robert Brown
+2026-03-01 20:57:25 | INFO | Anna King
+2026-03-01 20:57:25 | INFO | Chris Evans
+2026-03-01 20:57:25 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 20:57:25 | INFO | == Starting looping over users. ==
+2026-03-01 20:57:25 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 20:57:25 | INFO |  
+2026-03-01 20:57:25 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 20:57:25 | INFO |  
+2026-03-01 20:57:25 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 20:57:25 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 20:57:25 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 20:57:25 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 20:57:25 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 20:57:25 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 20:57:25 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 20:57:25 | INFO |  
+2026-03-01 20:57:25 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 20:57:25 | INFO |  
+2026-03-01 20:57:25 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 20:57:25 | INFO |  
+2026-03-01 20:57:25 | INFO | == Finished looping over users. ==
+2026-03-01 20:57:25 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 20:57:54 | INFO | === Pipeline started. ===
+2026-03-01 20:57:54 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 20:57:54 | INFO | Importing users:
+2026-03-01 20:57:54 | INFO | John Smith
+2026-03-01 20:57:54 | INFO | Jane Doe
+2026-03-01 20:57:54 | INFO | Michael 
+2026-03-01 20:57:54 | INFO | Emily Jones
+2026-03-01 20:57:54 | INFO |  Wilson
+2026-03-01 20:57:54 | INFO | Robert Brown
+2026-03-01 20:57:54 | INFO | Anna King
+2026-03-01 20:57:54 | INFO | Chris Evans
+2026-03-01 20:57:54 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 20:57:54 | INFO | == Starting looping over users. ==
+2026-03-01 20:57:54 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 20:57:54 | INFO |  
+2026-03-01 20:57:54 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 20:57:54 | INFO |  
+2026-03-01 20:57:54 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 20:57:54 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 20:57:54 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 20:57:54 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 20:57:54 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 20:57:54 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 20:57:54 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 20:57:54 | INFO |  
+2026-03-01 20:57:54 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 20:57:54 | INFO |  
+2026-03-01 20:57:55 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 20:57:55 | INFO |  
+2026-03-01 20:57:55 | INFO | == Finished looping over users. ==
+2026-03-01 20:57:55 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 20:58:47 | INFO | === Pipeline started. ===
+2026-03-01 20:58:47 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 20:58:47 | INFO | Importing users:
+2026-03-01 20:58:47 | INFO | John Smith
+2026-03-01 20:58:47 | INFO | Jane Doe
+2026-03-01 20:58:47 | INFO | Michael 
+2026-03-01 20:58:47 | INFO | Emily Jones
+2026-03-01 20:58:47 | INFO |  Wilson
+2026-03-01 20:58:47 | INFO | Robert Brown
+2026-03-01 20:58:47 | INFO | Anna King
+2026-03-01 20:58:47 | INFO | Chris Evans
+2026-03-01 20:58:47 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 20:58:47 | INFO | == Starting looping over users. ==
+2026-03-01 20:58:47 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 20:58:47 | INFO |  
+2026-03-01 20:58:47 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 20:58:47 | INFO |  
+2026-03-01 20:58:47 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 20:58:47 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 20:58:47 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 20:58:47 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 20:58:47 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 20:58:47 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 20:58:47 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 20:58:47 | INFO |  
+2026-03-01 20:58:47 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 20:58:47 | INFO |  
+2026-03-01 20:58:47 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 20:58:47 | INFO |  
+2026-03-01 20:58:47 | INFO | == Finished looping over users. ==
+2026-03-01 20:58:47 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 21:10:00 | INFO | === Pipeline started. ===
+2026-03-01 21:10:00 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 21:10:00 | INFO | Importing users:
+2026-03-01 21:10:00 | INFO | John Smith
+2026-03-01 21:10:00 | INFO | Jane Doe
+2026-03-01 21:10:00 | INFO | Michael 
+2026-03-01 21:10:00 | INFO | Emily Jones
+2026-03-01 21:10:00 | INFO |  Wilson
+2026-03-01 21:10:00 | INFO | Robert Brown
+2026-03-01 21:10:00 | INFO | Anna King
+2026-03-01 21:10:00 | INFO | Chris Evans
+2026-03-01 21:10:00 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 21:10:00 | INFO | == Starting looping over users. ==
+2026-03-01 21:10:00 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 21:10:00 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 21:10:00 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 21:10:00 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 21:10:00 | INFO |  
+2026-03-01 21:10:00 | INFO | == Finished looping over users. ==
+2026-03-01 21:10:00 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:06:52 | INFO | === Pipeline started. ===
+2026-03-01 22:06:52 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:06:52 | INFO | Importing users:
+2026-03-01 22:06:52 | INFO | John Smith
+2026-03-01 22:06:52 | INFO | Jane Doe
+2026-03-01 22:06:52 | INFO | Michael 
+2026-03-01 22:06:52 | INFO | Emily Jones
+2026-03-01 22:06:52 | INFO |  Wilson
+2026-03-01 22:06:52 | INFO | Robert Brown
+2026-03-01 22:06:52 | INFO | Anna King
+2026-03-01 22:06:52 | INFO | Chris Evans
+2026-03-01 22:06:52 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 22:06:52 | INFO | == Starting looping over users. ==
+2026-03-01 22:06:52 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:06:52 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:06:52 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:06:52 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:06:52 | INFO |  
+2026-03-01 22:06:52 | INFO | == Finished looping over users. ==
+2026-03-01 22:06:52 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:11:49 | INFO | === Pipeline started. ===
+2026-03-01 22:11:49 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:11:49 | INFO | Importing users:
+2026-03-01 22:11:49 | INFO | John Smith
+2026-03-01 22:11:49 | INFO | Jane Doe
+2026-03-01 22:11:49 | INFO | Michael 
+2026-03-01 22:11:49 | INFO | Emily Jones
+2026-03-01 22:11:49 | INFO |  Wilson
+2026-03-01 22:11:49 | INFO | Robert Brown
+2026-03-01 22:11:49 | INFO | Anna King
+2026-03-01 22:11:49 | INFO | Chris Evans
+2026-03-01 22:11:49 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 22:11:49 | INFO | == Starting looping over users. ==
+2026-03-01 22:11:49 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:11:49 | INFO | [SET] John Smith
+2026-03-01 22:11:49 | INFO | 	Distribution Lists : IT;
+2026-03-01 22:11:49 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin
+2026-03-01 22:11:49 | INFO | 	License            : 
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:11:49 | INFO | [SET] Jane Doe
+2026-03-01 22:11:49 | INFO | 	Distribution Lists : Finance;
+2026-03-01 22:11:49 | INFO | 	AD Groups          : GRP_ROLE_Finance_User
+2026-03-01 22:11:49 | INFO | 	License            : 
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:11:49 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:11:49 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:11:49 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:11:49 | INFO | [SET] Robert Brown
+2026-03-01 22:11:49 | INFO | 	Distribution Lists : Sales;
+2026-03-01 22:11:49 | INFO | 	AD Groups          : GRP_ROLE_Sales_User
+2026-03-01 22:11:49 | INFO | 	License            : 
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:11:49 | INFO | [SET] Anna King
+2026-03-01 22:11:49 | INFO | 	Distribution Lists : IT;
+2026-03-01 22:11:49 | INFO | 	AD Groups          : GRP_ROLE_IT_User
+2026-03-01 22:11:49 | INFO | 	License            : 
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:11:49 | INFO | [SET] Chris Evans
+2026-03-01 22:11:49 | INFO | 	Distribution Lists : IT
+2026-03-01 22:11:49 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk
+2026-03-01 22:11:49 | INFO | 	License            : 
+2026-03-01 22:11:49 | INFO |  
+2026-03-01 22:11:49 | INFO | == Finished looping over users. ==
+2026-03-01 22:11:49 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:14:33 | INFO | === Pipeline started. ===
+2026-03-01 22:14:33 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:14:33 | INFO | Importing users:
+2026-03-01 22:14:33 | INFO | John Smith
+2026-03-01 22:14:33 | INFO | Jane Doe
+2026-03-01 22:14:33 | INFO | Michael 
+2026-03-01 22:14:33 | INFO | Emily Jones
+2026-03-01 22:14:33 | INFO |  Wilson
+2026-03-01 22:14:33 | INFO | Robert Brown
+2026-03-01 22:14:33 | INFO | Anna King
+2026-03-01 22:14:33 | INFO | Chris Evans
+2026-03-01 22:14:33 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 22:14:33 | INFO | == Starting looping over users. ==
+2026-03-01 22:14:33 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:14:33 | INFO | DEBUG Config: 
+2026-03-01 22:14:33 | INFO | [SET] John Smith
+2026-03-01 22:14:33 | INFO | 	Distribution Lists : IT;
+2026-03-01 22:14:33 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin
+2026-03-01 22:14:33 | INFO | 	License            : 
+2026-03-01 22:14:33 | INFO |  
+2026-03-01 22:14:33 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:14:33 | INFO | DEBUG Config: 
+2026-03-01 22:14:33 | INFO | [SET] Jane Doe
+2026-03-01 22:14:33 | INFO | 	Distribution Lists : Finance;
+2026-03-01 22:14:33 | INFO | 	AD Groups          : GRP_ROLE_Finance_User
+2026-03-01 22:14:33 | INFO | 	License            : 
+2026-03-01 22:14:33 | INFO |  
+2026-03-01 22:14:33 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:14:33 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:14:33 | INFO |  
+2026-03-01 22:14:33 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:14:33 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:14:33 | INFO |  
+2026-03-01 22:14:33 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:14:33 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:14:33 | INFO |  
+2026-03-01 22:14:33 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:14:33 | INFO | DEBUG Config: 
+2026-03-01 22:14:33 | INFO | [SET] Robert Brown
+2026-03-01 22:14:33 | INFO | 	Distribution Lists : Sales;
+2026-03-01 22:14:33 | INFO | 	AD Groups          : GRP_ROLE_Sales_User
+2026-03-01 22:14:33 | INFO | 	License            : 
+2026-03-01 22:14:33 | INFO |  
+2026-03-01 22:14:33 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:14:33 | INFO | DEBUG Config: 
+2026-03-01 22:14:33 | INFO | [SET] Anna King
+2026-03-01 22:14:33 | INFO | 	Distribution Lists : IT;
+2026-03-01 22:14:33 | INFO | 	AD Groups          : GRP_ROLE_IT_User
+2026-03-01 22:14:34 | INFO | 	License            : 
+2026-03-01 22:14:34 | INFO |  
+2026-03-01 22:14:34 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:14:34 | INFO | DEBUG Config: 
+2026-03-01 22:14:34 | INFO | [SET] Chris Evans
+2026-03-01 22:14:34 | INFO | 	Distribution Lists : IT
+2026-03-01 22:14:34 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk
+2026-03-01 22:14:34 | INFO | 	License            : 
+2026-03-01 22:14:34 | INFO |  
+2026-03-01 22:14:34 | INFO | == Finished looping over users. ==
+2026-03-01 22:14:34 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:15:33 | INFO | === Pipeline started. ===
+2026-03-01 22:15:33 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:15:33 | INFO | Importing users:
+2026-03-01 22:15:33 | INFO | John Smith
+2026-03-01 22:15:33 | INFO | Jane Doe
+2026-03-01 22:15:33 | INFO | Michael 
+2026-03-01 22:15:33 | INFO | Emily Jones
+2026-03-01 22:15:33 | INFO |  Wilson
+2026-03-01 22:15:33 | INFO | Robert Brown
+2026-03-01 22:15:33 | INFO | Anna King
+2026-03-01 22:15:33 | INFO | Chris Evans
+2026-03-01 22:15:33 | INFO | == CSV import finished. Total users: 8 ==
+2026-03-01 22:15:33 | INFO | == Starting looping over users. ==
+2026-03-01 22:15:33 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:15:33 | INFO | [SET] John Smith
+2026-03-01 22:15:33 | INFO | 	Distribution Lists : IT;DL-AllStaff
+2026-03-01 22:15:33 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 22:15:33 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:15:33 | INFO | [SET] Jane Doe
+2026-03-01 22:15:33 | INFO | 	Distribution Lists : Finance;DL-AllStaff
+2026-03-01 22:15:33 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:15:33 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:15:33 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:15:33 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:15:33 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:15:33 | INFO | [SET] Robert Brown
+2026-03-01 22:15:33 | INFO | 	Distribution Lists : Sales;DL-AllStaff
+2026-03-01 22:15:33 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 22:15:33 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:15:33 | INFO | [SET] Anna King
+2026-03-01 22:15:33 | INFO | 	Distribution Lists : IT;DL-AllStaff
+2026-03-01 22:15:33 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 22:15:33 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:15:33 | INFO | [SET] Chris Evans
+2026-03-01 22:15:33 | INFO | 	Distribution Lists : IT
+2026-03-01 22:15:33 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 22:15:33 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:15:33 | INFO |  
+2026-03-01 22:15:33 | INFO | == Finished looping over users. ==
+2026-03-01 22:15:33 | INFO | 
+    === Pipeline Finished ===
+    Total: 8
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:20:08 | INFO | === Pipeline started. ===
+2026-03-01 22:20:08 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:20:08 | INFO | Importing users:
+2026-03-01 22:20:08 | INFO | John Smith
+2026-03-01 22:20:08 | INFO | Jane Doe
+2026-03-01 22:20:08 | INFO | Michael 
+2026-03-01 22:20:08 | INFO | Emily Jones
+2026-03-01 22:20:08 | INFO |  Wilson
+2026-03-01 22:20:08 | INFO | Robert Brown
+2026-03-01 22:20:08 | INFO | Anna King
+2026-03-01 22:20:08 | INFO | Chris Evans
+2026-03-01 22:20:08 | INFO | Sarah Connor
+2026-03-01 22:20:08 | INFO | David Lee
+2026-03-01 22:20:08 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-01 22:20:08 | INFO | == Starting looping over users. ==
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:20:08 | INFO | [SET] John Smith
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : IT;DL-AllStaff
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:20:08 | INFO | [SET] Jane Doe
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : Finance;DL-AllStaff
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:20:08 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:20:08 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:20:08 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:20:08 | INFO | [SET] Robert Brown
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : Sales;DL-AllStaff
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:20:08 | INFO | [SET] Anna King
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : IT;DL-AllStaff
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:20:08 | INFO | [SET] Chris Evans
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : IT
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-01 22:20:08 | INFO | [SET] Sarah Connor
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : Finance;DL-Managers;DL-AllStaff
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | [PASS] Validation passed for David Lee
+2026-03-01 22:20:08 | INFO | [SET] David Lee
+2026-03-01 22:20:08 | INFO | 	Distribution Lists : Finance;DL-Managers;DL-AllStaff
+2026-03-01 22:20:08 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:20:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:08 | INFO |  
+2026-03-01 22:20:08 | INFO | == Finished looping over users. ==
+2026-03-01 22:20:08 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:20:40 | INFO | === Pipeline started. ===
+2026-03-01 22:20:40 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:20:40 | INFO | Importing users:
+2026-03-01 22:20:40 | INFO | John Smith
+2026-03-01 22:20:40 | INFO | Jane Doe
+2026-03-01 22:20:40 | INFO | Michael 
+2026-03-01 22:20:41 | INFO | Emily Jones
+2026-03-01 22:20:41 | INFO |  Wilson
+2026-03-01 22:20:41 | INFO | Robert Brown
+2026-03-01 22:20:41 | INFO | Anna King
+2026-03-01 22:20:41 | INFO | Chris Evans
+2026-03-01 22:20:41 | INFO | Sarah Connor
+2026-03-01 22:20:41 | INFO | David Lee
+2026-03-01 22:20:41 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-01 22:20:41 | INFO | == Starting looping over users. ==
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:20:41 | INFO | [SET] John Smith
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:20:41 | INFO | [SET] Jane Doe
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:20:41 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:20:41 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:20:41 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:20:41 | INFO | [SET] Robert Brown
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:20:41 | INFO | [SET] Anna King
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:20:41 | INFO | [SET] Chris Evans
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : IT
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-01 22:20:41 | INFO | [SET] Sarah Connor
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | [PASS] Validation passed for David Lee
+2026-03-01 22:20:41 | INFO | [SET] David Lee
+2026-03-01 22:20:41 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:20:41 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:20:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:20:41 | INFO |  
+2026-03-01 22:20:41 | INFO | == Finished looping over users. ==
+2026-03-01 22:20:41 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:24:38 | INFO | === Pipeline started. ===
+2026-03-01 22:24:38 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:24:38 | INFO | Importing users:
+2026-03-01 22:24:38 | INFO | John Smith
+2026-03-01 22:24:38 | INFO | Jane Doe
+2026-03-01 22:24:38 | INFO | Michael 
+2026-03-01 22:24:38 | INFO | Emily Jones
+2026-03-01 22:24:38 | INFO |  Wilson
+2026-03-01 22:24:38 | INFO | Robert Brown
+2026-03-01 22:24:38 | INFO | Anna King
+2026-03-01 22:24:38 | INFO | Chris Evans
+2026-03-01 22:24:38 | INFO | Sarah Connor
+2026-03-01 22:24:38 | INFO | David Lee
+2026-03-01 22:24:38 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-01 22:24:38 | INFO | == Starting looping over users. ==
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:24:38 | INFO | [SET] John Smith
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:24:38 | INFO | [SET] Jane Doe
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:24:38 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:24:38 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:24:38 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:24:38 | INFO | [SET] Robert Brown
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:24:38 | INFO | [SET] Anna King
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:24:38 | INFO | [SET] Chris Evans
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : IT
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-01 22:24:38 | INFO | [SET] Sarah Connor
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | [PASS] Validation passed for David Lee
+2026-03-01 22:24:38 | INFO | [SET] David Lee
+2026-03-01 22:24:38 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:24:38 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:24:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:38 | INFO |  
+2026-03-01 22:24:38 | INFO | == Finished looping over users. ==
+2026-03-01 22:24:38 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:24:49 | INFO | === Pipeline started. ===
+2026-03-01 22:24:49 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:24:49 | INFO | Importing users:
+2026-03-01 22:24:49 | INFO | John Smith
+2026-03-01 22:24:49 | INFO | Jane Doe
+2026-03-01 22:24:49 | INFO | Michael 
+2026-03-01 22:24:49 | INFO | Emily Jones
+2026-03-01 22:24:49 | INFO |  Wilson
+2026-03-01 22:24:49 | INFO | Robert Brown
+2026-03-01 22:24:49 | INFO | Anna King
+2026-03-01 22:24:49 | INFO | Chris Evans
+2026-03-01 22:24:49 | INFO | Sarah Connor
+2026-03-01 22:24:49 | INFO | David Lee
+2026-03-01 22:24:49 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-01 22:24:49 | INFO | == Starting looping over users. ==
+2026-03-01 22:24:49 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:24:49 | INFO | [SET] John Smith
+2026-03-01 22:24:49 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:24:49 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 22:24:49 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:49 | INFO | 	[PLAN] CreateUser: John Smith
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_IT_Admin
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToDistributionList: IT
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToDistributionList: AllStaff
+2026-03-01 22:24:49 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:49 | INFO |  
+2026-03-01 22:24:49 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:24:49 | INFO | [SET] Jane Doe
+2026-03-01 22:24:49 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-01 22:24:49 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:24:49 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:49 | INFO | 	[PLAN] CreateUser: Jane Doe
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_Finance_User
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToDistributionList: Finance
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToDistributionList: AllStaff
+2026-03-01 22:24:49 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:49 | INFO |  
+2026-03-01 22:24:49 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:24:49 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:24:49 | INFO |  
+2026-03-01 22:24:49 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:24:49 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:24:49 | INFO |  
+2026-03-01 22:24:49 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:24:49 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:24:49 | INFO |  
+2026-03-01 22:24:49 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:24:49 | INFO | [SET] Robert Brown
+2026-03-01 22:24:49 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-01 22:24:49 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 22:24:49 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:49 | INFO | 	[PLAN] CreateUser: Robert Brown
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_Sales_User
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToDistributionList: Sales
+2026-03-01 22:24:49 | INFO | 	[PLAN] AddToDistributionList: AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO |  
+2026-03-01 22:24:50 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:24:50 | INFO | [SET] Anna King
+2026-03-01 22:24:50 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:24:50 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO | 	[PLAN] CreateUser: Anna King
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_IT_User
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: IT
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO |  
+2026-03-01 22:24:50 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:24:50 | INFO | [SET] Chris Evans
+2026-03-01 22:24:50 | INFO | 	Distribution Lists : IT
+2026-03-01 22:24:50 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO | 	[PLAN] CreateUser: Chris Evans
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_IT_Helpdesk
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: IT
+2026-03-01 22:24:50 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO |  
+2026-03-01 22:24:50 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-01 22:24:50 | INFO | [SET] Sarah Connor
+2026-03-01 22:24:50 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:24:50 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO | 	[PLAN] CreateUser: Sarah Connor
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_Finance_User
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: Finance
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: Managers
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO |  
+2026-03-01 22:24:50 | INFO | [PASS] Validation passed for David Lee
+2026-03-01 22:24:50 | INFO | [SET] David Lee
+2026-03-01 22:24:50 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:24:50 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO | 	[PLAN] CreateUser: David Lee
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP_ROLE_Finance_User
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToGroup: GRP-AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: Finance
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: Managers
+2026-03-01 22:24:50 | INFO | 	[PLAN] AddToDistributionList: AllStaff
+2026-03-01 22:24:50 | INFO | 	[PLAN] AssignLicense: Microsoft365BusinessBasic
+2026-03-01 22:24:50 | INFO |  
+2026-03-01 22:24:50 | INFO | == Finished looping over users. ==
+2026-03-01 22:24:50 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 22:27:55 | INFO | === Pipeline started. ===
+2026-03-01 22:27:55 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 22:27:55 | INFO | Importing users:
+2026-03-01 22:27:55 | INFO | John Smith
+2026-03-01 22:27:55 | INFO | Jane Doe
+2026-03-01 22:27:55 | INFO | Michael 
+2026-03-01 22:27:55 | INFO | Emily Jones
+2026-03-01 22:27:55 | INFO |  Wilson
+2026-03-01 22:27:55 | INFO | Robert Brown
+2026-03-01 22:27:55 | INFO | Anna King
+2026-03-01 22:27:55 | INFO | Chris Evans
+2026-03-01 22:27:55 | INFO | Sarah Connor
+2026-03-01 22:27:55 | INFO | David Lee
+2026-03-01 22:27:55 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-01 22:27:55 | INFO | == Starting looping over users. ==
+2026-03-01 22:27:55 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 22:27:55 | INFO | [SET]  John Smith
+2026-03-01 22:27:55 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:27:55 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 22:27:55 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:55 | INFO | [PLAN] John Smith
+2026-03-01 22:27:55 | INFO | 	CreateUser              : John Smith
+2026-03-01 22:27:55 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-01 22:27:55 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:55 | INFO | 	AddToDistributionList   : IT
+2026-03-01 22:27:55 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 22:27:55 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:55 | INFO |  
+2026-03-01 22:27:55 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 22:27:55 | INFO | [SET]  Jane Doe
+2026-03-01 22:27:55 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-01 22:27:55 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:27:55 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:55 | INFO | [PLAN] Jane Doe
+2026-03-01 22:27:55 | INFO | 	CreateUser              : Jane Doe
+2026-03-01 22:27:55 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-01 22:27:55 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:55 | INFO | 	AddToDistributionList   : Finance
+2026-03-01 22:27:55 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 22:27:55 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:55 | INFO |  
+2026-03-01 22:27:55 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 22:27:55 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 22:27:55 | INFO |  
+2026-03-01 22:27:55 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 22:27:55 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 22:27:55 | INFO |  
+2026-03-01 22:27:56 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 22:27:56 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 22:27:56 | INFO |  
+2026-03-01 22:27:56 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 22:27:56 | INFO | [SET]  Robert Brown
+2026-03-01 22:27:56 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-01 22:27:56 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO | [PLAN] Robert Brown
+2026-03-01 22:27:56 | INFO | 	CreateUser              : Robert Brown
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP_ROLE_Sales_User
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : Sales
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 22:27:56 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO |  
+2026-03-01 22:27:56 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 22:27:56 | INFO | [SET]  Anna King
+2026-03-01 22:27:56 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 22:27:56 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO | [PLAN] Anna King
+2026-03-01 22:27:56 | INFO | 	CreateUser              : Anna King
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP_ROLE_IT_User
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : IT
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 22:27:56 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO |  
+2026-03-01 22:27:56 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 22:27:56 | INFO | [SET]  Chris Evans
+2026-03-01 22:27:56 | INFO | 	Distribution Lists : IT
+2026-03-01 22:27:56 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO | [PLAN] Chris Evans
+2026-03-01 22:27:56 | INFO | 	CreateUser              : Chris Evans
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP_ROLE_IT_Helpdesk
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : IT
+2026-03-01 22:27:56 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO |  
+2026-03-01 22:27:56 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-01 22:27:56 | INFO | [SET]  Sarah Connor
+2026-03-01 22:27:56 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:27:56 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO | [PLAN] Sarah Connor
+2026-03-01 22:27:56 | INFO | 	CreateUser              : Sarah Connor
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-01 22:27:56 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : Finance
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : Managers
+2026-03-01 22:27:56 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 22:27:56 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:56 | INFO |  
+2026-03-01 22:27:56 | INFO | [PASS] Validation passed for David Lee
+2026-03-01 22:27:56 | INFO | [SET]  David Lee
+2026-03-01 22:27:56 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 22:27:57 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 22:27:57 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 22:27:57 | INFO | [PLAN] David Lee
+2026-03-01 22:27:57 | INFO | 	CreateUser              : David Lee
+2026-03-01 22:27:57 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-01 22:27:57 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 22:27:57 | INFO | 	AddToDistributionList   : Finance
+2026-03-01 22:27:57 | INFO | 	AddToDistributionList   : Managers
+2026-03-01 22:27:57 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 22:27:57 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 22:27:57 | INFO |  
+2026-03-01 22:27:57 | INFO | == Finished looping over users. ==
+2026-03-01 22:27:57 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-01 23:02:06 | INFO | === Pipeline started. ===
+2026-03-01 23:02:06 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-01 23:02:06 | INFO | Importing users:
+2026-03-01 23:02:06 | INFO | John Smith
+2026-03-01 23:02:06 | INFO | Jane Doe
+2026-03-01 23:02:06 | INFO | Michael 
+2026-03-01 23:02:06 | INFO | Emily Jones
+2026-03-01 23:02:06 | INFO |  Wilson
+2026-03-01 23:02:06 | INFO | Robert Brown
+2026-03-01 23:02:06 | INFO | Anna King
+2026-03-01 23:02:06 | INFO | Chris Evans
+2026-03-01 23:02:06 | INFO | Sarah Connor
+2026-03-01 23:02:06 | INFO | David Lee
+2026-03-01 23:02:06 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-01 23:02:06 | INFO | == Starting looping over users. ==
+2026-03-01 23:02:06 | INFO | [PASS] Validation passed for John Smith
+2026-03-01 23:02:06 | INFO | [SET]  John Smith
+2026-03-01 23:02:06 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 23:02:06 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-01 23:02:06 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:06 | INFO | [PLAN] John Smith
+2026-03-01 23:02:06 | INFO | 	CreateUser              : John Smith
+2026-03-01 23:02:06 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-01 23:02:06 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:07 | INFO | 	AddToDistributionList   : IT
+2026-03-01 23:02:07 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 23:02:07 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:07 | INFO | [BUILD] John Smith
+2026-03-01 23:02:07 | INFO | 	SamAccountName    : johnsmith
+2026-03-01 23:02:07 | INFO | 	UPN               : johnsmith@dev.com
+2026-03-01 23:02:07 | INFO | 	OU                : OU=IT,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:07 | INFO |  
+2026-03-01 23:02:07 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-01 23:02:07 | INFO | [SET]  Jane Doe
+2026-03-01 23:02:07 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-01 23:02:07 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 23:02:07 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:07 | INFO | [PLAN] Jane Doe
+2026-03-01 23:02:07 | INFO | 	CreateUser              : Jane Doe
+2026-03-01 23:02:07 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-01 23:02:07 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:07 | INFO | 	AddToDistributionList   : Finance
+2026-03-01 23:02:07 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 23:02:07 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:07 | INFO | [BUILD] Jane Doe
+2026-03-01 23:02:07 | INFO | 	SamAccountName    : janedoe
+2026-03-01 23:02:07 | INFO | 	UPN               : janedoe@dev.com
+2026-03-01 23:02:07 | INFO | 	OU                : OU=Finance,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:07 | INFO |  
+2026-03-01 23:02:07 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-01 23:02:07 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-01 23:02:07 | INFO |  
+2026-03-01 23:02:07 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-01 23:02:07 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-01 23:02:07 | INFO |  
+2026-03-01 23:02:07 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-01 23:02:07 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-01 23:02:07 | INFO |  
+2026-03-01 23:02:07 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-01 23:02:07 | INFO | [SET]  Robert Brown
+2026-03-01 23:02:07 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-01 23:02:07 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-01 23:02:07 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:07 | INFO | [PLAN] Robert Brown
+2026-03-01 23:02:07 | INFO | 	CreateUser              : Robert Brown
+2026-03-01 23:02:07 | INFO | 	AddToGroup              : GRP_ROLE_Sales_User
+2026-03-01 23:02:07 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:07 | INFO | 	AddToDistributionList   : Sales
+2026-03-01 23:02:08 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 23:02:08 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:08 | INFO | [BUILD] Robert Brown
+2026-03-01 23:02:08 | INFO | 	SamAccountName    : robertbrown
+2026-03-01 23:02:08 | INFO | 	UPN               : robertbrown@dev.com
+2026-03-01 23:02:08 | INFO | 	OU                : OU=Sales,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:08 | INFO |  
+2026-03-01 23:02:08 | INFO | [PASS] Validation passed for Anna King
+2026-03-01 23:02:08 | INFO | [SET]  Anna King
+2026-03-01 23:02:08 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-01 23:02:08 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-01 23:02:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:08 | INFO | [PLAN] Anna King
+2026-03-01 23:02:08 | INFO | 	CreateUser              : Anna King
+2026-03-01 23:02:08 | INFO | 	AddToGroup              : GRP_ROLE_IT_User
+2026-03-01 23:02:08 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:08 | INFO | 	AddToDistributionList   : IT
+2026-03-01 23:02:08 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 23:02:08 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:08 | INFO | [BUILD] Anna King
+2026-03-01 23:02:08 | INFO | 	SamAccountName    : annaking
+2026-03-01 23:02:08 | INFO | 	UPN               : annaking@dev.com
+2026-03-01 23:02:08 | INFO | 	OU                : OU=IT,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:08 | INFO |  
+2026-03-01 23:02:08 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-01 23:02:08 | INFO | [SET]  Chris Evans
+2026-03-01 23:02:08 | INFO | 	Distribution Lists : IT
+2026-03-01 23:02:08 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-01 23:02:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:08 | INFO | [PLAN] Chris Evans
+2026-03-01 23:02:08 | INFO | 	CreateUser              : Chris Evans
+2026-03-01 23:02:08 | INFO | 	AddToGroup              : GRP_ROLE_IT_Helpdesk
+2026-03-01 23:02:08 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:08 | INFO | 	AddToDistributionList   : IT
+2026-03-01 23:02:08 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:08 | INFO | [BUILD] Chris Evans
+2026-03-01 23:02:08 | INFO | 	SamAccountName    : chrisevans
+2026-03-01 23:02:08 | INFO | 	UPN               : chrisevans@dev.com
+2026-03-01 23:02:08 | INFO | 	OU                : OU=IT,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:08 | INFO |  
+2026-03-01 23:02:08 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-01 23:02:08 | INFO | [SET]  Sarah Connor
+2026-03-01 23:02:08 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 23:02:08 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 23:02:08 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:08 | INFO | [PLAN] Sarah Connor
+2026-03-01 23:02:08 | INFO | 	CreateUser              : Sarah Connor
+2026-03-01 23:02:09 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-01 23:02:09 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:09 | INFO | 	AddToDistributionList   : Finance
+2026-03-01 23:02:09 | INFO | 	AddToDistributionList   : Managers
+2026-03-01 23:02:09 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 23:02:09 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:09 | INFO | [BUILD] Sarah Connor
+2026-03-01 23:02:09 | INFO | 	SamAccountName    : sarahconnor
+2026-03-01 23:02:09 | INFO | 	UPN               : sarahconnor@dev.com
+2026-03-01 23:02:09 | INFO | 	OU                : OU=Finance,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:09 | INFO |  
+2026-03-01 23:02:09 | INFO | [PASS] Validation passed for David Lee
+2026-03-01 23:02:09 | INFO | [SET]  David Lee
+2026-03-01 23:02:09 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-01 23:02:09 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-01 23:02:09 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-01 23:02:09 | INFO | [PLAN] David Lee
+2026-03-01 23:02:09 | INFO | 	CreateUser              : David Lee
+2026-03-01 23:02:09 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-01 23:02:09 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-01 23:02:09 | INFO | 	AddToDistributionList   : Finance
+2026-03-01 23:02:09 | INFO | 	AddToDistributionList   : Managers
+2026-03-01 23:02:09 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-01 23:02:09 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-01 23:02:09 | INFO | [BUILD] David Lee
+2026-03-01 23:02:09 | INFO | 	SamAccountName    : davidlee
+2026-03-01 23:02:09 | INFO | 	UPN               : davidlee@dev.com
+2026-03-01 23:02:09 | INFO | 	OU                : OU=Finance,OU=Users,DC=dev,DC=com
+2026-03-01 23:02:09 | INFO |  
+2026-03-01 23:02:09 | INFO | == Finished looping over users. ==
+2026-03-01 23:02:09 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        

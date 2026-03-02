@@ -6,16 +6,18 @@ function Import-OnboardingCsv {
         [string]$LogFile
     )
 
-    Write-LogAndVerbose -Message "== Starting CSV import: $Path ==" -Level "INFO"
+    Write-Log -Message "== Starting CSV import: $Path ==" -Level "INFO" -LogFile $LogFile
 
     # Check file exists
     if (-Not (Test-Path $Path)) {
-        Write-LogAndVerbose -Message "CSV not found: $Path" -Level "ERROR"
+        Write-Log -Message "CSV not found: $Path" -Level "ERROR" -LogFile $LogFile
         throw "CSV file not found: $Path"
     }
 
     # Import CSV
     $csv = Import-Csv -Path $Path
+
+    Write-Log -Message "Importing users:" -Level "INFO" -LogFile $LogFile
 
     # Build pipeline objects
     $pipelineObjects = foreach ($row in $csv) {
@@ -40,13 +42,13 @@ function Import-OnboardingCsv {
             Status  = $null     # Created | AlreadyExists | Failed | Skipped
         }
 
-        Write-LogAndVerbose -Message "Imported user: $($row.FirstName) $($row.LastName)" -Level "INFO"
+        Write-Log -Message "$($row.FirstName) $($row.LastName)" -Level "INFO" -LogFile $LogFile
         
         # Add object to pipelineObjects
         $userObj
     }
 
-    Write-LogAndVerbose -Message "== CSV import finished. Total users: $($pipelineObjects.Count) ==" -Level "INFO"
+    Write-Log -Message "== CSV import finished. Total users: $($pipelineObjects.Count) ==" -Level "INFO" -LogFile $LogFile
 
     # Return pipelineObjects for next stage
     return $pipelineObjects

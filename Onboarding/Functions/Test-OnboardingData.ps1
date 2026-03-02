@@ -2,6 +2,7 @@ function Test-OnboardingData {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
+        [string]$LogFile,
         [pscustomobject]$PipelineObject
     )
 
@@ -27,10 +28,10 @@ function Test-OnboardingData {
 
     # Log success if no errors or log warnings if there are errors
     if ($PipelineObject.Errors.Count -eq 0) {
-        Write-LogAndVerbose -Message "[PASS] Validation passed for $($raw.FirstName) $($raw.LastName)" -Level "INFO"
+        Write-Log -Message "[PASS] Validation passed for $($raw.FirstName) $($raw.LastName)" -Level "INFO" -LogFile $LogFile
         $PipelineObject.Status = "Valid"
     } else {
-        Write-LogAndVerbose -Message "[FAIL] Validation failed for $($raw.FirstName) $($raw.LastName): $($PipelineObject.Errors -join ', ')" -Level "WARN"
+        Write-Log -Message "[FAIL] Validation failed for $($raw.FirstName) $($raw.LastName): $($PipelineObject.Errors -join ', ')" -Level "WARN" -LogFile $LogFile
         $PipelineObject.Status = "Skipped"
     }
 
