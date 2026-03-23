@@ -1,0 +1,121 @@
+﻿2026-03-02 20:12:42 | INFO | [SKIP] Logs folder already exists
+2026-03-02 20:12:42 | INFO | [SKIP] OU already exists: Finance
+2026-03-02 20:12:42 | INFO | [SKIP] OU already exists: IT
+2026-03-02 20:12:42 | INFO | [SKIP] OU already exists: Sales
+2026-03-02 20:12:42 | INFO | [SKIP] OU already exists: HR
+2026-03-02 20:12:42 | INFO | [CREATED] OU created: Marketing
+2026-03-02 20:12:42 | INFO | [CREATED] Group created: GRP-AllStaff
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Admin
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_User
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Helpdesk
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_User
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_PowerUser
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_User
+2026-03-02 20:12:42 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_PowerUser
+2026-03-02 20:12:43 | INFO | [SKIP] Group already exists: GRP_ROLE_Sales_User
+2026-03-02 20:12:43 | INFO | [CREATED] Group created: GRP_ROLE_Marketing_User
+2026-03-02 20:12:43 | INFO | [SKIP] Group already exists: GRP_ROLE_User
+2026-03-02 20:16:31 | INFO | [SKIP] Logs folder already exists
+2026-03-02 20:16:31 | INFO | [SKIP] OU already exists: Finance
+2026-03-02 20:16:31 | INFO | [SKIP] OU already exists: IT
+2026-03-02 20:16:31 | INFO | [SKIP] OU already exists: Sales
+2026-03-02 20:16:31 | INFO | [SKIP] OU already exists: HR
+2026-03-02 20:16:31 | INFO | [CREATED] OU created: Marketing
+2026-03-02 20:16:31 | INFO | [CREATED] Group created: GRP-AllStaff
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Admin
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_User
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Helpdesk
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_User
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_PowerUser
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_User
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_PowerUser
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_Sales_User
+2026-03-02 20:16:31 | INFO | [CREATED] Group created: GRP_ROLE_Marketing_User
+2026-03-02 20:16:31 | INFO | [SKIP] Group already exists: GRP_ROLE_User
+2026-03-02 20:17:41 | INFO | === Setup Complete ===
+2026-03-02 20:17:51 | INFO | [SKIP] Logs folder already exists
+2026-03-02 20:17:51 | INFO | [SKIP] OU already exists: Finance
+2026-03-02 20:17:51 | INFO | [SKIP] OU already exists: IT
+2026-03-02 20:17:51 | INFO | [SKIP] OU already exists: Sales
+2026-03-02 20:17:51 | INFO | [SKIP] OU already exists: HR
+2026-03-02 20:17:51 | INFO | [CREATED] OU created: Marketing
+2026-03-02 20:17:51 | INFO | [CREATED] Group created: GRP-AllStaff
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Admin
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_User
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Helpdesk
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_User
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_PowerUser
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_User
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_PowerUser
+2026-03-02 20:17:51 | INFO | [SKIP] Group already exists: GRP_ROLE_Sales_User
+2026-03-02 20:17:52 | INFO | [CREATED] Group created: GRP_ROLE_Marketing_User
+2026-03-02 20:17:52 | INFO | [SKIP] Group already exists: GRP_ROLE_User
+2026-03-02 20:17:58 | INFO | === Setup Complete ===
+2026-03-02 20:19:40 | INFO | [SKIP] Logs folder already exists
+2026-03-02 20:19:40 | INFO | [SKIP] OU already exists: Finance
+2026-03-02 20:19:40 | INFO | [SKIP] OU already exists: IT
+2026-03-02 20:19:40 | INFO | [SKIP] OU already exists: Sales
+2026-03-02 20:19:40 | INFO | [SKIP] OU already exists: HR
+2026-03-02 20:19:40 | INFO | [CREATED] OU created: Marketing
+2026-03-02 20:19:40 | INFO | [CREATED] Group created: GRP-AllStaff
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Admin
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_User
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Helpdesk
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_User
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_PowerUser
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_User
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_PowerUser
+2026-03-02 20:19:40 | INFO | [SKIP] Group already exists: GRP_ROLE_Sales_User
+2026-03-02 20:19:41 | INFO | [CREATED] Group created: GRP_ROLE_Marketing_User
+2026-03-02 20:19:41 | INFO | [SKIP] Group already exists: GRP_ROLE_User
+2026-03-02 20:19:47 | INFO | === Setup Complete ===
+2026-03-02 20:21:47 | INFO | [SKIP] Logs folder already exists
+2026-03-02 20:21:47 | INFO | [SKIP] OU already exists: Finance
+2026-03-02 20:21:47 | INFO | [SKIP] OU already exists: IT
+2026-03-02 20:21:47 | INFO | [SKIP] OU already exists: Sales
+2026-03-02 20:21:47 | INFO | [SKIP] OU already exists: HR
+2026-03-02 20:21:48 | INFO | [CREATED] OU created: Marketing
+2026-03-02 20:21:48 | INFO | [CREATED] Group created: GRP-AllStaff
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Admin
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_User
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Helpdesk
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_User
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_PowerUser
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_User
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_PowerUser
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_Sales_User
+2026-03-02 20:21:48 | INFO | [CREATED] Group created: GRP_ROLE_Marketing_User
+2026-03-02 20:21:48 | INFO | [SKIP] Group already exists: GRP_ROLE_User
+2026-03-02 20:21:57 | INFO | [CREATED] DL created: AllStaff
+2026-03-02 20:21:59 | INFO | [CREATED] DL created: Managers
+2026-03-02 20:22:00 | INFO | [CREATED] DL created: Finance
+2026-03-02 20:22:01 | INFO | [CREATED] DL created: IT
+2026-03-02 20:22:03 | INFO | [CREATED] DL created: Sales
+2026-03-02 20:22:04 | INFO | [CREATED] DL created: HR
+2026-03-02 20:22:05 | INFO | [CREATED] DL created: Marketing
+2026-03-02 20:22:05 | INFO | === Setup Complete ===
+2026-03-02 20:27:57 | INFO | [SKIP] Logs folder already exists
+2026-03-02 20:27:57 | INFO | [SKIP] OU already exists: Finance
+2026-03-02 20:27:57 | INFO | [SKIP] OU already exists: IT
+2026-03-02 20:27:57 | INFO | [SKIP] OU already exists: Sales
+2026-03-02 20:27:57 | INFO | [SKIP] OU already exists: HR
+2026-03-02 20:27:57 | INFO | [SKIP] OU already exists: Marketing
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP-AllStaff
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Admin
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_User
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_IT_Helpdesk
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_User
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_Finance_PowerUser
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_User
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_HR_PowerUser
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_Sales_User
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_Marketing_User
+2026-03-02 20:27:58 | INFO | [SKIP] Group already exists: GRP_ROLE_User
+2026-03-02 20:28:06 | INFO | [SKIP] DL already exists: AllStaff
+2026-03-02 20:28:06 | INFO | [SKIP] DL already exists: Managers
+2026-03-02 20:28:06 | INFO | [SKIP] DL already exists: Finance
+2026-03-02 20:28:07 | INFO | [SKIP] DL already exists: IT
+2026-03-02 20:28:07 | INFO | [SKIP] DL already exists: Sales
+2026-03-02 20:28:07 | INFO | [SKIP] DL already exists: HR
+2026-03-02 20:28:07 | INFO | [SKIP] DL already exists: Marketing
+2026-03-02 20:28:07 | INFO | === Setup Complete ===

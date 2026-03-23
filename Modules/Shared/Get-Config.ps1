@@ -3,29 +3,19 @@ function Get-Config{
     param(
         [Parameter(Mandatory)]
         [ValidateSet("Onboarding", "Offboarding")]
-        [string]$Script
+        [string]$Script,
+
+        [Parameter(Mandatory)]
+        [string]$Client
     )
 
-    $sharedPath = "$PSScriptRoot\..\..\Config\Shared.json"
-    $scriptPath = "$PSScriptRoot\..\..\Config\$Script.json"
+    $clientPath = "$PSScriptRoot\..\..\Config\Clients\$Client\$Script.json"
 
-    # Validate that the shared and script config files exist
-    if(-Not(Test-Path $sharedPath)){
-        throw "Shared config not found: $sharedPath"
+    if (-Not (Test-Path $clientPath)) {
+        throw "Client config not found: $clientPath"
     }
 
-    if(-Not(Test-Path $scriptPath)){
-        throw "Script config not found: $scriptPath"
-    }
-    
-    # Load both configs and convert from JSON
-    $shared = Get-Content $sharedPath -Raw | ConvertFrom-Json
-    $scriptConfig   = Get-Content $scriptPath -Raw | ConvertFrom-Json
+    $clientConfig = Get-Content $clientPath -Raw | ConvertFrom-Json
 
-    # Merge into one object
-    $merged = @{}
-    $shared.PSObject.Properties | ForEach-Object { $merged[$_.Name] = $_.Value }
-    $scriptConfig.PSObject.Properties | ForEach-Object { $merged[$_.Name] = $_.Value }
-
-    return [PSCustomObject]$merged
+    return $clientConfig
 }

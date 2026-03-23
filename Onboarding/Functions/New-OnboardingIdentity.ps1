@@ -32,7 +32,8 @@ function New-OnboardingIdentity {
         LastName          = $raw.LastName
         DisplayName       = "$($raw.FirstName) $($raw.LastName)"
         SamAccountName    = $username
-        UserPrincipalName = "$username@$($Config.Domain)"
+        UserPrincipalName = "$username$($Config.UPNSuffix)"  # on-prem AD UPN
+        EntraUPN          = "$username@$($Config.TenantDomain)" # Entra/M365 UPN
         OU                = $ou
     } 
 

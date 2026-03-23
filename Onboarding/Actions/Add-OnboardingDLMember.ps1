@@ -13,7 +13,7 @@ function Add-OnboardingDLMember {
 
     # Check if user is already a member of the distribution list
     $isMember = (Get-DistributionGroupMember -Identity $Target -ErrorAction Stop | 
-                 Where-Object { $_.PrimarySmtpAddress -eq $Identity.UserPrincipalName })
+                 Where-Object { $_.Alias -eq $Identity.EntraUPN })
 
     if ($isMember) {
         Write-Log -Message "`tAddToDistributionList  : Already in $Target, skipping" -Level "INFO" -LogFile $LogFile
@@ -21,7 +21,7 @@ function Add-OnboardingDLMember {
     }
 
     # Add user to distribution list
-    Add-DistributionGroupMember -Identity $Target -Member $Identity.UserPrincipalName -ErrorAction Stop
+    Add-DistributionGroupMember -Identity $Target -Member $Identity.EntraUPN -ErrorAction Stop
 
     Write-Log -Message "`tAddToDistributionList  : Added $($Identity.DisplayName) to $Target" -Level "INFO" -LogFile $LogFile
 }

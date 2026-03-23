@@ -1121,3 +1121,2493 @@
     Failed: 0
     Skipped (Validation): 3
         
+2026-03-18 15:22:22 | INFO | === Pipeline started. ===
+2026-03-18 15:22:22 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-18 15:22:22 | INFO | Importing users:
+2026-03-18 15:22:22 | INFO | John Smith
+2026-03-18 15:22:22 | INFO | Jane Doe
+2026-03-18 15:22:22 | INFO | Michael 
+2026-03-18 15:22:22 | INFO | Emily Jones
+2026-03-18 15:22:22 | INFO |  Wilson
+2026-03-18 15:22:22 | INFO | Robert Brown
+2026-03-18 15:22:22 | INFO | Anna King
+2026-03-18 15:22:22 | INFO | Chris Evans
+2026-03-18 15:22:22 | INFO | Sarah Connor
+2026-03-18 15:22:22 | INFO | David Lee
+2026-03-18 15:22:22 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-18 15:22:22 | INFO | == Starting looping over users. ==
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for John Smith
+2026-03-18 15:22:22 | INFO | [SET]  John Smith
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] John Smith
+2026-03-18 15:22:22 | INFO | 	CreateUser              : John Smith
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] John Smith
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : johnsmith
+2026-03-18 15:22:22 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-18 15:22:22 | INFO | [SET]  Jane Doe
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] Jane Doe
+2026-03-18 15:22:22 | INFO | 	CreateUser              : Jane Doe
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] Jane Doe
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : janedoe
+2026-03-18 15:22:22 | INFO | 	UPN               : janedoe@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-18 15:22:22 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-18 15:22:22 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-18 15:22:22 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-18 15:22:22 | INFO | [SET]  Robert Brown
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] Robert Brown
+2026-03-18 15:22:22 | INFO | 	CreateUser              : Robert Brown
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_Sales_User
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : Sales
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] Robert Brown
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : robertbrown
+2026-03-18 15:22:22 | INFO | 	UPN               : robertbrown@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for Anna King
+2026-03-18 15:22:22 | INFO | [SET]  Anna King
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] Anna King
+2026-03-18 15:22:22 | INFO | 	CreateUser              : Anna King
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_IT_User
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] Anna King
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : annaking
+2026-03-18 15:22:22 | INFO | 	UPN               : annaking@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-18 15:22:22 | INFO | [SET]  Chris Evans
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : IT
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] Chris Evans
+2026-03-18 15:22:22 | INFO | 	CreateUser              : Chris Evans
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_IT_Helpdesk
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] Chris Evans
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : chrisevans
+2026-03-18 15:22:22 | INFO | 	UPN               : chrisevans@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-18 15:22:22 | INFO | [SET]  Sarah Connor
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] Sarah Connor
+2026-03-18 15:22:22 | INFO | 	CreateUser              : Sarah Connor
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : Managers
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] Sarah Connor
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : sarahconnor
+2026-03-18 15:22:22 | INFO | 	UPN               : sarahconnor@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | [PASS] Validation passed for David Lee
+2026-03-18 15:22:22 | INFO | [SET]  David Lee
+2026-03-18 15:22:22 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-18 15:22:22 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [PLAN] David Lee
+2026-03-18 15:22:22 | INFO | 	CreateUser              : David Lee
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:22:22 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : Managers
+2026-03-18 15:22:22 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:22:22 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:22:22 | INFO | [BUILD] David Lee
+2026-03-18 15:22:22 | INFO | 	SamAccountName    : davidlee
+2026-03-18 15:22:22 | INFO | 	UPN               : davidlee@dev.local
+2026-03-18 15:22:22 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:22:22 | INFO |  
+2026-03-18 15:22:22 | INFO | == Finished looping over users. ==
+2026-03-18 15:22:22 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 3
+        
+2026-03-18 15:27:14 | INFO | === Pipeline started. ===
+2026-03-18 15:27:14 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-18 15:27:14 | INFO | Importing users:
+2026-03-18 15:27:14 | INFO | John Smith
+2026-03-18 15:27:14 | INFO | Jane Doe
+2026-03-18 15:27:14 | INFO | Michael 
+2026-03-18 15:27:14 | INFO | Emily Jones
+2026-03-18 15:27:14 | INFO |  Wilson
+2026-03-18 15:27:14 | INFO | Robert Brown
+2026-03-18 15:27:14 | INFO | Anna King
+2026-03-18 15:27:14 | INFO | Chris Evans
+2026-03-18 15:27:14 | INFO | Sarah Connor
+2026-03-18 15:27:14 | INFO | David Lee
+2026-03-18 15:27:14 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-18 15:27:14 | INFO | == Starting looping over users. ==
+2026-03-18 15:27:14 | INFO | [PASS] Validation passed for John Smith
+2026-03-18 15:27:14 | INFO | [SET]  John Smith
+2026-03-18 15:27:14 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 15:27:14 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [PLAN] John Smith
+2026-03-18 15:27:14 | INFO | 	CreateUser              : John Smith
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:27:14 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [BUILD] John Smith
+2026-03-18 15:27:14 | INFO | 	SamAccountName    : johnsmith
+2026-03-18 15:27:14 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-18 15:27:14 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:14 | ERROR | 	[ERROR] CreateUser failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToGroup failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToGroup failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AssignLicense failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | INFO |  
+2026-03-18 15:27:14 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-18 15:27:14 | INFO | [SET]  Jane Doe
+2026-03-18 15:27:14 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-18 15:27:14 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [PLAN] Jane Doe
+2026-03-18 15:27:14 | INFO | 	CreateUser              : Jane Doe
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:27:14 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [BUILD] Jane Doe
+2026-03-18 15:27:14 | INFO | 	SamAccountName    : janedoe
+2026-03-18 15:27:14 | INFO | 	UPN               : janedoe@dev.local
+2026-03-18 15:27:14 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:14 | ERROR | 	[ERROR] CreateUser failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToGroup failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToGroup failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToDistributionList failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToDistributionList failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AssignLicense failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | INFO |  
+2026-03-18 15:27:14 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-18 15:27:14 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-18 15:27:14 | INFO |  
+2026-03-18 15:27:14 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-18 15:27:14 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-18 15:27:14 | INFO |  
+2026-03-18 15:27:14 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-18 15:27:14 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-18 15:27:14 | INFO |  
+2026-03-18 15:27:14 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-18 15:27:14 | INFO | [SET]  Robert Brown
+2026-03-18 15:27:14 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-18 15:27:14 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [PLAN] Robert Brown
+2026-03-18 15:27:14 | INFO | 	CreateUser              : Robert Brown
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP_ROLE_Sales_User
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : Sales
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:27:14 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [BUILD] Robert Brown
+2026-03-18 15:27:14 | INFO | 	SamAccountName    : robertbrown
+2026-03-18 15:27:14 | INFO | 	UPN               : robertbrown@dev.local
+2026-03-18 15:27:14 | INFO | 	OU                : OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:14 | ERROR | 	[ERROR] CreateUser failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToGroup failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToGroup failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToDistributionList failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AddToDistributionList failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | ERROR | 	[ERROR] AssignLicense failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:14 | INFO |  
+2026-03-18 15:27:14 | INFO | [PASS] Validation passed for Anna King
+2026-03-18 15:27:14 | INFO | [SET]  Anna King
+2026-03-18 15:27:14 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 15:27:14 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [PLAN] Anna King
+2026-03-18 15:27:14 | INFO | 	CreateUser              : Anna King
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP_ROLE_IT_User
+2026-03-18 15:27:14 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:27:14 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:27:14 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:14 | INFO | [BUILD] Anna King
+2026-03-18 15:27:14 | INFO | 	SamAccountName    : annaking
+2026-03-18 15:27:14 | INFO | 	UPN               : annaking@dev.local
+2026-03-18 15:27:14 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:15 | ERROR | 	[ERROR] CreateUser failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AssignLicense failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | INFO |  
+2026-03-18 15:27:15 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-18 15:27:15 | INFO | [SET]  Chris Evans
+2026-03-18 15:27:15 | INFO | 	Distribution Lists : IT
+2026-03-18 15:27:15 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-18 15:27:15 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:15 | INFO | [PLAN] Chris Evans
+2026-03-18 15:27:15 | INFO | 	CreateUser              : Chris Evans
+2026-03-18 15:27:15 | INFO | 	AddToGroup              : GRP_ROLE_IT_Helpdesk
+2026-03-18 15:27:15 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:27:15 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:15 | INFO | [BUILD] Chris Evans
+2026-03-18 15:27:15 | INFO | 	SamAccountName    : chrisevans
+2026-03-18 15:27:15 | INFO | 	UPN               : chrisevans@dev.local
+2026-03-18 15:27:15 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:15 | ERROR | 	[ERROR] CreateUser failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AssignLicense failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | INFO |  
+2026-03-18 15:27:15 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-18 15:27:15 | INFO | [SET]  Sarah Connor
+2026-03-18 15:27:15 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-18 15:27:15 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:27:15 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:15 | INFO | [PLAN] Sarah Connor
+2026-03-18 15:27:15 | INFO | 	CreateUser              : Sarah Connor
+2026-03-18 15:27:15 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:27:15 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : Managers
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:27:15 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:15 | INFO | [BUILD] Sarah Connor
+2026-03-18 15:27:15 | INFO | 	SamAccountName    : sarahconnor
+2026-03-18 15:27:15 | INFO | 	UPN               : sarahconnor@dev.local
+2026-03-18 15:27:15 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:15 | ERROR | 	[ERROR] CreateUser failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AssignLicense failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | INFO |  
+2026-03-18 15:27:15 | INFO | [PASS] Validation passed for David Lee
+2026-03-18 15:27:15 | INFO | [SET]  David Lee
+2026-03-18 15:27:15 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-18 15:27:15 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:27:15 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:27:15 | INFO | [PLAN] David Lee
+2026-03-18 15:27:15 | INFO | 	CreateUser              : David Lee
+2026-03-18 15:27:15 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:27:15 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : Managers
+2026-03-18 15:27:15 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:27:15 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:27:15 | INFO | [BUILD] David Lee
+2026-03-18 15:27:15 | INFO | 	SamAccountName    : davidlee
+2026-03-18 15:27:15 | INFO | 	UPN               : davidlee@dev.local
+2026-03-18 15:27:15 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:27:15 | ERROR | 	[ERROR] CreateUser failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToGroup failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AddToDistributionList failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | ERROR | 	[ERROR] AssignLicense failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:27:15 | INFO |  
+2026-03-18 15:27:15 | INFO | == Finished looping over users. ==
+2026-03-18 15:27:15 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 7
+    Skipped (Validation): 3
+        
+2026-03-18 15:31:35 | INFO | === Pipeline started. ===
+2026-03-18 15:31:35 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-18 15:31:35 | INFO | Importing users:
+2026-03-18 15:31:35 | INFO | John Smith
+2026-03-18 15:31:35 | INFO | Jane Doe
+2026-03-18 15:31:35 | INFO | Michael 
+2026-03-18 15:31:35 | INFO | Emily Jones
+2026-03-18 15:31:35 | INFO |  Wilson
+2026-03-18 15:31:35 | INFO | Robert Brown
+2026-03-18 15:31:35 | INFO | Anna King
+2026-03-18 15:31:35 | INFO | Chris Evans
+2026-03-18 15:31:35 | INFO | Sarah Connor
+2026-03-18 15:31:35 | INFO | David Lee
+2026-03-18 15:31:35 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-18 15:31:35 | INFO | == Starting looping over users. ==
+2026-03-18 15:31:35 | INFO | [PASS] Validation passed for John Smith
+2026-03-18 15:31:35 | INFO | [SET]  John Smith
+2026-03-18 15:31:35 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 15:31:35 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-18 15:31:35 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:35 | INFO | [PLAN] John Smith
+2026-03-18 15:31:35 | INFO | 	CreateUser              : John Smith
+2026-03-18 15:31:35 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-18 15:31:35 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:35 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:31:35 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:31:35 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:35 | INFO | [BUILD] John Smith
+2026-03-18 15:31:35 | INFO | 	SamAccountName    : johnsmith
+2026-03-18 15:31:35 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-18 15:31:35 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:35 | ERROR | 	[ERROR] CreateUser failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:35 | ERROR | 	[ERROR] AddToGroup failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:35 | ERROR | 	[ERROR] AddToGroup failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:35 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:35 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:35 | ERROR | 	[ERROR] AssignLicense failed for John Smith: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:35 | INFO |  
+2026-03-18 15:31:35 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-18 15:31:35 | INFO | [SET]  Jane Doe
+2026-03-18 15:31:35 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-18 15:31:35 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:31:35 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:35 | INFO | [PLAN] Jane Doe
+2026-03-18 15:31:36 | INFO | 	CreateUser              : Jane Doe
+2026-03-18 15:31:36 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:31:36 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:36 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:31:36 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:31:36 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:36 | INFO | [BUILD] Jane Doe
+2026-03-18 15:31:36 | INFO | 	SamAccountName    : janedoe
+2026-03-18 15:31:36 | INFO | 	UPN               : janedoe@dev.local
+2026-03-18 15:31:36 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:36 | ERROR | 	[ERROR] CreateUser failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToGroup failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToGroup failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToDistributionList failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToDistributionList failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AssignLicense failed for Jane Doe: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | INFO |  
+2026-03-18 15:31:36 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-18 15:31:36 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-18 15:31:36 | INFO |  
+2026-03-18 15:31:36 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-18 15:31:36 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-18 15:31:36 | INFO |  
+2026-03-18 15:31:36 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-18 15:31:36 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-18 15:31:36 | INFO |  
+2026-03-18 15:31:36 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-18 15:31:36 | INFO | [SET]  Robert Brown
+2026-03-18 15:31:36 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-18 15:31:36 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-18 15:31:36 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:36 | INFO | [PLAN] Robert Brown
+2026-03-18 15:31:36 | INFO | 	CreateUser              : Robert Brown
+2026-03-18 15:31:36 | INFO | 	AddToGroup              : GRP_ROLE_Sales_User
+2026-03-18 15:31:36 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:36 | INFO | 	AddToDistributionList   : Sales
+2026-03-18 15:31:36 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:31:36 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:36 | INFO | [BUILD] Robert Brown
+2026-03-18 15:31:36 | INFO | 	SamAccountName    : robertbrown
+2026-03-18 15:31:36 | INFO | 	UPN               : robertbrown@dev.local
+2026-03-18 15:31:36 | INFO | 	OU                : OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:36 | ERROR | 	[ERROR] CreateUser failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToGroup failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToGroup failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToDistributionList failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToDistributionList failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AssignLicense failed for Robert Brown: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | INFO |  
+2026-03-18 15:31:36 | INFO | [PASS] Validation passed for Anna King
+2026-03-18 15:31:36 | INFO | [SET]  Anna King
+2026-03-18 15:31:36 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 15:31:36 | INFO | 	AD Groups          : GRP_ROLE_IT_User;GRP-AllStaff
+2026-03-18 15:31:36 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:36 | INFO | [PLAN] Anna King
+2026-03-18 15:31:36 | INFO | 	CreateUser              : Anna King
+2026-03-18 15:31:36 | INFO | 	AddToGroup              : GRP_ROLE_IT_User
+2026-03-18 15:31:36 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:36 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:31:36 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:31:36 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:36 | INFO | [BUILD] Anna King
+2026-03-18 15:31:36 | INFO | 	SamAccountName    : annaking
+2026-03-18 15:31:36 | INFO | 	UPN               : annaking@dev.local
+2026-03-18 15:31:36 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:36 | ERROR | 	[ERROR] CreateUser failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:36 | ERROR | 	[ERROR] AddToGroup failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToGroup failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToDistributionList failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToDistributionList failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AssignLicense failed for Anna King: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | INFO |  
+2026-03-18 15:31:37 | INFO | [PASS] Validation passed for Chris Evans
+2026-03-18 15:31:37 | INFO | [SET]  Chris Evans
+2026-03-18 15:31:37 | INFO | 	Distribution Lists : IT
+2026-03-18 15:31:37 | INFO | 	AD Groups          : GRP_ROLE_IT_Helpdesk;GRP-AllStaff
+2026-03-18 15:31:37 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:37 | INFO | [PLAN] Chris Evans
+2026-03-18 15:31:37 | INFO | 	CreateUser              : Chris Evans
+2026-03-18 15:31:37 | INFO | 	AddToGroup              : GRP_ROLE_IT_Helpdesk
+2026-03-18 15:31:37 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : IT
+2026-03-18 15:31:37 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:37 | INFO | [BUILD] Chris Evans
+2026-03-18 15:31:37 | INFO | 	SamAccountName    : chrisevans
+2026-03-18 15:31:37 | INFO | 	UPN               : chrisevans@dev.local
+2026-03-18 15:31:37 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:37 | ERROR | 	[ERROR] CreateUser failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToGroup failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToGroup failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToDistributionList failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AssignLicense failed for Chris Evans: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | INFO |  
+2026-03-18 15:31:37 | INFO | [PASS] Validation passed for Sarah Connor
+2026-03-18 15:31:37 | INFO | [SET]  Sarah Connor
+2026-03-18 15:31:37 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-18 15:31:37 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:31:37 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:37 | INFO | [PLAN] Sarah Connor
+2026-03-18 15:31:37 | INFO | 	CreateUser              : Sarah Connor
+2026-03-18 15:31:37 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:31:37 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : Managers
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:31:37 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:37 | INFO | [BUILD] Sarah Connor
+2026-03-18 15:31:37 | INFO | 	SamAccountName    : sarahconnor
+2026-03-18 15:31:37 | INFO | 	UPN               : sarahconnor@dev.local
+2026-03-18 15:31:37 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:37 | ERROR | 	[ERROR] CreateUser failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToGroup failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToGroup failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToDistributionList failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToDistributionList failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AddToDistributionList failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | ERROR | 	[ERROR] AssignLicense failed for Sarah Connor: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:37 | INFO |  
+2026-03-18 15:31:37 | INFO | [PASS] Validation passed for David Lee
+2026-03-18 15:31:37 | INFO | [SET]  David Lee
+2026-03-18 15:31:37 | INFO | 	Distribution Lists : Finance;Managers;AllStaff
+2026-03-18 15:31:37 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 15:31:37 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 15:31:37 | INFO | [PLAN] David Lee
+2026-03-18 15:31:37 | INFO | 	CreateUser              : David Lee
+2026-03-18 15:31:37 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 15:31:37 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : Managers
+2026-03-18 15:31:37 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 15:31:37 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 15:31:37 | INFO | [BUILD] David Lee
+2026-03-18 15:31:37 | INFO | 	SamAccountName    : davidlee
+2026-03-18 15:31:37 | INFO | 	UPN               : davidlee@dev.local
+2026-03-18 15:31:37 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 15:31:38 | ERROR | 	[ERROR] CreateUser failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | ERROR | 	[ERROR] AddToGroup failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | ERROR | 	[ERROR] AddToGroup failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | ERROR | 	[ERROR] AddToDistributionList failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | ERROR | 	[ERROR] AddToDistributionList failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | ERROR | 	[ERROR] AddToDistributionList failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | ERROR | 	[ERROR] AssignLicense failed for David Lee: The term 'Write-LogAndVerbose' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-18 15:31:38 | INFO |  
+2026-03-18 15:31:38 | INFO | == Finished looping over users. ==
+2026-03-18 15:31:38 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 0
+    Failed: 7
+    Skipped (Validation): 3
+        
+2026-03-18 16:08:03 | INFO | === Pipeline started. ===
+2026-03-18 16:08:03 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-18 16:08:03 | INFO | Importing users:
+2026-03-18 16:08:03 | INFO | John Smith
+2026-03-18 16:08:03 | INFO | Jane Doe
+2026-03-18 16:08:03 | INFO | Michael 
+2026-03-18 16:08:03 | INFO | Emily Jones
+2026-03-18 16:08:03 | INFO |  Wilson
+2026-03-18 16:08:03 | INFO | Robert Brown
+2026-03-18 16:08:03 | INFO | Anna King
+2026-03-18 16:08:03 | INFO | Chris Evans
+2026-03-18 16:08:03 | INFO | Sarah Connor
+2026-03-18 16:08:03 | INFO | David Lee
+2026-03-18 16:08:03 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-18 16:08:03 | INFO | == Starting looping over users. ==
+2026-03-18 16:08:03 | INFO | [PASS] Validation passed for John Smith
+2026-03-18 16:08:03 | INFO | [SET]  John Smith
+2026-03-18 16:08:03 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-18 16:08:03 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-18 16:08:03 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 16:08:03 | INFO | [PLAN] John Smith
+2026-03-18 16:08:03 | INFO | 	CreateUser              : John Smith
+2026-03-18 16:08:03 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-18 16:08:03 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 16:08:03 | INFO | 	AddToDistributionList   : IT
+2026-03-18 16:08:03 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 16:08:03 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 16:08:03 | INFO | [BUILD] John Smith
+2026-03-18 16:08:03 | INFO | 	SamAccountName    : johnsmith
+2026-03-18 16:08:03 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-18 16:08:03 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 16:08:03 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:08:13 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:08:33 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:03 | WARN | [RETRY] Attempt 4 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:43 | WARN | [RETRY] Attempt 5 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:43 | ERROR | 	[ERROR] CreateUser failed for John Smith: Action failed after 5 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:43 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:48 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:58 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:58 | ERROR | 	[ERROR] AddToGroup failed for John Smith: Action failed after 3 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:09:58 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:03 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:13 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:13 | ERROR | 	[ERROR] AddToGroup failed for John Smith: Action failed after 3 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:13 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:16 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:16 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: Action failed after 2 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:16 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:19 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:19 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: Action failed after 2 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:19 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:24 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:34 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:49 | WARN | [RETRY] Attempt 4 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:49 | ERROR | 	[ERROR] AssignLicense failed for John Smith: Action failed after 4 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:49 | INFO |  
+2026-03-18 16:10:49 | INFO | [PASS] Validation passed for Jane Doe
+2026-03-18 16:10:49 | INFO | [SET]  Jane Doe
+2026-03-18 16:10:49 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-03-18 16:10:49 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-03-18 16:10:49 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 16:10:49 | INFO | [PLAN] Jane Doe
+2026-03-18 16:10:49 | INFO | 	CreateUser              : Jane Doe
+2026-03-18 16:10:49 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-03-18 16:10:49 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 16:10:49 | INFO | 	AddToDistributionList   : Finance
+2026-03-18 16:10:49 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 16:10:49 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 16:10:49 | INFO | [BUILD] Jane Doe
+2026-03-18 16:10:49 | INFO | 	SamAccountName    : janedoe
+2026-03-18 16:10:49 | INFO | 	UPN               : janedoe@dev.local
+2026-03-18 16:10:49 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 16:10:49 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:10:59 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:11:19 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:11:49 | WARN | [RETRY] Attempt 4 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:29 | WARN | [RETRY] Attempt 5 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:29 | ERROR | 	[ERROR] CreateUser failed for Jane Doe: Action failed after 5 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:29 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:34 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:44 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:44 | ERROR | 	[ERROR] AddToGroup failed for Jane Doe: Action failed after 3 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:44 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:49 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:59 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:59 | ERROR | 	[ERROR] AddToGroup failed for Jane Doe: Action failed after 3 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:12:59 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:02 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:02 | ERROR | 	[ERROR] AddToDistributionList failed for Jane Doe: Action failed after 2 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:02 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:05 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:05 | ERROR | 	[ERROR] AddToDistributionList failed for Jane Doe: Action failed after 2 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:05 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:10 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:20 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:35 | WARN | [RETRY] Attempt 4 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:35 | ERROR | 	[ERROR] AssignLicense failed for Jane Doe: Action failed after 4 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:35 | INFO |  
+2026-03-18 16:13:35 | WARN | [FAIL] Validation failed for Michael : LastName is missing
+2026-03-18 16:13:36 | WARN | [SKIP] User processed with errors: Michael  will be skipped
+2026-03-18 16:13:36 | INFO |  
+2026-03-18 16:13:36 | WARN | [FAIL] Validation failed for Emily Jones: Title is missing
+2026-03-18 16:13:36 | WARN | [SKIP] User processed with errors: Emily Jones will be skipped
+2026-03-18 16:13:36 | INFO |  
+2026-03-18 16:13:36 | WARN | [FAIL] Validation failed for  Wilson: FirstName is missing
+2026-03-18 16:13:36 | WARN | [SKIP] User processed with errors:  Wilson will be skipped
+2026-03-18 16:13:36 | INFO |  
+2026-03-18 16:13:36 | INFO | [PASS] Validation passed for Robert Brown
+2026-03-18 16:13:36 | INFO | [SET]  Robert Brown
+2026-03-18 16:13:36 | INFO | 	Distribution Lists : Sales;AllStaff
+2026-03-18 16:13:36 | INFO | 	AD Groups          : GRP_ROLE_Sales_User;GRP-AllStaff
+2026-03-18 16:13:36 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-18 16:13:36 | INFO | [PLAN] Robert Brown
+2026-03-18 16:13:36 | INFO | 	CreateUser              : Robert Brown
+2026-03-18 16:13:36 | INFO | 	AddToGroup              : GRP_ROLE_Sales_User
+2026-03-18 16:13:36 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-18 16:13:36 | INFO | 	AddToDistributionList   : Sales
+2026-03-18 16:13:36 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-18 16:13:36 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-18 16:13:36 | INFO | [BUILD] Robert Brown
+2026-03-18 16:13:36 | INFO | 	SamAccountName    : robertbrown
+2026-03-18 16:13:36 | INFO | 	UPN               : robertbrown@dev.local
+2026-03-18 16:13:36 | INFO | 	OU                : OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-18 16:13:36 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:13:46 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:14:06 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:14:36 | WARN | [RETRY] Attempt 4 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:16 | WARN | [RETRY] Attempt 5 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:16 | ERROR | 	[ERROR] CreateUser failed for Robert Brown: Action failed after 5 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:16 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:21 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:31 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:31 | ERROR | 	[ERROR] AddToGroup failed for Robert Brown: Action failed after 3 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:31 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:36 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:46 | WARN | [RETRY] Attempt 3 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:46 | ERROR | 	[ERROR] AddToGroup failed for Robert Brown: Action failed after 3 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:46 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:49 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:49 | ERROR | 	[ERROR] AddToDistributionList failed for Robert Brown: Action failed after 2 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:49 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:52 | WARN | [RETRY] Attempt 2 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:52 | ERROR | 	[ERROR] AddToDistributionList failed for Robert Brown: Action failed after 2 attempts: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-18 16:15:52 | WARN | [RETRY] Attempt 1 failed: Unknown action: 
+                switch ($action) {
+                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
+                    default                    { throw "Unknown action: $action" }
+                }
+            
+2026-03-22 19:04:23 | INFO | === Pipeline started. ===
+2026-03-22 19:04:23 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 19:04:23 | INFO | Importing users:
+2026-03-22 19:04:23 | INFO | John Smith
+2026-03-22 19:04:23 | INFO | Jane Doe
+2026-03-22 19:04:23 | INFO | Michael 
+2026-03-22 19:04:23 | INFO | Emily Jones
+2026-03-22 19:04:23 | INFO |  Wilson
+2026-03-22 19:04:23 | INFO | Robert Brown
+2026-03-22 19:04:23 | INFO | Anna King
+2026-03-22 19:04:23 | INFO | Chris Evans
+2026-03-22 19:04:23 | INFO | Sarah Connor
+2026-03-22 19:04:23 | INFO | David Lee
+2026-03-22 19:04:23 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 19:04:23 | INFO | == Starting looping over users. ==
+2026-03-22 19:04:23 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 19:04:23 | INFO | [SET]  John Smith
+2026-03-22 19:04:23 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 19:04:23 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 19:04:23 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 19:04:23 | INFO | [PLAN] John Smith
+2026-03-22 19:04:23 | INFO | 	CreateUser              : John Smith
+2026-03-22 19:04:23 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 19:04:23 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 19:04:23 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 19:04:23 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 19:04:23 | INFO | 	AddToDistributionList   : IT
+2026-03-22 19:04:23 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 19:04:23 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 19:04:23 | INFO | [BUILD] John Smith
+2026-03-22 19:04:23 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 19:04:23 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 19:04:23 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 19:04:24 | WARN | [RETRY] CreateUser attempt 1 failed: The password does not meet the length, complexity, or history requirement of the domain.
+2026-03-22 19:04:34 | WARN | [RETRY] CreateUser attempt 2 failed: The password does not meet the length, complexity, or history requirement of the domain.
+2026-03-22 19:04:54 | WARN | [RETRY] CreateUser attempt 3 failed: The password does not meet the length, complexity, or history requirement of the domain.
+2026-03-22 19:50:55 | INFO | === Pipeline started. ===
+2026-03-22 19:50:55 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 19:50:55 | INFO | Importing users:
+2026-03-22 19:50:55 | INFO | John Smith
+2026-03-22 19:50:55 | INFO | Jane Doe
+2026-03-22 19:50:55 | INFO | Michael 
+2026-03-22 19:50:55 | INFO | Emily Jones
+2026-03-22 19:50:55 | INFO |  Wilson
+2026-03-22 19:50:55 | INFO | Robert Brown
+2026-03-22 19:50:55 | INFO | Anna King
+2026-03-22 19:50:55 | INFO | Chris Evans
+2026-03-22 19:50:55 | INFO | Sarah Connor
+2026-03-22 19:50:55 | INFO | David Lee
+2026-03-22 19:50:55 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 19:50:55 | INFO | == Starting looping over users. ==
+2026-03-22 19:50:55 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 19:50:55 | INFO | [SET]  John Smith
+2026-03-22 19:50:55 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 19:50:55 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 19:50:55 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 19:50:55 | INFO | [PLAN] John Smith
+2026-03-22 19:50:55 | INFO | 	CreateUser              : John Smith
+2026-03-22 19:50:55 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 19:50:55 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 19:50:55 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 19:50:55 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 19:50:55 | INFO | 	AddToDistributionList   : IT
+2026-03-22 19:50:55 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 19:50:55 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 19:50:55 | INFO | [BUILD] John Smith
+2026-03-22 19:50:55 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 19:50:55 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 19:50:55 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 19:50:55 | WARN | [RETRY] CreateUser attempt 1 failed: Unable to find type [System.Web.Security.Membership].
+2026-03-22 19:51:05 | WARN | [RETRY] CreateUser attempt 2 failed: Unable to find type [System.Web.Security.Membership].
+2026-03-22 19:53:34 | INFO | === Pipeline started. ===
+2026-03-22 19:53:34 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 19:53:34 | INFO | Importing users:
+2026-03-22 19:53:34 | INFO | John Smith
+2026-03-22 19:53:34 | INFO | Jane Doe
+2026-03-22 19:53:34 | INFO | Michael 
+2026-03-22 19:53:34 | INFO | Emily Jones
+2026-03-22 19:53:34 | INFO |  Wilson
+2026-03-22 19:53:34 | INFO | Robert Brown
+2026-03-22 19:53:34 | INFO | Anna King
+2026-03-22 19:53:34 | INFO | Chris Evans
+2026-03-22 19:53:34 | INFO | Sarah Connor
+2026-03-22 19:53:34 | INFO | David Lee
+2026-03-22 19:53:34 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 19:53:34 | INFO | == Starting looping over users. ==
+2026-03-22 19:53:34 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 19:53:34 | INFO | [SET]  John Smith
+2026-03-22 19:53:34 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 19:53:34 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 19:53:34 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 19:53:34 | INFO | [PLAN] John Smith
+2026-03-22 19:53:34 | INFO | 	CreateUser              : John Smith
+2026-03-22 19:53:34 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 19:53:34 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 19:53:34 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 19:53:34 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 19:53:34 | INFO | 	AddToDistributionList   : IT
+2026-03-22 19:53:34 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 19:53:34 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 19:53:34 | INFO | [BUILD] John Smith
+2026-03-22 19:53:34 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 19:53:34 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 19:53:34 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 19:53:34 | WARN | [RETRY] CreateUser attempt 1 failed: Unable to find type [System.Web.Security.Membership].
+2026-03-22 20:27:05 | INFO | === Pipeline started. ===
+2026-03-22 20:27:05 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 20:27:05 | INFO | Importing users:
+2026-03-22 20:27:05 | INFO | John Smith
+2026-03-22 20:27:05 | INFO | Jane Doe
+2026-03-22 20:27:05 | INFO | Michael 
+2026-03-22 20:27:05 | INFO | Emily Jones
+2026-03-22 20:27:05 | INFO |  Wilson
+2026-03-22 20:27:05 | INFO | Robert Brown
+2026-03-22 20:27:05 | INFO | Anna King
+2026-03-22 20:27:05 | INFO | Chris Evans
+2026-03-22 20:27:06 | INFO | Sarah Connor
+2026-03-22 20:27:06 | INFO | David Lee
+2026-03-22 20:27:06 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 20:27:06 | INFO | == Starting looping over users. ==
+2026-03-22 20:27:06 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 20:27:06 | INFO | [SET]  John Smith
+2026-03-22 20:27:06 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 20:27:06 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 20:27:06 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 20:27:06 | INFO | [PLAN] John Smith
+2026-03-22 20:27:06 | INFO | 	CreateUser              : John Smith
+2026-03-22 20:27:06 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 20:27:06 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 20:27:06 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 20:27:06 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 20:27:06 | INFO | 	AddToDistributionList   : IT
+2026-03-22 20:27:06 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 20:27:06 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 20:27:06 | INFO | [BUILD] John Smith
+2026-03-22 20:27:06 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 20:27:06 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 20:27:06 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 20:27:06 | WARN | [RETRY] CreateUser attempt 1 failed: Unable to find type [System.Web.Security.Membership].
+2026-03-22 20:30:21 | INFO | === Pipeline started. ===
+2026-03-22 20:30:21 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 20:30:21 | INFO | Importing users:
+2026-03-22 20:30:21 | INFO | John Smith
+2026-03-22 20:30:21 | INFO | Jane Doe
+2026-03-22 20:30:21 | INFO | Michael 
+2026-03-22 20:30:21 | INFO | Emily Jones
+2026-03-22 20:30:21 | INFO |  Wilson
+2026-03-22 20:30:21 | INFO | Robert Brown
+2026-03-22 20:30:21 | INFO | Anna King
+2026-03-22 20:30:21 | INFO | Chris Evans
+2026-03-22 20:30:21 | INFO | Sarah Connor
+2026-03-22 20:30:21 | INFO | David Lee
+2026-03-22 20:30:21 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 20:30:21 | INFO | == Starting looping over users. ==
+2026-03-22 20:30:21 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 20:30:21 | INFO | [SET]  John Smith
+2026-03-22 20:30:21 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 20:30:21 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 20:30:21 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 20:30:21 | INFO | [PLAN] John Smith
+2026-03-22 20:30:21 | INFO | 	CreateUser              : John Smith
+2026-03-22 20:30:21 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 20:30:21 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 20:30:21 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 20:30:21 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 20:30:21 | INFO | 	AddToDistributionList   : IT
+2026-03-22 20:30:21 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 20:30:21 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 20:30:21 | INFO | [BUILD] John Smith
+2026-03-22 20:30:21 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 20:30:21 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 20:30:21 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 20:30:21 | WARN | [RETRY] CreateUser attempt 1 failed: The term 'New-SecurePassword' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-22 20:33:38 | INFO | === Pipeline started. ===
+2026-03-22 20:33:38 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 20:33:38 | INFO | Importing users:
+2026-03-22 20:33:38 | INFO | John Smith
+2026-03-22 20:33:38 | INFO | Jane Doe
+2026-03-22 20:33:38 | INFO | Michael 
+2026-03-22 20:33:38 | INFO | Emily Jones
+2026-03-22 20:33:38 | INFO |  Wilson
+2026-03-22 20:33:38 | INFO | Robert Brown
+2026-03-22 20:33:38 | INFO | Anna King
+2026-03-22 20:33:38 | INFO | Chris Evans
+2026-03-22 20:33:38 | INFO | Sarah Connor
+2026-03-22 20:33:38 | INFO | David Lee
+2026-03-22 20:33:38 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 20:33:38 | INFO | == Starting looping over users. ==
+2026-03-22 20:33:38 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 20:33:38 | INFO | [SET]  John Smith
+2026-03-22 20:33:38 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 20:33:38 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 20:33:38 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 20:33:38 | INFO | [PLAN] John Smith
+2026-03-22 20:33:38 | INFO | 	CreateUser              : John Smith
+2026-03-22 20:33:38 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 20:33:38 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 20:33:38 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 20:33:38 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 20:33:38 | INFO | 	AddToDistributionList   : IT
+2026-03-22 20:33:38 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 20:33:38 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 20:33:38 | INFO | [BUILD] John Smith
+2026-03-22 20:33:38 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 20:33:38 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 20:33:38 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 20:33:39 | WARN | [RETRY] CreateUser attempt 1 failed: The term 'New-SecurePassword' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-22 20:36:55 | INFO | === Pipeline started. ===
+2026-03-22 20:36:55 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 20:36:55 | INFO | Importing users:
+2026-03-22 20:36:55 | INFO | John Smith
+2026-03-22 20:36:55 | INFO | Jane Doe
+2026-03-22 20:36:55 | INFO | Michael 
+2026-03-22 20:36:55 | INFO | Emily Jones
+2026-03-22 20:36:55 | INFO |  Wilson
+2026-03-22 20:36:55 | INFO | Robert Brown
+2026-03-22 20:36:55 | INFO | Anna King
+2026-03-22 20:36:55 | INFO | Chris Evans
+2026-03-22 20:36:55 | INFO | Sarah Connor
+2026-03-22 20:36:55 | INFO | David Lee
+2026-03-22 20:36:55 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 20:36:55 | INFO | == Starting looping over users. ==
+2026-03-22 20:36:55 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 20:36:55 | INFO | [SET]  John Smith
+2026-03-22 20:36:55 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 20:36:55 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 20:36:55 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 20:36:55 | INFO | [PLAN] John Smith
+2026-03-22 20:36:55 | INFO | 	CreateUser              : John Smith
+2026-03-22 20:36:55 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 20:36:55 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 20:36:55 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 20:36:55 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 20:36:55 | INFO | 	AddToDistributionList   : IT
+2026-03-22 20:36:55 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 20:36:55 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 20:36:55 | INFO | [BUILD] John Smith
+2026-03-22 20:36:55 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 20:36:55 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 20:36:55 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 20:36:56 | WARN | [RETRY] CreateUser attempt 1 failed: The term 'New-SecurePassword' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-22 20:37:28 | INFO | === Pipeline started. ===
+2026-03-22 20:37:28 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 20:37:28 | INFO | Importing users:
+2026-03-22 20:37:28 | INFO | John Smith
+2026-03-22 20:37:28 | INFO | Jane Doe
+2026-03-22 20:37:28 | INFO | Michael 
+2026-03-22 20:37:28 | INFO | Emily Jones
+2026-03-22 20:37:28 | INFO |  Wilson
+2026-03-22 20:37:28 | INFO | Robert Brown
+2026-03-22 20:37:28 | INFO | Anna King
+2026-03-22 20:37:28 | INFO | Chris Evans
+2026-03-22 20:37:28 | INFO | Sarah Connor
+2026-03-22 20:37:28 | INFO | David Lee
+2026-03-22 20:37:28 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 20:37:28 | INFO | == Starting looping over users. ==
+2026-03-22 20:37:28 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 20:37:29 | INFO | [SET]  John Smith
+2026-03-22 20:37:29 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 20:37:29 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 20:37:29 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 20:37:29 | INFO | [PLAN] John Smith
+2026-03-22 20:37:29 | INFO | 	CreateUser              : John Smith
+2026-03-22 20:37:29 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 20:37:29 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 20:37:29 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 20:37:29 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 20:37:29 | INFO | 	AddToDistributionList   : IT
+2026-03-22 20:37:29 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 20:37:30 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 20:37:30 | INFO | [BUILD] John Smith
+2026-03-22 20:37:30 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 20:38:24 | INFO | === Pipeline started. ===
+2026-03-22 20:38:24 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 20:38:24 | INFO | Importing users:
+2026-03-22 20:38:24 | INFO | John Smith
+2026-03-22 20:38:24 | INFO | Jane Doe
+2026-03-22 20:38:24 | INFO | Michael 
+2026-03-22 20:38:24 | INFO | Emily Jones
+2026-03-22 20:38:24 | INFO |  Wilson
+2026-03-22 20:38:24 | INFO | Robert Brown
+2026-03-22 20:38:24 | INFO | Anna King
+2026-03-22 20:38:24 | INFO | Chris Evans
+2026-03-22 20:38:24 | INFO | Sarah Connor
+2026-03-22 20:38:24 | INFO | David Lee
+2026-03-22 20:38:24 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 20:38:24 | INFO | == Starting looping over users. ==
+2026-03-22 20:38:24 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 20:38:24 | INFO | [SET]  John Smith
+2026-03-22 20:38:24 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 20:38:24 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 20:38:24 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 20:38:24 | INFO | [PLAN] John Smith
+2026-03-22 20:38:24 | INFO | 	CreateUser              : John Smith
+2026-03-22 20:38:24 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 20:38:24 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 20:38:24 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 20:38:24 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 20:38:24 | INFO | 	AddToDistributionList   : IT
+2026-03-22 20:38:25 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 20:38:25 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 20:38:25 | INFO | [BUILD] John Smith
+2026-03-22 20:38:25 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 20:38:25 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 20:38:25 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 20:38:26 | WARN | [RETRY] CreateUser attempt 1 failed: The term 'New-SecurePassword' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-22 21:05:30 | INFO | === Pipeline started. ===
+2026-03-22 21:05:30 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:05:30 | INFO | Importing users:
+2026-03-22 21:05:30 | INFO | John Smith
+2026-03-22 21:05:30 | INFO | Jane Doe
+2026-03-22 21:05:30 | INFO | Michael 
+2026-03-22 21:05:30 | INFO | Emily Jones
+2026-03-22 21:05:30 | INFO |  Wilson
+2026-03-22 21:05:30 | INFO | Robert Brown
+2026-03-22 21:05:30 | INFO | Anna King
+2026-03-22 21:05:30 | INFO | Chris Evans
+2026-03-22 21:05:30 | INFO | Sarah Connor
+2026-03-22 21:05:30 | INFO | David Lee
+2026-03-22 21:05:30 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:05:30 | INFO | == Starting looping over users. ==
+2026-03-22 21:05:30 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:05:30 | INFO | [SET]  John Smith
+2026-03-22 21:05:30 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:05:30 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:05:30 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:05:30 | INFO | [PLAN] John Smith
+2026-03-22 21:05:30 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:05:30 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:05:30 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:05:30 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:05:30 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:05:30 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:05:30 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:05:30 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:05:30 | INFO | [BUILD] John Smith
+2026-03-22 21:05:30 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:05:30 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:05:30 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:05:31 | WARN | [RETRY] CreateUser attempt 1 failed: The term 'New-SecurePassword' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+2026-03-22 21:15:35 | INFO | === Pipeline started. ===
+2026-03-22 21:15:35 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:15:35 | INFO | Importing users:
+2026-03-22 21:15:35 | INFO | John Smith
+2026-03-22 21:15:35 | INFO | Jane Doe
+2026-03-22 21:15:35 | INFO | Michael 
+2026-03-22 21:15:35 | INFO | Emily Jones
+2026-03-22 21:15:35 | INFO |  Wilson
+2026-03-22 21:15:35 | INFO | Robert Brown
+2026-03-22 21:15:35 | INFO | Anna King
+2026-03-22 21:15:35 | INFO | Chris Evans
+2026-03-22 21:15:35 | INFO | Sarah Connor
+2026-03-22 21:15:35 | INFO | David Lee
+2026-03-22 21:15:35 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:15:35 | INFO | == Starting looping over users. ==
+2026-03-22 21:15:35 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:15:35 | INFO | [SET]  John Smith
+2026-03-22 21:15:35 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:15:35 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:15:35 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:15:35 | INFO | [PLAN] John Smith
+2026-03-22 21:15:35 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:15:35 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:15:35 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:15:35 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:15:35 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:15:35 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:15:35 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:15:35 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:15:35 | INFO | [BUILD] John Smith
+2026-03-22 21:15:35 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:15:35 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:15:35 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:15:35 | INFO | 	CreateUser             : Created John Smith
+2026-03-22 21:15:35 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: Cannot validate argument on parameter 'ComputerName'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+2026-03-22 21:17:26 | INFO | === Pipeline started. ===
+2026-03-22 21:17:26 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:17:26 | INFO | Importing users:
+2026-03-22 21:17:26 | INFO | John Smith
+2026-03-22 21:17:26 | INFO | Jane Doe
+2026-03-22 21:17:26 | INFO | Michael 
+2026-03-22 21:17:26 | INFO | Emily Jones
+2026-03-22 21:17:26 | INFO |  Wilson
+2026-03-22 21:17:26 | INFO | Robert Brown
+2026-03-22 21:17:26 | INFO | Anna King
+2026-03-22 21:17:26 | INFO | Chris Evans
+2026-03-22 21:17:26 | INFO | Sarah Connor
+2026-03-22 21:17:26 | INFO | David Lee
+2026-03-22 21:17:26 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:17:26 | INFO | == Starting looping over users. ==
+2026-03-22 21:17:26 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:17:26 | INFO | [SET]  John Smith
+2026-03-22 21:17:26 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:17:26 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:17:26 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:17:26 | INFO | [PLAN] John Smith
+2026-03-22 21:17:26 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:17:26 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:17:26 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:17:26 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:17:26 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:17:26 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:17:26 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:17:26 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:17:26 | INFO | [BUILD] John Smith
+2026-03-22 21:17:26 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:17:26 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:17:26 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:17:27 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:17:27 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:18:00 | INFO | === Pipeline started. ===
+2026-03-22 21:18:00 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:18:00 | INFO | Importing users:
+2026-03-22 21:18:00 | INFO | John Smith
+2026-03-22 21:18:00 | INFO | Jane Doe
+2026-03-22 21:18:00 | INFO | Michael 
+2026-03-22 21:18:00 | INFO | Emily Jones
+2026-03-22 21:18:00 | INFO |  Wilson
+2026-03-22 21:18:00 | INFO | Robert Brown
+2026-03-22 21:18:00 | INFO | Anna King
+2026-03-22 21:18:00 | INFO | Chris Evans
+2026-03-22 21:18:00 | INFO | Sarah Connor
+2026-03-22 21:18:00 | INFO | David Lee
+2026-03-22 21:18:00 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:18:00 | INFO | == Starting looping over users. ==
+2026-03-22 21:18:00 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:18:00 | INFO | [SET]  John Smith
+2026-03-22 21:18:00 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:18:00 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:18:00 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:18:00 | INFO | [PLAN] John Smith
+2026-03-22 21:18:00 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:18:00 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:18:00 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:18:00 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:18:00 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:18:00 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:18:00 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:18:00 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:18:00 | INFO | [BUILD] John Smith
+2026-03-22 21:18:00 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:18:00 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:18:00 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:18:00 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:18:00 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:18:10 | WARN | [RETRY] SyncToEntra attempt 2 failed: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:20:40 | INFO | === Pipeline started. ===
+2026-03-22 21:20:40 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:20:40 | INFO | Importing users:
+2026-03-22 21:20:40 | INFO | John Smith
+2026-03-22 21:20:40 | INFO | Jane Doe
+2026-03-22 21:20:40 | INFO | Michael 
+2026-03-22 21:20:40 | INFO | Emily Jones
+2026-03-22 21:20:40 | INFO |  Wilson
+2026-03-22 21:20:40 | INFO | Robert Brown
+2026-03-22 21:20:40 | INFO | Anna King
+2026-03-22 21:20:40 | INFO | Chris Evans
+2026-03-22 21:20:40 | INFO | Sarah Connor
+2026-03-22 21:20:40 | INFO | David Lee
+2026-03-22 21:20:40 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:20:40 | INFO | == Starting looping over users. ==
+2026-03-22 21:20:40 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:20:40 | INFO | [SET]  John Smith
+2026-03-22 21:20:40 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:20:40 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:20:40 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:20:40 | INFO | [PLAN] John Smith
+2026-03-22 21:20:40 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:20:40 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:20:40 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:20:40 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:20:40 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:20:40 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:20:40 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:20:40 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:20:40 | INFO | [BUILD] John Smith
+2026-03-22 21:20:40 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:20:40 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:20:40 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:20:40 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:20:40 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:20:50 | WARN | [RETRY] SyncToEntra attempt 2 failed: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:21:10 | WARN | [RETRY] SyncToEntra attempt 3 failed: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:21:10 | ERROR | 	[ERROR] SyncToEntra failed for John Smith: Failed to trigger AD sync: A positional parameter cannot be found that accepts argument '$null'.
+2026-03-22 21:21:14 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:21:14 | WARN | [RETRY] WaitForEntra attempt 1 failed: User not found in Entra yet
+2026-03-22 21:21:35 | INFO | === Pipeline started. ===
+2026-03-22 21:21:35 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:21:35 | INFO | Importing users:
+2026-03-22 21:21:35 | INFO | John Smith
+2026-03-22 21:21:35 | INFO | Jane Doe
+2026-03-22 21:21:35 | INFO | Michael 
+2026-03-22 21:21:35 | INFO | Emily Jones
+2026-03-22 21:21:35 | INFO |  Wilson
+2026-03-22 21:21:35 | INFO | Robert Brown
+2026-03-22 21:21:35 | INFO | Anna King
+2026-03-22 21:21:35 | INFO | Chris Evans
+2026-03-22 21:21:35 | INFO | Sarah Connor
+2026-03-22 21:21:35 | INFO | David Lee
+2026-03-22 21:21:35 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:21:35 | INFO | == Starting looping over users. ==
+2026-03-22 21:21:35 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:21:35 | INFO | [SET]  John Smith
+2026-03-22 21:21:35 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:21:35 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:21:35 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:21:35 | INFO | [PLAN] John Smith
+2026-03-22 21:21:35 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:21:35 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:21:35 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:21:35 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:21:35 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:21:35 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:21:35 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:21:35 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:21:35 | INFO | [BUILD] John Smith
+2026-03-22 21:21:35 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:21:35 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:21:35 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:21:35 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:21:35 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: Cannot validate argument on parameter 'ComputerName'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+2026-03-22 21:23:37 | INFO | === Pipeline started. ===
+2026-03-22 21:23:37 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:23:37 | INFO | Importing users:
+2026-03-22 21:23:37 | INFO | John Smith
+2026-03-22 21:23:37 | INFO | Jane Doe
+2026-03-22 21:23:37 | INFO | Michael 
+2026-03-22 21:23:37 | INFO | Emily Jones
+2026-03-22 21:23:37 | INFO |  Wilson
+2026-03-22 21:23:37 | INFO | Robert Brown
+2026-03-22 21:23:37 | INFO | Anna King
+2026-03-22 21:23:37 | INFO | Chris Evans
+2026-03-22 21:23:37 | INFO | Sarah Connor
+2026-03-22 21:23:37 | INFO | David Lee
+2026-03-22 21:23:37 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:23:37 | INFO | == Starting looping over users. ==
+2026-03-22 21:23:37 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:23:37 | INFO | [SET]  John Smith
+2026-03-22 21:23:37 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:23:37 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:23:37 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:23:37 | INFO | [PLAN] John Smith
+2026-03-22 21:23:37 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:23:37 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:23:37 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:23:37 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:23:37 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:23:37 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:23:37 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:23:37 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:23:37 | INFO | [BUILD] John Smith
+2026-03-22 21:23:37 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:23:37 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:23:37 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:23:37 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:23:37 | INFO | DEBUG ADConnectServer: 
+2026-03-22 21:23:37 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: Cannot validate argument on parameter 'ComputerName'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+2026-03-22 21:25:42 | INFO | === Pipeline started. ===
+2026-03-22 21:25:42 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:25:42 | INFO | Importing users:
+2026-03-22 21:25:42 | INFO | John Smith
+2026-03-22 21:25:42 | INFO | Jane Doe
+2026-03-22 21:25:42 | INFO | Michael 
+2026-03-22 21:25:42 | INFO | Emily Jones
+2026-03-22 21:25:42 | INFO |  Wilson
+2026-03-22 21:25:42 | INFO | Robert Brown
+2026-03-22 21:25:42 | INFO | Anna King
+2026-03-22 21:25:42 | INFO | Chris Evans
+2026-03-22 21:25:42 | INFO | Sarah Connor
+2026-03-22 21:25:42 | INFO | David Lee
+2026-03-22 21:25:42 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:25:42 | INFO | == Starting looping over users. ==
+2026-03-22 21:25:42 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:25:42 | INFO | [SET]  John Smith
+2026-03-22 21:25:42 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:25:42 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:25:42 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:25:42 | INFO | [PLAN] John Smith
+2026-03-22 21:25:42 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:25:42 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:25:42 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:25:42 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:25:42 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:25:42 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:25:42 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:25:42 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:25:42 | INFO | [BUILD] John Smith
+2026-03-22 21:25:42 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:25:42 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:25:42 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:25:42 | INFO | DEBUG Config in Start-Onboarding: SRV-ADCONNECT
+2026-03-22 21:25:42 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:25:42 | INFO | DEBUG ADConnectServer: 
+2026-03-22 21:25:42 | WARN | [RETRY] SyncToEntra attempt 1 failed: Failed to trigger AD sync: Cannot validate argument on parameter 'ComputerName'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+2026-03-22 21:28:46 | INFO | === Pipeline started. ===
+2026-03-22 21:28:46 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:28:46 | INFO | Importing users:
+2026-03-22 21:28:46 | INFO | John Smith
+2026-03-22 21:28:46 | INFO | Jane Doe
+2026-03-22 21:28:46 | INFO | Michael 
+2026-03-22 21:28:46 | INFO | Emily Jones
+2026-03-22 21:28:46 | INFO |  Wilson
+2026-03-22 21:28:46 | INFO | Robert Brown
+2026-03-22 21:28:46 | INFO | Anna King
+2026-03-22 21:28:46 | INFO | Chris Evans
+2026-03-22 21:28:46 | INFO | Sarah Connor
+2026-03-22 21:28:46 | INFO | David Lee
+2026-03-22 21:28:46 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:28:46 | INFO | == Starting looping over users. ==
+2026-03-22 21:28:46 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:28:46 | INFO | [SET]  John Smith
+2026-03-22 21:28:46 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:28:46 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:28:46 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:28:46 | INFO | [PLAN] John Smith
+2026-03-22 21:28:46 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:28:46 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:28:46 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:28:46 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:28:46 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:28:46 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:28:46 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:28:46 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:28:46 | INFO | [BUILD] John Smith
+2026-03-22 21:28:46 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:28:46 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:28:46 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:28:46 | INFO | DEBUG Config in Start-Onboarding: SRV-ADCONNECT
+2026-03-22 21:28:47 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:28:47 | INFO | DEBUG ADConnectServer: SRV-ADCONNECT
+2026-03-22 21:28:49 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:28:50 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:28:50 | WARN | [RETRY] WaitForEntra attempt 1 failed: User not found in Entra yet
+2026-03-22 21:29:20 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:29:20 | WARN | [RETRY] WaitForEntra attempt 2 failed: User not found in Entra yet
+2026-03-22 21:30:20 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:30:20 | WARN | [RETRY] WaitForEntra attempt 3 failed: User not found in Entra yet
+2026-03-22 21:31:39 | INFO | === Pipeline started. ===
+2026-03-22 21:31:39 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:31:39 | INFO | Importing users:
+2026-03-22 21:31:39 | INFO | John Smith
+2026-03-22 21:31:39 | INFO | Jane Doe
+2026-03-22 21:31:39 | INFO | Michael 
+2026-03-22 21:31:39 | INFO | Emily Jones
+2026-03-22 21:31:39 | INFO |  Wilson
+2026-03-22 21:31:39 | INFO | Robert Brown
+2026-03-22 21:31:39 | INFO | Anna King
+2026-03-22 21:31:39 | INFO | Chris Evans
+2026-03-22 21:31:39 | INFO | Sarah Connor
+2026-03-22 21:31:39 | INFO | David Lee
+2026-03-22 21:31:39 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:31:39 | INFO | == Starting looping over users. ==
+2026-03-22 21:31:39 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:31:39 | INFO | [SET]  John Smith
+2026-03-22 21:31:39 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:31:39 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:31:39 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:31:39 | INFO | [PLAN] John Smith
+2026-03-22 21:31:39 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:31:39 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:31:39 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:31:39 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:31:39 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:31:39 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:31:39 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:31:39 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:31:39 | INFO | [BUILD] John Smith
+2026-03-22 21:31:39 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:31:39 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:31:39 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:31:39 | INFO | DEBUG Config in Start-Onboarding: SRV-ADCONNECT
+2026-03-22 21:31:39 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:31:39 | INFO | DEBUG ADConnectServer: SRV-ADCONNECT
+2026-03-22 21:31:40 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:31:42 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:31:42 | WARN | [RETRY] WaitForEntra attempt 1 failed: User not found in Entra yet
+2026-03-22 21:32:12 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:32:12 | WARN | [RETRY] WaitForEntra attempt 2 failed: User not found in Entra yet
+2026-03-22 21:33:48 | INFO | === Pipeline started. ===
+2026-03-22 21:33:48 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:33:48 | INFO | Importing users:
+2026-03-22 21:33:48 | INFO | John Smith
+2026-03-22 21:33:48 | INFO | Jane Doe
+2026-03-22 21:33:48 | INFO | Michael 
+2026-03-22 21:33:48 | INFO | Emily Jones
+2026-03-22 21:33:48 | INFO |  Wilson
+2026-03-22 21:33:48 | INFO | Robert Brown
+2026-03-22 21:33:48 | INFO | Anna King
+2026-03-22 21:33:48 | INFO | Chris Evans
+2026-03-22 21:33:48 | INFO | Sarah Connor
+2026-03-22 21:33:48 | INFO | David Lee
+2026-03-22 21:33:48 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:33:48 | INFO | == Starting looping over users. ==
+2026-03-22 21:33:48 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:33:48 | INFO | [SET]  John Smith
+2026-03-22 21:33:48 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:33:48 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:33:48 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:33:48 | INFO | [PLAN] John Smith
+2026-03-22 21:33:48 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:33:48 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:33:48 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:33:48 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:33:48 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:33:48 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:33:48 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:33:48 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:33:48 | INFO | [BUILD] John Smith
+2026-03-22 21:33:48 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:33:48 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:33:48 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:33:48 | INFO | DEBUG Config in Start-Onboarding: SRV-ADCONNECT
+2026-03-22 21:33:48 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:33:48 | INFO | DEBUG ADConnectServer: SRV-ADCONNECT
+2026-03-22 21:33:49 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:33:50 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:33:50 | WARN | [RETRY] WaitForEntra attempt 1 failed: User not found in Entra yet
+2026-03-22 21:34:20 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:34:20 | WARN | [RETRY] WaitForEntra attempt 2 failed: User not found in Entra yet
+2026-03-22 21:35:20 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:35:20 | WARN | [RETRY] WaitForEntra attempt 3 failed: User not found in Entra yet
+2026-03-22 21:36:50 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
+2026-03-22 21:36:50 | WARN | [RETRY] WaitForEntra attempt 4 failed: User not found in Entra yet
+2026-03-22 21:37:53 | INFO | === Pipeline started. ===
+2026-03-22 21:37:53 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:37:53 | INFO | Importing users:
+2026-03-22 21:37:53 | INFO | John Smith
+2026-03-22 21:37:53 | INFO | Jane Doe
+2026-03-22 21:37:53 | INFO | Michael 
+2026-03-22 21:37:53 | INFO | Emily Jones
+2026-03-22 21:37:53 | INFO |  Wilson
+2026-03-22 21:37:53 | INFO | Robert Brown
+2026-03-22 21:37:53 | INFO | Anna King
+2026-03-22 21:37:53 | INFO | Chris Evans
+2026-03-22 21:37:53 | INFO | Sarah Connor
+2026-03-22 21:37:53 | INFO | David Lee
+2026-03-22 21:37:53 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:37:53 | INFO | == Starting looping over users. ==
+2026-03-22 21:37:53 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:37:53 | INFO | [SET]  John Smith
+2026-03-22 21:37:53 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:37:53 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:37:53 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:37:53 | INFO | [PLAN] John Smith
+2026-03-22 21:37:53 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:37:53 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:37:53 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:37:53 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:37:53 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:37:53 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:37:53 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:37:53 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:37:53 | INFO | [BUILD] John Smith
+2026-03-22 21:37:53 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:37:53 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:37:53 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:37:53 | INFO | DEBUG Config in Start-Onboarding: SRV-ADCONNECT
+2026-03-22 21:37:53 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:37:53 | INFO | DEBUG ADConnectServer: SRV-ADCONNECT
+2026-03-22 21:37:55 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:37:55 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 21:37:55 | WARN | [RETRY] AddToGroup attempt 1 failed: Unknown action: AddToGroup
+2026-03-22 21:38:00 | WARN | [RETRY] AddToGroup attempt 2 failed: Unknown action: AddToGroup
+2026-03-22 21:41:01 | INFO | === Pipeline started. ===
+2026-03-22 21:41:01 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:41:01 | INFO | Importing users:
+2026-03-22 21:41:01 | INFO | John Smith
+2026-03-22 21:41:01 | INFO | Jane Doe
+2026-03-22 21:41:01 | INFO | Michael 
+2026-03-22 21:41:01 | INFO | Emily Jones
+2026-03-22 21:41:01 | INFO |  Wilson
+2026-03-22 21:41:01 | INFO | Robert Brown
+2026-03-22 21:41:01 | INFO | Anna King
+2026-03-22 21:41:01 | INFO | Chris Evans
+2026-03-22 21:41:01 | INFO | Sarah Connor
+2026-03-22 21:41:01 | INFO | David Lee
+2026-03-22 21:41:01 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:41:01 | INFO | == Starting looping over users. ==
+2026-03-22 21:41:01 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:41:01 | INFO | [SET]  John Smith
+2026-03-22 21:41:01 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:41:01 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:41:01 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:41:01 | INFO | [PLAN] John Smith
+2026-03-22 21:41:01 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:41:01 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:41:01 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:41:01 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:41:01 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:41:01 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:41:01 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:41:01 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:41:01 | INFO | [BUILD] John Smith
+2026-03-22 21:41:01 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:41:01 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:41:01 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:41:01 | INFO | DEBUG Config in Start-Onboarding: SRV-ADCONNECT
+2026-03-22 21:41:01 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:41:01 | INFO | DEBUG ADConnectServer: SRV-ADCONNECT
+2026-03-22 21:41:02 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:41:02 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 21:41:02 | WARN | [RETRY] AddToGroup attempt 1 failed: Unknown action: AddToGroup
+2026-03-22 21:41:47 | INFO | === Pipeline started. ===
+2026-03-22 21:41:47 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:41:47 | INFO | Importing users:
+2026-03-22 21:41:47 | INFO | John Smith
+2026-03-22 21:41:47 | INFO | Jane Doe
+2026-03-22 21:41:47 | INFO | Michael 
+2026-03-22 21:41:47 | INFO | Emily Jones
+2026-03-22 21:41:47 | INFO |  Wilson
+2026-03-22 21:41:47 | INFO | Robert Brown
+2026-03-22 21:41:47 | INFO | Anna King
+2026-03-22 21:41:47 | INFO | Chris Evans
+2026-03-22 21:41:47 | INFO | Sarah Connor
+2026-03-22 21:41:47 | INFO | David Lee
+2026-03-22 21:41:47 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:41:47 | INFO | == Starting looping over users. ==
+2026-03-22 21:41:47 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:41:47 | INFO | [SET]  John Smith
+2026-03-22 21:41:47 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:41:47 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:41:47 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:41:47 | INFO | [PLAN] John Smith
+2026-03-22 21:41:47 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:41:47 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:41:47 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:41:47 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:41:47 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:41:47 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:41:47 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:41:47 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:41:47 | INFO | [BUILD] John Smith
+2026-03-22 21:41:47 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:41:47 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:41:47 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:41:47 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:41:48 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:41:49 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 21:41:49 | WARN | [RETRY] AddToGroup attempt 1 failed: Unknown action: AddToGroup
+2026-03-22 21:41:54 | WARN | [RETRY] AddToGroup attempt 2 failed: Unknown action: AddToGroup
+2026-03-22 21:49:04 | INFO | === Pipeline started. ===
+2026-03-22 21:49:04 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:49:04 | INFO | Importing users:
+2026-03-22 21:49:04 | INFO | John Smith
+2026-03-22 21:49:04 | INFO | Jane Doe
+2026-03-22 21:49:04 | INFO | Michael 
+2026-03-22 21:49:04 | INFO | Emily Jones
+2026-03-22 21:49:04 | INFO |  Wilson
+2026-03-22 21:49:04 | INFO | Robert Brown
+2026-03-22 21:49:04 | INFO | Anna King
+2026-03-22 21:49:04 | INFO | Chris Evans
+2026-03-22 21:49:04 | INFO | Sarah Connor
+2026-03-22 21:49:04 | INFO | David Lee
+2026-03-22 21:49:04 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:49:04 | INFO | == Starting looping over users. ==
+2026-03-22 21:49:04 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:49:04 | INFO | [SET]  John Smith
+2026-03-22 21:49:04 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:49:04 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:49:04 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:49:04 | INFO | [PLAN] John Smith
+2026-03-22 21:49:04 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:49:04 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:49:04 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:49:04 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:49:04 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:49:04 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:49:04 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:49:04 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:49:04 | INFO | [BUILD] John Smith
+2026-03-22 21:49:04 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:49:04 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:49:04 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:49:04 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:49:05 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:49:05 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 21:49:05 | INFO | 	AddToGroup             : Added John Smith to GRP_ROLE_IT_Admin
+2026-03-22 21:49:06 | INFO | 	AddToGroup             : Added John Smith to GRP-AllStaff
+2026-03-22 21:49:06 | WARN | [RETRY] AddToDistributionList attempt 1 failed: Unknown action: AddToDistributionList
+2026-03-22 21:49:09 | WARN | [RETRY] AddToDistributionList attempt 2 failed: Unknown action: AddToDistributionList
+2026-03-22 21:49:09 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: Unknown action: AddToDistributionList
+2026-03-22 21:49:09 | WARN | [RETRY] AddToDistributionList attempt 1 failed: Unknown action: AddToDistributionList
+2026-03-22 21:49:12 | WARN | [RETRY] AddToDistributionList attempt 2 failed: Unknown action: AddToDistributionList
+2026-03-22 21:49:12 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: Unknown action: AddToDistributionList
+2026-03-22 21:49:12 | WARN | [RETRY] AssignLicense attempt 1 failed: Unknown action: AssignLicense
+2026-03-22 21:51:18 | INFO | === Pipeline started. ===
+2026-03-22 21:51:18 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 21:51:18 | INFO | Importing users:
+2026-03-22 21:51:18 | INFO | John Smith
+2026-03-22 21:51:18 | INFO | Jane Doe
+2026-03-22 21:51:18 | INFO | Michael 
+2026-03-22 21:51:18 | INFO | Emily Jones
+2026-03-22 21:51:18 | INFO |  Wilson
+2026-03-22 21:51:18 | INFO | Robert Brown
+2026-03-22 21:51:18 | INFO | Anna King
+2026-03-22 21:51:18 | INFO | Chris Evans
+2026-03-22 21:51:18 | INFO | Sarah Connor
+2026-03-22 21:51:18 | INFO | David Lee
+2026-03-22 21:51:18 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 21:51:18 | INFO | == Starting looping over users. ==
+2026-03-22 21:51:18 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 21:51:18 | INFO | [SET]  John Smith
+2026-03-22 21:51:18 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 21:51:18 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 21:51:18 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 21:51:18 | INFO | [PLAN] John Smith
+2026-03-22 21:51:18 | INFO | 	CreateUser              : John Smith
+2026-03-22 21:51:18 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 21:51:18 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 21:51:18 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 21:51:18 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 21:51:18 | INFO | 	AddToDistributionList   : IT
+2026-03-22 21:51:18 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 21:51:18 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 21:51:18 | INFO | [BUILD] John Smith
+2026-03-22 21:51:18 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 21:51:18 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 21:51:18 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 21:51:18 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 21:51:19 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 21:51:20 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 21:51:20 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-03-22 21:51:20 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-03-22 21:51:20 | WARN | [RETRY] AddToDistributionList attempt 1 failed: Unknown action: AddToDistributionList
+2026-03-22 21:51:23 | WARN | [RETRY] AddToDistributionList attempt 2 failed: Unknown action: AddToDistributionList
+2026-03-22 21:51:23 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: Unknown action: AddToDistributionList
+2026-03-22 21:51:23 | WARN | [RETRY] AddToDistributionList attempt 1 failed: Unknown action: AddToDistributionList
+2026-03-22 21:51:26 | WARN | [RETRY] AddToDistributionList attempt 2 failed: Unknown action: AddToDistributionList
+2026-03-22 21:51:26 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: Unknown action: AddToDistributionList
+2026-03-22 21:51:26 | WARN | [RETRY] AssignLicense attempt 1 failed: Unknown action: AssignLicense
+2026-03-22 22:11:58 | INFO | === Pipeline started. ===
+2026-03-22 22:11:58 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 22:11:58 | INFO | Importing users:
+2026-03-22 22:11:58 | INFO | John Smith
+2026-03-22 22:11:58 | INFO | Jane Doe
+2026-03-22 22:11:58 | INFO | Michael 
+2026-03-22 22:11:58 | INFO | Emily Jones
+2026-03-22 22:11:58 | INFO |  Wilson
+2026-03-22 22:11:58 | INFO | Robert Brown
+2026-03-22 22:11:58 | INFO | Anna King
+2026-03-22 22:11:58 | INFO | Chris Evans
+2026-03-22 22:11:58 | INFO | Sarah Connor
+2026-03-22 22:11:58 | INFO | David Lee
+2026-03-22 22:11:58 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 22:11:58 | INFO | == Starting looping over users. ==
+2026-03-22 22:11:58 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 22:11:58 | INFO | [SET]  John Smith
+2026-03-22 22:11:58 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 22:11:58 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 22:11:58 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 22:11:58 | INFO | [PLAN] John Smith
+2026-03-22 22:11:58 | INFO | 	CreateUser              : John Smith
+2026-03-22 22:11:58 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 22:11:58 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 22:11:58 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 22:11:58 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 22:11:58 | INFO | 	AddToDistributionList   : IT
+2026-03-22 22:11:58 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 22:11:58 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 22:11:58 | INFO | [BUILD] John Smith
+2026-03-22 22:11:58 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 22:11:58 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 22:11:58 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 22:11:58 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 22:12:00 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 22:12:00 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 22:12:00 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-03-22 22:12:00 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-03-22 22:12:02 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:07 | WARN | [RETRY] AddToDistributionList attempt 2 failed: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:07 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:08 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:41 | INFO | === Pipeline started. ===
+2026-03-22 22:12:41 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 22:12:41 | INFO | Importing users:
+2026-03-22 22:12:41 | INFO | John Smith
+2026-03-22 22:12:41 | INFO | Jane Doe
+2026-03-22 22:12:41 | INFO | Michael 
+2026-03-22 22:12:41 | INFO | Emily Jones
+2026-03-22 22:12:41 | INFO |  Wilson
+2026-03-22 22:12:41 | INFO | Robert Brown
+2026-03-22 22:12:41 | INFO | Anna King
+2026-03-22 22:12:41 | INFO | Chris Evans
+2026-03-22 22:12:41 | INFO | Sarah Connor
+2026-03-22 22:12:41 | INFO | David Lee
+2026-03-22 22:12:41 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 22:12:41 | INFO | == Starting looping over users. ==
+2026-03-22 22:12:41 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 22:12:41 | INFO | [SET]  John Smith
+2026-03-22 22:12:41 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 22:12:41 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 22:12:41 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 22:12:41 | INFO | [PLAN] John Smith
+2026-03-22 22:12:41 | INFO | 	CreateUser              : John Smith
+2026-03-22 22:12:41 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 22:12:41 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 22:12:41 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 22:12:41 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 22:12:41 | INFO | 	AddToDistributionList   : IT
+2026-03-22 22:12:41 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 22:12:41 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 22:12:41 | INFO | [BUILD] John Smith
+2026-03-22 22:12:41 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 22:12:41 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 22:12:41 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 22:12:41 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 22:12:42 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 22:12:42 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 22:12:42 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-03-22 22:12:42 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-03-22 22:12:44 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:48 | WARN | [RETRY] AddToDistributionList attempt 2 failed: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:48 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:12:49 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||Couldn't find object "johnsmith@dev.local". Please make sure that it was spelled correctly or specify a different object.
+2026-03-22 22:13:51 | INFO | === Pipeline started. ===
+2026-03-22 22:13:51 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 22:13:51 | INFO | Importing users:
+2026-03-22 22:13:51 | INFO | John Smith
+2026-03-22 22:13:51 | INFO | Jane Doe
+2026-03-22 22:13:51 | INFO | Michael 
+2026-03-22 22:13:51 | INFO | Emily Jones
+2026-03-22 22:13:51 | INFO |  Wilson
+2026-03-22 22:13:51 | INFO | Robert Brown
+2026-03-22 22:13:51 | INFO | Anna King
+2026-03-22 22:13:51 | INFO | Chris Evans
+2026-03-22 22:13:51 | INFO | Sarah Connor
+2026-03-22 22:13:51 | INFO | David Lee
+2026-03-22 22:13:51 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 22:13:51 | INFO | == Starting looping over users. ==
+2026-03-22 22:13:51 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 22:13:51 | INFO | [SET]  John Smith
+2026-03-22 22:13:51 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 22:13:51 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 22:13:51 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 22:13:51 | INFO | [PLAN] John Smith
+2026-03-22 22:13:51 | INFO | 	CreateUser              : John Smith
+2026-03-22 22:13:51 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 22:13:51 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 22:13:51 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 22:13:51 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 22:13:51 | INFO | 	AddToDistributionList   : IT
+2026-03-22 22:13:51 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 22:13:51 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 22:13:51 | INFO | [BUILD] John Smith
+2026-03-22 22:13:51 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 22:13:51 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 22:13:51 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 22:13:51 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 22:13:52 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 22:13:52 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 22:13:52 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-03-22 22:13:52 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-03-22 22:13:55 | INFO | 	AddToDistributionList  : Added John Smith to IT
+2026-03-22 22:13:57 | INFO | 	AddToDistributionList  : Added John Smith to AllStaff
+2026-03-22 22:13:57 | WARN | [RETRY] AssignLicense attempt 1 failed: Unknown action: AssignLicense
+2026-03-22 22:21:09 | INFO | === Pipeline started. ===
+2026-03-22 22:21:09 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 22:21:09 | INFO | Importing users:
+2026-03-22 22:21:09 | INFO | John Smith
+2026-03-22 22:21:09 | INFO | Jane Doe
+2026-03-22 22:21:09 | INFO | Michael 
+2026-03-22 22:21:09 | INFO | Emily Jones
+2026-03-22 22:21:09 | INFO |  Wilson
+2026-03-22 22:21:09 | INFO | Robert Brown
+2026-03-22 22:21:09 | INFO | Anna King
+2026-03-22 22:21:09 | INFO | Chris Evans
+2026-03-22 22:21:09 | INFO | Sarah Connor
+2026-03-22 22:21:09 | INFO | David Lee
+2026-03-22 22:21:09 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 22:21:09 | INFO | == Starting looping over users. ==
+2026-03-22 22:21:09 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 22:21:09 | INFO | [SET]  John Smith
+2026-03-22 22:21:09 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 22:21:09 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 22:21:09 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 22:21:09 | INFO | [PLAN] John Smith
+2026-03-22 22:21:09 | INFO | 	CreateUser              : John Smith
+2026-03-22 22:21:09 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 22:21:09 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 22:21:09 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 22:21:09 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 22:21:09 | INFO | 	AddToDistributionList   : IT
+2026-03-22 22:21:09 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 22:21:09 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 22:21:09 | INFO | [BUILD] John Smith
+2026-03-22 22:21:09 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 22:21:09 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 22:21:09 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 22:21:09 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 22:21:11 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 22:21:11 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 22:21:11 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-03-22 22:21:11 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-03-22 22:21:13 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "IT".
+2026-03-22 22:21:18 | WARN | [RETRY] AddToDistributionList attempt 2 failed: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "IT".
+2026-03-22 22:21:18 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "IT".
+2026-03-22 22:21:19 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "AllStaff".
+2026-03-22 22:21:23 | WARN | [RETRY] AddToDistributionList attempt 2 failed: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "AllStaff".
+2026-03-22 22:21:23 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "AllStaff".
+2026-03-22 22:21:23 | WARN | [RETRY] AssignLicense attempt 1 failed: A parameter cannot be found that matches parameter name 'Target'.
+2026-03-22 22:28:54 | INFO | === Pipeline started. ===
+2026-03-22 22:28:54 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\users.csv ==
+2026-03-22 22:28:54 | INFO | Importing users:
+2026-03-22 22:28:54 | INFO | John Smith
+2026-03-22 22:28:54 | INFO | Jane Doe
+2026-03-22 22:28:54 | INFO | Michael 
+2026-03-22 22:28:54 | INFO | Emily Jones
+2026-03-22 22:28:54 | INFO |  Wilson
+2026-03-22 22:28:54 | INFO | Robert Brown
+2026-03-22 22:28:54 | INFO | Anna King
+2026-03-22 22:28:54 | INFO | Chris Evans
+2026-03-22 22:28:54 | INFO | Sarah Connor
+2026-03-22 22:28:54 | INFO | David Lee
+2026-03-22 22:28:54 | INFO | == CSV import finished. Total users: 10 ==
+2026-03-22 22:28:54 | INFO | == Starting looping over users. ==
+2026-03-22 22:28:54 | INFO | [PASS] Validation passed for John Smith
+2026-03-22 22:28:54 | INFO | [SET]  John Smith
+2026-03-22 22:28:54 | INFO | 	Distribution Lists : IT;AllStaff
+2026-03-22 22:28:54 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-03-22 22:28:54 | INFO | 	License            : Microsoft365BusinessBasic
+2026-03-22 22:28:54 | INFO | [PLAN] John Smith
+2026-03-22 22:28:54 | INFO | 	CreateUser              : John Smith
+2026-03-22 22:28:54 | INFO | 	SyncToEntra             : John Smith
+2026-03-22 22:28:54 | INFO | 	WaitForEntra            : John Smith
+2026-03-22 22:28:54 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-03-22 22:28:54 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-03-22 22:28:54 | INFO | 	AddToDistributionList   : IT
+2026-03-22 22:28:54 | INFO | 	AddToDistributionList   : AllStaff
+2026-03-22 22:28:54 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-03-22 22:28:54 | INFO | [BUILD] John Smith
+2026-03-22 22:28:54 | INFO | 	SamAccountName    : johnsmith
+2026-03-22 22:28:54 | INFO | 	UPN               : johnsmith@dev.local
+2026-03-22 22:28:54 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-03-22 22:28:55 | INFO | 	CreateUser             : Already exists, skipping
+2026-03-22 22:28:56 | INFO | 	SyncToEntra            : Delta sync triggered
+2026-03-22 22:28:56 | INFO | 	WaitForEntra           : User found in Entra
+2026-03-22 22:28:56 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-03-22 22:28:56 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-03-22 22:28:59 | WARN | [RETRY] AddToDistributionList attempt 1 failed: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "IT".
+2026-03-22 22:29:03 | WARN | [RETRY] AddToDistributionList attempt 2 failed: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "IT".
+2026-03-22 22:29:03 | ERROR | 	[ERROR] AddToDistributionList failed for John Smith: ||The recipient "johnsmith@testadscripts.onmicrosoft.com" is already a member of the group "IT".

@@ -24,6 +24,19 @@ function New-OnboardingPlan {
         Target = "$($raw.FirstName) $($raw.LastName)"
     }
 
+    # Action: Sync to Entra
+    $PipelineObject.Plan += @{
+        Action = "SyncToEntra"
+        Target = "$($raw.FirstName) $($raw.LastName)"
+    }
+
+    # Action: Wait for Entra sync
+    $PipelineObject.Plan += @{
+        Action = "WaitForEntra"
+        Target = "$($raw.FirstName) $($raw.LastName)"
+    }
+
+
     # Action: Add to AD groups
     if ($raw.ADGroups) {
         foreach ($group in $raw.ADGroups -split ';') {

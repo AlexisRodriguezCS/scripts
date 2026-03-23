@@ -3,7 +3,8 @@ function Start-Onboarding {
     param (
         [Parameter(Mandatory)]
         [string]$LogFile,
-        [PSCustomObject]$PipelineObject
+        [PSCustomObject]$PipelineObject,
+        [PSCustomObject]$Config
     )  
 
     # Skip processing if there are errors from previous steps
@@ -35,6 +36,8 @@ function Start-Onboarding {
     # Retry configurations for different action types
     $retryConfig = @{
         CreateUser            = @{ MaxRetries = 5; DelaySeconds = 10 }
+        SyncToEntra           = @{ MaxRetries = 3; DelaySeconds = 10 }
+        WaitForEntra          = @{ MaxRetries = 10; DelaySeconds = 30 }
         AddToGroup            = @{ MaxRetries = 3; DelaySeconds = 5  }
         AddToDistributionList = @{ MaxRetries = 2; DelaySeconds = 3  }
         AssignLicense         = @{ MaxRetries = 4; DelaySeconds = 5  }
@@ -44,25 +47,33 @@ function Start-Onboarding {
     foreach ($actionItem in $PipelineObject.Plan) {
         $action = $actionItem.Action
         $target = $actionItem.Target
-        $config = $retryConfig[$action]
+        $retryParams  = $retryConfig[$action]
+        $attempt = 0
+        $success = $false
 
-        try {
-            Invoke-WithRetry -MaxRetries $config.MaxRetries `
-                             -DelaySeconds $config.DelaySeconds `
-                             -Action  {
+        while (-not $success -and $attempt -lt $retryParams.MaxRetries) {
+            $attempt++
+            try {
                 switch ($action) {
-                    "CreateUser"        { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
-                    "AddToGroup" { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
-                    "AddToDistributionList"    { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
-                    "AssignLicense"     { Set-OnboardingLicense -Identity $id -Target $target -LogFile $LogFile }
-                    default                    { throw "Unknown action: $action" }
+                    "CreateUser"            { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
+                    "SyncToEntra"  { Invoke-EntraSync -Config $Config -LogFile $LogFile }
+                    "WaitForEntra" { Wait-ForEntraUser -Identity $id -LogFile $LogFile }
+                    "AddToGroup"            { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AddToDistributionList" { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
+                    "AssignLicense"         { Set-OnboardingLicense -Identity $id -Config $Config -LogFile $LogFile }
+                    default                 { throw "Unknown action: $action" }
+                }
+                $success = $true
+            }
+            catch {
+                Write-Log -Message "[RETRY] $action attempt $attempt failed: $($_.Exception.Message)" -Level "WARN" -LogFile $LogFile
+                if ($attempt -lt $retryParams.MaxRetries) {
+                    Start-Sleep -Seconds ($retryParams.DelaySeconds * $attempt)
+                } else {
+                    Write-Log -Message "`t[ERROR] $action failed for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
+                    $PipelineObject.Errors += "$action failed"
                 }
             }
-        }
-        catch {
-            # Final failure after retries
-            Write-Log -Message "`t[ERROR] $action failed for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
-            $PipelineObject.Errors += "$action failed"
         }
     }
 

@@ -1,5 +1,0 @@
-{
-    "DisabledOU": "OU=Disabled,DC=dev,DC=com",
-    "RetentionDays": 30,
-    "LogPath": "Logs\\Offboarding.log"
-}

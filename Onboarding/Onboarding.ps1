@@ -1,7 +1,20 @@
 [CmdletBinding()]
 param(
-    [string]$Path = "$PSScriptRoot\Data\users.csv"
+    [string]$Path = "$PSScriptRoot\Data\users.csv",
+    [Parameter(Mandatory)]
+    [string]$Client
 )
+
+# ------------------------
+# CHECK REQUIRED MODULES
+# ------------------------
+$requiredModules = @("ActiveDirectory", "ExchangeOnlineManagement", "Microsoft.Graph")
+
+foreach ($module in $requiredModules) {
+    if (-Not (Get-Module -ListAvailable -Name $module)) {
+        throw "Required module not found: $module. Run 'Install-Module $module -Scope CurrentUser'"
+    }
+}
 
 # Dot-source shared modules
 . "$PSScriptRoot\..\Modules\Shared\Write-Log.ps1"
@@ -23,12 +36,32 @@ param(
 . "$PSScriptRoot\Actions\Add-OnboardingGroupMember.ps1"
 . "$PSScriptRoot\Actions\Add-OnboardingDLMember.ps1"
 . "$PSScriptRoot\Actions\Set-OnboardingLicense.ps1"
+. "$PSScriptRoot\Actions\Invoke-EntraSync.ps1"
+. "$PSScriptRoot\Actions\Wait-ForEntraUser.ps1"
 
 # Load config
-$Config = Get-Config -Script "Onboarding"
+$Config = Get-Config -Script "Onboarding" -Client $Client
+
+# Create logs folder if it doesn't exist
+if (-Not (Test-Path "$PSScriptRoot\Logs")) {
+    New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" | Out-Null
+}
 
 # Set log file path
 $LogFile = "$PSScriptRoot\$($Config.LogPath)"
+
+# ------------------------
+# AUTHENTICATE
+# ------------------------
+Connect-MgGraph -TenantId $Config.TenantId `
+                -ClientId $Config.ClientId `
+                -CertificateThumbprint $Config.CertThumbprint `
+                -NoWelcome
+
+Connect-ExchangeOnline -AppId $Config.ClientId `
+                       -CertificateThumbprint $Config.CertThumbprint `
+                       -Organization $Config.TenantDomain `
+                       -ShowBanner:$false
 
 # Run pipeline
 Invoke-UserOnboarding -Path $Path -LogFile $LogFile -Config $Config
