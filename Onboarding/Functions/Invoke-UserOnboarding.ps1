@@ -3,9 +3,13 @@ function Invoke-UserOnboarding {
     param(
         [Parameter(Mandatory)]
         [string]$Path, # CSV path
+        [Parameter(Mandatory)]
         [string]$LogFile, # Log file path
+        [Parameter(Mandatory)]
         [PSCustomObject]$Config # Get config object
     )
+
+    $pipelineStart = Get-Date
 
     Write-Log -Message "=== Pipeline started. ===" -Level "INFO" -LogFile $LogFile
 
@@ -17,37 +21,60 @@ function Invoke-UserOnboarding {
     $alreadyCount = 0
     $skippedCount = 0
 
-    Write-Log -Message "== Starting looping over users. ==" -Level "INFO" -LogFile $LogFile
-
-    # Loop through users
+    # Create all user(s) first
     foreach ($user in $users) {
 
-        # Convert data
-        $user = ConvertTo-OnboardingStandard -PipelineObject $user
-
-        # Validate data
-        $user = Test-OnboardingData -LogFile $LogFile -PipelineObject $user 
+        # 1. Convert data
+        ConvertTo-OnboardingStandard -PipelineObject $user -LogFile $LogFile
+        # 2. Validate data
+        Test-OnboardingData -PipelineObject $user -LogFile $LogFile
 
         # User has errors and will be skipped
         if ($user.Status -eq "Skipped") {
             $skippedCount++
-            Write-Log -Message "[SKIP] User processed with errors: $($user.Raw.FirstName) $($user.Raw.LastName) will be skipped" -Level "WARN" -LogFile $LogFile
-            # Log line break
+            Write-Log -Message "[$($user.CorrelationId)] [SKIP] User processed with errors: $($user.Raw.FirstName) $($user.Raw.LastName)" `
+                -Level "WARN" -LogFile $LogFile
             Write-Log -Message " " -LogFile $LogFile
             continue
         }
         
-        # Apply policies
-        $user = Set-OnboardingPolicy -PipelineObject $user -Config $Config -LogFile $LogFile
+        # 3. Apply policies
+        Set-OnboardingPolicy -PipelineObject $user -Config $Config -LogFile $LogFile
+        # 4. Plan onboarding actions
+        New-OnboardingPlan -PipelineObject $user -LogFile $LogFile
+        # 5. Build onboarding data
+        New-OnboardingIdentity -PipelineObject $user -LogFile $LogFile -Config $Config
+        # 6. Create user
+        New-OnboardingUser -PipelineObject $user -LogFile $LogFile
 
-        # # Plan onboarding actions
-        $user = New-OnboardingPlan -PipelineObject $user -LogFile $LogFile
+        # Log line break
+        Write-Log -Message " " -LogFile $LogFile
+    }
 
-        # # Build onboarding data
-        $user = New-OnboardingIdentity -PipelineObject $user -LogFile $LogFile -Config $Config
+     Write-Log -Message "== Syncing users ==" -Level "INFO" -LogFile $LogFile
 
-        # # Execute onboarding
-        $user = Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
+    # Sync Once for all users
+    $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
+
+    if ($anyCreated) {
+        Write-Log -Message "== Syncing to Entra. ==" -Level "INFO" -LogFile $LogFile
+        Invoke-EntraSync -Config $Config -LogFile $LogFile
+    } else {
+        Write-Log -Message "== No new users created, skipping sync. ==" -Level "INFO" -LogFile $LogFile
+    }
+
+     Write-Log -Message "== Completing onboarding ==" -Level "INFO" -LogFile $LogFile
+
+    # Complete onboarding for each user
+    foreach ($user in $users) {
+
+        # Skip users that were skipped or failed
+        if ($user.Status -eq "Skipped" -or $user.Status -eq "Failed") {
+            continue
+        }
+
+        # Execute onboarding
+        Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
 
         switch ($user.Status) {
             "Created"       { $successCount++ }
@@ -55,11 +82,10 @@ function Invoke-UserOnboarding {
             "Failed"        { $failedCount++ }
         }
 
-        # Log line break
         Write-Log -Message " " -LogFile $LogFile
     }
 
-    Write-Log -Message "== Finished looping over users. ==" -Level "INFO" -LogFile $LogFile
+    $pipelineDuration = (Get-Date) - $pipelineStart
 
     # Finish logging
     Write-Log -Message "
@@ -69,5 +95,6 @@ function Invoke-UserOnboarding {
     Already Exists: $alreadyCount
     Failed: $failedCount
     Skipped (Validation): $skippedCount
+    Total Duration: $($pipelineDuration.TotalSeconds) sec
         " -Level "INFO" -LogFile $LogFile
 }

@@ -11,17 +11,15 @@ function Add-OnboardingDLMember {
         [string]$LogFile
     )
 
-    # Check if user is already a member of the distribution list
-    $isMember = (Get-DistributionGroupMember -Identity $Target -ErrorAction Stop | 
-                 Where-Object { $_.Alias -eq $Identity.EntraUPN })
-
-    if ($isMember) {
-        Write-Log -Message "`tAddToDistributionList  : Already in $Target, skipping" -Level "INFO" -LogFile $LogFile
-        return
+    try {
+        Add-DistributionGroupMember -Identity $Target -Member $Identity.EntraUPN -ErrorAction Stop
+        Write-Log -Message "`tAddToDistributionList  : Added $($Identity.DisplayName) to $Target" -Level "INFO" -LogFile $LogFile
     }
-
-    # Add user to distribution list
-    Add-DistributionGroupMember -Identity $Target -Member $Identity.EntraUPN -ErrorAction Stop
-
-    Write-Log -Message "`tAddToDistributionList  : Added $($Identity.DisplayName) to $Target" -Level "INFO" -LogFile $LogFile
+    catch {
+        if ($_.Exception.Message -like "*already a member*") {
+            Write-Log -Message "`tAddToDistributionList  : Already in $Target, skipping" -Level "INFO" -LogFile $LogFile
+            return
+        }
+        throw
+    }
 }

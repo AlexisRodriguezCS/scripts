@@ -17,11 +17,10 @@ function Import-OnboardingCsv {
     # Import CSV
     $csv = Import-Csv -Path $Path
 
-    Write-Log -Message "Importing users:" -Level "INFO" -LogFile $LogFile
-
     # Build pipeline objects
     $pipelineObjects = foreach ($row in $csv) {
         $userObj = [pscustomobject]@{
+            CorrelationId = [guid]::NewGuid().ToString()
             Raw    = [pscustomobject]@{
             FirstName        = $row.FirstName
             LastName         = $row.LastName
@@ -36,13 +35,15 @@ function Import-OnboardingCsv {
             ADGroups         = $null
             License          = $null
         }
-            Errors = @()        # Validation errors will go here
+            Errors = [System.Collections.Generic.List[object]]::new()       # Errors will go here
             Plan   = @()        # Actions planned for execution
             Identity = $null      # Identity object 
-            Status  = $null     # Created | AlreadyExists | Failed | Skipped
+            Status  = "Pending"     # Created | AlreadyExists | Failed | Skipped | Pending
+            StepsCompleted = [System.Collections.Generic.HashSet[string]]::new()
+            StepDurations  = @{}
         }
 
-        Write-Log -Message "$($row.FirstName) $($row.LastName)" -Level "INFO" -LogFile $LogFile
+        Write-Log -Message "[$($userObj.CorrelationId)] Imported: $($row.FirstName) $($row.LastName)" -Level "INFO" -LogFile $LogFile
         
         # Add object to pipelineObjects
         $userObj

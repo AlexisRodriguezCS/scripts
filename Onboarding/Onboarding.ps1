@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$Path = "$PSScriptRoot\Data\users.csv",
+    [string]$Path = "$PSScriptRoot\Data\test.csv",
     [Parameter(Mandatory)]
     [string]$Client
 )
@@ -18,7 +18,6 @@ foreach ($module in $requiredModules) {
 
 # Dot-source shared modules
 . "$PSScriptRoot\..\Modules\Shared\Write-Log.ps1"
-. "$PSScriptRoot\..\Modules\Shared\Invoke-WithRetry.ps1"
 . "$PSScriptRoot\..\Modules\Shared\Get-Config.ps1"
 
 # Dot-source functions

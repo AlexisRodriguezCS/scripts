@@ -2,74 +2,62 @@ function New-OnboardingPlan {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory)]
-        [string]$LogFile,
-        [PSCustomObject]$PipelineObject
+        [PSCustomObject]$PipelineObject,
+
+        [Parameter(Mandatory)]
+        [string]$LogFile
     )  
 
-    # Skip processing if there are errors from previous steps
-    if ($PipelineObject.Status -ne "Valid") {
-        Write-Log -Message "[SKIP] Skipping onboarding for $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName) due to validation errors: $($PipelineObject.Errors -join ', ')" -Level "WARN" -LogFile $LogFile
-        return $PipelineObject
-    }
+    $stepName = "New-OnboardingPlan"
 
-    # Initialize onboarding plan
-    $PipelineObject.Plan = @()
+    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepAction {
+        param($PipelineObject, $LogFile)
 
-    # Get raw data
-    $raw = $PipelineObject.Raw
+        # Initialize onboarding plan
+        $PipelineObject.Plan = @()
 
-    # Action: Create user account
-    $PipelineObject.Plan += @{
-        Action = "CreateUser"
-        Target = "$($raw.FirstName) $($raw.LastName)"
-    }
+        # Get raw data
+        $raw = $PipelineObject.Raw
 
-    # Action: Sync to Entra
-    $PipelineObject.Plan += @{
-        Action = "SyncToEntra"
-        Target = "$($raw.FirstName) $($raw.LastName)"
-    }
-
-    # Action: Wait for Entra sync
-    $PipelineObject.Plan += @{
-        Action = "WaitForEntra"
-        Target = "$($raw.FirstName) $($raw.LastName)"
-    }
-
-
-    # Action: Add to AD groups
-    if ($raw.ADGroups) {
-        foreach ($group in $raw.ADGroups -split ';') {
-            $PipelineObject.Plan += @{
-                Action = "AddToGroup"
-                Target = $group
-            }
-        }
-    }
-
-    # Action: Add to distribution lists
-    if ($raw.DistributionList) {
-        foreach ($dist in $raw.DistributionList -split ';') {
-            $PipelineObject.Plan += @{
-                Action = "AddToDistributionList"
-                Target = $dist
-            }
-        }
-    }
-
-    # Action: Assign license
-    if ($raw.License) {
+        # Action: Wait for Entra sync
         $PipelineObject.Plan += @{
-            Action = "AssignLicense"
-            Target = $raw.License
+            Action = "WaitForEntra"
+            Target = "$($raw.FirstName) $($raw.LastName)"
         }
-    }   
-    
-    # Log planned actions
-    Write-Log -Message "[PLAN] $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)" -Level "INFO" -LogFile $LogFile
-    foreach ($item in $PipelineObject.Plan) {
-        Write-Log -Message "`t$($item.Action.PadRight(24)): $($item.Target)" -Level "INFO" -LogFile $LogFile
-    }
 
-    return $PipelineObject
+
+        # Action: Add to AD groups
+        if ($raw.ADGroups) {
+            foreach ($group in $raw.ADGroups -split ';') {
+                $PipelineObject.Plan += @{
+                    Action = "AddToGroup"
+                    Target = $group
+                }
+            }
+        }
+
+        # Action: Add to distribution lists
+        if ($raw.DistributionList) {
+            foreach ($dist in $raw.DistributionList -split ';') {
+                $PipelineObject.Plan += @{
+                    Action = "AddToDistributionList"
+                    Target = $dist
+                }
+            }
+        }
+
+        # Action: Assign license
+        if ($raw.License) {
+            $PipelineObject.Plan += @{
+                Action = "AssignLicense"
+                Target = $raw.License
+            }
+        }   
+    
+        # Log planned actions
+        Write-Log -Message "[PLAN] $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)" -Level "INFO" -LogFile $LogFile
+        foreach ($item in $PipelineObject.Plan) {
+            Write-Log -Message "`t$($item.Action.PadRight(24)): $($item.Target)" -Level "INFO" -LogFile $LogFile
+        }
+    }
 }

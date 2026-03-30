@@ -13,8 +13,21 @@ function New-OnboardingUser {
         [bool]$Exist = $false
     )
 
+    # Check if user already exists in AD before attempting creation
+    try {
+        $exist = $null -ne (Get-ADUser -Filter "SamAccountName -eq '$($Identity.SamAccountName)'" -ErrorAction Stop)
+    }
+    catch {
+        # Log AD query failure
+        Write-Log -Message "[ERROR] Failed to query AD for $($Identity.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
+        $PipelineObject.Errors += "AD pre-check failed"
+        $PipelineObject.Status = "Failed"
+        return $PipelineObject
+    }
+
     # Skips creating a user so it goes to next action
     if ($Exist) {
+        $PipelineObject.Status = "AlreadyExists"
         Write-Log -Message "`tCreateUser             : Already exists, skipping" -Level "INFO" -LogFile $LogFile
         return
     }

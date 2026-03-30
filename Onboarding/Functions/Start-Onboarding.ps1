@@ -8,35 +8,13 @@ function Start-Onboarding {
     )  
 
     # Skip processing if there are errors from previous steps
-    if ($PipelineObject.Status -ne "Valid") {
+    if ($PipelineObject.Status -eq "Skipped" -or $PipelineObject.Status -eq "Failed") {
         Write-Log -Message "[SKIP] Skipping execution for $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName) due to validation errors: $($PipelineObject.Errors -join ', ')" -Level "WARN" -LogFile $LogFile
         return $PipelineObject
     }
 
-    # Get identity details
-    $id = $PipelineObject.Identity
-
-    # Check if user already exists in AD before attempting creation
-    try {
-        $exist = $null -ne (Get-ADUser -Filter "SamAccountName -eq '$($id.SamAccountName)'" -ErrorAction Stop)
-    }
-    catch {
-        # Log AD query failure
-        Write-Log -Message "[ERROR] Failed to query AD for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
-        $PipelineObject.Errors += "AD pre-check failed"
-        $PipelineObject.Status = "Failed"
-        return $PipelineObject
-    }
-
-    # If user existed before run, mark as AlreadyExists and skip creation
-    if ($exist) {
-        $PipelineObject.Status = "AlreadyExists"
-    }
-
     # Retry configurations for different action types
     $retryConfig = @{
-        CreateUser            = @{ MaxRetries = 5; DelaySeconds = 10 }
-        SyncToEntra           = @{ MaxRetries = 3; DelaySeconds = 10 }
         WaitForEntra          = @{ MaxRetries = 10; DelaySeconds = 30 }
         AddToGroup            = @{ MaxRetries = 3; DelaySeconds = 5  }
         AddToDistributionList = @{ MaxRetries = 2; DelaySeconds = 3  }
@@ -55,12 +33,10 @@ function Start-Onboarding {
             $attempt++
             try {
                 switch ($action) {
-                    "CreateUser"            { New-OnboardingUser -Identity $id -PipelineObject $PipelineObject -Exist $exist -LogFile $LogFile }
-                    "SyncToEntra"  { Invoke-EntraSync -Config $Config -LogFile $LogFile }
-                    "WaitForEntra" { Wait-ForEntraUser -Identity $id -LogFile $LogFile }
-                    "AddToGroup"            { Add-OnboardingGroupMember -Identity $id -Target $target -LogFile $LogFile }
-                    "AddToDistributionList" { Add-OnboardingDLMember -Identity $id -Target $target -LogFile $LogFile }
-                    "AssignLicense"         { Set-OnboardingLicense -Identity $id -Config $Config -LogFile $LogFile }
+                    "WaitForEntra" { Wait-ForEntraUser -Identity $PipelineObject.Identity -Config $Config -LogFile $LogFile }
+                    "AddToGroup"            { Add-OnboardingGroupMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
+                    "AddToDistributionList" { Add-OnboardingDLMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
+                    "AssignLicense"         { Set-OnboardingLicense -Identity $PipelineObject.Identity -Config $Config -LogFile $LogFile }
                     default                 { throw "Unknown action: $action" }
                 }
                 $success = $true
@@ -70,10 +46,17 @@ function Start-Onboarding {
                 if ($attempt -lt $retryParams.MaxRetries) {
                     Start-Sleep -Seconds ($retryParams.DelaySeconds * $attempt)
                 } else {
-                    Write-Log -Message "`t[ERROR] $action failed for $($id.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
+                    Write-Log -Message "`t[ERROR] $action failed for $($PipelineObject.Identity.DisplayName): $($_.Exception.Message)" -Level "ERROR" -LogFile $LogFile
                     $PipelineObject.Errors += "$action failed"
                 }
             }
+        }
+
+        # Abort if WaitForEntra failed all retries
+        if ($action -eq "WaitForEntra" -and -not $success) {
+            Write-Log -Message "`t[ABORT] User never appeared in Entra for $($PipelineObject.Identity.DisplayName)" -Level "ERROR" -LogFile $LogFile
+            $PipelineObject.Status = "Failed"
+            return $PipelineObject
         }
     }
 

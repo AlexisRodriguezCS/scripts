@@ -23,6 +23,8 @@ function Set-OnboardingLicense {
         return
     }
 
+    Update-MgUser -UserId $Identity.EntraUPN -UsageLocation $Config.UsageLocation
+
     # Assign license
     Set-MgUserLicense -UserId $Identity.EntraUPN `
                       -AddLicenses @{ SkuId = $Config.LicenseSkuId } `
