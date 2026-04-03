@@ -3882,3 +3882,287 @@ Check the spelling of the name, or if a path was included, verify that the path 
 2026-03-23 18:56:45 | WARN | [RETRY] WaitForEntra attempt 2 failed: User not found in Entra yet
 2026-03-23 18:57:45 | WARN | 	WaitForEntra           : User not yet in Entra, retrying...
 2026-03-23 18:57:45 | WARN | [RETRY] WaitForEntra attempt 3 failed: User not found in Entra yet
+2026-04-03 15:48:29 | INFO | === Pipeline started. ===
+2026-04-03 15:48:29 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv ==
+2026-04-03 15:48:29 | INFO | [219fee1d-9dd0-4cbd-93d2-f1e14cda51cf] Imported: John Smith
+2026-04-03 15:48:29 | INFO | [09fe9e4f-ea27-4694-bba7-2e392e45d6e1] Imported: Lisa Taylor
+2026-04-03 15:48:29 | INFO | == CSV import finished. Total users: 2 ==
+2026-04-03 15:48:30 | INFO |  
+2026-04-03 15:48:31 | INFO |  
+2026-04-03 15:48:31 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+    Total Duration: 1.4351875 sec
+        
+2026-04-03 16:00:42 | INFO | === Pipeline started. ===
+2026-04-03 16:00:42 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv ==
+2026-04-03 16:00:42 | INFO | [52ae429c-802b-46c6-976f-9b225bc33e52] Imported: John Smith
+2026-04-03 16:00:42 | INFO | [6eee3624-23dc-4704-9878-2e5333323c82] Imported: Lisa Taylor
+2026-04-03 16:00:42 | INFO | == CSV import finished. Total users: 2 ==
+2026-04-03 16:00:44 | INFO |  
+2026-04-03 16:00:45 | INFO |  
+2026-04-03 16:00:45 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+    Total Duration: 2.8636696 sec
+        
+2026-04-03 16:05:39 | INFO | === Pipeline started. ===
+2026-04-03 16:05:39 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv ==
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] Imported: John Smith
+2026-04-03 16:05:39 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] Imported: Lisa Taylor
+2026-04-03 16:05:39 | INFO | == CSV import finished. Total users: 2 ==
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [ConvertTo-OnboardingStandard] Step completed in 0.0833831 seconds
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [Test-OnboardingData] Starting step
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [Test-OnboardingData] Step completed in 0.0593342 seconds
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [Set-OnboardingPolicy] Step completed in 0.1068048 seconds
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [New-OnboardingPlan] Starting step
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [New-OnboardingPlan] Step completed in 0.0744263 seconds
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [New-OnboardingIdentity] Starting step
+2026-04-03 16:05:39 | INFO | [c4f12fff-93a3-4dbf-a4c0-1052ddd641a7] [New-OnboardingIdentity] Step completed in 0.0662206 seconds
+2026-04-03 16:05:40 | INFO |  
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [ConvertTo-OnboardingStandard] Step completed in 0.000961 seconds
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [Test-OnboardingData] Starting step
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [Test-OnboardingData] Step completed in 0.0007948 seconds
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [Set-OnboardingPolicy] Step completed in 0.004958 seconds
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [New-OnboardingPlan] Starting step
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [New-OnboardingPlan] Step completed in 0.0499006 seconds
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [New-OnboardingIdentity] Starting step
+2026-04-03 16:05:40 | INFO | [8033d9cc-faed-4f69-9761-c89e36065cbf] [New-OnboardingIdentity] Step completed in 0.0029766 seconds
+2026-04-03 16:05:40 | INFO |  
+2026-04-03 16:05:40 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Skipped (Validation): 0
+    Total Duration: 0.8928151 sec
+        
+2026-04-03 16:08:47 | INFO | === Pipeline started. ===
+2026-04-03 16:08:47 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv ==
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] Imported: John Smith
+2026-04-03 16:08:47 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] Imported: Lisa Taylor
+2026-04-03 16:08:47 | INFO | == CSV import finished. Total users: 2 ==
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [ConvertTo-OnboardingStandard] Step completed in 0.0003336 seconds
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Test-OnboardingData] Starting step
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Test-OnboardingData] Step completed in 0.0011442 seconds
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Set-OnboardingPolicy] Step completed in 0.002352 seconds
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [New-OnboardingPlan] Starting step
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [New-OnboardingPlan] Step completed in 0.0043074 seconds
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [New-OnboardingIdentity] Starting step
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [New-OnboardingIdentity] Step completed in 0.1752296 seconds
+2026-04-03 16:08:47 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [New-OnboardingUser] Starting step
+2026-04-03 16:08:48 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [New-OnboardingUser] Step completed in 0.5963767 seconds
+2026-04-03 16:08:48 | INFO |  
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [ConvertTo-OnboardingStandard] Step completed in 0.0002719 seconds
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [Test-OnboardingData] Starting step
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [Test-OnboardingData] Step completed in 0.0005356 seconds
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [Set-OnboardingPolicy] Step completed in 0.0017181 seconds
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [New-OnboardingPlan] Starting step
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [New-OnboardingPlan] Step completed in 0.0130724 seconds
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [New-OnboardingIdentity] Starting step
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [New-OnboardingIdentity] Step completed in 0.0065909 seconds
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [New-OnboardingUser] Starting step
+2026-04-03 16:08:48 | INFO | [122ecb59-90e2-4a5d-b39a-d2b742c89a29] [New-OnboardingUser] Step completed in 0.0073314 seconds
+2026-04-03 16:08:48 | INFO |  
+2026-04-03 16:08:48 | INFO | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Start-Onboarding] ACTION: WaitForEntra → John Smith
+2026-04-03 16:08:48 | WARN | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Start-Onboarding] RETRY: WaitForEntra attempt 1 failed: A parameter cannot be found that matches parameter name 'Config'.
+2026-04-03 16:09:19 | WARN | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Start-Onboarding] RETRY: WaitForEntra attempt 2 failed: A parameter cannot be found that matches parameter name 'Config'.
+2026-04-03 16:10:21 | WARN | [6043bd84-2826-4fff-af37-d2d9047bdc35] [Start-Onboarding] RETRY: WaitForEntra attempt 3 failed: A parameter cannot be found that matches parameter name 'Config'.
+2026-04-03 16:11:40 | INFO | === Pipeline started. ===
+2026-04-03 16:11:40 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv ==
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] Imported: John Smith
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] Imported: Lisa Taylor
+2026-04-03 16:11:40 | INFO | == CSV import finished. Total users: 2 ==
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [ConvertTo-OnboardingStandard] Step completed in 0.0003676 seconds
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [Test-OnboardingData] Starting step
+2026-04-03 16:11:40 | INFO | [PASS] Validation passed for John Smith
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [Test-OnboardingData] Step completed in 0.0010043 seconds
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:11:40 | INFO | [SET]  John Smith
+2026-04-03 16:11:40 | INFO | 	Distribution Lists : IT;AllStaff
+2026-04-03 16:11:40 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-04-03 16:11:40 | INFO | 	License            : Microsoft365BusinessBasic
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [Set-OnboardingPolicy] Step completed in 0.0052099 seconds
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingPlan] Starting step
+2026-04-03 16:11:40 | INFO | [PLAN] John Smith
+2026-04-03 16:11:40 | INFO | 	WaitForEntra            : John Smith
+2026-04-03 16:11:40 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-04-03 16:11:40 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-04-03 16:11:40 | INFO | 	AddToDistributionList   : IT
+2026-04-03 16:11:40 | INFO | 	AddToDistributionList   : AllStaff
+2026-04-03 16:11:40 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingPlan] Step completed in 0.0561843 seconds
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingIdentity] Starting step
+2026-04-03 16:11:40 | INFO | [BUILD] John Smith
+2026-04-03 16:11:40 | INFO | 	SamAccountName    : johnsmith
+2026-04-03 16:11:40 | INFO | 	UPN               : johnsmith@dev.local
+2026-04-03 16:11:40 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingIdentity] Step completed in 0.0560648 seconds
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingUser] Starting step
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingUser] CreateUser: Already exists (johnsmith)
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [New-OnboardingUser] Step completed in 0.0476306 seconds
+2026-04-03 16:11:40 | INFO |  
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [ConvertTo-OnboardingStandard] Step completed in 0.0003442 seconds
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [Test-OnboardingData] Starting step
+2026-04-03 16:11:40 | INFO | [PASS] Validation passed for Lisa Taylor
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [Test-OnboardingData] Step completed in 0.0015473 seconds
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:11:40 | INFO | [SET]  Lisa Taylor
+2026-04-03 16:11:40 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-04-03 16:11:40 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-04-03 16:11:40 | INFO | 	License            : Microsoft365BusinessBasic
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [Set-OnboardingPolicy] Step completed in 0.0054942 seconds
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingPlan] Starting step
+2026-04-03 16:11:40 | INFO | [PLAN] Lisa Taylor
+2026-04-03 16:11:40 | INFO | 	WaitForEntra            : Lisa Taylor
+2026-04-03 16:11:40 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-04-03 16:11:40 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-04-03 16:11:40 | INFO | 	AddToDistributionList   : Finance
+2026-04-03 16:11:40 | INFO | 	AddToDistributionList   : AllStaff
+2026-04-03 16:11:40 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingPlan] Step completed in 0.0134167 seconds
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingIdentity] Starting step
+2026-04-03 16:11:40 | INFO | [BUILD] Lisa Taylor
+2026-04-03 16:11:40 | INFO | 	SamAccountName    : lisataylor
+2026-04-03 16:11:40 | INFO | 	UPN               : lisataylor@dev.local
+2026-04-03 16:11:40 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingIdentity] Step completed in 0.0066906 seconds
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingUser] Starting step
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingUser] CreateUser: Already exists (lisataylor)
+2026-04-03 16:11:40 | INFO | [5fc28a16-7865-4411-ae5f-a98b0d2e117a] [New-OnboardingUser] Step completed in 0.0086977 seconds
+2026-04-03 16:11:40 | INFO |  
+2026-04-03 16:11:40 | INFO | [a3438a48-60a2-4059-91ff-6a662486940c] [Start-Onboarding] ACTION: WaitForEntra → John Smith
+2026-04-03 16:11:40 | WARN | [a3438a48-60a2-4059-91ff-6a662486940c] [Start-Onboarding] RETRY: WaitForEntra attempt 1 failed: A parameter cannot be found that matches parameter name 'Config'.
+2026-04-03 16:12:11 | WARN | [a3438a48-60a2-4059-91ff-6a662486940c] [Start-Onboarding] RETRY: WaitForEntra attempt 2 failed: A parameter cannot be found that matches parameter name 'Config'.
+2026-04-03 16:13:12 | WARN | [a3438a48-60a2-4059-91ff-6a662486940c] [Start-Onboarding] RETRY: WaitForEntra attempt 3 failed: A parameter cannot be found that matches parameter name 'Config'.
+2026-04-03 16:16:05 | INFO | === Pipeline started. ===
+2026-04-03 16:16:05 | INFO | == Starting CSV import: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv ==
+2026-04-03 16:16:05 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] Imported: John Smith
+2026-04-03 16:16:05 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] Imported: Lisa Taylor
+2026-04-03 16:16:05 | INFO | == CSV import finished. Total users: 2 ==
+2026-04-03 16:16:05 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:16:05 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [ConvertTo-OnboardingStandard] Step completed in 0.0030283 seconds
+2026-04-03 16:16:05 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Test-OnboardingData] Starting step
+2026-04-03 16:16:05 | INFO | [PASS] Validation passed for John Smith
+2026-04-03 16:16:05 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Test-OnboardingData] Step completed in 0.0028277 seconds
+2026-04-03 16:16:05 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:16:05 | INFO | [SET]  John Smith
+2026-04-03 16:16:05 | INFO | 	Distribution Lists : IT;AllStaff
+2026-04-03 16:16:06 | INFO | 	AD Groups          : GRP_ROLE_IT_Admin;GRP-AllStaff
+2026-04-03 16:16:06 | INFO | 	License            : Microsoft365BusinessBasic
+2026-04-03 16:16:06 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Set-OnboardingPolicy] Step completed in 0.2210243 seconds
+2026-04-03 16:16:06 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingPlan] Starting step
+2026-04-03 16:16:06 | INFO | [PLAN] John Smith
+2026-04-03 16:16:06 | INFO | 	WaitForEntra            : John Smith
+2026-04-03 16:16:06 | INFO | 	AddToGroup              : GRP_ROLE_IT_Admin
+2026-04-03 16:16:06 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-04-03 16:16:06 | INFO | 	AddToDistributionList   : IT
+2026-04-03 16:16:06 | INFO | 	AddToDistributionList   : AllStaff
+2026-04-03 16:16:06 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-04-03 16:16:06 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingPlan] Step completed in 0.3748953 seconds
+2026-04-03 16:16:06 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingIdentity] Starting step
+2026-04-03 16:16:06 | INFO | [BUILD] John Smith
+2026-04-03 16:16:07 | INFO | 	SamAccountName    : johnsmith
+2026-04-03 16:16:07 | INFO | 	UPN               : johnsmith@dev.local
+2026-04-03 16:16:07 | INFO | 	OU                : OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-04-03 16:16:07 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingIdentity] Step completed in 0.0206631 seconds
+2026-04-03 16:16:07 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingUser] Starting step
+2026-04-03 16:16:07 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingUser] CreateUser: Already exists (johnsmith)
+2026-04-03 16:16:07 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [New-OnboardingUser] Step completed in 0.1185898 seconds
+2026-04-03 16:16:07 | INFO |  
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [ConvertTo-OnboardingStandard] Starting step
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [ConvertTo-OnboardingStandard] Step completed in 0.0004258 seconds
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Test-OnboardingData] Starting step
+2026-04-03 16:16:07 | INFO | [PASS] Validation passed for Lisa Taylor
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Test-OnboardingData] Step completed in 0.0021682 seconds
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Set-OnboardingPolicy] Starting step
+2026-04-03 16:16:07 | INFO | [SET]  Lisa Taylor
+2026-04-03 16:16:07 | INFO | 	Distribution Lists : Finance;AllStaff
+2026-04-03 16:16:07 | INFO | 	AD Groups          : GRP_ROLE_Finance_User;GRP-AllStaff
+2026-04-03 16:16:07 | INFO | 	License            : Microsoft365BusinessBasic
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Set-OnboardingPolicy] Step completed in 0.0038132 seconds
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingPlan] Starting step
+2026-04-03 16:16:07 | INFO | [PLAN] Lisa Taylor
+2026-04-03 16:16:07 | INFO | 	WaitForEntra            : Lisa Taylor
+2026-04-03 16:16:07 | INFO | 	AddToGroup              : GRP_ROLE_Finance_User
+2026-04-03 16:16:07 | INFO | 	AddToGroup              : GRP-AllStaff
+2026-04-03 16:16:07 | INFO | 	AddToDistributionList   : Finance
+2026-04-03 16:16:07 | INFO | 	AddToDistributionList   : AllStaff
+2026-04-03 16:16:07 | INFO | 	AssignLicense           : Microsoft365BusinessBasic
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingPlan] Step completed in 0.0111374 seconds
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingIdentity] Starting step
+2026-04-03 16:16:07 | INFO | [BUILD] Lisa Taylor
+2026-04-03 16:16:07 | INFO | 	SamAccountName    : lisataylor
+2026-04-03 16:16:07 | INFO | 	UPN               : lisataylor@dev.local
+2026-04-03 16:16:07 | INFO | 	OU                : OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingIdentity] Step completed in 0.065724 seconds
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingUser] Starting step
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingUser] CreateUser: Already exists (lisataylor)
+2026-04-03 16:16:07 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [New-OnboardingUser] Step completed in 0.0124111 seconds
+2026-04-03 16:16:07 | INFO |  
+2026-04-03 16:16:07 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] ACTION: WaitForEntra → John Smith
+2026-04-03 16:16:11 | INFO | 	WaitForEntra           : User found in Entra
+2026-04-03 16:16:11 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] SUCCESS: WaitForEntra → John Smith
+2026-04-03 16:16:11 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] ACTION: AddToGroup → GRP_ROLE_IT_Admin
+2026-04-03 16:16:11 | INFO | 	AddToGroup             : Already in GRP_ROLE_IT_Admin, skipping
+2026-04-03 16:16:12 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] SUCCESS: AddToGroup → GRP_ROLE_IT_Admin
+2026-04-03 16:16:12 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] ACTION: AddToGroup → GRP-AllStaff
+2026-04-03 16:16:12 | INFO | 	AddToGroup             : Already in GRP-AllStaff, skipping
+2026-04-03 16:16:12 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] SUCCESS: AddToGroup → GRP-AllStaff
+2026-04-03 16:16:12 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] ACTION: AddToDistributionList → IT
+2026-04-03 16:16:14 | INFO | 	AddToDistributionList  : Already in IT, skipping
+2026-04-03 16:16:14 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] SUCCESS: AddToDistributionList → IT
+2026-04-03 16:16:14 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] ACTION: AddToDistributionList → AllStaff
+2026-04-03 16:16:15 | INFO | 	AddToDistributionList  : Already in AllStaff, skipping
+2026-04-03 16:16:15 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] SUCCESS: AddToDistributionList → AllStaff
+2026-04-03 16:16:15 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] ACTION: AssignLicense → Microsoft365BusinessBasic
+2026-04-03 16:16:15 | INFO | 	AssignLicense          : License already assigned, skipping
+2026-04-03 16:16:15 | INFO | [ea4a9024-6282-4336-92e0-546637153bef] [Start-Onboarding] SUCCESS: AssignLicense → Microsoft365BusinessBasic
+2026-04-03 16:16:15 | INFO | 
+2026-04-03 16:16:15 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] ACTION: WaitForEntra → Lisa Taylor
+2026-04-03 16:16:15 | INFO | 	WaitForEntra           : User found in Entra
+2026-04-03 16:16:15 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] SUCCESS: WaitForEntra → Lisa Taylor
+2026-04-03 16:16:15 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] ACTION: AddToGroup → GRP_ROLE_Finance_User
+2026-04-03 16:16:16 | INFO | 	AddToGroup             : Added Lisa Taylor to GRP_ROLE_Finance_User
+2026-04-03 16:16:16 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] SUCCESS: AddToGroup → GRP_ROLE_Finance_User
+2026-04-03 16:16:16 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] ACTION: AddToGroup → GRP-AllStaff
+2026-04-03 16:16:16 | INFO | 	AddToGroup             : Added Lisa Taylor to GRP-AllStaff
+2026-04-03 16:16:16 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] SUCCESS: AddToGroup → GRP-AllStaff
+2026-04-03 16:16:16 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] ACTION: AddToDistributionList → Finance
+2026-04-03 16:16:17 | INFO | 	AddToDistributionList  : Added Lisa Taylor to Finance
+2026-04-03 16:16:17 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] SUCCESS: AddToDistributionList → Finance
+2026-04-03 16:16:17 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] ACTION: AddToDistributionList → AllStaff
+2026-04-03 16:16:18 | INFO | 	AddToDistributionList  : Added Lisa Taylor to AllStaff
+2026-04-03 16:16:18 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] SUCCESS: AddToDistributionList → AllStaff
+2026-04-03 16:16:18 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] ACTION: AssignLicense → Microsoft365BusinessBasic
+2026-04-03 16:16:21 | INFO | 	AssignLicense          : Assigned license to Lisa Taylor
+2026-04-03 16:16:21 | INFO | [1eb501e3-4c6f-4c19-a59e-916f04b80482] [Start-Onboarding] SUCCESS: AssignLicense → Microsoft365BusinessBasic
+2026-04-03 16:16:21 | INFO | 
+2026-04-03 16:16:21 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 2
+    Failed: 0
+    Skipped (Validation): 0
+    Total Duration: 15.9405286 sec
+        

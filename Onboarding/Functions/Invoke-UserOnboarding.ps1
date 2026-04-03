@@ -51,38 +51,36 @@ function Invoke-UserOnboarding {
         Write-Log -Message " " -LogFile $LogFile
     }
 
-     Write-Log -Message "== Syncing users ==" -Level "INFO" -LogFile $LogFile
+    # # Sync Once for all users
+    # $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
 
-    # Sync Once for all users
-    $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
-
-    if ($anyCreated) {
-        Write-Log -Message "== Syncing to Entra. ==" -Level "INFO" -LogFile $LogFile
-        Invoke-EntraSync -Config $Config -LogFile $LogFile
-    } else {
-        Write-Log -Message "== No new users created, skipping sync. ==" -Level "INFO" -LogFile $LogFile
-    }
-
-     Write-Log -Message "== Completing onboarding ==" -Level "INFO" -LogFile $LogFile
+    # if ($anyCreated) {
+    #     Write-Log -Message "== Syncing to Entra. ==" -Level "INFO" -LogFile $LogFile
+    #     Invoke-EntraSync -Config $Config -LogFile $LogFile
+    # } else {
+    #     Write-Log -Message "== No new users created, skipping sync. ==" -Level "INFO" -LogFile $LogFile
+    # }
 
     # Complete onboarding for each user
-    foreach ($user in $users) {
-
-        # Skip users that were skipped or failed
-        if ($user.Status -eq "Skipped" -or $user.Status -eq "Failed") {
-            continue
-        }
+    foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
 
         # Execute onboarding
         Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
 
+        if ($user.Status -eq "Failed") {
+            $failedCount++
+            Write-Log -Message "[$($user.CorrelationId)] [FAIL] Onboarding failed: $($user.Raw.FirstName) $($user.Raw.LastName)" `
+                -Level "ERROR" -LogFile $LogFile
+            Write-Log -Message " " -LogFile $LogFile
+            continue
+        }
+
         switch ($user.Status) {
             "Created"       { $successCount++ }
             "AlreadyExists" { $alreadyCount++ }
-            "Failed"        { $failedCount++ }
         }
 
-        Write-Log -Message " " -LogFile $LogFile
+        Write-Log -Message "" -LogFile $LogFile
     }
 
     $pipelineDuration = (Get-Date) - $pipelineStart

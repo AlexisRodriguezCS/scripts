@@ -27,7 +27,7 @@ function Invoke-PipelineStep {
 
     try {
         # Execute the actual step action
-        & $StepAction $PipelineObject
+        & $StepAction $PipelineObject $LogFile
 
         # Mark step complete
         $PipelineObject.StepsCompleted.Add($StepName) | Out-Null

@@ -29,13 +29,14 @@ foreach ($module in $requiredModules) {
 . "$PSScriptRoot\Functions\New-OnboardingPlan.ps1"
 . "$PSScriptRoot\Functions\New-OnboardingIdentity.ps1"
 . "$PSScriptRoot\Functions\Start-Onboarding.ps1"
+. "$PSScriptRoot\Functions\Invoke-EntraSync.ps1"
+. "$PSScriptRoot\Functions\New-OnboardingUser.ps1"
+. "$PSScriptRoot\Functions\Invoke-PipelineStep.ps1"
 
 # Dot-source actions
-. "$PSScriptRoot\Actions\New-OnboardingUser.ps1"
 . "$PSScriptRoot\Actions\Add-OnboardingGroupMember.ps1"
 . "$PSScriptRoot\Actions\Add-OnboardingDLMember.ps1"
 . "$PSScriptRoot\Actions\Set-OnboardingLicense.ps1"
-. "$PSScriptRoot\Actions\Invoke-EntraSync.ps1"
 . "$PSScriptRoot\Actions\Wait-ForEntraUser.ps1"
 
 # Load config
