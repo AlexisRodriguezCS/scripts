@@ -11,8 +11,6 @@ function Invoke-UserOnboarding {
 
     $pipelineStart = Get-Date
 
-    Write-Log -Message "=== Pipeline started. ===" -Level "INFO" -LogFile $LogFile
-
     # Call import function
     $users = Import-OnboardingCsv -Path $Path -LogFile $LogFile
 
@@ -21,9 +19,10 @@ function Invoke-UserOnboarding {
     $alreadyCount = 0
     $skippedCount = 0
 
+    Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
+
     # Create all user(s) first
     foreach ($user in $users) {
-
         # 1. Convert data
         ConvertTo-OnboardingStandard -PipelineObject $user -LogFile $LogFile
         # 2. Validate data
@@ -48,18 +47,8 @@ function Invoke-UserOnboarding {
         New-OnboardingUser -PipelineObject $user -LogFile $LogFile
 
         # Log line break
-        Write-Log -Message " " -LogFile $LogFile
+        Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
     }
-
-    # # Sync Once for all users
-    # $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
-
-    # if ($anyCreated) {
-    #     Write-Log -Message "== Syncing to Entra. ==" -Level "INFO" -LogFile $LogFile
-    #     Invoke-EntraSync -Config $Config -LogFile $LogFile
-    # } else {
-    #     Write-Log -Message "== No new users created, skipping sync. ==" -Level "INFO" -LogFile $LogFile
-    # }
 
     # Complete onboarding for each user
     foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
@@ -95,4 +84,9 @@ function Invoke-UserOnboarding {
     Skipped (Validation): $skippedCount
     Total Duration: $($pipelineDuration.TotalSeconds) sec
         " -Level "INFO" -LogFile $LogFile
+
+    # Generate report
+    $reportFile = "$PSScriptRoot\..\..\Reports\OnboardingReport_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
+    $null = New-Report -Users $users -ReportFile $reportFile
+    Write-Log -Message "Report generated: $reportFile" -Level "INFO" -LogFile $LogFile
 }

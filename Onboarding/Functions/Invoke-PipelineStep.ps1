@@ -20,8 +20,8 @@ function Invoke-PipelineStep {
     # Skip if this step already completed
     if ($PipelineObject.StepsCompleted.Contains($StepName)) { return }
 
-    Write-Log -Message "[$($PipelineObject.CorrelationId)] [$StepName] Starting step" `
-        -Level "INFO" -LogFile $LogFile
+    Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$StepName] Starting step" `
+        -Level "DEBUG" -LogFile $LogFile
 
     $start = Get-Date
 
@@ -37,8 +37,8 @@ function Invoke-PipelineStep {
         $PipelineObject.StepDurations[$StepName] = $duration.TotalSeconds
 
         # Log completion
-        Write-Log -Message "[$($PipelineObject.CorrelationId)] [$StepName] Step completed in $($duration.TotalSeconds) seconds" `
-                  -Level "INFO" -LogFile $LogFile
+        Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$StepName] Step completed in $($duration.TotalSeconds) seconds" `
+                  -Level "DEBUG" -LogFile $LogFile
     }
     catch {
         # Capture the error
@@ -53,7 +53,7 @@ function Invoke-PipelineStep {
         $PipelineObject.StepDurations[$StepName] = $duration.TotalSeconds
 
         # Log failure
-        Write-Log -Message "[$($PipelineObject.CorrelationId)] [$StepName] Step failed after $($duration.TotalSeconds) seconds: $($_.Exception.Message)" `
+        Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$StepName] Step failed after $($duration.TotalSeconds) seconds: $($_.Exception.Message)" `
                   -Level "ERROR" -LogFile $LogFile
     }
 }

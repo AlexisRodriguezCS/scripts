@@ -23,6 +23,7 @@ function New-OnboardingPlan {
         $PipelineObject.Plan += @{
             Action = "WaitForEntra"
             Target = "$($raw.FirstName) $($raw.LastName)"
+            Result = $null
         }
 
 
@@ -32,6 +33,7 @@ function New-OnboardingPlan {
                 $PipelineObject.Plan += @{
                     Action = "AddToGroup"
                     Target = $group
+                    Result = $null
                 }
             }
         }
@@ -42,6 +44,7 @@ function New-OnboardingPlan {
                 $PipelineObject.Plan += @{
                     Action = "AddToDistributionList"
                     Target = $dist
+                    Result = $null
                 }
             }
         }
@@ -51,13 +54,14 @@ function New-OnboardingPlan {
             $PipelineObject.Plan += @{
                 Action = "AssignLicense"
                 Target = $raw.License
+                Result = $null
             }
         }   
     
         # Log planned actions
-        Write-Log -Message "[PLAN] $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)" -Level "INFO" -LogFile $LogFile
         foreach ($item in $PipelineObject.Plan) {
-            Write-Log -Message "`t$($item.Action.PadRight(24)): $($item.Target)" -Level "INFO" -LogFile $LogFile
+            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] $($item.Action) -> $($item.Target) : PENDING" `
+              -Level "INFO" -LogFile $LogFile
         }
     }
 }

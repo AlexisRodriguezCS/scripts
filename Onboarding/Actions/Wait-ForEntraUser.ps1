@@ -12,9 +12,8 @@ function Wait-ForEntraUser {
     $user = Get-MgUser -UserId $Identity.EntraUPN -ErrorAction SilentlyContinue
 
     if ($null -eq $user) {
-        Write-Log -Message "`tWaitForEntra           : User not yet in Entra, retrying..." -Level "WARN" -LogFile $LogFile
         throw "User not found in Entra yet"  # triggers retry
     }
-
-    Write-Log -Message "`tWaitForEntra           : User found in Entra" -Level "INFO" -LogFile $LogFile
+    
+    return "Found"
 }

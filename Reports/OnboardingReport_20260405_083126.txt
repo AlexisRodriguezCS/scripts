@@ -1,0 +1,40 @@
+=== Pipeline Report ===
+Total Users: 2
+
+--- John Smith ---
+Validation: PASS
+Policy:
+  Distribution Lists: IT;AllStaff
+  AD Groups: GRP_ROLE_IT_Admin;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Added to GRP_ROLE_IT_Admin
+  AddToGroup: Added to GRP-AllStaff
+  AddToDistributionList: Added to IT
+  AddToDistributionList: Added to AllStaff
+  AssignLicense: License assigned
+User Creation: AlreadyExists
+
+--- Lisa Taylor ---
+Validation: PASS
+Policy:
+  Distribution Lists: Finance;AllStaff
+  AD Groups: GRP_ROLE_Finance_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Added to GRP_ROLE_Finance_User
+  AddToGroup: Added to GRP-AllStaff
+  AddToDistributionList: Added to Finance
+  AddToDistributionList: Added to AllStaff
+  AssignLicense: License assigned
+User Creation: AlreadyExists
+
+=== Pipeline Summary ===
+Created: 0
+Already Exists: 2
+Failed: 0
+Skipped: 0
+
+Report generated: 2026-04-05 08:31:26

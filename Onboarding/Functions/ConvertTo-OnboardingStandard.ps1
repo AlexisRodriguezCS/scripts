@@ -45,5 +45,8 @@ function ConvertTo-OnboardingStandard
                 $rawData.Department = $deptNormalized
             }
         }
+
+        Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] Normalize -> $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName): FirstName=$($PipelineObject.Raw.FirstName), LastName=$($PipelineObject.Raw.LastName), Title=$($PipelineObject.Raw.Title), Manager=$($PipelineObject.Raw.Manager), Location=$($PipelineObject.Raw.Location), Department=$($PipelineObject.Raw.Department)" `
+          -Level "INFO" -LogFile $LogFile
     }
 }

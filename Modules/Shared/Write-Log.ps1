@@ -5,7 +5,7 @@ function Write-Log {
         [AllowNull()]
         [object]$Message,
 
-        [ValidateSet("INFO","WARN","ERROR")]
+        [ValidateSet("DEBUG","INFO","WARN","ERROR")]
         [string]$Level = "INFO",
 
         [string]$LogFile = "$PSScriptRoot\Logs\Script.log"
@@ -21,7 +21,12 @@ function Write-Log {
 
         "$Time | $Level | $Message" | Out-File -FilePath $LogFile -Append -Encoding utf8
         
-        Write-Verbose "${Level}: ${Message}"
+        switch ($Level) {
+            "DEBUG" { Write-Verbose "$Message" }
+            "INFO"  { Write-Host  "$Message" }
+            "WARN"  { Write-Warning "$Message" }
+            "ERROR" { Write-Host "$Message" }
+        }
     }
     catch {
         Write-Warning "Failed to write log: $_"

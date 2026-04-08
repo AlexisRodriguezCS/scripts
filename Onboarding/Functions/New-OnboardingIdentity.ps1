@@ -48,9 +48,11 @@ function New-OnboardingIdentity {
         } 
 
         # Log identity information
-        Write-Log -Message "[BUILD] $($PipelineObject.Identity.DisplayName)" -Level "INFO" -LogFile $LogFile
-        Write-Log -Message "`tSamAccountName    : $($PipelineObject.Identity.SamAccountName)" -Level "INFO" -LogFile $LogFile
-        Write-Log -Message "`tUPN               : $($PipelineObject.Identity.UserPrincipalName)" -Level "INFO" -LogFile $LogFile
-        Write-Log -Message "`tOU                : $($PipelineObject.Identity.OU)" -Level "INFO" -LogFile $LogFile
+        $id = $PipelineObject.CorrelationId.Substring(0,8)
+        $identity = $PipelineObject.Identity
+
+        Write-Log -Message "[$id] [$stepName] SamAccountName -> $($identity.SamAccountName) : GENERATED" -Level "INFO" -LogFile $LogFile
+        Write-Log -Message "[$id] [$stepName] UPN -> $($identity.UserPrincipalName) : GENERATED" -Level "INFO" -LogFile $LogFile
+        Write-Log -Message "[$id] [$stepName] OU -> $($identity.OU) : GENERATED" -Level "INFO" -LogFile $LogFile
     }
 }

@@ -56,7 +56,6 @@ function Add-PipelineError {
     # Set pipeline status
     $PipelineObject.Status = "Failed"
 
-    # Optional: log immediately if LogFile provided
     if ($LogFile) {
         Write-Log -Level "ERROR" -LogFile $LogFile -Message $errorObject
     }

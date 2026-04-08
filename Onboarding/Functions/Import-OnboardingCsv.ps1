@@ -6,7 +6,7 @@ function Import-OnboardingCsv {
         [string]$LogFile
     )
 
-    Write-Log -Message "== Starting CSV import: $Path ==" -Level "INFO" -LogFile $LogFile
+    Write-Log -Message "[Import-OnboardingCsv] Import -> File : Started ($Path)" -Level "DEBUG" -LogFile $LogFile
 
     # Check file exists
     if (-Not (Test-Path $Path)) {
@@ -43,13 +43,13 @@ function Import-OnboardingCsv {
             StepDurations  = @{}
         }
 
-        Write-Log -Message "[$($userObj.CorrelationId)] Imported: $($row.FirstName) $($row.LastName)" -Level "INFO" -LogFile $LogFile
+        Write-Log -Message "[$($userObj.CorrelationId.Substring(0,8))] [Import-OnboardingCsv] Import -> $($row.FirstName) $($row.LastName) : Imported" -Level "INFO" -LogFile $LogFile
         
         # Add object to pipelineObjects
         $userObj
     }
 
-    Write-Log -Message "== CSV import finished. Total users: $($pipelineObjects.Count) ==" -Level "INFO" -LogFile $LogFile
+    Write-Log -Message "[Import-OnboardingCsv] Import -> File : Completed (Total: $($pipelineObjects.Count))" -Level "DEBUG" -LogFile $LogFile
 
     # Return pipelineObjects for next stage
     return $pipelineObjects

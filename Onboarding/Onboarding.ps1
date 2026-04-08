@@ -17,8 +17,10 @@ foreach ($module in $requiredModules) {
 }
 
 # Dot-source shared modules
+. "$PSScriptRoot\..\Modules\Shared\Add-PipelineError.ps1"
 . "$PSScriptRoot\..\Modules\Shared\Write-Log.ps1"
 . "$PSScriptRoot\..\Modules\Shared\Get-Config.ps1"
+. "$PSScriptRoot\..\Modules\Shared\New-Report.ps1"
 
 # Dot-source functions
 . "$PSScriptRoot\Functions\Invoke-UserOnboarding.ps1"
@@ -29,7 +31,6 @@ foreach ($module in $requiredModules) {
 . "$PSScriptRoot\Functions\New-OnboardingPlan.ps1"
 . "$PSScriptRoot\Functions\New-OnboardingIdentity.ps1"
 . "$PSScriptRoot\Functions\Start-Onboarding.ps1"
-. "$PSScriptRoot\Functions\Invoke-EntraSync.ps1"
 . "$PSScriptRoot\Functions\New-OnboardingUser.ps1"
 . "$PSScriptRoot\Functions\Invoke-PipelineStep.ps1"
 
@@ -38,6 +39,8 @@ foreach ($module in $requiredModules) {
 . "$PSScriptRoot\Actions\Add-OnboardingDLMember.ps1"
 . "$PSScriptRoot\Actions\Set-OnboardingLicense.ps1"
 . "$PSScriptRoot\Actions\Wait-ForEntraUser.ps1"
+
+
 
 # Load config
 $Config = Get-Config -Script "Onboarding" -Client $Client

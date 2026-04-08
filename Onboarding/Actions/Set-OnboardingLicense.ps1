@@ -19,8 +19,7 @@ function Set-OnboardingLicense {
     $alreadyAssigned = $user.AssignedLicenses | Where-Object { $_.SkuId -eq $Config.LicenseSkuId }
 
     if ($alreadyAssigned) {
-        Write-Log -Message "`tAssignLicense          : License already assigned, skipping" -Level "INFO" -LogFile $LogFile
-        return
+        return "AlreadyAssigned" 
     }
 
     Update-MgUser -UserId $Identity.EntraUPN -UsageLocation $Config.UsageLocation
@@ -30,5 +29,5 @@ function Set-OnboardingLicense {
                       -AddLicenses @{ SkuId = $Config.LicenseSkuId } `
                       -RemoveLicenses @()
 
-    Write-Log -Message "`tAssignLicense          : Assigned license to $($Identity.DisplayName)" -Level "INFO" -LogFile $LogFile
+    return "Added"
 }

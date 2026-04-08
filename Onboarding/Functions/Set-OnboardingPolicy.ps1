@@ -68,9 +68,14 @@ function Set-OnboardingPolicy {
         if ($Config.DefaultLicense) { $PipelineObject.Raw.License = $Config.DefaultLicense }
 
         # Log what was set
-        Write-Log -Message "[SET]  $($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)" -Level "INFO" -LogFile $LogFile
-        Write-Log -Message "`tDistribution Lists : $($PipelineObject.Raw.DistributionList)" -Level "INFO" -LogFile $LogFile
-        Write-Log -Message "`tAD Groups          : $($PipelineObject.Raw.ADGroups)" -Level "INFO" -LogFile $LogFile
-        Write-Log -Message "`tLicense            : $($PipelineObject.Raw.License)" -Level "INFO" -LogFile $LogFile
+        $id   = $PipelineObject.CorrelationId.Substring(0,8)
+        $name = "$($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)"
+
+        $dl     = ($PipelineObject.Raw.DistributionList -join ';')
+        $groups = ($PipelineObject.Raw.ADGroups -join ';')
+        $license= $PipelineObject.Raw.License
+
+        Write-Log -Message "[$id] [Set-OnboardingPolicy] Policy -> $name : DL=$dl | Groups=$groups | License=$license" `
+                -Level "INFO" -LogFile $LogFile
     }
 }

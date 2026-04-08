@@ -16,12 +16,10 @@ function Add-OnboardingGroupMember {
                  Where-Object { $_.SamAccountName -eq $Identity.SamAccountName })
 
     if ($isMember) {
-        Write-Log -Message "`tAddToGroup             : Already in $Target, skipping" -Level "INFO" -LogFile $LogFile
-        return
+        return "AlreadyExists"
     }
 
     # Add user to AD group
     Add-ADGroupMember -Identity $Target -Members $Identity.SamAccountName -ErrorAction Stop
-
-    Write-Log -Message "`tAddToGroup             : Added $($Identity.DisplayName) to $Target" -Level "INFO" -LogFile $LogFile
+    return "Added"
 }

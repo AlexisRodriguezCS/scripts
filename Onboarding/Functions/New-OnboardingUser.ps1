@@ -12,7 +12,7 @@ function New-OnboardingUser {
 
     Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepAction {
         param($PipelineObject, $LogFile)
-
+        
         $Identity = $PipelineObject.Identity
 
         # Check if user already exists in AD before attempting creation
@@ -26,7 +26,7 @@ function New-OnboardingUser {
         # Skips creating a user so it goes to next action
         if ($Exist) {
             $PipelineObject.Status = "AlreadyExists"
-            Write-Log -Message "[$($PipelineObject.CorrelationId)] [$stepName] CreateUser: Already exists ($($Identity.SamAccountName))" `
+            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] CreateUser -> $($Identity.SamAccountName) : ALREADY_EXISTS" `
                     -Level "INFO" -LogFile $LogFile
             return
         }
@@ -52,7 +52,7 @@ function New-OnboardingUser {
         }
 
         $PipelineObject.Status = "Created"
-        Write-Log -Message "[$($PipelineObject.CorrelationId)] [$stepName] CreateUser: Created $($Identity.DisplayName)" `
-                -Level "INFO" -LogFile $LogFile
+        Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] CreateUser -> $($Identity.SamAccountName) : CREATED" `
+            -Level "INFO" -LogFile $LogFile
     }
 }

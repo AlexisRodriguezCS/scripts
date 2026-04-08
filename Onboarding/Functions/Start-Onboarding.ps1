@@ -11,12 +11,12 @@ function Start-Onboarding {
         [PSCustomObject]$Config
     )
 
-    $correlationId = $PipelineObject.CorrelationId
+    $correlationId = $PipelineObject.CorrelationId.Substring(0,8)
     $displayName   = $PipelineObject.Identity.DisplayName
 
     # Skip processing if there are errors from previous steps
     if ($PipelineObject.Status -in @("Skipped","Failed")) {
-        Write-Log -Message "[$correlationId] [Start-Onboarding] SKIP: $displayName due to previous errors: $($PipelineObject.Errors -join ', ')" `
+        Write-Log -Message "[$correlationId] [Onboarding] SKIP → $displayName : Previous errors" `
             -Level "WARN" -LogFile $LogFile
         return $PipelineObject
     }
@@ -34,12 +34,18 @@ function Start-Onboarding {
         $action = $actionItem.Action
         $target = $actionItem.Target
 
+        # Initialize result
+        $actionItem.Result = $null
+
         if (-not $retryConfig.ContainsKey($action)) {
-            Write-Log -Message "[$correlationId] [Start-Onboarding] ERROR: Unknown action '$action'" `
+            Add-PipelineError -PipelineObject $PipelineObject `
+                              -Step $action `
+                              -Message "Unknown action: $action" `
+                              -LogFile $LogFile
+
+            Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : FAILED (unknown action)" `
                 -Level "ERROR" -LogFile $LogFile
 
-            $PipelineObject.Errors.Add("Unknown action: $action")
-            $PipelineObject.Status = "Failed"
             return $PipelineObject
         }
 
@@ -47,44 +53,60 @@ function Start-Onboarding {
         $attempt = 0
         $success = $false
 
-        Write-Log -Message "[$correlationId] [Start-Onboarding] ACTION: $action → $target" `
-            -Level "INFO" -LogFile $LogFile
-
         while (-not $success -and $attempt -lt $retryParams.MaxRetries) {
             $attempt++
             try {
-                switch ($action) {
+                # Call action function
+                $result = switch ($action) {
                     "WaitForEntra" { Wait-ForEntraUser -Identity $PipelineObject.Identity -LogFile $LogFile }
-                    "AddToGroup"            { Add-OnboardingGroupMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
+                    "AddToGroup" { Add-OnboardingGroupMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
                     "AddToDistributionList" { Add-OnboardingDLMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
-                    "AssignLicense"         { Set-OnboardingLicense -Identity $PipelineObject.Identity -Config $Config -LogFile $LogFile }
-                    default                 { throw "Unknown action: $action" }
+                    "AssignLicense" { Set-OnboardingLicense -Identity $PipelineObject.Identity -Config $Config -LogFile $LogFile }
                 }
+
+                # Results for reporting
+                $actionItem.Result = switch ($result) {
+                    "Added"          { "Added to $target" }
+                    "AlreadyExists"  { "Already in $target" }
+                    "AlreadyAssigned"{ "Already assigned $target" }
+                    "Found"          { "User found" }
+                    default          { $result }
+                }
+
                 $success = $true
-                Write-Log -Message "[$correlationId] [Start-Onboarding] SUCCESS: $action → $target" `
-                    -Level "INFO" -LogFile $LogFile
+
+                # Single-line log per action
+                $logStatus = $actionItem.Result
+                Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : $logStatus" `
+                          -Level "INFO" -LogFile $LogFile
             }
             catch {
-                Write-Log -Message "[$correlationId] [Start-Onboarding] RETRY: $action attempt $attempt failed: $($_.Exception.Message)" `
-                    -Level "WARN" -LogFile $LogFile
+                # Retry logging
                 if ($attempt -lt $retryParams.MaxRetries) {
+                    Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : RETRY ($attempt)" `
+                        -Level "WARN" -LogFile $LogFile
                     $delay = ($retryParams.DelaySeconds * $attempt) + (Get-Random -Minimum 1 -Maximum 3)
                     Start-Sleep -Seconds $delay
                 } else {
-                    Write-Log -Message "[$correlationId] [Start-Onboarding] ERROR: $action failed permanently for $displayName" `
-                        -Level "ERROR" -LogFile $LogFile
+                    # All retries exhausted → mark structured pipeline error
+                    Add-PipelineError -PipelineObject $PipelineObject `
+                                    -Step $action `
+                                    -Message "Failed during $action → $target" `
+                                    -Exception $_.Exception `
+                                    -LogFile $LogFile
 
-                    $PipelineObject.Errors.Add("$action failed: $($_.Exception.Message)")
+                    $actionItem.Result = "Failed"
+                    Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : FAILED" `
+                        -Level "ERROR" -LogFile $LogFile
                 }
             }
         }
 
         # Abort if WaitForEntra failed all retries
         if ($action -eq "WaitForEntra" -and -not $success) {
-            Write-Log -Message "[$correlationId] [Start-Onboarding] ABORT: User never appeared in Entra ($displayName)" `
+            Write-Log -Message "[$correlationId] [Onboarding] WaitForEntra -> $displayName : FAILED (not found)" `
                 -Level "ERROR" -LogFile $LogFile
-
-            $PipelineObject.Status = "Failed"
+            
             return $PipelineObject
         }
     }
