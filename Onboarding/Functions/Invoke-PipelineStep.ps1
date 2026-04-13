@@ -14,8 +14,8 @@ function Invoke-PipelineStep {
         [scriptblock]$StepAction
     )
 
-    # Skip if the pipeline is already skipped or failed
-    if ($PipelineObject.Status -in @("Skipped","Failed")) { return }
+    # Skip if the pipeline is already invalid or failed
+    if ($PipelineObject.Status -in @("Failed","Invalid")) { return }
 
     # Skip if this step already completed
     if ($PipelineObject.StepsCompleted.Contains($StepName)) { return }

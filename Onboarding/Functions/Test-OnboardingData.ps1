@@ -33,7 +33,7 @@ function Test-OnboardingData {
                       -Level "INFO" -LogFile $LogFile
         } else {
             $PipelineObject.Status = "Invalid"
-            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] Validation -> $($raw.FirstName) $($raw.LastName): Skipped $($PipelineObject.Errors -join ', ')" `
+            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] Validation -> $($raw.FirstName) $($raw.LastName): Invalid $($PipelineObject.Errors -join ', ')" `
                       -Level "WARN" -LogFile $LogFile
         }
     }

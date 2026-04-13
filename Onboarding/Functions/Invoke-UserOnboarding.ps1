@@ -30,10 +30,10 @@ function Invoke-UserOnboarding {
         Test-OnboardingData -PipelineObject $user -LogFile $LogFile
 
         # User has errors and will be skipped
-        if ($user.Status -eq "Skipped") {
-            $skippedCount++
-            Write-Log -Message "[$($user.CorrelationId)] [SKIP] User processed with errors: $($user.Raw.FirstName) $($user.Raw.LastName)" `
-                -Level "WARN" -LogFile $LogFile
+        if ($user.Status -eq "Invalid") {
+            $failedCount++
+            Write-Log -Message "[$($user.CorrelationId)] [INVALID] Validation failed: $($user.Raw.FirstName) $($user.Raw.LastName)" `
+                -Level "ERROR" -LogFile $LogFile
             Write-Log -Message " " -LogFile $LogFile
             continue
         }
@@ -49,7 +49,7 @@ function Invoke-UserOnboarding {
             New-OnboardingUser -PipelineObject $user -LogFile $LogFile
         }
         else {
-            Write-Log -Message "[PLAN] Skipping user creation for $($user.Raw.FirstName)"
+            Write-Log -Message "[DRY RUN] Skipping user creation for $($user.Raw.FirstName)"
         }
 
         # Log line break
@@ -59,9 +59,10 @@ function Invoke-UserOnboarding {
 
     if (-not $Apply) {
         foreach ($user in $planUsers) {
-            Write-Log -Message "[$($user.CorrelationId)] [PLAN] Not applying changes for $($user.Raw.FirstName) $($user.Raw.LastName)" -Level "INFO" -LogFile $LogFile
+            Write-Log -Message "[$($user.CorrelationId)] [DRY RUN] Not applying changes for $($user.Raw.FirstName) $($user.Raw.LastName)" -Level "INFO" -LogFile $LogFile
         }
     }
+
     else {
         # Complete onboarding for each user
         foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
@@ -89,7 +90,6 @@ function Invoke-UserOnboarding {
     Created: $successCount
     Already Exists: $alreadyCount
     Failed: $failedCount
-    Skipped (Validation): $skippedCount
     Total Duration: $($pipelineDuration.TotalSeconds) sec
         " -Level "INFO" -LogFile $LogFile
 
@@ -103,7 +103,6 @@ function Invoke-UserOnboarding {
         Created      = $successCount
         AlreadyExist = $alreadyCount
         Failed       = $failedCount
-        Skipped      = $skippedCount
         DurationSec  = $pipelineDuration.TotalSeconds
     }
 }

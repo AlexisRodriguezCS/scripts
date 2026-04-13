@@ -40,13 +40,11 @@ function New-Report {
     $created       = ($Users | Where-Object Status -eq "Created").Count
     $alreadyExists = ($Users | Where-Object Status -eq "AlreadyExists").Count
     $failed        = ($Users | Where-Object Status -eq "Failed").Count
-    $skipped       = ($Users | Where-Object Status -eq "Skipped").Count
 
     $reportLines += "=== Pipeline Summary ==="
     $reportLines += "Created: $created"
     $reportLines += "Already Exists: $alreadyExists"
     $reportLines += "Failed: $failed"
-    $reportLines += "Skipped: $skipped"
     $reportLines += "`nReport generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 
     # Save to file
