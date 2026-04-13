@@ -15,34 +15,37 @@ function ConvertTo-OnboardingStandard
         param($PipelineObject, $LogFile)
         $rawData = $PipelineObject.Raw
 
-        # Trim whitespace
-        foreach ($prop in "FirstName","LastName","Title","Manager","Location","Department") {
-            if (-not [string]::IsNullOrWhiteSpace($rawData.$prop)) {
-                $rawData.$prop = $rawData.$prop.Trim()
-            }
-        }
-
         # Get the system’s language capitalization rules
         $textInfo = (Get-Culture).TextInfo
 
-        # Lowercase and then title case the relevant fields
-        foreach ($prop in "FirstName","LastName","Title") {
-            if ($rawData.$prop) { $rawData.$prop = $textInfo.ToTitleCase($rawData.$prop.ToLower()) }
+        foreach ($prop in "FirstName","LastName","Title","Manager","Location") {
+            # Trim whitespace and then title case
+            if (-not [string]::IsNullOrWhiteSpace($rawData.$prop)) {
+                $value = $rawData.$prop.Trim()
+                $value = $textInfo.ToTitleCase($value.ToLower())
+                $rawData.$prop = $value
+            }
+            elseif ($null -eq $rawData.$prop) {
+                $rawData.$prop = $null
+            }
         }
         
         # Normalize Department with exceptions
-        if ($rawData.Department) {
-            $deptNormalized = $textInfo.ToTitleCase($rawData.Department.ToLower())
+        if (-not [string]::IsNullOrWhiteSpace($rawData.Department)) {
+
+            $dept = $rawData.Department.Trim()
+            $dept = $textInfo.ToTitleCase($dept.ToLower())
+
             $exceptions = @{
                 "Hr" = "HR"
                 "It" = "IT"
                 "Qa" = "QA"
             }
             # Check if the normalized department is in the exceptions list
-            if ($exceptions.ContainsKey($deptNormalized)) {
-                $rawData.Department = $exceptions[$deptNormalized]
+            if ($exceptions.ContainsKey($dept)) {
+                $rawData.Department = $exceptions[$dept]
             } else {
-                $rawData.Department = $deptNormalized
+                $rawData.Department = $dept
             }
         }
 

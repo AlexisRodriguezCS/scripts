@@ -11,7 +11,7 @@ function Import-OnboardingCsv {
     # Check file exists
     if (-Not (Test-Path $Path)) {
         Write-Log -Message "CSV not found: $Path" -Level "ERROR" -LogFile $LogFile
-        throw "CSV file not found: $Path"
+        throw "CSV file not found"
     }
 
     # Import CSV

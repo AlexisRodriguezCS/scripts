@@ -1,0 +1,6 @@
+2026-04-10 11:10:38 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Tests\..\Onboarding\Data\test.csv)
+2026-04-10 11:10:38 | INFO | [ebe58d60] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-10 11:10:38 | INFO | [ee3e9fb0] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-10 11:10:38 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-10 11:10:38 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (missing.csv)
+2026-04-10 11:10:38 | ERROR | CSV not found: missing.csv

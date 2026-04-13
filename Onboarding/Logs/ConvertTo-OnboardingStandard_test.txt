@@ -1,0 +1,60 @@
+2026-04-10 12:12:04 | DEBUG | [ec30ed71] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 12:12:04 | INFO | [ec30ed71] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 12:12:04 | DEBUG | [ec30ed71] [ConvertTo-OnboardingStandard] Step completed in 0.0011055 seconds
+2026-04-10 12:12:04 | DEBUG | [aa538fcc] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 12:12:04 | INFO | [aa538fcc] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 12:12:04 | DEBUG | [aa538fcc] [ConvertTo-OnboardingStandard] Step completed in 0.0041671 seconds
+2026-04-10 12:12:04 | DEBUG | [ebe2eee1] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 12:12:04 | INFO | [ebe2eee1] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 12:12:04 | DEBUG | [ebe2eee1] [ConvertTo-OnboardingStandard] Step completed in 0.0322956 seconds
+2026-04-10 12:12:04 | DEBUG | [893da5c0] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 12:12:04 | INFO | [893da5c0] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 12:12:04 | DEBUG | [893da5c0] [ConvertTo-OnboardingStandard] Step completed in 0.0144395 seconds
+2026-04-10 14:25:51 | DEBUG | [32332dd7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:25:51 | INFO | [32332dd7] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 14:25:51 | DEBUG | [32332dd7] [ConvertTo-OnboardingStandard] Step completed in 0.007204 seconds
+2026-04-10 14:25:51 | DEBUG | [e0b405b1] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:25:51 | INFO | [e0b405b1] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 14:25:51 | DEBUG | [e0b405b1] [ConvertTo-OnboardingStandard] Step completed in 0.0042638 seconds
+2026-04-10 14:25:51 | DEBUG | [9b64926b] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:25:51 | INFO | [9b64926b] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 14:25:51 | DEBUG | [9b64926b] [ConvertTo-OnboardingStandard] Step completed in 0.0037314 seconds
+2026-04-10 14:25:51 | DEBUG | [1b0033ba] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:25:51 | INFO | [1b0033ba] [ConvertTo-OnboardingStandard] Normalize ->  Doe: FirstName=, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 14:25:51 | DEBUG | [1b0033ba] [ConvertTo-OnboardingStandard] Step completed in 0.0054625 seconds
+2026-04-10 14:25:51 | DEBUG | [b9e953e7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:25:51 | INFO | [b9e953e7] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=IT
+2026-04-10 14:25:51 | DEBUG | [b9e953e7] [ConvertTo-OnboardingStandard] Step completed in 0.026268 seconds
+2026-04-10 14:25:51 | DEBUG | [afd57647] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:25:51 | INFO | [afd57647] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=jane smith, Location=chicago, Department=Finance
+2026-04-10 14:25:51 | DEBUG | [afd57647] [ConvertTo-OnboardingStandard] Step completed in 0.0024474 seconds
+2026-04-10 14:29:25 | DEBUG | [ec9829b7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:29:26 | ERROR | [ec9829b7] [ConvertTo-OnboardingStandard] Step failed after 0.0237342 seconds: You cannot call a method on a null-valued expression.
+2026-04-10 14:29:26 | DEBUG | [0f28e5ee] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:29:26 | ERROR | [0f28e5ee] [ConvertTo-OnboardingStandard] Step failed after 0.0006753 seconds: You cannot call a method on a null-valued expression.
+2026-04-10 14:29:26 | DEBUG | [a86c7704] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:29:26 | ERROR | [a86c7704] [ConvertTo-OnboardingStandard] Step failed after 0.0075362 seconds: You cannot call a method on a null-valued expression.
+2026-04-10 14:29:26 | DEBUG | [f632d720] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:29:26 | ERROR | [f632d720] [ConvertTo-OnboardingStandard] Step failed after 0.0014958 seconds: You cannot call a method on a null-valued expression.
+2026-04-10 14:29:26 | DEBUG | [24f80b9c] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:29:26 | ERROR | [24f80b9c] [ConvertTo-OnboardingStandard] Step failed after 0.000685 seconds: You cannot call a method on a null-valued expression.
+2026-04-10 14:29:26 | DEBUG | [28a68408] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:29:26 | ERROR | [28a68408] [ConvertTo-OnboardingStandard] Step failed after 0.0006125 seconds: You cannot call a method on a null-valued expression.
+2026-04-10 14:33:34 | DEBUG | [c313b952] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:33:34 | INFO | [c313b952] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=Jane Smith, Location=Chicago, Department=IT
+2026-04-10 14:33:34 | DEBUG | [c313b952] [ConvertTo-OnboardingStandard] Step completed in 0.0210831 seconds
+2026-04-10 14:33:34 | DEBUG | [b86412e7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:33:34 | INFO | [b86412e7] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=Jane Smith, Location=Chicago, Department=IT
+2026-04-10 14:33:34 | DEBUG | [b86412e7] [ConvertTo-OnboardingStandard] Step completed in 0.0009823 seconds
+2026-04-10 14:33:34 | DEBUG | [a9876bda] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:33:34 | INFO | [a9876bda] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=Jane Smith, Location=Chicago, Department=IT
+2026-04-10 14:33:34 | DEBUG | [a9876bda] [ConvertTo-OnboardingStandard] Step completed in 0.0008552 seconds
+2026-04-10 14:33:34 | DEBUG | [62e99fca] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:33:34 | INFO | [62e99fca] [ConvertTo-OnboardingStandard] Normalize ->  Doe: FirstName=, LastName=Doe, Title=Software Engineer, Manager=Jane Smith, Location=Chicago, Department=IT
+2026-04-10 14:33:34 | DEBUG | [62e99fca] [ConvertTo-OnboardingStandard] Step completed in 0.0065755 seconds
+2026-04-10 14:33:34 | DEBUG | [d385578d] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:33:34 | INFO | [d385578d] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=Jane Smith, Location=Chicago, Department=IT
+2026-04-10 14:33:34 | DEBUG | [d385578d] [ConvertTo-OnboardingStandard] Step completed in 0.0011438 seconds
+2026-04-10 14:33:34 | DEBUG | [9ee31969] [ConvertTo-OnboardingStandard] Starting step
+2026-04-10 14:33:34 | INFO | [9ee31969] [ConvertTo-OnboardingStandard] Normalize -> John Doe: FirstName=John, LastName=Doe, Title=Software Engineer, Manager=Jane Smith, Location=Chicago, Department=Finance
+2026-04-10 14:33:34 | DEBUG | [9ee31969] [ConvertTo-OnboardingStandard] Step completed in 0.0009676 seconds

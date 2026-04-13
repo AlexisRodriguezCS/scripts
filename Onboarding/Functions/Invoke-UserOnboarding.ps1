@@ -6,7 +6,8 @@ function Invoke-UserOnboarding {
         [Parameter(Mandatory)]
         [string]$LogFile, # Log file path
         [Parameter(Mandatory)]
-        [PSCustomObject]$Config # Get config object
+        [PSCustomObject]$Config, # Get config object
+        [bool]$Apply
     )
 
     $pipelineStart = Get-Date
@@ -44,32 +45,39 @@ function Invoke-UserOnboarding {
         # 5. Build onboarding data
         New-OnboardingIdentity -PipelineObject $user -LogFile $LogFile -Config $Config
         # 6. Create user
-        New-OnboardingUser -PipelineObject $user -LogFile $LogFile
+        if ($Apply) {
+            New-OnboardingUser -PipelineObject $user -LogFile $LogFile
+        }
+        else {
+            Write-Log -Message "[PLAN] Skipping user creation for $($user.Raw.FirstName)"
+        }
 
         # Log line break
         Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
     }
 
-    # Complete onboarding for each user
-    foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
 
-        # Execute onboarding
-        Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
-
-        if ($user.Status -eq "Failed") {
-            $failedCount++
-            Write-Log -Message "[$($user.CorrelationId)] [FAIL] Onboarding failed: $($user.Raw.FirstName) $($user.Raw.LastName)" `
-                -Level "ERROR" -LogFile $LogFile
-            Write-Log -Message " " -LogFile $LogFile
-            continue
+    if (-not $Apply) {
+        foreach ($user in $planUsers) {
+            Write-Log -Message "[$($user.CorrelationId)] [PLAN] Not applying changes for $($user.Raw.FirstName) $($user.Raw.LastName)" -Level "INFO" -LogFile $LogFile
         }
+    }
+    else {
+        # Complete onboarding for each user
+        foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
+            # Execute onboarding
+            Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
 
-        switch ($user.Status) {
-            "Created"       { $successCount++ }
-            "AlreadyExists" { $alreadyCount++ }
+            if ($user.Status -eq "Failed") {
+                $failedCount++
+                continue
+            }
+
+            switch ($user.Status) {
+                "Created"       { $successCount++ }
+                "AlreadyExists" { $alreadyCount++ }
+            }
         }
-
-        Write-Log -Message "" -LogFile $LogFile
     }
 
     $pipelineDuration = (Get-Date) - $pipelineStart
@@ -89,4 +97,13 @@ function Invoke-UserOnboarding {
     $reportFile = "$PSScriptRoot\..\..\Reports\OnboardingReport_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
     $null = New-Report -Users $users -ReportFile $reportFile
     Write-Log -Message "Report generated: $reportFile" -Level "INFO" -LogFile $LogFile
+
+    return [pscustomobject]@{
+        Total        = $users.Count
+        Created      = $successCount
+        AlreadyExist = $alreadyCount
+        Failed       = $failedCount
+        Skipped      = $skippedCount
+        DurationSec  = $pipelineDuration.TotalSeconds
+    }
 }

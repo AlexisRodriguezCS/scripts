@@ -29,11 +29,11 @@ function Test-OnboardingData {
         # Log success if no errors or log warnings if there are errors
         if ($PipelineObject.Errors.Count -eq 0) {
             $PipelineObject.Status = "Valid"
-            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$StepName] Validation -> $($raw.FirstName) $($raw.LastName): Valid" `
+            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] Validation -> $($raw.FirstName) $($raw.LastName): Valid" `
                       -Level "INFO" -LogFile $LogFile
         } else {
-            $PipelineObject.Status = "Skipped"
-            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$StepName] Validation -> $($raw.FirstName) $($raw.LastName): Skipped $($PipelineObject.Errors -join ', ')" `
+            $PipelineObject.Status = "Invalid"
+            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] Validation -> $($raw.FirstName) $($raw.LastName): Skipped $($PipelineObject.Errors -join ', ')" `
                       -Level "WARN" -LogFile $LogFile
         }
     }
