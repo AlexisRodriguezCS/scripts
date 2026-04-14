@@ -33,7 +33,6 @@ function Invoke-UserOnboarding {
             $failedCount++
             Write-Log -Message "[$($user.CorrelationId)] [INVALID] Validation failed: $($user.Raw.FirstName) $($user.Raw.LastName)" `
                 -Level "ERROR" -LogFile $LogFile
-            Write-Log -Message " " -LogFile $LogFile
             continue
         }
         
@@ -61,12 +60,8 @@ function Invoke-UserOnboarding {
             # Execute onboarding
             Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
 
-            if ($user.Status -eq "Failed") {
-                $failedCount++
-                continue
-            }
-
             switch ($user.Status) {
+                "Failed"        { $failedCount++ }
                 "Created"       { $successCount++ }
                 "AlreadyExists" { $alreadyCount++ }
             }

@@ -20,8 +20,8 @@ function New-OnboardingUser {
             $exist = $null -ne (Get-ADUser -Filter "SamAccountName -eq '$($Identity.SamAccountName)'" -ErrorAction Stop)
         }
         catch {
-                throw "AD lookup failed: $($_.Exception.Message)"
-            }
+            throw "AD lookup failed: $($_.Exception.Message)"
+        }
 
         # Skips creating a user so it goes to next action
         if ($Exist) {
