@@ -18,7 +18,6 @@ function Invoke-UserOnboarding {
     $successCount = 0
     $failedCount = 0
     $alreadyCount = 0
-    $skippedCount = 0
 
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
@@ -29,7 +28,7 @@ function Invoke-UserOnboarding {
         # 2. Validate data
         Test-OnboardingData -PipelineObject $user -LogFile $LogFile
 
-        # User has errors and will be skipped
+        # User failed validation
         if ($user.Status -eq "Invalid") {
             $failedCount++
             Write-Log -Message "[$($user.CorrelationId)] [INVALID] Validation failed: $($user.Raw.FirstName) $($user.Raw.LastName)" `
@@ -47,23 +46,16 @@ function Invoke-UserOnboarding {
         # 6. Create user
         if ($Apply) {
             New-OnboardingUser -PipelineObject $user -LogFile $LogFile
+        } else {
+            Write-Log -Message "[$($user.CorrelationId)] [DRY RUN] Not creating user: $($user.Raw.FirstName) $($user.Raw.LastName)" `
+                -Level "INFO" -LogFile $LogFile
         }
-        else {
-            Write-Log -Message "[DRY RUN] Skipping user creation for $($user.Raw.FirstName)"
-        }
-
         # Log line break
         Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
     }
 
 
-    if (-not $Apply) {
-        foreach ($user in $planUsers) {
-            Write-Log -Message "[$($user.CorrelationId)] [DRY RUN] Not applying changes for $($user.Raw.FirstName) $($user.Raw.LastName)" -Level "INFO" -LogFile $LogFile
-        }
-    }
-
-    else {
+    if ($Apply) {
         # Complete onboarding for each user
         foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
             # Execute onboarding
