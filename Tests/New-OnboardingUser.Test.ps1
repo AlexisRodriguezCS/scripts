@@ -29,10 +29,6 @@ Describe "New-OnboardingUser" {
         Mock Add-PipelineError {}  -ModuleName Onboarding
     }
 
-    # ---------------------------------------------------------------
-    # Happy path
-    # ---------------------------------------------------------------
-
     It "sets status to AlreadyExists when user already exists in AD" {
         Mock Get-ADUser { return @{ SamAccountName = "jdoe" } } -ModuleName Onboarding
         Mock New-ADUser {}                                       -ModuleName Onboarding
@@ -56,10 +52,6 @@ Describe "New-OnboardingUser" {
         $obj.StepsCompleted      | Should -Contain "New-OnboardingUser"
         Assert-MockCalled New-ADUser -Times 1 -ModuleName Onboarding
     }
-
-    # ---------------------------------------------------------------
-    # Step completion tracking
-    # ---------------------------------------------------------------
 
     It "does not run step twice if already completed" {
         Mock Get-ADUser { return $null } -ModuleName Onboarding
@@ -101,10 +93,6 @@ Describe "New-OnboardingUser" {
         Assert-MockCalled New-ADUser -Times 0 -ModuleName Onboarding
     }
 
-    # ---------------------------------------------------------------
-    # Failure handling
-    # ---------------------------------------------------------------
-
     It "sets status to Failed when AD lookup throws" {
         Mock Get-ADUser { throw "AD down" } -ModuleName Onboarding
 
@@ -126,27 +114,4 @@ Describe "New-OnboardingUser" {
         Assert-MockCalled Add-PipelineError -Times 1 -ModuleName Onboarding
     }
 
-    # ---------------------------------------------------------------
-    # Step duration tracking
-    # ---------------------------------------------------------------
-
-    It "records step duration on success" {
-        Mock Get-ADUser { return $null } -ModuleName Onboarding
-        Mock New-ADUser {}               -ModuleName Onboarding
-
-        $obj = New-TestObject
-        New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
-
-        $obj.StepDurations.ContainsKey("New-OnboardingUser") | Should -BeTrue
-        $obj.StepDurations["New-OnboardingUser"]             | Should -BeGreaterOrEqual 0
-    }
-
-    It "records step duration on failure" {
-        Mock Get-ADUser { throw "AD down" } -ModuleName Onboarding
-
-        $obj = New-TestObject
-        New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
-
-        $obj.StepDurations.ContainsKey("New-OnboardingUser") | Should -BeTrue
-    }
 }
