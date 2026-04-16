@@ -24,7 +24,7 @@ function New-OnboardingUser {
         }
 
         # Skips creating a user so it goes to next action
-        if ($Exist) {
+        if ($exist) {
             $PipelineObject.Status = "AlreadyExists"
             Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] CreateUser -> $($Identity.SamAccountName) : ALREADY_EXISTS" `
                     -Level "INFO" -LogFile $LogFile
