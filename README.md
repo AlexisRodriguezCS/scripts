@@ -71,9 +71,11 @@ Includes:
 
 ## Data.csv Example:
 
-FirstName,LastName,Title,Manager,Location,Department,Role,EmploymentType,StartDate
-Alex,Johnson,Systems Administrator,Mary Smith,New York,IT,Admin,Full-Time,2026-02-26
-Emma,Williams,Accountant,Bob Brown,Chicago,Finance,Accountant,Full-Time,2026-03-23
+
+| FirstName | LastName | Title                | Manager       | Location | Department | Role | EmploymentType | StartDate   |
+|----------|----------|----------------------|--------------|----------|------------|------|----------------|------------|
+| Alex     | Johnson  | Systems Administrator | Mary Smith   | New York | IT         | Admin | Full-Time      | 2026-02-26 |
+| Emma     | Williams | Accountant            | Bob Brown    | Chicago  | Finance    | Accountant | Full-Time | 2026-03-23 |
 
 ---
 
