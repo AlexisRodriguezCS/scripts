@@ -22,7 +22,7 @@ Describe "ConvertTo-OnboardingStandard" {
         }
         
         Import-Module "$PSScriptRoot\..\Onboarding\Onboarding.psm1" -Force
-        $logFile = "$PSScriptRoot\..\Onboarding\Logs\ConvertTo-OnboardingStandard_test.txt"
+        $logFile = "$PSScriptRoot\..\Onboarding\Logs\Testing\ConvertTo-OnboardingStandard_test.txt"
         Mock Write-Log {}
     }
 

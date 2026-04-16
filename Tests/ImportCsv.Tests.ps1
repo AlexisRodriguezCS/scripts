@@ -6,7 +6,7 @@ Describe "Import-OnboardingCsv" {
 
         $validCsv = "$PSScriptRoot\..\Onboarding\Data\test.csv"
         $invalidCsv = "$PSScriptRoot\..\Onboarding\Data\nonexistent.csv"
-        $logFile = "$PSScriptRoot\..\Onboarding\Logs\ImportCsv_test.txt"
+        $logFile = "$PSScriptRoot\..\Onboarding\Logs\Testing\ImportCsv_test.txt"
 
         $result = Import-OnboardingCsv -Path $validCsv -LogFile $logFile
     }

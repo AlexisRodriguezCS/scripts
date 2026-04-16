@@ -1,0 +1,144 @@
+2026-04-15 13:47:28 | DEBUG | [3ccafec9] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [3ccafec9] [Set-OnboardingPolicy] Step failed after 0.0629391 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [8467a547] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [8467a547] [Set-OnboardingPolicy] Step failed after 0.0005869 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [087f6b83] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [087f6b83] [Set-OnboardingPolicy] Step failed after 0.0005974 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [4b879e39] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [4b879e39] [Set-OnboardingPolicy] Step failed after 0.0006846 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [3c067454] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [3c067454] [Set-OnboardingPolicy] Step failed after 0.0012456 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [0df224be] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [0df224be] [Set-OnboardingPolicy] Step failed after 0.0042408 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [e1c9e7a7] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [e1c9e7a7] [Set-OnboardingPolicy] Step failed after 0.0007668 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:28 | DEBUG | [05b041c1] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:28 | ERROR | [05b041c1] [Set-OnboardingPolicy] Step failed after 0.0006289 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 13:47:29 | DEBUG | [e0c612f3] [Set-OnboardingPolicy] Starting step
+2026-04-15 13:47:29 | ERROR | [e0c612f3] [Set-OnboardingPolicy] Step failed after 0.0007577 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [d3081f7e] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [d3081f7e] [Set-OnboardingPolicy] Step failed after 0.000686 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [8e1902f1] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [8e1902f1] [Set-OnboardingPolicy] Step failed after 0.0005319 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [87425484] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [87425484] [Set-OnboardingPolicy] Step failed after 0.0005854 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [088fe47f] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [088fe47f] [Set-OnboardingPolicy] Step failed after 0.0004763 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [19f6ae9e] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [19f6ae9e] [Set-OnboardingPolicy] Step failed after 0.0005424 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [3d35b519] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [3d35b519] [Set-OnboardingPolicy] Step failed after 0.002296 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [deebbaba] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [deebbaba] [Set-OnboardingPolicy] Step failed after 0.0005735 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [0fb4c375] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [0fb4c375] [Set-OnboardingPolicy] Step failed after 0.0004904 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-15 14:41:25 | DEBUG | [4aed260b] [Set-OnboardingPolicy] Starting step
+2026-04-15 14:41:25 | ERROR | [4aed260b] [Set-OnboardingPolicy] Step failed after 0.0004861 seconds: Exception setting "DistributionList": "The property 'DistributionList' cannot be found on this object. Verify that the property exists and can be set."
+2026-04-16 10:27:12 | DEBUG | [a35f75dd] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:12 | INFO | [a35f75dd] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:12 | DEBUG | [a35f75dd] [Set-OnboardingPolicy] Step completed in 0.0050921 seconds
+2026-04-16 10:27:12 | DEBUG | [80348943] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:12 | INFO | [80348943] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:12 | DEBUG | [80348943] [Set-OnboardingPolicy] Step completed in 0.0007893 seconds
+2026-04-16 10:27:12 | DEBUG | [0e33b5ae] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:12 | INFO | [0e33b5ae] [Set-OnboardingPolicy] Policy -> John Doe : DL=Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:12 | DEBUG | [0e33b5ae] [Set-OnboardingPolicy] Step completed in 0.0028305 seconds
+2026-04-16 10:27:12 | DEBUG | [feb7e16c] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:12 | INFO | [feb7e16c] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:12 | DEBUG | [feb7e16c] [Set-OnboardingPolicy] Step completed in 0.0014001 seconds
+2026-04-16 10:27:12 | DEBUG | [23c9b41b] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:12 | INFO | [23c9b41b] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:12 | DEBUG | [23c9b41b] [Set-OnboardingPolicy] Step completed in 0.001011 seconds
+2026-04-16 10:27:12 | DEBUG | [b9fbe429] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:12 | INFO | [b9fbe429] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:12 | DEBUG | [b9fbe429] [Set-OnboardingPolicy] Step completed in 0.0021008 seconds
+2026-04-16 10:27:13 | DEBUG | [04fb2e9c] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:13 | INFO | [04fb2e9c] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:13 | DEBUG | [04fb2e9c] [Set-OnboardingPolicy] Step completed in 0.0008129 seconds
+2026-04-16 10:27:13 | DEBUG | [137213eb] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:13 | INFO | [137213eb] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:13 | DEBUG | [137213eb] [Set-OnboardingPolicy] Step completed in 0.0016564 seconds
+2026-04-16 10:27:13 | DEBUG | [96c06fd0] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:27:13 | INFO | [96c06fd0] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:27:13 | DEBUG | [96c06fd0] [Set-OnboardingPolicy] Step completed in 0.0711448 seconds
+2026-04-16 10:31:07 | DEBUG | [1e0b0584] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [1e0b0584] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [1e0b0584] [Set-OnboardingPolicy] Step completed in 0.0049026 seconds
+2026-04-16 10:31:07 | DEBUG | [342965a2] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [342965a2] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [342965a2] [Set-OnboardingPolicy] Step completed in 0.0017141 seconds
+2026-04-16 10:31:07 | DEBUG | [2894bf78] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [2894bf78] [Set-OnboardingPolicy] Policy -> John Doe : DL=Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [2894bf78] [Set-OnboardingPolicy] Step completed in 0.0295253 seconds
+2026-04-16 10:31:07 | DEBUG | [3b954098] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [3b954098] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [3b954098] [Set-OnboardingPolicy] Step completed in 0.0008873 seconds
+2026-04-16 10:31:07 | DEBUG | [12efc52b] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [12efc52b] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [12efc52b] [Set-OnboardingPolicy] Step completed in 0.0013429 seconds
+2026-04-16 10:31:07 | DEBUG | [b170f691] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [b170f691] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [b170f691] [Set-OnboardingPolicy] Step completed in 0.0010872 seconds
+2026-04-16 10:31:07 | DEBUG | [555fd3b2] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [555fd3b2] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [555fd3b2] [Set-OnboardingPolicy] Step completed in 0.0095504 seconds
+2026-04-16 10:31:07 | DEBUG | [ddf8fde2] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [ddf8fde2] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [ddf8fde2] [Set-OnboardingPolicy] Step completed in 0.0010114 seconds
+2026-04-16 10:31:07 | DEBUG | [f443979e] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:31:07 | INFO | [f443979e] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:31:07 | DEBUG | [f443979e] [Set-OnboardingPolicy] Step completed in 0.0029066 seconds
+2026-04-16 10:38:36 | DEBUG | [0dff52d0] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [0dff52d0] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [0dff52d0] [Set-OnboardingPolicy] Step completed in 0.0011285 seconds
+2026-04-16 10:38:36 | DEBUG | [2444471b] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [2444471b] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [2444471b] [Set-OnboardingPolicy] Step completed in 0.0006071 seconds
+2026-04-16 10:38:36 | DEBUG | [b416bc20] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [b416bc20] [Set-OnboardingPolicy] Policy -> John Doe : DL=Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [b416bc20] [Set-OnboardingPolicy] Step completed in 0.0009553 seconds
+2026-04-16 10:38:36 | DEBUG | [d2b3dc27] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [d2b3dc27] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [d2b3dc27] [Set-OnboardingPolicy] Step completed in 0.0014513 seconds
+2026-04-16 10:38:36 | DEBUG | [b972142a] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [b972142a] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [b972142a] [Set-OnboardingPolicy] Step completed in 0.0007329 seconds
+2026-04-16 10:38:36 | DEBUG | [f5f59506] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [f5f59506] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [f5f59506] [Set-OnboardingPolicy] Step completed in 0.0007547 seconds
+2026-04-16 10:38:36 | DEBUG | [08a99b43] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [08a99b43] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [08a99b43] [Set-OnboardingPolicy] Step completed in 0.0007814 seconds
+2026-04-16 10:38:36 | DEBUG | [d45f1a30] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [d45f1a30] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [d45f1a30] [Set-OnboardingPolicy] Step completed in 0.0006338 seconds
+2026-04-16 10:38:36 | DEBUG | [a802aa5e] [Set-OnboardingPolicy] Starting step
+2026-04-16 10:38:36 | INFO | [a802aa5e] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 10:38:36 | DEBUG | [a802aa5e] [Set-OnboardingPolicy] Step completed in 0.0017221 seconds
+2026-04-16 14:03:22 | DEBUG | [128d8ce5] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [128d8ce5] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [128d8ce5] [Set-OnboardingPolicy] Step completed in 0.0192418 seconds
+2026-04-16 14:03:23 | DEBUG | [88d95445] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [88d95445] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [88d95445] [Set-OnboardingPolicy] Step completed in 0.0028898 seconds
+2026-04-16 14:03:23 | DEBUG | [cc8402de] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [cc8402de] [Set-OnboardingPolicy] Policy -> John Doe : DL=Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [cc8402de] [Set-OnboardingPolicy] Step completed in 0.0025423 seconds
+2026-04-16 14:03:23 | DEBUG | [8ae5192a] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [8ae5192a] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [8ae5192a] [Set-OnboardingPolicy] Step completed in 0.0012543 seconds
+2026-04-16 14:03:23 | DEBUG | [66e90ee0] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [66e90ee0] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [66e90ee0] [Set-OnboardingPolicy] Step completed in 0.0304845 seconds
+2026-04-16 14:03:23 | DEBUG | [a1408555] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [a1408555] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [a1408555] [Set-OnboardingPolicy] Step completed in 0.0254813 seconds
+2026-04-16 14:03:23 | DEBUG | [e68c2359] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [e68c2359] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_User;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [e68c2359] [Set-OnboardingPolicy] Step completed in 0.0019742 seconds
+2026-04-16 14:03:23 | DEBUG | [be0af118] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [be0af118] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [be0af118] [Set-OnboardingPolicy] Step completed in 0.0022134 seconds
+2026-04-16 14:03:23 | DEBUG | [bfbb5c87] [Set-OnboardingPolicy] Starting step
+2026-04-16 14:03:23 | INFO | [bfbb5c87] [Set-OnboardingPolicy] Policy -> John Doe : DL=IT;Managers;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP_BASE_Users | License=Microsoft365BusinessBasic
+2026-04-16 14:03:23 | DEBUG | [bfbb5c87] [Set-OnboardingPolicy] Step completed in 0.0162618 seconds

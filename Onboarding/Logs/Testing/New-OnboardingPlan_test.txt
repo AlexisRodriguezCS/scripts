@@ -1,0 +1,118 @@
+2026-04-16 11:32:45 | DEBUG | [066a482e] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [066a482e] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [066a482e] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 11:32:45 | INFO | [066a482e] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 11:32:45 | INFO | [066a482e] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [066a482e] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | INFO | [066a482e] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 11:32:45 | DEBUG | [066a482e] [New-OnboardingPlan] Step completed in 0.0233472 seconds
+2026-04-16 11:32:45 | DEBUG | [438cf5ed] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [438cf5ed] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [438cf5ed] [New-OnboardingPlan] AddToGroup -> GroupA : PENDING
+2026-04-16 11:32:45 | INFO | [438cf5ed] [New-OnboardingPlan] AddToGroup -> GroupB : PENDING
+2026-04-16 11:32:45 | INFO | [438cf5ed] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [438cf5ed] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | INFO | [438cf5ed] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 11:32:45 | DEBUG | [438cf5ed] [New-OnboardingPlan] Step completed in 0.00647 seconds
+2026-04-16 11:32:45 | DEBUG | [2d1cb5fe] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [2d1cb5fe] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [2d1cb5fe] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 11:32:45 | INFO | [2d1cb5fe] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 11:32:45 | INFO | [2d1cb5fe] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [2d1cb5fe] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | INFO | [2d1cb5fe] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 11:32:45 | DEBUG | [2d1cb5fe] [New-OnboardingPlan] Step completed in 0.0123845 seconds
+2026-04-16 11:32:45 | DEBUG | [3626f978] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [3626f978] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [3626f978] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 11:32:45 | INFO | [3626f978] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 11:32:45 | INFO | [3626f978] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [3626f978] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | INFO | [3626f978] [New-OnboardingPlan] AssignLicense -> E5 : PENDING
+2026-04-16 11:32:45 | DEBUG | [3626f978] [New-OnboardingPlan] Step completed in 0.008271 seconds
+2026-04-16 11:32:45 | DEBUG | [c59f5798] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [c59f5798] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [c59f5798] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [c59f5798] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | INFO | [c59f5798] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 11:32:45 | DEBUG | [c59f5798] [New-OnboardingPlan] Step completed in 0.0048914 seconds
+2026-04-16 11:32:45 | DEBUG | [81ae54e8] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [81ae54e8] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [81ae54e8] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 11:32:45 | INFO | [81ae54e8] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 11:32:45 | INFO | [81ae54e8] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 11:32:45 | DEBUG | [81ae54e8] [New-OnboardingPlan] Step completed in 0.0039528 seconds
+2026-04-16 11:32:45 | DEBUG | [f8377673] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [f8377673] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [f8377673] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 11:32:45 | INFO | [f8377673] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 11:32:45 | INFO | [f8377673] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [f8377673] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | DEBUG | [f8377673] [New-OnboardingPlan] Step completed in 0.0164711 seconds
+2026-04-16 11:32:45 | DEBUG | [0f9a3146] [New-OnboardingPlan] Starting step
+2026-04-16 11:32:45 | INFO | [0f9a3146] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 11:32:45 | INFO | [0f9a3146] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 11:32:45 | INFO | [0f9a3146] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 11:32:45 | INFO | [0f9a3146] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 11:32:45 | INFO | [0f9a3146] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 11:32:45 | INFO | [0f9a3146] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 11:32:45 | DEBUG | [0f9a3146] [New-OnboardingPlan] Step completed in 0.0586127 seconds
+2026-04-16 14:03:21 | DEBUG | [f372830d] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:21 | INFO | [f372830d] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:21 | INFO | [f372830d] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 14:03:21 | INFO | [f372830d] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 14:03:21 | INFO | [f372830d] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:21 | INFO | [f372830d] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:21 | INFO | [f372830d] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 14:03:21 | DEBUG | [f372830d] [New-OnboardingPlan] Step completed in 0.0512744 seconds
+2026-04-16 14:03:21 | DEBUG | [06830ed5] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:21 | INFO | [06830ed5] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [06830ed5] [New-OnboardingPlan] AddToGroup -> GroupA : PENDING
+2026-04-16 14:03:22 | INFO | [06830ed5] [New-OnboardingPlan] AddToGroup -> GroupB : PENDING
+2026-04-16 14:03:22 | INFO | [06830ed5] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:22 | INFO | [06830ed5] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:22 | INFO | [06830ed5] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 14:03:22 | DEBUG | [06830ed5] [New-OnboardingPlan] Step completed in 0.1531532 seconds
+2026-04-16 14:03:22 | DEBUG | [b9b08269] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:22 | INFO | [b9b08269] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [b9b08269] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 14:03:22 | INFO | [b9b08269] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 14:03:22 | INFO | [b9b08269] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:22 | INFO | [b9b08269] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:22 | INFO | [b9b08269] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 14:03:22 | DEBUG | [b9b08269] [New-OnboardingPlan] Step completed in 0.011008 seconds
+2026-04-16 14:03:22 | DEBUG | [3c9bbf14] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:22 | INFO | [3c9bbf14] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [3c9bbf14] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 14:03:22 | INFO | [3c9bbf14] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 14:03:22 | INFO | [3c9bbf14] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:22 | INFO | [3c9bbf14] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:22 | INFO | [3c9bbf14] [New-OnboardingPlan] AssignLicense -> E5 : PENDING
+2026-04-16 14:03:22 | DEBUG | [3c9bbf14] [New-OnboardingPlan] Step completed in 0.0584159 seconds
+2026-04-16 14:03:22 | DEBUG | [b499c76a] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:22 | INFO | [b499c76a] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [b499c76a] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:22 | INFO | [b499c76a] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:22 | INFO | [b499c76a] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 14:03:22 | DEBUG | [b499c76a] [New-OnboardingPlan] Step completed in 0.0138787 seconds
+2026-04-16 14:03:22 | DEBUG | [1d4888f8] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:22 | INFO | [1d4888f8] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [1d4888f8] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 14:03:22 | INFO | [1d4888f8] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 14:03:22 | INFO | [1d4888f8] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 14:03:22 | DEBUG | [1d4888f8] [New-OnboardingPlan] Step completed in 0.0046224 seconds
+2026-04-16 14:03:22 | DEBUG | [b14e1d44] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:22 | INFO | [b14e1d44] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [b14e1d44] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 14:03:22 | INFO | [b14e1d44] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 14:03:22 | INFO | [b14e1d44] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:22 | INFO | [b14e1d44] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:22 | DEBUG | [b14e1d44] [New-OnboardingPlan] Step completed in 0.092273 seconds
+2026-04-16 14:03:22 | DEBUG | [c9090407] [New-OnboardingPlan] Starting step
+2026-04-16 14:03:22 | INFO | [c9090407] [New-OnboardingPlan] WaitForEntra -> John Doe : PENDING
+2026-04-16 14:03:22 | INFO | [c9090407] [New-OnboardingPlan] AddToGroup -> Group1 : PENDING
+2026-04-16 14:03:22 | INFO | [c9090407] [New-OnboardingPlan] AddToGroup -> Group2 : PENDING
+2026-04-16 14:03:22 | INFO | [c9090407] [New-OnboardingPlan] AddToDistributionList -> DL1 : PENDING
+2026-04-16 14:03:22 | INFO | [c9090407] [New-OnboardingPlan] AddToDistributionList -> DL2 : PENDING
+2026-04-16 14:03:22 | INFO | [c9090407] [New-OnboardingPlan] AssignLicense -> E3 : PENDING
+2026-04-16 14:03:22 | DEBUG | [c9090407] [New-OnboardingPlan] Step completed in 0.1260711 seconds

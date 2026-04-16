@@ -5,6 +5,7 @@
 . $PSScriptRoot\..\Modules\Shared\New-Report.ps1
 
 # Load functions
+. $PSScriptRoot\Functions\Invoke-PipelineStep.ps1
 . $PSScriptRoot\Functions\Invoke-UserOnboarding.ps1
 . $PSScriptRoot\Functions\Import-OnboardingCsv.ps1
 . $PSScriptRoot\Functions\ConvertTo-OnboardingStandard.ps1
@@ -14,7 +15,6 @@
 . $PSScriptRoot\Functions\New-OnboardingIdentity.ps1
 . $PSScriptRoot\Functions\Start-Onboarding.ps1
 . $PSScriptRoot\Functions\New-OnboardingUser.ps1
-. $PSScriptRoot\Functions\Invoke-PipelineStep.ps1
 
 # Load actions
 . $PSScriptRoot\Actions\Add-OnboardingGroupMember.ps1

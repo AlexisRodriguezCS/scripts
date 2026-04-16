@@ -38,7 +38,7 @@ function Set-OnboardingPolicy {
         }
 
         # Combine all assigned distribution lists into a single semicolon-separated string
-        $PipelineObject.Raw.DistributionList = ($distributionList -join ";")
+        $PipelineObject.Raw.DistributionList = ($distributionList | Select-Object -Unique) -join ";"
 
         #  Initialize groups list
         $groups = @()
@@ -62,7 +62,7 @@ function Set-OnboardingPolicy {
         if ($Config.DefaultGroups) { $groups += $Config.DefaultGroups }
 
         # Combine all assigned groups into a single semicolon-separated string
-        $PipelineObject.Raw.ADGroups = ($groups -join ";")
+        $PipelineObject.Raw.ADGroups = ($groups | Select-Object -Unique) -join ";"
 
         # Assign license based on config file
         if ($Config.DefaultLicense) { $PipelineObject.Raw.License = $Config.DefaultLicense }
@@ -71,8 +71,8 @@ function Set-OnboardingPolicy {
         $id   = $PipelineObject.CorrelationId.Substring(0,8)
         $name = "$($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)"
 
-        $dl     = ($PipelineObject.Raw.DistributionList -join ';')
-        $groups = ($PipelineObject.Raw.ADGroups -join ';')
+        $dl     = $PipelineObject.Raw.DistributionList
+        $groups = $PipelineObject.Raw.ADGroups
         $license= $PipelineObject.Raw.License
 
         Write-Log -Message "[$id] [Set-OnboardingPolicy] Policy -> $name : DL=$dl | Groups=$groups | License=$license" `
