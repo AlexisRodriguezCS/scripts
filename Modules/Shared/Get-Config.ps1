@@ -6,10 +6,13 @@ function Get-Config{
         [string]$Script,
 
         [Parameter(Mandatory)]
-        [string]$Client
+        [string]$Client,
+
+         [Parameter(Mandatory)]
+        [string]$RootPath
     )
 
-    $clientPath = "$PSScriptRoot\..\..\Config\Clients\$Client\$Script.json"
+    $clientPath = "$RootPath\Config\Clients\$Client\$Script.json"
 
     if (-Not (Test-Path $clientPath)) {
         throw "Client config not found: $clientPath"

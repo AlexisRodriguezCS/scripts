@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$Path = "$PSScriptRoot\Data\test.csv",
+    [string]$Path = "$PSScriptRoot\Data\test3.csv",
 
     [Parameter(Mandatory)]
     [string]$Client,
@@ -22,7 +22,7 @@ foreach ($module in $requiredModules) {
 }
 
 # Load config
-$Config = Get-Config -Script "Onboarding" -Client $Client
+$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
 
 # Create logs folder if it doesn't exist
 if (-Not (Test-Path "$PSScriptRoot\Logs")) {

@@ -1,0 +1,11 @@
+FirstName,LastName,Title,Manager,Location,Department,Role,EmploymentType,StartDate
+John,Smith,Systems Administrator,Mary Johnson,New York,IT,Systems Administrator,Regular Full-Time,2026-04-21
+Lisa,Taylor,Accountant,Bob Williams,Chicago,Finance,Accountant,Regular Full-Time,2026-04-21
+Marcus,Reed,Developer,Sarah Lee,Remote,IT,Developer,Regular Full-Time,2026-04-21
+Janet,Cruz,HR Specialist,Tom Baker,Dallas,HR,HR Specialist,Regular Full-Time,2026-04-21
+Derek,Wong,Sales Rep,Nancy Hill,Los Angeles,Sales,Sales Rep,Contract,2026-04-21
+Amanda,Foster,Marketing Specialist,Greg Stone,Chicago,Marketing,Marketing Specialist,Regular Full-Time,2026-04-21
+,Brown,Technician,Steve Adams,Boston,IT,Technician,Regular Full-Time,2026-04-21
+Chris,,Developer,Sarah Lee,Remote,IT,Developer,Regular Full-Time,2026-04-21
+Paul,Martin,Finance PowerUser,Bob Williams,New York,Finance,Finance PowerUser,Regular Full-Time,2026-04-21
+Karen,Davis,Director of Operations,Nancy Hill,New York,,HR PowerUser,Regular Full-Time,2026-04-21

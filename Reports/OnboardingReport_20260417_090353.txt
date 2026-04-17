@@ -1,0 +1,33 @@
+=== Pipeline Report ===
+Total Users: 2
+
+--- John Smith ---
+Validation: FAIL
+Policy:
+  Distribution Lists: IT
+  AD Groups: GRP_ROLE_IT_Admin
+  License: 
+Onboarding Plan:
+  WaitForEntra: PENDING
+  AddToGroup: PENDING
+  AddToDistributionList: PENDING
+User Creation: Failed
+
+--- Lisa Taylor ---
+Validation: FAIL
+Policy:
+  Distribution Lists: Finance
+  AD Groups: GRP_ROLE_Finance_User
+  License: 
+Onboarding Plan:
+  WaitForEntra: PENDING
+  AddToGroup: PENDING
+  AddToDistributionList: PENDING
+User Creation: Failed
+
+=== Pipeline Summary ===
+Created: 0
+Already Exists: 0
+Failed: 2
+
+Report generated: 2026-04-17 09:03:54

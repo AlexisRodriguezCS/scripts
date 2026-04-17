@@ -11,7 +11,10 @@ function Invoke-PipelineStep {
         [string]$LogFile,
 
         [Parameter(Mandatory)]
-        [scriptblock]$StepAction
+        [scriptblock]$StepAction,
+
+        [Parameter()]
+        [object[]]$StepArgs = @()  
     )
 
     # Skip if the pipeline is already invalid or failed
@@ -27,7 +30,7 @@ function Invoke-PipelineStep {
 
     try {
         # Execute the actual step action
-        & $StepAction $PipelineObject $LogFile
+        & $StepAction $PipelineObject $LogFile @StepArgs
 
         # Mark step complete
         $PipelineObject.StepsCompleted.Add($StepName) | Out-Null

@@ -20,14 +20,28 @@ function Set-OnboardingLicense {
 
     if ($alreadyAssigned) {
         return "AlreadyAssigned" 
+    }   
+
+    # Ensure UsageLocation is set first
+    try {
+        Update-MgUser -UserId $Identity.EntraUPN `
+            -UsageLocation $Config.UsageLocation `
+            -ErrorAction Stop
+    }
+    catch {
+        throw "Failed to set UsageLocation: $($_.Exception.Message)"
     }
 
-    Update-MgUser -UserId $Identity.EntraUPN -UsageLocation $Config.UsageLocation
-
     # Assign license
-    Set-MgUserLicense -UserId $Identity.EntraUPN `
-                      -AddLicenses @{ SkuId = $Config.LicenseSkuId } `
-                      -RemoveLicenses @()
+    try {
+        $null = Set-MgUserLicense -UserId $Identity.EntraUPN `
+            -AddLicenses @{ SkuId = $Config.LicenseSkuId } `
+            -RemoveLicenses @() `
+            -ErrorAction Stop
+    }
+    catch {
+        throw "License assignment failed: $($_.Exception.Message)"
+    }
 
     return "Added"
 }

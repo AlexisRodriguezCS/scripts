@@ -13,8 +13,8 @@ function Set-OnboardingPolicy {
 
     $stepName = "Set-OnboardingPolicy"
 
-    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepAction {
-        param($PipelineObject, $LogFile)
+    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepArgs @($Config) -StepAction {
+        param($PipelineObject, $LogFile, $Config)
 
         # Get raw data
         $raw = $PipelineObject.Raw

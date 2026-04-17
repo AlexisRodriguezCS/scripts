@@ -1,0 +1,140 @@
+=== Pipeline Report ===
+Total Users: 10
+
+--- John Smith ---
+Validation: PASS
+Policy:
+  Distribution Lists: IT;AllStaff
+  AD Groups: GRP_ROLE_IT_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_IT_User
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in IT
+  AddToDistributionList: Already in AllStaff
+  AssignLicense: Already assigned Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+--- Lisa Taylor ---
+Validation: PASS
+Policy:
+  Distribution Lists: Finance;AllStaff
+  AD Groups: GRP_ROLE_Finance_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_Finance_User
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in Finance
+  AddToDistributionList: Already in AllStaff
+  AssignLicense: Already assigned Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+--- Marcus Reed ---
+Validation: PASS
+Policy:
+  Distribution Lists: IT;AllStaff
+  AD Groups: GRP_ROLE_IT_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_IT_User
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in IT
+  AddToDistributionList: Already in AllStaff
+  AssignLicense: Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+--- Janet Cruz ---
+Validation: PASS
+Policy:
+  Distribution Lists: HR;AllStaff
+  AD Groups: GRP_ROLE_HR_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_HR_User
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in HR
+  AddToDistributionList: Already in AllStaff
+  AssignLicense: Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+--- Derek Wong ---
+Validation: PASS
+Policy:
+  Distribution Lists: Sales
+  AD Groups: GRP_ROLE_Sales_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_Sales_User
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in Sales
+  AssignLicense: Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+--- Amanda Foster ---
+Validation: PASS
+Policy:
+  Distribution Lists: Marketing;AllStaff
+  AD Groups: GRP_ROLE_Marketing_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_Marketing_User
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in Marketing
+  AddToDistributionList: Already in AllStaff
+  AssignLicense: Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+---  Brown ---
+Validation: FAIL
+Policy:
+  Distribution Lists: 
+  AD Groups: 
+  License: 
+Onboarding Plan:
+User Creation: Invalid
+
+--- Chris  ---
+Validation: FAIL
+Policy:
+  Distribution Lists: 
+  AD Groups: 
+  License: 
+Onboarding Plan:
+User Creation: Invalid
+
+--- Paul Martin ---
+Validation: PASS
+Policy:
+  Distribution Lists: Finance;AllStaff
+  AD Groups: GRP_ROLE_Finance_PowerUser;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Already in GRP_ROLE_Finance_PowerUser
+  AddToGroup: Already in GRP-AllStaff
+  AddToDistributionList: Already in Finance
+  AddToDistributionList: Already in AllStaff
+  AssignLicense: Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+User Creation: AlreadyExists
+
+--- Karen Davis ---
+Validation: FAIL
+Policy:
+  Distribution Lists: 
+  AD Groups: 
+  License: 
+Onboarding Plan:
+User Creation: Invalid
+
+=== Pipeline Summary ===
+Created: 0
+Already Exists: 7
+Failed: 0
+
+Report generated: 2026-04-17 10:48:14

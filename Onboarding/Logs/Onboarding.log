@@ -8573,3 +8573,1900 @@ Check the spelling of the name, or if a path was included, verify that the path 
     Total Duration: 10.6059433 sec
         
 2026-04-16 16:48:30 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260416_164830.txt
+2026-04-17 08:40:01 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 08:40:01 | INFO | [5692d075] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 08:40:01 | INFO | [186c7f34] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 08:40:01 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 08:40:01 | INFO | --------------------------------------------------------
+2026-04-17 08:40:01 | DEBUG | [5692d075] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:40:01 | INFO | [5692d075] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 08:40:01 | DEBUG | [5692d075] [ConvertTo-OnboardingStandard] Step completed in 0.0008982 seconds
+2026-04-17 08:40:01 | DEBUG | [5692d075] [Test-OnboardingData] Starting step
+2026-04-17 08:40:01 | INFO | [5692d075] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 08:40:01 | DEBUG | [5692d075] [Test-OnboardingData] Step completed in 0.0011881 seconds
+2026-04-17 08:40:01 | DEBUG | [5692d075] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:40:01 | INFO | [5692d075] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 08:40:01 | DEBUG | [5692d075] [Set-OnboardingPolicy] Step completed in 0.0602443 seconds
+2026-04-17 08:40:01 | DEBUG | [5692d075] [New-OnboardingPlan] Starting step
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 08:40:01 | DEBUG | [5692d075] [New-OnboardingPlan] Step completed in 0.0058759 seconds
+2026-04-17 08:40:01 | DEBUG | [5692d075] [New-OnboardingIdentity] Starting step
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 08:40:01 | DEBUG | [5692d075] [New-OnboardingIdentity] Step completed in 0.0196431 seconds
+2026-04-17 08:40:01 | DEBUG | [5692d075] [New-OnboardingUser] Starting step
+2026-04-17 08:40:01 | INFO | [5692d075] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 08:40:01 | DEBUG | [5692d075] [New-OnboardingUser] Step completed in 0.2022275 seconds
+2026-04-17 08:40:01 | INFO | --------------------------------------------------------
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:40:01 | INFO | [186c7f34] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [ConvertTo-OnboardingStandard] Step completed in 0.0008517 seconds
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [Test-OnboardingData] Starting step
+2026-04-17 08:40:01 | INFO | [186c7f34] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [Test-OnboardingData] Step completed in 0.0008983 seconds
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:40:01 | INFO | [186c7f34] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [Set-OnboardingPolicy] Step completed in 0.0010662 seconds
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [New-OnboardingPlan] Starting step
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [New-OnboardingPlan] Step completed in 0.0022178 seconds
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [New-OnboardingIdentity] Starting step
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [New-OnboardingIdentity] Step completed in 0.0026657 seconds
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [New-OnboardingUser] Starting step
+2026-04-17 08:40:01 | INFO | [186c7f34] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 08:40:01 | DEBUG | [186c7f34] [New-OnboardingUser] Step completed in 0.0181813 seconds
+2026-04-17 08:40:01 | INFO | --------------------------------------------------------
+2026-04-17 08:40:02 | WARN | [5692d075] [Onboarding] WaitForEntra -> John Smith : RETRY (1)
+2026-04-17 08:40:34 | WARN | [5692d075] [Onboarding] WaitForEntra -> John Smith : RETRY (2)
+2026-04-17 08:41:35 | WARN | [5692d075] [Onboarding] WaitForEntra -> John Smith : RETRY (3)
+2026-04-17 08:42:40 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 08:42:40 | INFO | [2ce7141b] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 08:42:40 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 08:42:40 | INFO | --------------------------------------------------------
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [ConvertTo-OnboardingStandard] Step completed in 0.0018017 seconds
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [Test-OnboardingData] Starting step
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [Test-OnboardingData] Step completed in 0.0011395 seconds
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [Set-OnboardingPolicy] Step completed in 0.0133006 seconds
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [New-OnboardingPlan] Starting step
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [New-OnboardingPlan] Step completed in 0.0087507 seconds
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [New-OnboardingIdentity] Starting step
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [New-OnboardingIdentity] Step completed in 0.0037086 seconds
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [New-OnboardingUser] Starting step
+2026-04-17 08:42:40 | INFO | [72a4a6cc] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 08:42:40 | DEBUG | [72a4a6cc] [New-OnboardingUser] Step completed in 0.0099575 seconds
+2026-04-17 08:42:40 | INFO | --------------------------------------------------------
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:42:40 | INFO | [2ce7141b] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [ConvertTo-OnboardingStandard] Step completed in 0.0009603 seconds
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [Test-OnboardingData] Starting step
+2026-04-17 08:42:40 | INFO | [2ce7141b] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [Test-OnboardingData] Step completed in 0.0025884 seconds
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:42:40 | INFO | [2ce7141b] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [Set-OnboardingPolicy] Step completed in 0.0012003 seconds
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [New-OnboardingPlan] Starting step
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [New-OnboardingPlan] Step completed in 0.0385987 seconds
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [New-OnboardingIdentity] Starting step
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [New-OnboardingIdentity] Step completed in 0.0520298 seconds
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [New-OnboardingUser] Starting step
+2026-04-17 08:42:40 | INFO | [2ce7141b] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 08:42:40 | DEBUG | [2ce7141b] [New-OnboardingUser] Step completed in 0.0358672 seconds
+2026-04-17 08:42:40 | INFO | --------------------------------------------------------
+2026-04-17 08:42:40 | WARN | [72a4a6cc] [Onboarding] WaitForEntra -> John Smith : RETRY (1)
+2026-04-17 08:48:39 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 08:48:39 | INFO | [85e5341e] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 08:48:39 | INFO | [c8119107] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 08:48:39 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 08:48:39 | INFO | --------------------------------------------------------
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:48:39 | INFO | [85e5341e] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [ConvertTo-OnboardingStandard] Step completed in 0.022182 seconds
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [Test-OnboardingData] Starting step
+2026-04-17 08:48:39 | INFO | [85e5341e] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [Test-OnboardingData] Step completed in 0.0009887 seconds
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:48:39 | INFO | [85e5341e] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [Set-OnboardingPolicy] Step completed in 0.0146953 seconds
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [New-OnboardingPlan] Starting step
+2026-04-17 08:48:39 | INFO | [85e5341e] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 08:48:39 | INFO | [85e5341e] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 08:48:39 | INFO | [85e5341e] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [New-OnboardingPlan] Step completed in 0.0034015 seconds
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [New-OnboardingIdentity] Starting step
+2026-04-17 08:48:39 | INFO | [85e5341e] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 08:48:39 | INFO | [85e5341e] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 08:48:39 | INFO | [85e5341e] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 08:48:39 | DEBUG | [85e5341e] [New-OnboardingIdentity] Step completed in 0.0042404 seconds
+2026-04-17 08:48:39 | INFO | [85e5341e-b5ee-4fc0-97bf-a85fb958be03] [DRY RUN] Not creating user: John Smith
+2026-04-17 08:48:39 | INFO | --------------------------------------------------------
+2026-04-17 08:48:39 | DEBUG | [c8119107] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:48:39 | INFO | [c8119107] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 08:48:39 | DEBUG | [c8119107] [ConvertTo-OnboardingStandard] Step completed in 0.0314611 seconds
+2026-04-17 08:48:39 | DEBUG | [c8119107] [Test-OnboardingData] Starting step
+2026-04-17 08:48:39 | INFO | [c8119107] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 08:48:39 | DEBUG | [c8119107] [Test-OnboardingData] Step completed in 0.0287408 seconds
+2026-04-17 08:48:39 | DEBUG | [c8119107] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:48:39 | INFO | [c8119107] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 08:48:39 | DEBUG | [c8119107] [Set-OnboardingPolicy] Step completed in 0.0012849 seconds
+2026-04-17 08:48:39 | DEBUG | [c8119107] [New-OnboardingPlan] Starting step
+2026-04-17 08:48:39 | INFO | [c8119107] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 08:48:39 | INFO | [c8119107] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 08:48:39 | INFO | [c8119107] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 08:48:39 | DEBUG | [c8119107] [New-OnboardingPlan] Step completed in 0.0116503 seconds
+2026-04-17 08:48:39 | DEBUG | [c8119107] [New-OnboardingIdentity] Starting step
+2026-04-17 08:48:39 | INFO | [c8119107] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 08:48:39 | INFO | [c8119107] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 08:48:40 | INFO | [c8119107] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 08:48:40 | DEBUG | [c8119107] [New-OnboardingIdentity] Step completed in 0.0566587 seconds
+2026-04-17 08:48:40 | INFO | [c8119107-bea6-401e-b092-2f2112e17988] [DRY RUN] Not creating user: Lisa Taylor
+2026-04-17 08:48:40 | INFO | --------------------------------------------------------
+2026-04-17 08:48:40 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Total Duration: 0.281571 sec
+        
+2026-04-17 08:48:40 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_084840.txt
+2026-04-17 08:55:22 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 08:55:22 | INFO | [1bbc826e] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 08:55:22 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 08:55:22 | INFO | --------------------------------------------------------
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [ConvertTo-OnboardingStandard] Step completed in 0.0018217 seconds
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [Test-OnboardingData] Starting step
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [Test-OnboardingData] Step completed in 0.0010069 seconds
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [Set-OnboardingPolicy] Step completed in 0.0017925 seconds
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [New-OnboardingPlan] Starting step
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [New-OnboardingPlan] Step completed in 0.0235646 seconds
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [New-OnboardingIdentity] Starting step
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 08:55:22 | INFO | [ae94ee0b] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 08:55:22 | DEBUG | [ae94ee0b] [New-OnboardingIdentity] Step completed in 0.0029316 seconds
+2026-04-17 08:55:22 | INFO | [ae94ee0b-fa90-4e56-9dde-d9f80f9fdbdf] [DRY RUN] Not creating user: John Smith
+2026-04-17 08:55:22 | INFO | --------------------------------------------------------
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:55:22 | INFO | [1bbc826e] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [ConvertTo-OnboardingStandard] Step completed in 0.0013173 seconds
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [Test-OnboardingData] Starting step
+2026-04-17 08:55:22 | INFO | [1bbc826e] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [Test-OnboardingData] Step completed in 0.0268287 seconds
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:55:22 | INFO | [1bbc826e] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [Set-OnboardingPolicy] Step completed in 0.0232275 seconds
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [New-OnboardingPlan] Starting step
+2026-04-17 08:55:22 | INFO | [1bbc826e] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 08:55:22 | INFO | [1bbc826e] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 08:55:22 | INFO | [1bbc826e] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [New-OnboardingPlan] Step completed in 0.0322204 seconds
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [New-OnboardingIdentity] Starting step
+2026-04-17 08:55:22 | INFO | [1bbc826e] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 08:55:22 | INFO | [1bbc826e] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 08:55:22 | INFO | [1bbc826e] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 08:55:22 | DEBUG | [1bbc826e] [New-OnboardingIdentity] Step completed in 0.0267127 seconds
+2026-04-17 08:55:22 | INFO | [1bbc826e-0e8b-4b7e-87ba-6d385b655283] [DRY RUN] Not creating user: Lisa Taylor
+2026-04-17 08:55:22 | INFO | --------------------------------------------------------
+2026-04-17 08:55:22 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Total Duration: 0.1921979 sec
+        
+2026-04-17 08:55:22 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_085522.txt
+2026-04-17 08:55:35 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 08:55:35 | INFO | [01d19b59] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 08:55:35 | INFO | [f18e1342] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 08:55:35 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 08:55:35 | INFO | --------------------------------------------------------
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:55:35 | INFO | [01d19b59] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [ConvertTo-OnboardingStandard] Step completed in 0.0011087 seconds
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [Test-OnboardingData] Starting step
+2026-04-17 08:55:35 | INFO | [01d19b59] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [Test-OnboardingData] Step completed in 0.0008044 seconds
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:55:35 | INFO | [01d19b59] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [Set-OnboardingPolicy] Step completed in 0.0011531 seconds
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [New-OnboardingPlan] Starting step
+2026-04-17 08:55:35 | INFO | [01d19b59] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 08:55:35 | INFO | [01d19b59] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 08:55:35 | INFO | [01d19b59] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [New-OnboardingPlan] Step completed in 0.0025175 seconds
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [New-OnboardingIdentity] Starting step
+2026-04-17 08:55:35 | INFO | [01d19b59] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 08:55:35 | INFO | [01d19b59] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 08:55:35 | INFO | [01d19b59] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [New-OnboardingIdentity] Step completed in 0.0705085 seconds
+2026-04-17 08:55:35 | DEBUG | [01d19b59] [New-OnboardingUser] Starting step
+2026-04-17 08:55:36 | INFO | [01d19b59] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 08:55:36 | DEBUG | [01d19b59] [New-OnboardingUser] Step completed in 0.1384269 seconds
+2026-04-17 08:55:36 | INFO | --------------------------------------------------------
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 08:55:36 | INFO | [f18e1342] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [ConvertTo-OnboardingStandard] Step completed in 0.0010056 seconds
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [Test-OnboardingData] Starting step
+2026-04-17 08:55:36 | INFO | [f18e1342] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [Test-OnboardingData] Step completed in 0.0012215 seconds
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [Set-OnboardingPolicy] Starting step
+2026-04-17 08:55:36 | INFO | [f18e1342] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [Set-OnboardingPolicy] Step completed in 0.0009429 seconds
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [New-OnboardingPlan] Starting step
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [New-OnboardingPlan] Step completed in 0.002872 seconds
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [New-OnboardingIdentity] Starting step
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [New-OnboardingIdentity] Step completed in 0.0031817 seconds
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [New-OnboardingUser] Starting step
+2026-04-17 08:55:36 | INFO | [f18e1342] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 08:55:36 | DEBUG | [f18e1342] [New-OnboardingUser] Step completed in 0.0288874 seconds
+2026-04-17 08:55:36 | INFO | --------------------------------------------------------
+                                                                                             2026-04-17 09:03:48 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 09:03:48 | INFO | [79739ff4] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 09:03:48 | INFO | [fc359789] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 09:03:48 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 09:03:48 | INFO | --------------------------------------------------------
+2026-04-17 09:03:48 | DEBUG | [79739ff4] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:03:49 | INFO | [79739ff4] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [ConvertTo-OnboardingStandard] Step completed in 0.0908918 seconds
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [Test-OnboardingData] Starting step
+2026-04-17 09:03:49 | INFO | [79739ff4] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [Test-OnboardingData] Step completed in 0.0784067 seconds
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:03:49 | INFO | [79739ff4] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [Set-OnboardingPolicy] Step completed in 0.0623757 seconds
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [New-OnboardingPlan] Starting step
+2026-04-17 09:03:49 | INFO | [79739ff4] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 09:03:49 | INFO | [79739ff4] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 09:03:49 | INFO | [79739ff4] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [New-OnboardingPlan] Step completed in 0.1371637 seconds
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [New-OnboardingIdentity] Starting step
+2026-04-17 09:03:49 | INFO | [79739ff4] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 09:03:49 | INFO | [79739ff4] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 09:03:49 | INFO | [79739ff4] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [New-OnboardingIdentity] Step completed in 0.3449166 seconds
+2026-04-17 09:03:49 | DEBUG | [79739ff4] [New-OnboardingUser] Starting step
+2026-04-17 09:03:51 | ERROR | [79739ff4] [New-OnboardingUser] Step failed after 1.9325418 seconds: AD lookup failed: Unable to find a default server with Active Directory Web Services running.
+2026-04-17 09:03:51 | INFO | --------------------------------------------------------
+2026-04-17 09:03:52 | DEBUG | [fc359789] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:03:52 | INFO | [fc359789] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 09:03:52 | DEBUG | [fc359789] [ConvertTo-OnboardingStandard] Step completed in 0.2378179 seconds
+2026-04-17 09:03:52 | DEBUG | [fc359789] [Test-OnboardingData] Starting step
+2026-04-17 09:03:52 | INFO | [fc359789] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 09:03:52 | DEBUG | [fc359789] [Test-OnboardingData] Step completed in 0.2509286 seconds
+2026-04-17 09:03:52 | DEBUG | [fc359789] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:03:52 | INFO | [fc359789] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 09:03:53 | DEBUG | [fc359789] [Set-OnboardingPolicy] Step completed in 0.2753038 seconds
+2026-04-17 09:03:53 | DEBUG | [fc359789] [New-OnboardingPlan] Starting step
+2026-04-17 09:03:53 | INFO | [fc359789] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 09:03:53 | INFO | [fc359789] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 09:03:53 | INFO | [fc359789] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 09:03:53 | DEBUG | [fc359789] [New-OnboardingPlan] Step completed in 0.6452145 seconds
+2026-04-17 09:03:53 | DEBUG | [fc359789] [New-OnboardingIdentity] Starting step
+2026-04-17 09:03:53 | INFO | [fc359789] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 09:03:53 | INFO | [fc359789] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 09:03:53 | INFO | [fc359789] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 09:03:53 | DEBUG | [fc359789] [New-OnboardingIdentity] Step completed in 0.0278679 seconds
+2026-04-17 09:03:53 | DEBUG | [fc359789] [New-OnboardingUser] Starting step
+2026-04-17 09:03:53 | ERROR | [fc359789] [New-OnboardingUser] Step failed after 0.0099809 seconds: AD lookup failed: Unable to find a default server with Active Directory Web Services running.
+2026-04-17 09:03:53 | INFO | --------------------------------------------------------
+2026-04-17 09:03:53 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Total Duration: 5.6248169 sec
+        
+2026-04-17 09:03:54 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_090353.txt
+2026-04-17 09:06:26 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 09:06:26 | INFO | [162f4c60] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 09:06:26 | INFO | [72dc4e36] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 09:06:26 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 09:06:26 | INFO | --------------------------------------------------------
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:06:26 | INFO | [162f4c60] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [ConvertTo-OnboardingStandard] Step completed in 0.0009937 seconds
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [Test-OnboardingData] Starting step
+2026-04-17 09:06:26 | INFO | [162f4c60] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [Test-OnboardingData] Step completed in 0.0008704 seconds
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:06:26 | INFO | [162f4c60] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [Set-OnboardingPolicy] Step completed in 0.0009254 seconds
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [New-OnboardingPlan] Starting step
+2026-04-17 09:06:26 | INFO | [162f4c60] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 09:06:26 | INFO | [162f4c60] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 09:06:26 | INFO | [162f4c60] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [New-OnboardingPlan] Step completed in 0.0022888 seconds
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [New-OnboardingIdentity] Starting step
+2026-04-17 09:06:26 | INFO | [162f4c60] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 09:06:26 | INFO | [162f4c60] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 09:06:26 | INFO | [162f4c60] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [New-OnboardingIdentity] Step completed in 0.0056482 seconds
+2026-04-17 09:06:26 | DEBUG | [162f4c60] [New-OnboardingUser] Starting step
+2026-04-17 09:06:26 | ERROR | [162f4c60] [New-OnboardingUser] Step failed after 0.2801292 seconds: AD lookup failed: Unable to find a default server with Active Directory Web Services running.
+2026-04-17 09:06:26 | INFO | --------------------------------------------------------
+2026-04-17 09:06:26 | DEBUG | [72dc4e36] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:06:26 | INFO | [72dc4e36] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 09:06:26 | DEBUG | [72dc4e36] [ConvertTo-OnboardingStandard] Step completed in 0.0020274 seconds
+2026-04-17 09:06:26 | DEBUG | [72dc4e36] [Test-OnboardingData] Starting step
+2026-04-17 09:06:26 | INFO | [72dc4e36] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 09:06:26 | DEBUG | [72dc4e36] [Test-OnboardingData] Step completed in 0.0015264 seconds
+2026-04-17 09:06:26 | DEBUG | [72dc4e36] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:06:26 | INFO | [72dc4e36] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 09:06:27 | DEBUG | [72dc4e36] [Set-OnboardingPolicy] Step completed in 0.1827212 seconds
+2026-04-17 09:06:27 | DEBUG | [72dc4e36] [New-OnboardingPlan] Starting step
+2026-04-17 09:06:27 | INFO | [72dc4e36] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 09:06:27 | INFO | [72dc4e36] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 09:06:27 | INFO | [72dc4e36] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 09:06:27 | DEBUG | [72dc4e36] [New-OnboardingPlan] Step completed in 0.0045119 seconds
+2026-04-17 09:06:27 | DEBUG | [72dc4e36] [New-OnboardingIdentity] Starting step
+2026-04-17 09:06:27 | INFO | [72dc4e36] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 09:06:27 | INFO | [72dc4e36] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 09:06:27 | INFO | [72dc4e36] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 09:06:27 | DEBUG | [72dc4e36] [New-OnboardingIdentity] Step completed in 0.0031741 seconds
+2026-04-17 09:06:27 | DEBUG | [72dc4e36] [New-OnboardingUser] Starting step
+2026-04-17 09:06:27 | ERROR | [72dc4e36] [New-OnboardingUser] Step failed after 0.0080691 seconds: AD lookup failed: Unable to find a default server with Active Directory Web Services running.
+2026-04-17 09:06:27 | INFO | --------------------------------------------------------
+2026-04-17 09:06:27 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 0
+    Failed: 0
+    Total Duration: 0.5989711 sec
+        
+2026-04-17 09:06:27 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_090627.txt
+2026-04-17 09:11:29 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 09:11:29 | INFO | [27250102] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 09:11:29 | INFO | [86d6d80a] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 09:11:29 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 09:11:29 | INFO | --------------------------------------------------------
+2026-04-17 09:11:29 | DEBUG | [27250102] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:11:29 | INFO | [27250102] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 09:11:29 | DEBUG | [27250102] [ConvertTo-OnboardingStandard] Step completed in 0.0204078 seconds
+2026-04-17 09:11:29 | DEBUG | [27250102] [Test-OnboardingData] Starting step
+2026-04-17 09:11:29 | INFO | [27250102] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 09:11:29 | DEBUG | [27250102] [Test-OnboardingData] Step completed in 0.0568097 seconds
+2026-04-17 09:11:29 | DEBUG | [27250102] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:11:29 | INFO | [27250102] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT | Groups=GRP_ROLE_IT_Admin | License=
+2026-04-17 09:11:29 | DEBUG | [27250102] [Set-OnboardingPolicy] Step completed in 0.1237018 seconds
+2026-04-17 09:11:29 | DEBUG | [27250102] [New-OnboardingPlan] Starting step
+2026-04-17 09:11:29 | INFO | [27250102] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 09:11:29 | INFO | [27250102] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 09:11:29 | INFO | [27250102] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 09:11:29 | DEBUG | [27250102] [New-OnboardingPlan] Step completed in 0.0168219 seconds
+2026-04-17 09:11:29 | DEBUG | [27250102] [New-OnboardingIdentity] Starting step
+2026-04-17 09:11:29 | INFO | [27250102] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 09:11:29 | INFO | [27250102] [New-OnboardingIdentity] UPN -> johnsmith : GENERATED
+2026-04-17 09:11:29 | INFO | [27250102] [New-OnboardingIdentity] OU -> OU=IT, : GENERATED
+2026-04-17 09:11:29 | DEBUG | [27250102] [New-OnboardingIdentity] Step completed in 0.0127722 seconds
+2026-04-17 09:11:29 | DEBUG | [27250102] [New-OnboardingUser] Starting step
+2026-04-17 09:11:30 | INFO | [27250102] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 09:11:30 | DEBUG | [27250102] [New-OnboardingUser] Step completed in 0.9159156 seconds
+2026-04-17 09:11:30 | INFO | --------------------------------------------------------
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:11:30 | INFO | [86d6d80a] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [ConvertTo-OnboardingStandard] Step completed in 0.0486636 seconds
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [Test-OnboardingData] Starting step
+2026-04-17 09:11:30 | INFO | [86d6d80a] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [Test-OnboardingData] Step completed in 0.0022371 seconds
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:11:30 | INFO | [86d6d80a] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance | Groups=GRP_ROLE_Finance_User | License=
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [Set-OnboardingPolicy] Step completed in 0.001043 seconds
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [New-OnboardingPlan] Starting step
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [New-OnboardingPlan] Step completed in 0.002853 seconds
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [New-OnboardingIdentity] Starting step
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingIdentity] UPN -> lisataylor : GENERATED
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingIdentity] OU -> OU=Finance, : GENERATED
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [New-OnboardingIdentity] Step completed in 0.0801035 seconds
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [New-OnboardingUser] Starting step
+2026-04-17 09:11:30 | INFO | [86d6d80a] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 09:11:30 | DEBUG | [86d6d80a] [New-OnboardingUser] Step completed in 0.0058487 seconds
+2026-04-17 09:11:30 | INFO | --------------------------------------------------------
+2026-04-17 09:11:35 | WARN | [27250102] [Onboarding] WaitForEntra -> John Smith : RETRY (1)
+2026-04-17 09:12:07 | WARN | [27250102] [Onboarding] WaitForEntra -> John Smith : RETRY (2)
+2026-04-17 09:13:08 | WARN | [27250102] [Onboarding] WaitForEntra -> John Smith : RETRY (3)
+2026-04-17 09:14:39 | WARN | [27250102] [Onboarding] WaitForEntra -> John Smith : RETRY (4)
+2026-04-17 09:15:14 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 09:15:14 | INFO | [09cf4f47] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 09:15:14 | INFO | [a33c34a8] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 09:15:14 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 09:15:14 | INFO | --------------------------------------------------------
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:15:14 | INFO | [09cf4f47] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [ConvertTo-OnboardingStandard] Step completed in 0.0028255 seconds
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [Test-OnboardingData] Starting step
+2026-04-17 09:15:14 | INFO | [09cf4f47] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [Test-OnboardingData] Step completed in 0.0050923 seconds
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:15:14 | INFO | [09cf4f47] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT;AllStaff | Groups=GRP_ROLE_IT_Admin;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [Set-OnboardingPolicy] Step completed in 0.2203429 seconds
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [New-OnboardingPlan] Starting step
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_Admin : PENDING
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [New-OnboardingPlan] Step completed in 0.0143964 seconds
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [New-OnboardingIdentity] Starting step
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingIdentity] UPN -> johnsmith@dev.local : GENERATED
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [New-OnboardingIdentity] Step completed in 0.2433863 seconds
+2026-04-17 09:15:14 | DEBUG | [09cf4f47] [New-OnboardingUser] Starting step
+2026-04-17 09:15:14 | INFO | [09cf4f47] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 09:15:15 | DEBUG | [09cf4f47] [New-OnboardingUser] Step completed in 0.5114233 seconds
+2026-04-17 09:15:15 | INFO | --------------------------------------------------------
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:15:15 | INFO | [a33c34a8] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [ConvertTo-OnboardingStandard] Step completed in 0.0024657 seconds
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [Test-OnboardingData] Starting step
+2026-04-17 09:15:15 | INFO | [a33c34a8] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [Test-OnboardingData] Step completed in 0.0017214 seconds
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:15:15 | INFO | [a33c34a8] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [Set-OnboardingPolicy] Step completed in 0.0020283 seconds
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [New-OnboardingPlan] Starting step
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [New-OnboardingPlan] Step completed in 0.2939392 seconds
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [New-OnboardingIdentity] Starting step
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingIdentity] UPN -> lisataylor@dev.local : GENERATED
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [New-OnboardingIdentity] Step completed in 0.0064358 seconds
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [New-OnboardingUser] Starting step
+2026-04-17 09:15:15 | INFO | [a33c34a8] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 09:15:15 | DEBUG | [a33c34a8] [New-OnboardingUser] Step completed in 0.019597 seconds
+2026-04-17 09:15:15 | INFO | --------------------------------------------------------
+2026-04-17 09:15:16 | INFO | [09cf4f47] [Onboarding] WaitForEntra -> John Smith : User found
+2026-04-17 09:15:17 | INFO | [09cf4f47] [Onboarding] AddToGroup -> GRP_ROLE_IT_Admin : Already in GRP_ROLE_IT_Admin
+2026-04-17 09:15:17 | INFO | [09cf4f47] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 09:15:20 | INFO | [09cf4f47] [Onboarding] AddToDistributionList -> IT : Already in IT
+2026-04-17 09:15:21 | INFO | [09cf4f47] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 09:15:21 | INFO | [09cf4f47] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 09:15:21 | INFO | [a33c34a8] [Onboarding] WaitForEntra -> Lisa Taylor : User found
+2026-04-17 09:15:21 | INFO | [a33c34a8] [Onboarding] AddToGroup -> GRP_ROLE_Finance_User : Already in GRP_ROLE_Finance_User
+2026-04-17 09:15:22 | INFO | [a33c34a8] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 09:15:23 | INFO | [a33c34a8] [Onboarding] AddToDistributionList -> Finance : Already in Finance
+2026-04-17 09:15:24 | INFO | [a33c34a8] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 09:15:24 | INFO | [a33c34a8] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 09:15:24 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 2
+    Failed: 0
+    Total Duration: 10.0304983 sec
+        
+2026-04-17 09:15:24 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_091524.txt
+2026-04-17 09:31:50 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test2.csv)
+2026-04-17 09:31:50 | INFO | [7c5413a7] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 09:31:50 | INFO | [217fc57e] [Import-OnboardingCsv] Import -> Marcus Reed : Imported
+2026-04-17 09:31:50 | INFO | [43ebaa17] [Import-OnboardingCsv] Import -> Janet Cruz : Imported
+2026-04-17 09:31:50 | INFO | [a036d9a0] [Import-OnboardingCsv] Import -> Derek Wong : Imported
+2026-04-17 09:31:50 | INFO | [a3778e69] [Import-OnboardingCsv] Import -> Amanda Foster : Imported
+2026-04-17 09:31:50 | INFO | [f9051c91] [Import-OnboardingCsv] Import ->  Brown : Imported
+2026-04-17 09:31:50 | INFO | [26ee4f99] [Import-OnboardingCsv] Import -> Chris  : Imported
+2026-04-17 09:31:50 | INFO | [c3aa8ded] [Import-OnboardingCsv] Import -> Paul Martin : Imported
+2026-04-17 09:31:50 | INFO | [07a68e09] [Import-OnboardingCsv] Import -> Karen Davis : Imported
+2026-04-17 09:31:50 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 10)
+2026-04-17 09:31:50 | INFO | --------------------------------------------------------
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:50 | INFO | [7c5413a7] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [ConvertTo-OnboardingStandard] Step completed in 0.0016495 seconds
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [Test-OnboardingData] Starting step
+2026-04-17 09:31:50 | INFO | [7c5413a7] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [Test-OnboardingData] Step completed in 0.0540063 seconds
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:50 | INFO | [7c5413a7] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [Set-OnboardingPolicy] Step completed in 0.0535719 seconds
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [New-OnboardingPlan] Step completed in 0.0536028 seconds
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingIdentity] UPN -> johnsmith@dev.local : GENERATED
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [New-OnboardingIdentity] Step completed in 0.0725335 seconds
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [New-OnboardingUser] Starting step
+2026-04-17 09:31:50 | INFO | [7c5413a7] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 09:31:50 | DEBUG | [7c5413a7] [New-OnboardingUser] Step completed in 0.2320972 seconds
+2026-04-17 09:31:50 | INFO | --------------------------------------------------------
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [ConvertTo-OnboardingStandard] Step completed in 0.0008686 seconds
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [Test-OnboardingData] Starting step
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [Test-OnboardingData] Step completed in 0.0008756 seconds
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [Set-OnboardingPolicy] Step completed in 0.0009027 seconds
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [New-OnboardingPlan] Step completed in 0.0081867 seconds
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingIdentity] UPN -> lisataylor@dev.local : GENERATED
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [New-OnboardingIdentity] Step completed in 0.0517064 seconds
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [New-OnboardingUser] Starting step
+2026-04-17 09:31:50 | INFO | [a1ffd4b1] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 09:31:50 | DEBUG | [a1ffd4b1] [New-OnboardingUser] Step completed in 0.139261 seconds
+2026-04-17 09:31:50 | INFO | --------------------------------------------------------
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:50 | INFO | [217fc57e] [ConvertTo-OnboardingStandard] Normalize -> Marcus Reed: FirstName=Marcus, LastName=Reed, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [ConvertTo-OnboardingStandard] Step completed in 0.0011296 seconds
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [Test-OnboardingData] Starting step
+2026-04-17 09:31:50 | INFO | [217fc57e] [Test-OnboardingData] Validation -> Marcus Reed: Valid
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [Test-OnboardingData] Step completed in 0.0009408 seconds
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:50 | INFO | [217fc57e] [Set-OnboardingPolicy] Policy -> Marcus Reed : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [Set-OnboardingPolicy] Step completed in 0.0012076 seconds
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingPlan] WaitForEntra -> Marcus Reed : PENDING
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [New-OnboardingPlan] Step completed in 0.0062071 seconds
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingIdentity] SamAccountName -> marcusreed : GENERATED
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingIdentity] UPN -> marcusreed@dev.local : GENERATED
+2026-04-17 09:31:50 | INFO | [217fc57e] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [New-OnboardingIdentity] Step completed in 0.0070403 seconds
+2026-04-17 09:31:50 | DEBUG | [217fc57e] [New-OnboardingUser] Starting step
+2026-04-17 09:31:51 | INFO | [217fc57e] [New-OnboardingUser] CreateUser -> marcusreed : CREATED
+2026-04-17 09:31:51 | DEBUG | [217fc57e] [New-OnboardingUser] Step completed in 0.3763809 seconds
+2026-04-17 09:31:51 | INFO | --------------------------------------------------------
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:51 | INFO | [43ebaa17] [ConvertTo-OnboardingStandard] Normalize -> Janet Cruz: FirstName=Janet, LastName=Cruz, Title=Hr Specialist, Manager=Tom Baker, Location=Dallas, Department=HR
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [ConvertTo-OnboardingStandard] Step completed in 0.001158 seconds
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [Test-OnboardingData] Starting step
+2026-04-17 09:31:51 | INFO | [43ebaa17] [Test-OnboardingData] Validation -> Janet Cruz: Valid
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [Test-OnboardingData] Step completed in 0.0011637 seconds
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:51 | INFO | [43ebaa17] [Set-OnboardingPolicy] Policy -> Janet Cruz : DL=HR;AllStaff | Groups=GRP_ROLE_HR_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [Set-OnboardingPolicy] Step completed in 0.0015296 seconds
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingPlan] WaitForEntra -> Janet Cruz : PENDING
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_HR_User : PENDING
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingPlan] AddToDistributionList -> HR : PENDING
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [New-OnboardingPlan] Step completed in 0.005853 seconds
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingIdentity] SamAccountName -> janetcruz : GENERATED
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingIdentity] UPN -> janetcruz@dev.local : GENERATED
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingIdentity] OU -> OU=HR,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [New-OnboardingIdentity] Step completed in 0.002403 seconds
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [New-OnboardingUser] Starting step
+2026-04-17 09:31:51 | INFO | [43ebaa17] [New-OnboardingUser] CreateUser -> janetcruz : CREATED
+2026-04-17 09:31:51 | DEBUG | [43ebaa17] [New-OnboardingUser] Step completed in 0.2194189 seconds
+2026-04-17 09:31:51 | INFO | --------------------------------------------------------
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:51 | INFO | [a036d9a0] [ConvertTo-OnboardingStandard] Normalize -> Derek Wong: FirstName=Derek, LastName=Wong, Title=Sales Rep, Manager=Nancy Hill, Location=Los Angeles, Department=Sales
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [ConvertTo-OnboardingStandard] Step completed in 0.0009559 seconds
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [Test-OnboardingData] Starting step
+2026-04-17 09:31:51 | INFO | [a036d9a0] [Test-OnboardingData] Validation -> Derek Wong: Valid
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [Test-OnboardingData] Step completed in 0.0018413 seconds
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:51 | INFO | [a036d9a0] [Set-OnboardingPolicy] Policy -> Derek Wong : DL=Sales | Groups=GRP_ROLE_Sales_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [Set-OnboardingPolicy] Step completed in 0.001047 seconds
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingPlan] WaitForEntra -> Derek Wong : PENDING
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Sales_User : PENDING
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingPlan] AddToDistributionList -> Sales : PENDING
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [New-OnboardingPlan] Step completed in 0.0056136 seconds
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingIdentity] SamAccountName -> derekwong : GENERATED
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingIdentity] UPN -> derekwong@dev.local : GENERATED
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingIdentity] OU -> OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [New-OnboardingIdentity] Step completed in 0.0033235 seconds
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [New-OnboardingUser] Starting step
+2026-04-17 09:31:51 | INFO | [a036d9a0] [New-OnboardingUser] CreateUser -> derekwong : CREATED
+2026-04-17 09:31:51 | DEBUG | [a036d9a0] [New-OnboardingUser] Step completed in 0.1769802 seconds
+2026-04-17 09:31:51 | INFO | --------------------------------------------------------
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:51 | INFO | [a3778e69] [ConvertTo-OnboardingStandard] Normalize -> Amanda Foster: FirstName=Amanda, LastName=Foster, Title=Marketing Specialist, Manager=Greg Stone, Location=Chicago, Department=Marketing
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [ConvertTo-OnboardingStandard] Step completed in 0.0010475 seconds
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [Test-OnboardingData] Starting step
+2026-04-17 09:31:51 | INFO | [a3778e69] [Test-OnboardingData] Validation -> Amanda Foster: Valid
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [Test-OnboardingData] Step completed in 0.000836 seconds
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:51 | INFO | [a3778e69] [Set-OnboardingPolicy] Policy -> Amanda Foster : DL=Marketing;AllStaff | Groups=GRP_ROLE_Marketing_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [Set-OnboardingPolicy] Step completed in 0.0012079 seconds
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingPlan] WaitForEntra -> Amanda Foster : PENDING
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Marketing_User : PENDING
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingPlan] AddToDistributionList -> Marketing : PENDING
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [New-OnboardingPlan] Step completed in 0.0054941 seconds
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingIdentity] SamAccountName -> amandafoster : GENERATED
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingIdentity] UPN -> amandafoster@dev.local : GENERATED
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingIdentity] OU -> OU=Marketing,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [New-OnboardingIdentity] Step completed in 0.0021399 seconds
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [New-OnboardingUser] Starting step
+2026-04-17 09:31:51 | INFO | [a3778e69] [New-OnboardingUser] CreateUser -> amandafoster : CREATED
+2026-04-17 09:31:51 | DEBUG | [a3778e69] [New-OnboardingUser] Step completed in 0.1757493 seconds
+2026-04-17 09:31:51 | INFO | --------------------------------------------------------
+2026-04-17 09:31:51 | DEBUG | [f9051c91] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:51 | INFO | [f9051c91] [ConvertTo-OnboardingStandard] Normalize ->  Brown: FirstName=, LastName=Brown, Title=Technician, Manager=Steve Adams, Location=Boston, Department=IT
+2026-04-17 09:31:51 | DEBUG | [f9051c91] [ConvertTo-OnboardingStandard] Step completed in 0.0012905 seconds
+2026-04-17 09:31:51 | DEBUG | [f9051c91] [Test-OnboardingData] Starting step
+2026-04-17 09:31:51 | WARN | [f9051c91] [Test-OnboardingData] Validation ->  Brown: Invalid FirstName is missing
+2026-04-17 09:31:51 | DEBUG | [f9051c91] [Test-OnboardingData] Step completed in 0.0024758 seconds
+2026-04-17 09:31:51 | ERROR | [f9051c91-c62b-4d82-be76-833e350c6926] [INVALID] Validation failed:  Brown
+2026-04-17 09:31:51 | DEBUG | [26ee4f99] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:51 | INFO | [26ee4f99] [ConvertTo-OnboardingStandard] Normalize -> Chris : FirstName=Chris, LastName=, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 09:31:51 | DEBUG | [26ee4f99] [ConvertTo-OnboardingStandard] Step completed in 0.0016482 seconds
+2026-04-17 09:31:51 | DEBUG | [26ee4f99] [Test-OnboardingData] Starting step
+2026-04-17 09:31:51 | WARN | [26ee4f99] [Test-OnboardingData] Validation -> Chris : Invalid LastName is missing
+2026-04-17 09:31:51 | DEBUG | [26ee4f99] [Test-OnboardingData] Step completed in 0.0006351 seconds
+2026-04-17 09:31:51 | ERROR | [26ee4f99-f486-4730-9120-fd76eaef2808] [INVALID] Validation failed: Chris 
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:51 | INFO | [c3aa8ded] [ConvertTo-OnboardingStandard] Normalize -> Paul Martin: FirstName=Paul, LastName=Martin, Title=Finance Poweruser, Manager=Bob Williams, Location=New York, Department=Finance
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [ConvertTo-OnboardingStandard] Step completed in 0.0008827 seconds
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [Test-OnboardingData] Starting step
+2026-04-17 09:31:51 | INFO | [c3aa8ded] [Test-OnboardingData] Validation -> Paul Martin: Valid
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [Test-OnboardingData] Step completed in 0.0007805 seconds
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [Set-OnboardingPolicy] Starting step
+2026-04-17 09:31:51 | INFO | [c3aa8ded] [Set-OnboardingPolicy] Policy -> Paul Martin : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_PowerUser;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [Set-OnboardingPolicy] Step completed in 0.0041605 seconds
+2026-04-17 09:31:51 | DEBUG | [c3aa8ded] [New-OnboardingPlan] Starting step
+2026-04-17 09:31:51 | INFO | [c3aa8ded] [New-OnboardingPlan] WaitForEntra -> Paul Martin : PENDING
+2026-04-17 09:31:51 | INFO | [c3aa8ded] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_PowerUser : PENDING
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 09:31:52 | DEBUG | [c3aa8ded] [New-OnboardingPlan] Step completed in 0.0949293 seconds
+2026-04-17 09:31:52 | DEBUG | [c3aa8ded] [New-OnboardingIdentity] Starting step
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingIdentity] SamAccountName -> paulmartin : GENERATED
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingIdentity] UPN -> paulmartin@dev.local : GENERATED
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 09:31:52 | DEBUG | [c3aa8ded] [New-OnboardingIdentity] Step completed in 0.0084523 seconds
+2026-04-17 09:31:52 | DEBUG | [c3aa8ded] [New-OnboardingUser] Starting step
+2026-04-17 09:31:52 | INFO | [c3aa8ded] [New-OnboardingUser] CreateUser -> paulmartin : CREATED
+2026-04-17 09:31:52 | DEBUG | [c3aa8ded] [New-OnboardingUser] Step completed in 0.1395312 seconds
+2026-04-17 09:31:52 | INFO | --------------------------------------------------------
+2026-04-17 09:31:52 | DEBUG | [07a68e09] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 09:31:52 | INFO | [07a68e09] [ConvertTo-OnboardingStandard] Normalize -> Karen Davis: FirstName=Karen, LastName=Davis, Title=Director Of Operations, Manager=Nancy Hill, Location=New York, Department=
+2026-04-17 09:31:52 | DEBUG | [07a68e09] [ConvertTo-OnboardingStandard] Step completed in 0.0011143 seconds
+2026-04-17 09:31:52 | DEBUG | [07a68e09] [Test-OnboardingData] Starting step
+2026-04-17 09:31:52 | WARN | [07a68e09] [Test-OnboardingData] Validation -> Karen Davis: Invalid Department is missing
+2026-04-17 09:31:52 | DEBUG | [07a68e09] [Test-OnboardingData] Step completed in 0.0016278 seconds
+2026-04-17 09:31:52 | ERROR | [07a68e09-13fc-4b60-a92a-e707e72bfd29] [INVALID] Validation failed: Karen Davis
+2026-04-17 09:31:52 | INFO | [7c5413a7] [Onboarding] WaitForEntra -> John Smith : User found
+2026-04-17 09:31:52 | INFO | [7c5413a7] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Added to GRP_ROLE_IT_User
+2026-04-17 09:31:52 | INFO | [7c5413a7] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 09:31:55 | INFO | [7c5413a7] [Onboarding] AddToDistributionList -> IT : Already in IT
+2026-04-17 09:31:56 | INFO | [7c5413a7] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 09:31:56 | INFO | [7c5413a7] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 09:31:56 | INFO | [a1ffd4b1] [Onboarding] WaitForEntra -> Lisa Taylor : User found
+2026-04-17 09:31:56 | INFO | [a1ffd4b1] [Onboarding] AddToGroup -> GRP_ROLE_Finance_User : Already in GRP_ROLE_Finance_User
+2026-04-17 09:31:56 | INFO | [a1ffd4b1] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 09:31:58 | INFO | [a1ffd4b1] [Onboarding] AddToDistributionList -> Finance : Already in Finance
+2026-04-17 09:31:59 | INFO | [a1ffd4b1] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 09:31:59 | INFO | [a1ffd4b1] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 09:31:59 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (1)
+2026-04-17 09:32:30 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (2)
+2026-04-17 09:33:33 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (3)
+2026-04-17 09:35:05 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (4)
+2026-04-17 09:37:07 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (5)
+2026-04-17 09:39:39 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (6)
+2026-04-17 09:42:40 | WARN | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : RETRY (7)
+2026-04-17 09:46:12 | INFO | [217fc57e] [Onboarding] WaitForEntra -> Marcus Reed : User found
+2026-04-17 09:46:12 | INFO | [217fc57e] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Added to GRP_ROLE_IT_User
+2026-04-17 09:46:12 | INFO | [217fc57e] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 09:46:14 | INFO | [217fc57e] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 09:46:15 | INFO | [217fc57e] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 09:46:17 | INFO | [217fc57e] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 09:46:17 | INFO | [43ebaa17] [Onboarding] WaitForEntra -> Janet Cruz : User found
+2026-04-17 09:46:18 | INFO | [43ebaa17] [Onboarding] AddToGroup -> GRP_ROLE_HR_User : Added to GRP_ROLE_HR_User
+2026-04-17 09:46:18 | INFO | [43ebaa17] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 09:46:20 | INFO | [43ebaa17] [Onboarding] AddToDistributionList -> HR : Added to HR
+2026-04-17 09:46:21 | INFO | [43ebaa17] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 09:46:22 | INFO | [43ebaa17] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 09:46:22 | INFO | [a036d9a0] [Onboarding] WaitForEntra -> Derek Wong : User found
+2026-04-17 09:46:22 | INFO | [a036d9a0] [Onboarding] AddToGroup -> GRP_ROLE_Sales_User : Added to GRP_ROLE_Sales_User
+2026-04-17 09:46:22 | INFO | [a036d9a0] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 09:46:23 | INFO | [a036d9a0] [Onboarding] AddToDistributionList -> Sales : Added to Sales
+2026-04-17 09:46:24 | INFO | [a036d9a0] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 09:46:24 | INFO | [a3778e69] [Onboarding] WaitForEntra -> Amanda Foster : User found
+2026-04-17 09:46:24 | INFO | [a3778e69] [Onboarding] AddToGroup -> GRP_ROLE_Marketing_User : Added to GRP_ROLE_Marketing_User
+2026-04-17 09:46:24 | INFO | [a3778e69] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 09:46:25 | INFO | [a3778e69] [Onboarding] AddToDistributionList -> Marketing : Added to Marketing
+2026-04-17 09:46:27 | INFO | [a3778e69] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 09:46:27 | INFO | [a3778e69] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 09:46:27 | INFO | [c3aa8ded] [Onboarding] WaitForEntra -> Paul Martin : User found
+2026-04-17 09:46:27 | INFO | [c3aa8ded] [Onboarding] AddToGroup -> GRP_ROLE_Finance_PowerUser : Added to GRP_ROLE_Finance_PowerUser
+2026-04-17 09:46:28 | INFO | [c3aa8ded] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 09:46:28 | INFO | [c3aa8ded] [Onboarding] AddToDistributionList -> Finance : Added to Finance
+2026-04-17 09:46:30 | INFO | [c3aa8ded] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 09:46:30 | INFO | [c3aa8ded] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 09:46:30 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 5
+    Already Exists: 2
+    Failed: 3
+    Total Duration: 880.7306051 sec
+        
+2026-04-17 09:46:30 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_094630.txt
+2026-04-17 10:47:49 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test2.csv)
+2026-04-17 10:47:49 | INFO | [92dba8eb] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 10:47:49 | INFO | [794dfca0] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 10:47:49 | INFO | [9456052e] [Import-OnboardingCsv] Import -> Marcus Reed : Imported
+2026-04-17 10:47:49 | INFO | [045598af] [Import-OnboardingCsv] Import -> Janet Cruz : Imported
+2026-04-17 10:47:49 | INFO | [0a9025eb] [Import-OnboardingCsv] Import -> Derek Wong : Imported
+2026-04-17 10:47:49 | INFO | [00b6302e] [Import-OnboardingCsv] Import -> Amanda Foster : Imported
+2026-04-17 10:47:49 | INFO | [8a4d72a7] [Import-OnboardingCsv] Import ->  Brown : Imported
+2026-04-17 10:47:49 | INFO | [4fec42e6] [Import-OnboardingCsv] Import -> Chris  : Imported
+2026-04-17 10:47:49 | INFO | [e6464f2b] [Import-OnboardingCsv] Import -> Paul Martin : Imported
+2026-04-17 10:47:49 | INFO | [1143bc9d] [Import-OnboardingCsv] Import -> Karen Davis : Imported
+2026-04-17 10:47:49 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 10)
+2026-04-17 10:47:49 | INFO | --------------------------------------------------------
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:49 | INFO | [92dba8eb] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [ConvertTo-OnboardingStandard] Step completed in 0.0031146 seconds
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [Test-OnboardingData] Starting step
+2026-04-17 10:47:49 | INFO | [92dba8eb] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [Test-OnboardingData] Step completed in 0.0013087 seconds
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:49 | INFO | [92dba8eb] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [Set-OnboardingPolicy] Step completed in 0.009208 seconds
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [New-OnboardingPlan] Step completed in 0.0526396 seconds
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingIdentity] UPN -> johnsmith@dev.local : GENERATED
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [New-OnboardingIdentity] Step completed in 0.0053302 seconds
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [New-OnboardingUser] Starting step
+2026-04-17 10:47:49 | INFO | [92dba8eb] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 10:47:49 | DEBUG | [92dba8eb] [New-OnboardingUser] Step completed in 0.2272678 seconds
+2026-04-17 10:47:49 | INFO | --------------------------------------------------------
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:49 | INFO | [794dfca0] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [ConvertTo-OnboardingStandard] Step completed in 0.0011381 seconds
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [Test-OnboardingData] Starting step
+2026-04-17 10:47:49 | INFO | [794dfca0] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [Test-OnboardingData] Step completed in 0.0008928 seconds
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:49 | INFO | [794dfca0] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [Set-OnboardingPolicy] Step completed in 0.0011426 seconds
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [New-OnboardingPlan] Step completed in 0.0065712 seconds
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingIdentity] UPN -> lisataylor@dev.local : GENERATED
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [New-OnboardingIdentity] Step completed in 0.0035303 seconds
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [New-OnboardingUser] Starting step
+2026-04-17 10:47:49 | INFO | [794dfca0] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 10:47:49 | DEBUG | [794dfca0] [New-OnboardingUser] Step completed in 0.0338505 seconds
+2026-04-17 10:47:49 | INFO | --------------------------------------------------------
+2026-04-17 10:47:49 | DEBUG | [9456052e] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:49 | INFO | [9456052e] [ConvertTo-OnboardingStandard] Normalize -> Marcus Reed: FirstName=Marcus, LastName=Reed, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 10:47:49 | DEBUG | [9456052e] [ConvertTo-OnboardingStandard] Step completed in 0.0032798 seconds
+2026-04-17 10:47:49 | DEBUG | [9456052e] [Test-OnboardingData] Starting step
+2026-04-17 10:47:49 | INFO | [9456052e] [Test-OnboardingData] Validation -> Marcus Reed: Valid
+2026-04-17 10:47:49 | DEBUG | [9456052e] [Test-OnboardingData] Step completed in 0.0047915 seconds
+2026-04-17 10:47:49 | DEBUG | [9456052e] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:49 | INFO | [9456052e] [Set-OnboardingPolicy] Policy -> Marcus Reed : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:49 | DEBUG | [9456052e] [Set-OnboardingPolicy] Step completed in 0.0545998 seconds
+2026-04-17 10:47:49 | DEBUG | [9456052e] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingPlan] WaitForEntra -> Marcus Reed : PENDING
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:49 | DEBUG | [9456052e] [New-OnboardingPlan] Step completed in 0.0126179 seconds
+2026-04-17 10:47:49 | DEBUG | [9456052e] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingIdentity] SamAccountName -> marcusreed : GENERATED
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingIdentity] UPN -> marcusreed@dev.local : GENERATED
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:49 | DEBUG | [9456052e] [New-OnboardingIdentity] Step completed in 0.0033512 seconds
+2026-04-17 10:47:49 | DEBUG | [9456052e] [New-OnboardingUser] Starting step
+2026-04-17 10:47:49 | INFO | [9456052e] [New-OnboardingUser] CreateUser -> marcusreed : ALREADY_EXISTS
+2026-04-17 10:47:49 | DEBUG | [9456052e] [New-OnboardingUser] Step completed in 0.0070265 seconds
+2026-04-17 10:47:49 | INFO | --------------------------------------------------------
+2026-04-17 10:47:49 | DEBUG | [045598af] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:49 | INFO | [045598af] [ConvertTo-OnboardingStandard] Normalize -> Janet Cruz: FirstName=Janet, LastName=Cruz, Title=Hr Specialist, Manager=Tom Baker, Location=Dallas, Department=HR
+2026-04-17 10:47:49 | DEBUG | [045598af] [ConvertTo-OnboardingStandard] Step completed in 0.0012175 seconds
+2026-04-17 10:47:49 | DEBUG | [045598af] [Test-OnboardingData] Starting step
+2026-04-17 10:47:49 | INFO | [045598af] [Test-OnboardingData] Validation -> Janet Cruz: Valid
+2026-04-17 10:47:49 | DEBUG | [045598af] [Test-OnboardingData] Step completed in 0.0017584 seconds
+2026-04-17 10:47:49 | DEBUG | [045598af] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:50 | INFO | [045598af] [Set-OnboardingPolicy] Policy -> Janet Cruz : DL=HR;AllStaff | Groups=GRP_ROLE_HR_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:50 | DEBUG | [045598af] [Set-OnboardingPolicy] Step completed in 0.0158771 seconds
+2026-04-17 10:47:50 | DEBUG | [045598af] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingPlan] WaitForEntra -> Janet Cruz : PENDING
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_HR_User : PENDING
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingPlan] AddToDistributionList -> HR : PENDING
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:50 | DEBUG | [045598af] [New-OnboardingPlan] Step completed in 0.0967152 seconds
+2026-04-17 10:47:50 | DEBUG | [045598af] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingIdentity] SamAccountName -> janetcruz : GENERATED
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingIdentity] UPN -> janetcruz@dev.local : GENERATED
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingIdentity] OU -> OU=HR,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:50 | DEBUG | [045598af] [New-OnboardingIdentity] Step completed in 0.0118315 seconds
+2026-04-17 10:47:50 | DEBUG | [045598af] [New-OnboardingUser] Starting step
+2026-04-17 10:47:50 | INFO | [045598af] [New-OnboardingUser] CreateUser -> janetcruz : ALREADY_EXISTS
+2026-04-17 10:47:50 | DEBUG | [045598af] [New-OnboardingUser] Step completed in 0.0050225 seconds
+2026-04-17 10:47:50 | INFO | --------------------------------------------------------
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:50 | INFO | [0a9025eb] [ConvertTo-OnboardingStandard] Normalize -> Derek Wong: FirstName=Derek, LastName=Wong, Title=Sales Rep, Manager=Nancy Hill, Location=Los Angeles, Department=Sales
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [ConvertTo-OnboardingStandard] Step completed in 0.0034129 seconds
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [Test-OnboardingData] Starting step
+2026-04-17 10:47:50 | INFO | [0a9025eb] [Test-OnboardingData] Validation -> Derek Wong: Valid
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [Test-OnboardingData] Step completed in 0.004192 seconds
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:50 | INFO | [0a9025eb] [Set-OnboardingPolicy] Policy -> Derek Wong : DL=Sales | Groups=GRP_ROLE_Sales_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [Set-OnboardingPolicy] Step completed in 0.0070455 seconds
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingPlan] WaitForEntra -> Derek Wong : PENDING
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Sales_User : PENDING
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingPlan] AddToDistributionList -> Sales : PENDING
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [New-OnboardingPlan] Step completed in 0.0674537 seconds
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingIdentity] SamAccountName -> derekwong : GENERATED
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingIdentity] UPN -> derekwong@dev.local : GENERATED
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingIdentity] OU -> OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [New-OnboardingIdentity] Step completed in 0.0062924 seconds
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [New-OnboardingUser] Starting step
+2026-04-17 10:47:50 | INFO | [0a9025eb] [New-OnboardingUser] CreateUser -> derekwong : ALREADY_EXISTS
+2026-04-17 10:47:50 | DEBUG | [0a9025eb] [New-OnboardingUser] Step completed in 0.0275649 seconds
+2026-04-17 10:47:50 | INFO | --------------------------------------------------------
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:50 | INFO | [00b6302e] [ConvertTo-OnboardingStandard] Normalize -> Amanda Foster: FirstName=Amanda, LastName=Foster, Title=Marketing Specialist, Manager=Greg Stone, Location=Chicago, Department=Marketing
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [ConvertTo-OnboardingStandard] Step completed in 0.0032158 seconds
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [Test-OnboardingData] Starting step
+2026-04-17 10:47:50 | INFO | [00b6302e] [Test-OnboardingData] Validation -> Amanda Foster: Valid
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [Test-OnboardingData] Step completed in 0.0069829 seconds
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:50 | INFO | [00b6302e] [Set-OnboardingPolicy] Policy -> Amanda Foster : DL=Marketing;AllStaff | Groups=GRP_ROLE_Marketing_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [Set-OnboardingPolicy] Step completed in 0.0133039 seconds
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingPlan] WaitForEntra -> Amanda Foster : PENDING
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Marketing_User : PENDING
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingPlan] AddToDistributionList -> Marketing : PENDING
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [New-OnboardingPlan] Step completed in 0.0991725 seconds
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingIdentity] SamAccountName -> amandafoster : GENERATED
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingIdentity] UPN -> amandafoster@dev.local : GENERATED
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingIdentity] OU -> OU=Marketing,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [New-OnboardingIdentity] Step completed in 0.0675871 seconds
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [New-OnboardingUser] Starting step
+2026-04-17 10:47:50 | INFO | [00b6302e] [New-OnboardingUser] CreateUser -> amandafoster : ALREADY_EXISTS
+2026-04-17 10:47:50 | DEBUG | [00b6302e] [New-OnboardingUser] Step completed in 0.0318875 seconds
+2026-04-17 10:47:50 | INFO | --------------------------------------------------------
+2026-04-17 10:47:50 | DEBUG | [8a4d72a7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:50 | INFO | [8a4d72a7] [ConvertTo-OnboardingStandard] Normalize ->  Brown: FirstName=, LastName=Brown, Title=Technician, Manager=Steve Adams, Location=Boston, Department=IT
+2026-04-17 10:47:50 | DEBUG | [8a4d72a7] [ConvertTo-OnboardingStandard] Step completed in 0.0298226 seconds
+2026-04-17 10:47:50 | DEBUG | [8a4d72a7] [Test-OnboardingData] Starting step
+2026-04-17 10:47:50 | WARN | [8a4d72a7] [Test-OnboardingData] Validation ->  Brown: Invalid FirstName is missing
+2026-04-17 10:47:50 | DEBUG | [8a4d72a7] [Test-OnboardingData] Step completed in 0.0186901 seconds
+2026-04-17 10:47:50 | ERROR | [8a4d72a7-c847-44df-80aa-4e2ac9e9d8bc] [INVALID] Validation failed:  Brown
+2026-04-17 10:47:50 | DEBUG | [4fec42e6] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:50 | INFO | [4fec42e6] [ConvertTo-OnboardingStandard] Normalize -> Chris : FirstName=Chris, LastName=, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 10:47:50 | DEBUG | [4fec42e6] [ConvertTo-OnboardingStandard] Step completed in 0.0010951 seconds
+2026-04-17 10:47:50 | DEBUG | [4fec42e6] [Test-OnboardingData] Starting step
+2026-04-17 10:47:50 | WARN | [4fec42e6] [Test-OnboardingData] Validation -> Chris : Invalid LastName is missing
+2026-04-17 10:47:50 | DEBUG | [4fec42e6] [Test-OnboardingData] Step completed in 0.0006931 seconds
+2026-04-17 10:47:50 | ERROR | [4fec42e6-5f3a-44ff-8ff0-6172d0ffd22c] [INVALID] Validation failed: Chris 
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:50 | INFO | [e6464f2b] [ConvertTo-OnboardingStandard] Normalize -> Paul Martin: FirstName=Paul, LastName=Martin, Title=Finance Poweruser, Manager=Bob Williams, Location=New York, Department=Finance
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [ConvertTo-OnboardingStandard] Step completed in 0.0008445 seconds
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [Test-OnboardingData] Starting step
+2026-04-17 10:47:50 | INFO | [e6464f2b] [Test-OnboardingData] Validation -> Paul Martin: Valid
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [Test-OnboardingData] Step completed in 0.0007544 seconds
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [Set-OnboardingPolicy] Starting step
+2026-04-17 10:47:50 | INFO | [e6464f2b] [Set-OnboardingPolicy] Policy -> Paul Martin : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_PowerUser;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [Set-OnboardingPolicy] Step completed in 0.0018215 seconds
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [New-OnboardingPlan] Starting step
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingPlan] WaitForEntra -> Paul Martin : PENDING
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_PowerUser : PENDING
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [New-OnboardingPlan] Step completed in 0.0046874 seconds
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [New-OnboardingIdentity] Starting step
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingIdentity] SamAccountName -> paulmartin : GENERATED
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingIdentity] UPN -> paulmartin@dev.local : GENERATED
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [New-OnboardingIdentity] Step completed in 0.0022116 seconds
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [New-OnboardingUser] Starting step
+2026-04-17 10:47:50 | INFO | [e6464f2b] [New-OnboardingUser] CreateUser -> paulmartin : ALREADY_EXISTS
+2026-04-17 10:47:50 | DEBUG | [e6464f2b] [New-OnboardingUser] Step completed in 0.0786187 seconds
+2026-04-17 10:47:50 | INFO | --------------------------------------------------------
+2026-04-17 10:47:50 | DEBUG | [1143bc9d] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 10:47:50 | INFO | [1143bc9d] [ConvertTo-OnboardingStandard] Normalize -> Karen Davis: FirstName=Karen, LastName=Davis, Title=Director Of Operations, Manager=Nancy Hill, Location=New York, Department=
+2026-04-17 10:47:50 | DEBUG | [1143bc9d] [ConvertTo-OnboardingStandard] Step completed in 0.0007961 seconds
+2026-04-17 10:47:50 | DEBUG | [1143bc9d] [Test-OnboardingData] Starting step
+2026-04-17 10:47:50 | WARN | [1143bc9d] [Test-OnboardingData] Validation -> Karen Davis: Invalid Department is missing
+2026-04-17 10:47:50 | DEBUG | [1143bc9d] [Test-OnboardingData] Step completed in 0.0009212 seconds
+2026-04-17 10:47:50 | ERROR | [1143bc9d-9bc4-43a7-9c39-0f474d339024] [INVALID] Validation failed: Karen Davis
+2026-04-17 10:47:50 | INFO | [92dba8eb] [Onboarding] WaitForEntra -> John Smith : User found
+2026-04-17 10:47:51 | INFO | [92dba8eb] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Already in GRP_ROLE_IT_User
+2026-04-17 10:47:51 | INFO | [92dba8eb] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:47:54 | INFO | [92dba8eb] [Onboarding] AddToDistributionList -> IT : Already in IT
+2026-04-17 10:47:55 | INFO | [92dba8eb] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 10:47:55 | INFO | [92dba8eb] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 10:47:55 | INFO | [794dfca0] [Onboarding] WaitForEntra -> Lisa Taylor : User found
+2026-04-17 10:47:55 | INFO | [794dfca0] [Onboarding] AddToGroup -> GRP_ROLE_Finance_User : Already in GRP_ROLE_Finance_User
+2026-04-17 10:47:55 | INFO | [794dfca0] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:47:56 | INFO | [794dfca0] [Onboarding] AddToDistributionList -> Finance : Already in Finance
+2026-04-17 10:47:57 | INFO | [794dfca0] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 10:47:57 | INFO | [794dfca0] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 10:47:57 | INFO | [9456052e] [Onboarding] WaitForEntra -> Marcus Reed : User found
+2026-04-17 10:47:57 | INFO | [9456052e] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Already in GRP_ROLE_IT_User
+2026-04-17 10:47:57 | INFO | [9456052e] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:47:59 | INFO | [9456052e] [Onboarding] AddToDistributionList -> IT : Already in IT
+2026-04-17 10:48:00 | INFO | [9456052e] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 10:48:00 | INFO | [9456052e] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+2026-04-17 10:48:00 | INFO | [045598af] [Onboarding] WaitForEntra -> Janet Cruz : User found
+2026-04-17 10:48:01 | INFO | [045598af] [Onboarding] AddToGroup -> GRP_ROLE_HR_User : Already in GRP_ROLE_HR_User
+2026-04-17 10:48:01 | INFO | [045598af] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:48:02 | INFO | [045598af] [Onboarding] AddToDistributionList -> HR : Already in HR
+2026-04-17 10:48:02 | INFO | [045598af] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 10:48:03 | INFO | [045598af] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+2026-04-17 10:48:03 | INFO | [0a9025eb] [Onboarding] WaitForEntra -> Derek Wong : User found
+2026-04-17 10:48:03 | INFO | [0a9025eb] [Onboarding] AddToGroup -> GRP_ROLE_Sales_User : Already in GRP_ROLE_Sales_User
+2026-04-17 10:48:03 | INFO | [0a9025eb] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:48:08 | INFO | [0a9025eb] [Onboarding] AddToDistributionList -> Sales : Already in Sales
+2026-04-17 10:48:08 | INFO | [0a9025eb] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+2026-04-17 10:48:08 | INFO | [00b6302e] [Onboarding] WaitForEntra -> Amanda Foster : User found
+2026-04-17 10:48:08 | INFO | [00b6302e] [Onboarding] AddToGroup -> GRP_ROLE_Marketing_User : Already in GRP_ROLE_Marketing_User
+2026-04-17 10:48:08 | INFO | [00b6302e] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:48:09 | INFO | [00b6302e] [Onboarding] AddToDistributionList -> Marketing : Already in Marketing
+2026-04-17 10:48:11 | INFO | [00b6302e] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 10:48:11 | INFO | [00b6302e] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+2026-04-17 10:48:11 | INFO | [e6464f2b] [Onboarding] WaitForEntra -> Paul Martin : User found
+2026-04-17 10:48:11 | INFO | [e6464f2b] [Onboarding] AddToGroup -> GRP_ROLE_Finance_PowerUser : Already in GRP_ROLE_Finance_PowerUser
+2026-04-17 10:48:12 | INFO | [e6464f2b] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 10:48:13 | INFO | [e6464f2b] [Onboarding] AddToDistributionList -> Finance : Already in Finance
+2026-04-17 10:48:13 | INFO | [e6464f2b] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 10:48:14 | INFO | [e6464f2b] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Microsoft.Graph.PowerShell.Models.MicrosoftGraphUser Added Added to Microsoft365BusinessBasic
+2026-04-17 10:48:14 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 7
+    Failed: 3
+    Total Duration: 25.2622023 sec
+        
+2026-04-17 10:48:14 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_104814.txt
+2026-04-17 13:56:18 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test2.csv)
+2026-04-17 13:56:18 | INFO | [1f44fd34] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 13:56:18 | INFO | [4f5912ec] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 13:56:18 | INFO | [5b129179] [Import-OnboardingCsv] Import -> Marcus Reed : Imported
+2026-04-17 13:56:18 | INFO | [2238f9a9] [Import-OnboardingCsv] Import -> Janet Cruz : Imported
+2026-04-17 13:56:18 | INFO | [a5718ea5] [Import-OnboardingCsv] Import -> Derek Wong : Imported
+2026-04-17 13:56:18 | INFO | [a0efde0e] [Import-OnboardingCsv] Import -> Amanda Foster : Imported
+2026-04-17 13:56:18 | INFO | [3ecdff5f] [Import-OnboardingCsv] Import ->  Brown : Imported
+2026-04-17 13:56:18 | INFO | [9d36987d] [Import-OnboardingCsv] Import -> Chris  : Imported
+2026-04-17 13:56:18 | INFO | [cebd5121] [Import-OnboardingCsv] Import -> Paul Martin : Imported
+2026-04-17 13:56:18 | INFO | [e39a16b7] [Import-OnboardingCsv] Import -> Karen Davis : Imported
+2026-04-17 13:56:18 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 10)
+2026-04-17 13:56:18 | INFO | --------------------------------------------------------
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:19 | INFO | [1f44fd34] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [ConvertTo-OnboardingStandard] Step completed in 0.187707 seconds
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [Test-OnboardingData] Starting step
+2026-04-17 13:56:19 | INFO | [1f44fd34] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [Test-OnboardingData] Step completed in 0.1243059 seconds
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:19 | INFO | [1f44fd34] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [Set-OnboardingPolicy] Step completed in 0.1234302 seconds
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [New-OnboardingPlan] Step completed in 0.1467875 seconds
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingIdentity] UPN -> johnsmith@dev.local : GENERATED
+2026-04-17 13:56:19 | INFO | [1f44fd34] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:19 | DEBUG | [1f44fd34] [New-OnboardingIdentity] Step completed in 0.1525426 seconds
+2026-04-17 13:56:20 | DEBUG | [1f44fd34] [New-OnboardingUser] Starting step
+2026-04-17 13:56:22 | INFO | [1f44fd34] [New-OnboardingUser] CreateUser -> johnsmith : ALREADY_EXISTS
+2026-04-17 13:56:22 | DEBUG | [1f44fd34] [New-OnboardingUser] Step completed in 2.175228 seconds
+2026-04-17 13:56:22 | INFO | --------------------------------------------------------
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:22 | INFO | [4f5912ec] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [ConvertTo-OnboardingStandard] Step completed in 0.0016424 seconds
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [Test-OnboardingData] Starting step
+2026-04-17 13:56:22 | INFO | [4f5912ec] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [Test-OnboardingData] Step completed in 0.0013456 seconds
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:22 | INFO | [4f5912ec] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [Set-OnboardingPolicy] Step completed in 0.0014291 seconds
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [New-OnboardingPlan] Step completed in 0.0941447 seconds
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingIdentity] UPN -> lisataylor@dev.local : GENERATED
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [New-OnboardingIdentity] Step completed in 0.1133447 seconds
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [New-OnboardingUser] Starting step
+2026-04-17 13:56:22 | INFO | [4f5912ec] [New-OnboardingUser] CreateUser -> lisataylor : ALREADY_EXISTS
+2026-04-17 13:56:22 | DEBUG | [4f5912ec] [New-OnboardingUser] Step completed in 0.0167228 seconds
+2026-04-17 13:56:22 | INFO | --------------------------------------------------------
+2026-04-17 13:56:22 | DEBUG | [5b129179] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:22 | INFO | [5b129179] [ConvertTo-OnboardingStandard] Normalize -> Marcus Reed: FirstName=Marcus, LastName=Reed, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 13:56:22 | DEBUG | [5b129179] [ConvertTo-OnboardingStandard] Step completed in 0.1112128 seconds
+2026-04-17 13:56:22 | DEBUG | [5b129179] [Test-OnboardingData] Starting step
+2026-04-17 13:56:22 | INFO | [5b129179] [Test-OnboardingData] Validation -> Marcus Reed: Valid
+2026-04-17 13:56:22 | DEBUG | [5b129179] [Test-OnboardingData] Step completed in 0.005157 seconds
+2026-04-17 13:56:22 | DEBUG | [5b129179] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:22 | INFO | [5b129179] [Set-OnboardingPolicy] Policy -> Marcus Reed : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:23 | DEBUG | [5b129179] [Set-OnboardingPolicy] Step completed in 0.1430168 seconds
+2026-04-17 13:56:23 | DEBUG | [5b129179] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingPlan] WaitForEntra -> Marcus Reed : PENDING
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:23 | DEBUG | [5b129179] [New-OnboardingPlan] Step completed in 0.1293437 seconds
+2026-04-17 13:56:23 | DEBUG | [5b129179] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingIdentity] SamAccountName -> marcusreed : GENERATED
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingIdentity] UPN -> marcusreed@dev.local : GENERATED
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:23 | DEBUG | [5b129179] [New-OnboardingIdentity] Step completed in 0.2091106 seconds
+2026-04-17 13:56:23 | DEBUG | [5b129179] [New-OnboardingUser] Starting step
+2026-04-17 13:56:23 | INFO | [5b129179] [New-OnboardingUser] CreateUser -> marcusreed : ALREADY_EXISTS
+2026-04-17 13:56:23 | DEBUG | [5b129179] [New-OnboardingUser] Step completed in 0.0075327 seconds
+2026-04-17 13:56:23 | INFO | --------------------------------------------------------
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:23 | INFO | [2238f9a9] [ConvertTo-OnboardingStandard] Normalize -> Janet Cruz: FirstName=Janet, LastName=Cruz, Title=Hr Specialist, Manager=Tom Baker, Location=Dallas, Department=HR
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [ConvertTo-OnboardingStandard] Step completed in 0.044337 seconds
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [Test-OnboardingData] Starting step
+2026-04-17 13:56:23 | INFO | [2238f9a9] [Test-OnboardingData] Validation -> Janet Cruz: Valid
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [Test-OnboardingData] Step completed in 0.0021579 seconds
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:23 | INFO | [2238f9a9] [Set-OnboardingPolicy] Policy -> Janet Cruz : DL=HR;AllStaff | Groups=GRP_ROLE_HR_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [Set-OnboardingPolicy] Step completed in 0.0017575 seconds
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingPlan] WaitForEntra -> Janet Cruz : PENDING
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_HR_User : PENDING
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingPlan] AddToDistributionList -> HR : PENDING
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [New-OnboardingPlan] Step completed in 0.299378 seconds
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingIdentity] SamAccountName -> janetcruz : GENERATED
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingIdentity] UPN -> janetcruz@dev.local : GENERATED
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingIdentity] OU -> OU=HR,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [New-OnboardingIdentity] Step completed in 0.0127533 seconds
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [New-OnboardingUser] Starting step
+2026-04-17 13:56:23 | INFO | [2238f9a9] [New-OnboardingUser] CreateUser -> janetcruz : ALREADY_EXISTS
+2026-04-17 13:56:23 | DEBUG | [2238f9a9] [New-OnboardingUser] Step completed in 0.1017135 seconds
+2026-04-17 13:56:24 | INFO | --------------------------------------------------------
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:24 | INFO | [a5718ea5] [ConvertTo-OnboardingStandard] Normalize -> Derek Wong: FirstName=Derek, LastName=Wong, Title=Sales Rep, Manager=Nancy Hill, Location=Los Angeles, Department=Sales
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [ConvertTo-OnboardingStandard] Step completed in 0.1970577 seconds
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [Test-OnboardingData] Starting step
+2026-04-17 13:56:24 | INFO | [a5718ea5] [Test-OnboardingData] Validation -> Derek Wong: Valid
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [Test-OnboardingData] Step completed in 0.0018912 seconds
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:24 | INFO | [a5718ea5] [Set-OnboardingPolicy] Policy -> Derek Wong : DL=Sales | Groups=GRP_ROLE_Sales_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [Set-OnboardingPolicy] Step completed in 0.0038173 seconds
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingPlan] WaitForEntra -> Derek Wong : PENDING
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Sales_User : PENDING
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingPlan] AddToDistributionList -> Sales : PENDING
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [New-OnboardingPlan] Step completed in 0.2098781 seconds
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingIdentity] SamAccountName -> derekwong : GENERATED
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingIdentity] UPN -> derekwong@dev.local : GENERATED
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingIdentity] OU -> OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [New-OnboardingIdentity] Step completed in 0.0070226 seconds
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [New-OnboardingUser] Starting step
+2026-04-17 13:56:24 | INFO | [a5718ea5] [New-OnboardingUser] CreateUser -> derekwong : ALREADY_EXISTS
+2026-04-17 13:56:24 | DEBUG | [a5718ea5] [New-OnboardingUser] Step completed in 0.0113804 seconds
+2026-04-17 13:56:24 | INFO | --------------------------------------------------------
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:24 | INFO | [a0efde0e] [ConvertTo-OnboardingStandard] Normalize -> Amanda Foster: FirstName=Amanda, LastName=Foster, Title=Marketing Specialist, Manager=Greg Stone, Location=Chicago, Department=Marketing
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [ConvertTo-OnboardingStandard] Step completed in 0.0739851 seconds
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [Test-OnboardingData] Starting step
+2026-04-17 13:56:24 | INFO | [a0efde0e] [Test-OnboardingData] Validation -> Amanda Foster: Valid
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [Test-OnboardingData] Step completed in 0.0023435 seconds
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:24 | INFO | [a0efde0e] [Set-OnboardingPolicy] Policy -> Amanda Foster : DL=Marketing;AllStaff | Groups=GRP_ROLE_Marketing_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [Set-OnboardingPolicy] Step completed in 0.0025993 seconds
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingPlan] WaitForEntra -> Amanda Foster : PENDING
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Marketing_User : PENDING
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingPlan] AddToDistributionList -> Marketing : PENDING
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [New-OnboardingPlan] Step completed in 0.030457 seconds
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingIdentity] SamAccountName -> amandafoster : GENERATED
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingIdentity] UPN -> amandafoster@dev.local : GENERATED
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingIdentity] OU -> OU=Marketing,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [New-OnboardingIdentity] Step completed in 0.3329143 seconds
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [New-OnboardingUser] Starting step
+2026-04-17 13:56:24 | INFO | [a0efde0e] [New-OnboardingUser] CreateUser -> amandafoster : ALREADY_EXISTS
+2026-04-17 13:56:24 | DEBUG | [a0efde0e] [New-OnboardingUser] Step completed in 0.0146736 seconds
+2026-04-17 13:56:24 | INFO | --------------------------------------------------------
+2026-04-17 13:56:25 | DEBUG | [3ecdff5f] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:25 | INFO | [3ecdff5f] [ConvertTo-OnboardingStandard] Normalize ->  Brown: FirstName=, LastName=Brown, Title=Technician, Manager=Steve Adams, Location=Boston, Department=IT
+2026-04-17 13:56:25 | DEBUG | [3ecdff5f] [ConvertTo-OnboardingStandard] Step completed in 0.0034179 seconds
+2026-04-17 13:56:25 | DEBUG | [3ecdff5f] [Test-OnboardingData] Starting step
+2026-04-17 13:56:25 | WARN | [3ecdff5f] [Test-OnboardingData] Validation ->  Brown: Invalid FirstName is missing
+2026-04-17 13:56:25 | DEBUG | [3ecdff5f] [Test-OnboardingData] Step completed in 0.0048348 seconds
+2026-04-17 13:56:25 | ERROR | [3ecdff5f-bbac-4694-a64e-d1b5b4863857] [INVALID] Validation failed:  Brown
+2026-04-17 13:56:25 | DEBUG | [9d36987d] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:25 | INFO | [9d36987d] [ConvertTo-OnboardingStandard] Normalize -> Chris : FirstName=Chris, LastName=, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 13:56:25 | DEBUG | [9d36987d] [ConvertTo-OnboardingStandard] Step completed in 0.0022759 seconds
+2026-04-17 13:56:25 | DEBUG | [9d36987d] [Test-OnboardingData] Starting step
+2026-04-17 13:56:25 | WARN | [9d36987d] [Test-OnboardingData] Validation -> Chris : Invalid LastName is missing
+2026-04-17 13:56:25 | DEBUG | [9d36987d] [Test-OnboardingData] Step completed in 0.001046 seconds
+2026-04-17 13:56:25 | ERROR | [9d36987d-2a2c-4bee-9c40-2449b9fd20ec] [INVALID] Validation failed: Chris 
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:25 | INFO | [cebd5121] [ConvertTo-OnboardingStandard] Normalize -> Paul Martin: FirstName=Paul, LastName=Martin, Title=Finance Poweruser, Manager=Bob Williams, Location=New York, Department=Finance
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [ConvertTo-OnboardingStandard] Step completed in 0.0015618 seconds
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [Test-OnboardingData] Starting step
+2026-04-17 13:56:25 | INFO | [cebd5121] [Test-OnboardingData] Validation -> Paul Martin: Valid
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [Test-OnboardingData] Step completed in 0.0017279 seconds
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [Set-OnboardingPolicy] Starting step
+2026-04-17 13:56:25 | INFO | [cebd5121] [Set-OnboardingPolicy] Policy -> Paul Martin : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_PowerUser;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [Set-OnboardingPolicy] Step completed in 0.0021053 seconds
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [New-OnboardingPlan] Starting step
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingPlan] WaitForEntra -> Paul Martin : PENDING
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_PowerUser : PENDING
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [New-OnboardingPlan] Step completed in 0.3204107 seconds
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [New-OnboardingIdentity] Starting step
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingIdentity] SamAccountName -> paulmartin : GENERATED
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingIdentity] UPN -> paulmartin@dev.local : GENERATED
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [New-OnboardingIdentity] Step completed in 0.0054255 seconds
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [New-OnboardingUser] Starting step
+2026-04-17 13:56:25 | INFO | [cebd5121] [New-OnboardingUser] CreateUser -> paulmartin : ALREADY_EXISTS
+2026-04-17 13:56:25 | DEBUG | [cebd5121] [New-OnboardingUser] Step completed in 0.088509 seconds
+2026-04-17 13:56:25 | INFO | --------------------------------------------------------
+2026-04-17 13:56:25 | DEBUG | [e39a16b7] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 13:56:25 | INFO | [e39a16b7] [ConvertTo-OnboardingStandard] Normalize -> Karen Davis: FirstName=Karen, LastName=Davis, Title=Director Of Operations, Manager=Nancy Hill, Location=New York, Department=
+2026-04-17 13:56:25 | DEBUG | [e39a16b7] [ConvertTo-OnboardingStandard] Step completed in 0.0034929 seconds
+2026-04-17 13:56:25 | DEBUG | [e39a16b7] [Test-OnboardingData] Starting step
+2026-04-17 13:56:25 | WARN | [e39a16b7] [Test-OnboardingData] Validation -> Karen Davis: Invalid Department is missing
+2026-04-17 13:56:25 | DEBUG | [e39a16b7] [Test-OnboardingData] Step completed in 0.0090269 seconds
+2026-04-17 13:56:25 | ERROR | [e39a16b7-5c9c-4999-972a-c415dab1ad13] [INVALID] Validation failed: Karen Davis
+2026-04-17 13:56:26 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (1)
+2026-04-17 13:56:57 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (2)
+2026-04-17 13:57:58 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (3)
+2026-04-17 13:59:30 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (4)
+2026-04-17 14:01:31 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (5)
+2026-04-17 14:04:03 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (6)
+2026-04-17 14:07:04 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (7)
+2026-04-17 14:10:35 | WARN | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : RETRY (8)
+2026-04-17 14:14:36 | INFO | [1f44fd34] [Onboarding] WaitForEntra -> John Smith : User found
+2026-04-17 14:14:37 | INFO | [1f44fd34] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Already in GRP_ROLE_IT_User
+2026-04-17 14:14:37 | INFO | [1f44fd34] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:14:39 | WARN | [1f44fd34] [Onboarding] AddToDistributionList -> IT : RETRY (1)
+2026-04-17 14:14:45 | INFO | [1f44fd34] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 14:14:46 | INFO | [1f44fd34] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:14:47 | WARN | [1f44fd34] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:14:54 | WARN | [1f44fd34] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:15:06 | INFO | [1f44fd34] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:15:06 | INFO | [4f5912ec] [Onboarding] WaitForEntra -> Lisa Taylor : User found
+2026-04-17 14:15:06 | INFO | [4f5912ec] [Onboarding] AddToGroup -> GRP_ROLE_Finance_User : Already in GRP_ROLE_Finance_User
+2026-04-17 14:15:06 | INFO | [4f5912ec] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:15:08 | INFO | [4f5912ec] [Onboarding] AddToDistributionList -> Finance : Added to Finance
+2026-04-17 14:15:09 | INFO | [4f5912ec] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:15:09 | WARN | [4f5912ec] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:15:17 | INFO | [4f5912ec] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:15:17 | INFO | [5b129179] [Onboarding] WaitForEntra -> Marcus Reed : User found
+2026-04-17 14:15:17 | INFO | [5b129179] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Already in GRP_ROLE_IT_User
+2026-04-17 14:15:17 | INFO | [5b129179] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:15:18 | INFO | [5b129179] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 14:15:19 | INFO | [5b129179] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:15:20 | WARN | [5b129179] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:15:26 | INFO | [5b129179] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:15:27 | INFO | [2238f9a9] [Onboarding] WaitForEntra -> Janet Cruz : User found
+2026-04-17 14:15:27 | INFO | [2238f9a9] [Onboarding] AddToGroup -> GRP_ROLE_HR_User : Already in GRP_ROLE_HR_User
+2026-04-17 14:15:27 | INFO | [2238f9a9] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:15:28 | INFO | [2238f9a9] [Onboarding] AddToDistributionList -> HR : Added to HR
+2026-04-17 14:15:30 | INFO | [2238f9a9] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:15:31 | WARN | [2238f9a9] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:15:39 | INFO | [2238f9a9] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:15:39 | INFO | [a5718ea5] [Onboarding] WaitForEntra -> Derek Wong : User found
+2026-04-17 14:15:39 | INFO | [a5718ea5] [Onboarding] AddToGroup -> GRP_ROLE_Sales_User : Already in GRP_ROLE_Sales_User
+2026-04-17 14:15:39 | INFO | [a5718ea5] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:15:40 | INFO | [a5718ea5] [Onboarding] AddToDistributionList -> Sales : Added to Sales
+2026-04-17 14:15:41 | WARN | [a5718ea5] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:15:48 | WARN | [a5718ea5] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:15:59 | INFO | [a5718ea5] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:15:59 | INFO | [a0efde0e] [Onboarding] WaitForEntra -> Amanda Foster : User found
+2026-04-17 14:16:00 | INFO | [a0efde0e] [Onboarding] AddToGroup -> GRP_ROLE_Marketing_User : Already in GRP_ROLE_Marketing_User
+2026-04-17 14:16:00 | INFO | [a0efde0e] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:16:01 | INFO | [a0efde0e] [Onboarding] AddToDistributionList -> Marketing : Added to Marketing
+2026-04-17 14:16:03 | INFO | [a0efde0e] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:16:03 | WARN | [a0efde0e] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:16:10 | WARN | [a0efde0e] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:16:22 | INFO | [a0efde0e] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:16:22 | INFO | [cebd5121] [Onboarding] WaitForEntra -> Paul Martin : User found
+2026-04-17 14:16:22 | INFO | [cebd5121] [Onboarding] AddToGroup -> GRP_ROLE_Finance_PowerUser : Already in GRP_ROLE_Finance_PowerUser
+2026-04-17 14:16:22 | INFO | [cebd5121] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 14:16:23 | INFO | [cebd5121] [Onboarding] AddToDistributionList -> Finance : Added to Finance
+2026-04-17 14:16:25 | INFO | [cebd5121] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:16:25 | WARN | [cebd5121] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:16:32 | WARN | [cebd5121] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:16:45 | INFO | [cebd5121] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:16:45 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 0
+    Already Exists: 7
+    Failed: 3
+    Total Duration: 1226.1635032 sec
+        
+2026-04-17 14:16:45 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_141645.txt
+2026-04-17 14:44:51 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test2.csv)
+2026-04-17 14:44:51 | INFO | [13ce1124] [Import-OnboardingCsv] Import -> John Smith : Imported
+2026-04-17 14:44:51 | INFO | [04bd96d4] [Import-OnboardingCsv] Import -> Lisa Taylor : Imported
+2026-04-17 14:44:51 | INFO | [e8e1dc30] [Import-OnboardingCsv] Import -> Marcus Reed : Imported
+2026-04-17 14:44:51 | INFO | [63c0c8ae] [Import-OnboardingCsv] Import -> Janet Cruz : Imported
+2026-04-17 14:44:51 | INFO | [62efa485] [Import-OnboardingCsv] Import -> Derek Wong : Imported
+2026-04-17 14:44:51 | INFO | [e15bc9ca] [Import-OnboardingCsv] Import -> Amanda Foster : Imported
+2026-04-17 14:44:51 | INFO | [1276d18d] [Import-OnboardingCsv] Import ->  Brown : Imported
+2026-04-17 14:44:51 | INFO | [afd4466d] [Import-OnboardingCsv] Import -> Chris  : Imported
+2026-04-17 14:44:51 | INFO | [e69b4348] [Import-OnboardingCsv] Import -> Paul Martin : Imported
+2026-04-17 14:44:51 | INFO | [26c1f7aa] [Import-OnboardingCsv] Import -> Karen Davis : Imported
+2026-04-17 14:44:51 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 10)
+2026-04-17 14:44:51 | INFO | --------------------------------------------------------
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:51 | INFO | [13ce1124] [ConvertTo-OnboardingStandard] Normalize -> John Smith: FirstName=John, LastName=Smith, Title=Systems Administrator, Manager=Mary Johnson, Location=New York, Department=IT
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [ConvertTo-OnboardingStandard] Step completed in 0.003148 seconds
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [Test-OnboardingData] Starting step
+2026-04-17 14:44:51 | INFO | [13ce1124] [Test-OnboardingData] Validation -> John Smith: Valid
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [Test-OnboardingData] Step completed in 0.0025275 seconds
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:51 | INFO | [13ce1124] [Set-OnboardingPolicy] Policy -> John Smith : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [Set-OnboardingPolicy] Step completed in 0.0991997 seconds
+2026-04-17 14:44:51 | DEBUG | [13ce1124] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingPlan] WaitForEntra -> John Smith : PENDING
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:52 | DEBUG | [13ce1124] [New-OnboardingPlan] Step completed in 0.1137973 seconds
+2026-04-17 14:44:52 | DEBUG | [13ce1124] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingIdentity] SamAccountName -> johnsmith : GENERATED
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingIdentity] UPN -> johnsmith@dev.local : GENERATED
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:52 | DEBUG | [13ce1124] [New-OnboardingIdentity] Step completed in 0.1213232 seconds
+2026-04-17 14:44:52 | DEBUG | [13ce1124] [New-OnboardingUser] Starting step
+2026-04-17 14:44:52 | INFO | [13ce1124] [New-OnboardingUser] CreateUser -> johnsmith : CREATED
+2026-04-17 14:44:52 | DEBUG | [13ce1124] [New-OnboardingUser] Step completed in 0.4145477 seconds
+2026-04-17 14:44:52 | INFO | --------------------------------------------------------
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:52 | INFO | [04bd96d4] [ConvertTo-OnboardingStandard] Normalize -> Lisa Taylor: FirstName=Lisa, LastName=Taylor, Title=Accountant, Manager=Bob Williams, Location=Chicago, Department=Finance
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [ConvertTo-OnboardingStandard] Step completed in 0.0019011 seconds
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [Test-OnboardingData] Starting step
+2026-04-17 14:44:52 | INFO | [04bd96d4] [Test-OnboardingData] Validation -> Lisa Taylor: Valid
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [Test-OnboardingData] Step completed in 0.0019175 seconds
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:52 | INFO | [04bd96d4] [Set-OnboardingPolicy] Policy -> Lisa Taylor : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [Set-OnboardingPolicy] Step completed in 0.0014189 seconds
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingPlan] WaitForEntra -> Lisa Taylor : PENDING
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_User : PENDING
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [New-OnboardingPlan] Step completed in 0.0074565 seconds
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingIdentity] SamAccountName -> lisataylor : GENERATED
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingIdentity] UPN -> lisataylor@dev.local : GENERATED
+2026-04-17 14:44:52 | INFO | [04bd96d4] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [New-OnboardingIdentity] Step completed in 0.2973985 seconds
+2026-04-17 14:44:52 | DEBUG | [04bd96d4] [New-OnboardingUser] Starting step
+2026-04-17 14:44:53 | INFO | [04bd96d4] [New-OnboardingUser] CreateUser -> lisataylor : CREATED
+2026-04-17 14:44:53 | DEBUG | [04bd96d4] [New-OnboardingUser] Step completed in 0.4800412 seconds
+2026-04-17 14:44:53 | INFO | --------------------------------------------------------
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [ConvertTo-OnboardingStandard] Normalize -> Marcus Reed: FirstName=Marcus, LastName=Reed, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [ConvertTo-OnboardingStandard] Step completed in 0.0018819 seconds
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [Test-OnboardingData] Starting step
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [Test-OnboardingData] Validation -> Marcus Reed: Valid
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [Test-OnboardingData] Step completed in 0.0016306 seconds
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [Set-OnboardingPolicy] Policy -> Marcus Reed : DL=IT;AllStaff | Groups=GRP_ROLE_IT_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [Set-OnboardingPolicy] Step completed in 0.0022314 seconds
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingPlan] WaitForEntra -> Marcus Reed : PENDING
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_IT_User : PENDING
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [New-OnboardingPlan] Step completed in 0.0139163 seconds
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingIdentity] SamAccountName -> marcusreed : GENERATED
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingIdentity] UPN -> marcusreed@dev.local : GENERATED
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [New-OnboardingIdentity] Step completed in 0.0074565 seconds
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [New-OnboardingUser] Starting step
+2026-04-17 14:44:53 | INFO | [e8e1dc30] [New-OnboardingUser] CreateUser -> marcusreed : CREATED
+2026-04-17 14:44:53 | DEBUG | [e8e1dc30] [New-OnboardingUser] Step completed in 0.3557735 seconds
+2026-04-17 14:44:53 | INFO | --------------------------------------------------------
+2026-04-17 14:44:53 | DEBUG | [63c0c8ae] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:53 | INFO | [63c0c8ae] [ConvertTo-OnboardingStandard] Normalize -> Janet Cruz: FirstName=Janet, LastName=Cruz, Title=Hr Specialist, Manager=Tom Baker, Location=Dallas, Department=HR
+2026-04-17 14:44:53 | DEBUG | [63c0c8ae] [ConvertTo-OnboardingStandard] Step completed in 0.0020799 seconds
+2026-04-17 14:44:53 | DEBUG | [63c0c8ae] [Test-OnboardingData] Starting step
+2026-04-17 14:44:53 | INFO | [63c0c8ae] [Test-OnboardingData] Validation -> Janet Cruz: Valid
+2026-04-17 14:44:53 | DEBUG | [63c0c8ae] [Test-OnboardingData] Step completed in 0.0035356 seconds
+2026-04-17 14:44:53 | DEBUG | [63c0c8ae] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:53 | INFO | [63c0c8ae] [Set-OnboardingPolicy] Policy -> Janet Cruz : DL=HR;AllStaff | Groups=GRP_ROLE_HR_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:53 | DEBUG | [63c0c8ae] [Set-OnboardingPolicy] Step completed in 0.0033937 seconds
+2026-04-17 14:44:54 | DEBUG | [63c0c8ae] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingPlan] WaitForEntra -> Janet Cruz : PENDING
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_HR_User : PENDING
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingPlan] AddToDistributionList -> HR : PENDING
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:54 | DEBUG | [63c0c8ae] [New-OnboardingPlan] Step completed in 0.6410383 seconds
+2026-04-17 14:44:54 | DEBUG | [63c0c8ae] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingIdentity] SamAccountName -> janetcruz : GENERATED
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingIdentity] UPN -> janetcruz@dev.local : GENERATED
+2026-04-17 14:44:54 | INFO | [63c0c8ae] [New-OnboardingIdentity] OU -> OU=HR,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:54 | DEBUG | [63c0c8ae] [New-OnboardingIdentity] Step completed in 0.0049975 seconds
+2026-04-17 14:44:54 | DEBUG | [63c0c8ae] [New-OnboardingUser] Starting step
+2026-04-17 14:44:55 | INFO | [63c0c8ae] [New-OnboardingUser] CreateUser -> janetcruz : CREATED
+2026-04-17 14:44:55 | DEBUG | [63c0c8ae] [New-OnboardingUser] Step completed in 0.4551571 seconds
+2026-04-17 14:44:55 | INFO | --------------------------------------------------------
+2026-04-17 14:44:55 | DEBUG | [62efa485] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:55 | INFO | [62efa485] [ConvertTo-OnboardingStandard] Normalize -> Derek Wong: FirstName=Derek, LastName=Wong, Title=Sales Rep, Manager=Nancy Hill, Location=Los Angeles, Department=Sales
+2026-04-17 14:44:55 | DEBUG | [62efa485] [ConvertTo-OnboardingStandard] Step completed in 0.0093296 seconds
+2026-04-17 14:44:55 | DEBUG | [62efa485] [Test-OnboardingData] Starting step
+2026-04-17 14:44:55 | INFO | [62efa485] [Test-OnboardingData] Validation -> Derek Wong: Valid
+2026-04-17 14:44:55 | DEBUG | [62efa485] [Test-OnboardingData] Step completed in 0.0019897 seconds
+2026-04-17 14:44:55 | DEBUG | [62efa485] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:55 | INFO | [62efa485] [Set-OnboardingPolicy] Policy -> Derek Wong : DL=Sales | Groups=GRP_ROLE_Sales_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:55 | DEBUG | [62efa485] [Set-OnboardingPolicy] Step completed in 0.0034983 seconds
+2026-04-17 14:44:55 | DEBUG | [62efa485] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingPlan] WaitForEntra -> Derek Wong : PENDING
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Sales_User : PENDING
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingPlan] AddToDistributionList -> Sales : PENDING
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:55 | DEBUG | [62efa485] [New-OnboardingPlan] Step completed in 0.0088037 seconds
+2026-04-17 14:44:55 | DEBUG | [62efa485] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingIdentity] SamAccountName -> derekwong : GENERATED
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingIdentity] UPN -> derekwong@dev.local : GENERATED
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingIdentity] OU -> OU=Sales,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:55 | DEBUG | [62efa485] [New-OnboardingIdentity] Step completed in 0.0060651 seconds
+2026-04-17 14:44:55 | DEBUG | [62efa485] [New-OnboardingUser] Starting step
+2026-04-17 14:44:55 | INFO | [62efa485] [New-OnboardingUser] CreateUser -> derekwong : CREATED
+2026-04-17 14:44:55 | DEBUG | [62efa485] [New-OnboardingUser] Step completed in 0.3924941 seconds
+2026-04-17 14:44:55 | INFO | --------------------------------------------------------
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [ConvertTo-OnboardingStandard] Normalize -> Amanda Foster: FirstName=Amanda, LastName=Foster, Title=Marketing Specialist, Manager=Greg Stone, Location=Chicago, Department=Marketing
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [ConvertTo-OnboardingStandard] Step completed in 0.0066807 seconds
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [Test-OnboardingData] Starting step
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [Test-OnboardingData] Validation -> Amanda Foster: Valid
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [Test-OnboardingData] Step completed in 0.0033334 seconds
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [Set-OnboardingPolicy] Policy -> Amanda Foster : DL=Marketing;AllStaff | Groups=GRP_ROLE_Marketing_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [Set-OnboardingPolicy] Step completed in 0.2793179 seconds
+2026-04-17 14:44:55 | DEBUG | [e15bc9ca] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [New-OnboardingPlan] WaitForEntra -> Amanda Foster : PENDING
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Marketing_User : PENDING
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:55 | INFO | [e15bc9ca] [New-OnboardingPlan] AddToDistributionList -> Marketing : PENDING
+2026-04-17 14:44:56 | INFO | [e15bc9ca] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:44:56 | INFO | [e15bc9ca] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:56 | DEBUG | [e15bc9ca] [New-OnboardingPlan] Step completed in 0.3107399 seconds
+2026-04-17 14:44:56 | DEBUG | [e15bc9ca] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:56 | INFO | [e15bc9ca] [New-OnboardingIdentity] SamAccountName -> amandafoster : GENERATED
+2026-04-17 14:44:56 | INFO | [e15bc9ca] [New-OnboardingIdentity] UPN -> amandafoster@dev.local : GENERATED
+2026-04-17 14:44:56 | INFO | [e15bc9ca] [New-OnboardingIdentity] OU -> OU=Marketing,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:56 | DEBUG | [e15bc9ca] [New-OnboardingIdentity] Step completed in 0.2095068 seconds
+2026-04-17 14:44:56 | DEBUG | [e15bc9ca] [New-OnboardingUser] Starting step
+2026-04-17 14:44:56 | INFO | [e15bc9ca] [New-OnboardingUser] CreateUser -> amandafoster : CREATED
+2026-04-17 14:44:56 | DEBUG | [e15bc9ca] [New-OnboardingUser] Step completed in 0.3679603 seconds
+2026-04-17 14:44:56 | INFO | --------------------------------------------------------
+2026-04-17 14:44:56 | DEBUG | [1276d18d] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:56 | INFO | [1276d18d] [ConvertTo-OnboardingStandard] Normalize ->  Brown: FirstName=, LastName=Brown, Title=Technician, Manager=Steve Adams, Location=Boston, Department=IT
+2026-04-17 14:44:56 | DEBUG | [1276d18d] [ConvertTo-OnboardingStandard] Step completed in 0.0013567 seconds
+2026-04-17 14:44:56 | DEBUG | [1276d18d] [Test-OnboardingData] Starting step
+2026-04-17 14:44:56 | WARN | [1276d18d] [Test-OnboardingData] Validation ->  Brown: Invalid FirstName is missing
+2026-04-17 14:44:56 | DEBUG | [1276d18d] [Test-OnboardingData] Step completed in 0.0010267 seconds
+2026-04-17 14:44:56 | ERROR | [1276d18d-aefb-466e-8842-8fc82cabb944] [INVALID] Validation failed:  Brown
+2026-04-17 14:44:56 | DEBUG | [afd4466d] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:56 | INFO | [afd4466d] [ConvertTo-OnboardingStandard] Normalize -> Chris : FirstName=Chris, LastName=, Title=Developer, Manager=Sarah Lee, Location=Remote, Department=IT
+2026-04-17 14:44:56 | DEBUG | [afd4466d] [ConvertTo-OnboardingStandard] Step completed in 0.0013136 seconds
+2026-04-17 14:44:56 | DEBUG | [afd4466d] [Test-OnboardingData] Starting step
+2026-04-17 14:44:56 | WARN | [afd4466d] [Test-OnboardingData] Validation -> Chris : Invalid LastName is missing
+2026-04-17 14:44:56 | DEBUG | [afd4466d] [Test-OnboardingData] Step completed in 0.0008702 seconds
+2026-04-17 14:44:56 | ERROR | [afd4466d-2b3b-460d-ad41-ca8ebb7271d3] [INVALID] Validation failed: Chris 
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:56 | INFO | [e69b4348] [ConvertTo-OnboardingStandard] Normalize -> Paul Martin: FirstName=Paul, LastName=Martin, Title=Finance Poweruser, Manager=Bob Williams, Location=New York, Department=Finance
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [ConvertTo-OnboardingStandard] Step completed in 0.0016619 seconds
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [Test-OnboardingData] Starting step
+2026-04-17 14:44:56 | INFO | [e69b4348] [Test-OnboardingData] Validation -> Paul Martin: Valid
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [Test-OnboardingData] Step completed in 0.0630049 seconds
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:44:56 | INFO | [e69b4348] [Set-OnboardingPolicy] Policy -> Paul Martin : DL=Finance;AllStaff | Groups=GRP_ROLE_Finance_PowerUser;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [Set-OnboardingPolicy] Step completed in 0.0155397 seconds
+2026-04-17 14:44:56 | DEBUG | [e69b4348] [New-OnboardingPlan] Starting step
+2026-04-17 14:44:56 | INFO | [e69b4348] [New-OnboardingPlan] WaitForEntra -> Paul Martin : PENDING
+2026-04-17 14:44:56 | INFO | [e69b4348] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_Finance_PowerUser : PENDING
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:44:57 | DEBUG | [e69b4348] [New-OnboardingPlan] Step completed in 0.2760849 seconds
+2026-04-17 14:44:57 | DEBUG | [e69b4348] [New-OnboardingIdentity] Starting step
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingIdentity] SamAccountName -> paulmartin : GENERATED
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingIdentity] UPN -> paulmartin@dev.local : GENERATED
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:44:57 | DEBUG | [e69b4348] [New-OnboardingIdentity] Step completed in 0.1150988 seconds
+2026-04-17 14:44:57 | DEBUG | [e69b4348] [New-OnboardingUser] Starting step
+2026-04-17 14:44:57 | INFO | [e69b4348] [New-OnboardingUser] CreateUser -> paulmartin : CREATED
+2026-04-17 14:44:57 | DEBUG | [e69b4348] [New-OnboardingUser] Step completed in 0.2101333 seconds
+2026-04-17 14:44:57 | INFO | --------------------------------------------------------
+2026-04-17 14:44:57 | DEBUG | [26c1f7aa] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:44:57 | INFO | [26c1f7aa] [ConvertTo-OnboardingStandard] Normalize -> Karen Davis: FirstName=Karen, LastName=Davis, Title=Director Of Operations, Manager=Nancy Hill, Location=New York, Department=
+2026-04-17 14:44:57 | DEBUG | [26c1f7aa] [ConvertTo-OnboardingStandard] Step completed in 0.0010156 seconds
+2026-04-17 14:44:57 | DEBUG | [26c1f7aa] [Test-OnboardingData] Starting step
+2026-04-17 14:44:57 | WARN | [26c1f7aa] [Test-OnboardingData] Validation -> Karen Davis: Invalid Department is missing
+2026-04-17 14:44:57 | DEBUG | [26c1f7aa] [Test-OnboardingData] Step completed in 0.0008237 seconds
+2026-04-17 14:44:57 | ERROR | [26c1f7aa-b120-4b49-8179-c31970fadbd1] [INVALID] Validation failed: Karen Davis
+2026-04-17 14:44:57 | INFO | [13ce1124] [Onboarding] WaitForEntra -> John Smith : User found
+2026-04-17 14:44:58 | INFO | [13ce1124] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Added to GRP_ROLE_IT_User
+2026-04-17 14:44:58 | INFO | [13ce1124] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:45:00 | INFO | [13ce1124] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 14:45:02 | INFO | [13ce1124] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:45:02 | WARN | [13ce1124] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:45:09 | INFO | [13ce1124] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:45:09 | INFO | [04bd96d4] [Onboarding] WaitForEntra -> Lisa Taylor : User found
+2026-04-17 14:45:09 | INFO | [04bd96d4] [Onboarding] AddToGroup -> GRP_ROLE_Finance_User : Added to GRP_ROLE_Finance_User
+2026-04-17 14:45:09 | INFO | [04bd96d4] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:45:10 | INFO | [04bd96d4] [Onboarding] AddToDistributionList -> Finance : Added to Finance
+2026-04-17 14:45:11 | INFO | [04bd96d4] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:45:12 | WARN | [04bd96d4] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:45:19 | WARN | [04bd96d4] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:45:31 | INFO | [04bd96d4] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:45:31 | INFO | [e8e1dc30] [Onboarding] WaitForEntra -> Marcus Reed : User found
+2026-04-17 14:45:32 | INFO | [e8e1dc30] [Onboarding] AddToGroup -> GRP_ROLE_IT_User : Added to GRP_ROLE_IT_User
+2026-04-17 14:45:32 | INFO | [e8e1dc30] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:45:33 | INFO | [e8e1dc30] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 14:45:34 | INFO | [e8e1dc30] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:45:35 | WARN | [e8e1dc30] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:45:42 | WARN | [e8e1dc30] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:45:54 | INFO | [e8e1dc30] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:45:54 | INFO | [63c0c8ae] [Onboarding] WaitForEntra -> Janet Cruz : User found
+2026-04-17 14:45:54 | INFO | [63c0c8ae] [Onboarding] AddToGroup -> GRP_ROLE_HR_User : Added to GRP_ROLE_HR_User
+2026-04-17 14:45:54 | INFO | [63c0c8ae] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:45:56 | INFO | [63c0c8ae] [Onboarding] AddToDistributionList -> HR : Added to HR
+2026-04-17 14:45:57 | INFO | [63c0c8ae] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:45:57 | WARN | [63c0c8ae] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:46:05 | INFO | [63c0c8ae] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:46:05 | INFO | [62efa485] [Onboarding] WaitForEntra -> Derek Wong : User found
+2026-04-17 14:46:08 | INFO | [62efa485] [Onboarding] AddToGroup -> GRP_ROLE_Sales_User : Added to GRP_ROLE_Sales_User
+2026-04-17 14:46:10 | INFO | [62efa485] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:46:12 | INFO | [62efa485] [Onboarding] AddToDistributionList -> Sales : Added to Sales
+2026-04-17 14:46:12 | WARN | [62efa485] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:46:20 | INFO | [62efa485] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:46:20 | INFO | [e15bc9ca] [Onboarding] WaitForEntra -> Amanda Foster : User found
+2026-04-17 14:46:21 | INFO | [e15bc9ca] [Onboarding] AddToGroup -> GRP_ROLE_Marketing_User : Added to GRP_ROLE_Marketing_User
+2026-04-17 14:46:21 | INFO | [e15bc9ca] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:46:23 | INFO | [e15bc9ca] [Onboarding] AddToDistributionList -> Marketing : Added to Marketing
+2026-04-17 14:46:24 | INFO | [e15bc9ca] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:46:25 | INFO | [e15bc9ca] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:46:26 | INFO | [e69b4348] [Onboarding] WaitForEntra -> Paul Martin : User found
+2026-04-17 14:46:26 | INFO | [e69b4348] [Onboarding] AddToGroup -> GRP_ROLE_Finance_PowerUser : Added to GRP_ROLE_Finance_PowerUser
+2026-04-17 14:46:27 | INFO | [e69b4348] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 14:46:28 | INFO | [e69b4348] [Onboarding] AddToDistributionList -> Finance : Added to Finance
+2026-04-17 14:46:29 | INFO | [e69b4348] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 14:46:30 | WARN | [e69b4348] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 14:46:37 | WARN | [e69b4348] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 14:46:50 | INFO | [e69b4348] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 14:46:50 | INFO | 
+    === Pipeline Finished ===
+    Total: 10
+    Created: 7
+    Already Exists: 0
+    Failed: 3
+    Total Duration: 118.3428196 sec
+        
+2026-04-17 14:46:50 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_144650.txt
+2026-04-17 14:58:24 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [Import-OnboardingCsv] Import -> Ethan Collins : Imported
+2026-04-17 14:58:24 | INFO | [1b026f6c] [Import-OnboardingCsv] Import -> Sofia Ramirez : Imported
+2026-04-17 14:58:24 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 14:58:24 | INFO | --------------------------------------------------------
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [ConvertTo-OnboardingStandard] Normalize -> Ethan Collins: FirstName=Ethan, LastName=Collins, Title=Network Engineer, Manager=Mary Johnson, Location=Seattle, Department=IT
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [ConvertTo-OnboardingStandard] Step completed in 0.0016827 seconds
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [Test-OnboardingData] Starting step
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [Test-OnboardingData] Validation -> Ethan Collins: Valid
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [Test-OnboardingData] Step completed in 0.0012227 seconds
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [Set-OnboardingPolicy] Policy -> Ethan Collins : DL=IT;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [Set-OnboardingPolicy] Step completed in 0.0011718 seconds
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [New-OnboardingPlan] Starting step
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingPlan] WaitForEntra -> Ethan Collins : PENDING
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [New-OnboardingPlan] Step completed in 0.0244742 seconds
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [New-OnboardingIdentity] Starting step
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingIdentity] SamAccountName -> ethancollins : GENERATED
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingIdentity] UPN -> ethancollins@dev.local : GENERATED
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [New-OnboardingIdentity] Step completed in 0.0038475 seconds
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [New-OnboardingUser] Starting step
+2026-04-17 14:58:24 | INFO | [ba9a42fb] [New-OnboardingUser] CreateUser -> ethancollins : CREATED
+2026-04-17 14:58:24 | DEBUG | [ba9a42fb] [New-OnboardingUser] Step completed in 0.1802841 seconds
+2026-04-17 14:58:24 | INFO | --------------------------------------------------------
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 14:58:24 | INFO | [1b026f6c] [ConvertTo-OnboardingStandard] Normalize -> Sofia Ramirez: FirstName=Sofia, LastName=Ramirez, Title=Data Analyst, Manager=Greg Stone, Location=Miami, Department=Marketing
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [ConvertTo-OnboardingStandard] Step completed in 0.0016385 seconds
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [Test-OnboardingData] Starting step
+2026-04-17 14:58:24 | INFO | [1b026f6c] [Test-OnboardingData] Validation -> Sofia Ramirez: Valid
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [Test-OnboardingData] Step completed in 0.0012052 seconds
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [Set-OnboardingPolicy] Starting step
+2026-04-17 14:58:24 | INFO | [1b026f6c] [Set-OnboardingPolicy] Policy -> Sofia Ramirez : DL=Marketing;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [Set-OnboardingPolicy] Step completed in 0.001213 seconds
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [New-OnboardingPlan] Starting step
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingPlan] WaitForEntra -> Sofia Ramirez : PENDING
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingPlan] AddToDistributionList -> Marketing : PENDING
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [New-OnboardingPlan] Step completed in 0.0075806 seconds
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [New-OnboardingIdentity] Starting step
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingIdentity] SamAccountName -> sofiaramirez : GENERATED
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingIdentity] UPN -> sofiaramirez@dev.local : GENERATED
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingIdentity] OU -> OU=Marketing,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [New-OnboardingIdentity] Step completed in 0.002405 seconds
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [New-OnboardingUser] Starting step
+2026-04-17 14:58:24 | INFO | [1b026f6c] [New-OnboardingUser] CreateUser -> sofiaramirez : CREATED
+2026-04-17 14:58:24 | DEBUG | [1b026f6c] [New-OnboardingUser] Step completed in 0.1971053 seconds
+2026-04-17 14:58:24 | INFO | --------------------------------------------------------
+2026-04-17 14:58:24 | WARN | [ba9a42fb] [Onboarding] WaitForEntra -> Ethan Collins : RETRY (1)
+2026-04-17 14:58:56 | WARN | [ba9a42fb] [Onboarding] WaitForEntra -> Ethan Collins : RETRY (2)
+2026-04-17 14:59:57 | INFO | [ba9a42fb] [Onboarding] WaitForEntra -> Ethan Collins : User found
+2026-04-17 14:59:58 | INFO | [ba9a42fb] [Onboarding] AddToGroup -> GRP_ROLE_User : Added to GRP_ROLE_User
+2026-04-17 14:59:59 | INFO | [ba9a42fb] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 15:00:02 | INFO | [ba9a42fb] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 15:00:03 | INFO | [ba9a42fb] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 15:00:03 | WARN | [ba9a42fb] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 15:00:10 | INFO | [ba9a42fb] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 15:00:10 | INFO | [1b026f6c] [Onboarding] WaitForEntra -> Sofia Ramirez : User found
+2026-04-17 15:00:10 | INFO | [1b026f6c] [Onboarding] AddToGroup -> GRP_ROLE_User : Added to GRP_ROLE_User
+2026-04-17 15:00:11 | INFO | [1b026f6c] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 15:00:12 | INFO | [1b026f6c] [Onboarding] AddToDistributionList -> Marketing : Added to Marketing
+2026-04-17 15:00:13 | INFO | [1b026f6c] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 15:00:13 | WARN | [1b026f6c] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 15:00:22 | INFO | [1b026f6c] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 15:00:22 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 2
+    Already Exists: 0
+    Failed: 0
+    Total Duration: 117.8527054 sec
+        
+2026-04-17 15:00:22 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_150022.txt
+2026-04-17 15:00:35 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test.csv)
+2026-04-17 15:00:35 | INFO | [72811976] [Import-OnboardingCsv] Import -> Ethan Collins : Imported
+2026-04-17 15:00:35 | INFO | [13eee38b] [Import-OnboardingCsv] Import -> Sofia Ramirez : Imported
+2026-04-17 15:00:35 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 2)
+2026-04-17 15:00:35 | INFO | --------------------------------------------------------
+2026-04-17 15:00:35 | DEBUG | [72811976] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 15:00:35 | INFO | [72811976] [ConvertTo-OnboardingStandard] Normalize -> Ethan Collins: FirstName=Ethan, LastName=Collins, Title=Network Engineer, Manager=Mary Johnson, Location=Seattle, Department=IT
+2026-04-17 15:00:35 | DEBUG | [72811976] [ConvertTo-OnboardingStandard] Step completed in 0.0029195 seconds
+2026-04-17 15:00:35 | DEBUG | [72811976] [Test-OnboardingData] Starting step
+2026-04-17 15:00:35 | INFO | [72811976] [Test-OnboardingData] Validation -> Ethan Collins: Valid
+2026-04-17 15:00:35 | DEBUG | [72811976] [Test-OnboardingData] Step completed in 0.0037377 seconds
+2026-04-17 15:00:35 | DEBUG | [72811976] [Set-OnboardingPolicy] Starting step
+2026-04-17 15:00:35 | INFO | [72811976] [Set-OnboardingPolicy] Policy -> Ethan Collins : DL=IT;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 15:00:35 | DEBUG | [72811976] [Set-OnboardingPolicy] Step completed in 0.0012329 seconds
+2026-04-17 15:00:35 | DEBUG | [72811976] [New-OnboardingPlan] Starting step
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingPlan] WaitForEntra -> Ethan Collins : PENDING
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 15:00:35 | DEBUG | [72811976] [New-OnboardingPlan] Step completed in 0.1203376 seconds
+2026-04-17 15:00:35 | DEBUG | [72811976] [New-OnboardingIdentity] Starting step
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingIdentity] SamAccountName -> ethancollins : GENERATED
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingIdentity] UPN -> ethancollins@dev.local : GENERATED
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 15:00:35 | DEBUG | [72811976] [New-OnboardingIdentity] Step completed in 0.1267065 seconds
+2026-04-17 15:00:35 | DEBUG | [72811976] [New-OnboardingUser] Starting step
+2026-04-17 15:00:35 | INFO | [72811976] [New-OnboardingUser] CreateUser -> ethancollins : ALREADY_EXISTS
+2026-04-17 15:00:35 | DEBUG | [72811976] [New-OnboardingUser] Step completed in 0.1477613 seconds
+2026-04-17 15:00:35 | INFO | --------------------------------------------------------
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 15:00:35 | INFO | [13eee38b] [ConvertTo-OnboardingStandard] Normalize -> Sofia Ramirez: FirstName=Sofia, LastName=Ramirez, Title=Data Analyst, Manager=Greg Stone, Location=Miami, Department=Marketing
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [ConvertTo-OnboardingStandard] Step completed in 0.0029423 seconds
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [Test-OnboardingData] Starting step
+2026-04-17 15:00:35 | INFO | [13eee38b] [Test-OnboardingData] Validation -> Sofia Ramirez: Valid
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [Test-OnboardingData] Step completed in 0.0262963 seconds
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [Set-OnboardingPolicy] Starting step
+2026-04-17 15:00:35 | INFO | [13eee38b] [Set-OnboardingPolicy] Policy -> Sofia Ramirez : DL=Marketing;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [Set-OnboardingPolicy] Step completed in 0.0059682 seconds
+2026-04-17 15:00:35 | DEBUG | [13eee38b] [New-OnboardingPlan] Starting step
+2026-04-17 15:00:35 | INFO | [13eee38b] [New-OnboardingPlan] WaitForEntra -> Sofia Ramirez : PENDING
+2026-04-17 15:00:35 | INFO | [13eee38b] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 15:00:35 | INFO | [13eee38b] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 15:00:35 | INFO | [13eee38b] [New-OnboardingPlan] AddToDistributionList -> Marketing : PENDING
+2026-04-17 15:00:35 | INFO | [13eee38b] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 15:00:35 | INFO | [13eee38b] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 15:00:36 | DEBUG | [13eee38b] [New-OnboardingPlan] Step completed in 0.28083 seconds
+2026-04-17 15:00:36 | DEBUG | [13eee38b] [New-OnboardingIdentity] Starting step
+2026-04-17 15:00:36 | INFO | [13eee38b] [New-OnboardingIdentity] SamAccountName -> sofiaramirez : GENERATED
+2026-04-17 15:00:36 | INFO | [13eee38b] [New-OnboardingIdentity] UPN -> sofiaramirez@dev.local : GENERATED
+2026-04-17 15:00:36 | INFO | [13eee38b] [New-OnboardingIdentity] OU -> OU=Marketing,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 15:00:36 | DEBUG | [13eee38b] [New-OnboardingIdentity] Step completed in 0.0066699 seconds
+2026-04-17 15:00:36 | DEBUG | [13eee38b] [New-OnboardingUser] Starting step
+2026-04-17 15:00:36 | INFO | [13eee38b] [New-OnboardingUser] CreateUser -> sofiaramirez : ALREADY_EXISTS
+2026-04-17 15:00:36 | DEBUG | [13eee38b] [New-OnboardingUser] Step completed in 0.1493095 seconds
+2026-04-17 15:00:36 | INFO | --------------------------------------------------------
+2026-04-17 15:00:36 | INFO | [72811976] [Onboarding] WaitForEntra -> Ethan Collins : User found
+2026-04-17 15:00:36 | INFO | [72811976] [Onboarding] AddToGroup -> GRP_ROLE_User : Already in GRP_ROLE_User
+2026-04-17 15:00:36 | INFO | [72811976] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 15:00:38 | INFO | [72811976] [Onboarding] AddToDistributionList -> IT : Already in IT
+2026-04-17 15:00:39 | INFO | [72811976] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 15:00:39 | INFO | [72811976] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 15:00:39 | INFO | [13eee38b] [Onboarding] WaitForEntra -> Sofia Ramirez : User found
+2026-04-17 15:00:39 | INFO | [13eee38b] [Onboarding] AddToGroup -> GRP_ROLE_User : Already in GRP_ROLE_User
+2026-04-17 15:00:39 | INFO | [13eee38b] [Onboarding] AddToGroup -> GRP-AllStaff : Already in GRP-AllStaff
+2026-04-17 15:00:41 | INFO | [13eee38b] [Onboarding] AddToDistributionList -> Marketing : Already in Marketing
+2026-04-17 15:00:42 | INFO | [13eee38b] [Onboarding] AddToDistributionList -> AllStaff : Already in AllStaff
+2026-04-17 15:00:42 | INFO | [13eee38b] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Already assigned Microsoft365BusinessBasic
+2026-04-17 15:00:42 | INFO | 
+    === Pipeline Finished ===
+    Total: 2
+    Created: 0
+    Already Exists: 2
+    Failed: 0
+    Total Duration: 7.2553681 sec
+        
+2026-04-17 15:00:42 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_150042.txt
+2026-04-17 15:09:24 | DEBUG | [Import-OnboardingCsv] Import -> File : Started (C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Data\test3.csv)
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [Import-OnboardingCsv] Import -> Oliver Bennett : Imported
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [Import-OnboardingCsv] Import -> Priya Desai : Imported
+2026-04-17 15:09:24 | INFO | [69f38118] [Import-OnboardingCsv] Import -> Lucas Nguyen : Imported
+2026-04-17 15:09:24 | DEBUG | [Import-OnboardingCsv] Import -> File : Completed (Total: 3)
+2026-04-17 15:09:24 | INFO | --------------------------------------------------------
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [ConvertTo-OnboardingStandard] Normalize -> Oliver Bennett: FirstName=Oliver, LastName=Bennett, Title=Cloud Engineer, Manager=Sarah Lee, Location=Denver, Department=IT
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [ConvertTo-OnboardingStandard] Step completed in 0.0014548 seconds
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [Test-OnboardingData] Starting step
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [Test-OnboardingData] Validation -> Oliver Bennett: Valid
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [Test-OnboardingData] Step completed in 0.0009376 seconds
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [Set-OnboardingPolicy] Starting step
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [Set-OnboardingPolicy] Policy -> Oliver Bennett : DL=IT;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [Set-OnboardingPolicy] Step completed in 0.0012726 seconds
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [New-OnboardingPlan] Starting step
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingPlan] WaitForEntra -> Oliver Bennett : PENDING
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [New-OnboardingPlan] Step completed in 0.0291072 seconds
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [New-OnboardingIdentity] Starting step
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingIdentity] SamAccountName -> oliverbennett : GENERATED
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingIdentity] UPN -> oliverbennett@dev.local : GENERATED
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [New-OnboardingIdentity] Step completed in 0.0068613 seconds
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [New-OnboardingUser] Starting step
+2026-04-17 15:09:24 | INFO | [d7c89a9f] [New-OnboardingUser] CreateUser -> oliverbennett : CREATED
+2026-04-17 15:09:24 | DEBUG | [d7c89a9f] [New-OnboardingUser] Step completed in 0.1288923 seconds
+2026-04-17 15:09:24 | INFO | --------------------------------------------------------
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [ConvertTo-OnboardingStandard] Normalize -> Priya Desai: FirstName=Priya, LastName=Desai, Title=Business Analyst, Manager=Tom Baker, Location=Atlanta, Department=Finance
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [ConvertTo-OnboardingStandard] Step completed in 0.001943 seconds
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [Test-OnboardingData] Starting step
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [Test-OnboardingData] Validation -> Priya Desai: Valid
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [Test-OnboardingData] Step completed in 0.0009959 seconds
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [Set-OnboardingPolicy] Starting step
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [Set-OnboardingPolicy] Policy -> Priya Desai : DL=Finance;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [Set-OnboardingPolicy] Step completed in 0.0016491 seconds
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [New-OnboardingPlan] Starting step
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingPlan] WaitForEntra -> Priya Desai : PENDING
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingPlan] AddToDistributionList -> Finance : PENDING
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [New-OnboardingPlan] Step completed in 0.0056165 seconds
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [New-OnboardingIdentity] Starting step
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingIdentity] SamAccountName -> priyadesai : GENERATED
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingIdentity] UPN -> priyadesai@dev.local : GENERATED
+2026-04-17 15:09:24 | INFO | [8c3c57ad] [New-OnboardingIdentity] OU -> OU=Finance,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [New-OnboardingIdentity] Step completed in 0.0033285 seconds
+2026-04-17 15:09:24 | DEBUG | [8c3c57ad] [New-OnboardingUser] Starting step
+2026-04-17 15:09:25 | INFO | [8c3c57ad] [New-OnboardingUser] CreateUser -> priyadesai : CREATED
+2026-04-17 15:09:25 | DEBUG | [8c3c57ad] [New-OnboardingUser] Step completed in 0.1110273 seconds
+2026-04-17 15:09:25 | INFO | --------------------------------------------------------
+2026-04-17 15:09:25 | DEBUG | [69f38118] [ConvertTo-OnboardingStandard] Starting step
+2026-04-17 15:09:25 | INFO | [69f38118] [ConvertTo-OnboardingStandard] Normalize -> Lucas Nguyen: FirstName=Lucas, LastName=Nguyen, Title=Support Specialist, Manager=Steve Adams, Location=Phoenix, Department=IT
+2026-04-17 15:09:25 | DEBUG | [69f38118] [ConvertTo-OnboardingStandard] Step completed in 0.0012595 seconds
+2026-04-17 15:09:25 | DEBUG | [69f38118] [Test-OnboardingData] Starting step
+2026-04-17 15:09:25 | INFO | [69f38118] [Test-OnboardingData] Validation -> Lucas Nguyen: Valid
+2026-04-17 15:09:25 | DEBUG | [69f38118] [Test-OnboardingData] Step completed in 0.0012968 seconds
+2026-04-17 15:09:25 | DEBUG | [69f38118] [Set-OnboardingPolicy] Starting step
+2026-04-17 15:09:25 | INFO | [69f38118] [Set-OnboardingPolicy] Policy -> Lucas Nguyen : DL=IT;AllStaff | Groups=GRP_ROLE_User;GRP-AllStaff | License=Microsoft365BusinessBasic
+2026-04-17 15:09:25 | DEBUG | [69f38118] [Set-OnboardingPolicy] Step completed in 0.0012118 seconds
+2026-04-17 15:09:25 | DEBUG | [69f38118] [New-OnboardingPlan] Starting step
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingPlan] WaitForEntra -> Lucas Nguyen : PENDING
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingPlan] AddToGroup -> GRP_ROLE_User : PENDING
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingPlan] AddToGroup -> GRP-AllStaff : PENDING
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingPlan] AddToDistributionList -> IT : PENDING
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingPlan] AddToDistributionList -> AllStaff : PENDING
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingPlan] AssignLicense -> Microsoft365BusinessBasic : PENDING
+2026-04-17 15:09:25 | DEBUG | [69f38118] [New-OnboardingPlan] Step completed in 0.0077436 seconds
+2026-04-17 15:09:25 | DEBUG | [69f38118] [New-OnboardingIdentity] Starting step
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingIdentity] SamAccountName -> lucasnguyen : GENERATED
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingIdentity] UPN -> lucasnguyen@dev.local : GENERATED
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingIdentity] OU -> OU=IT,OU=Employees,OU=Users,OU=Identity,DC=dev,DC=local : GENERATED
+2026-04-17 15:09:25 | DEBUG | [69f38118] [New-OnboardingIdentity] Step completed in 0.0418004 seconds
+2026-04-17 15:09:25 | DEBUG | [69f38118] [New-OnboardingUser] Starting step
+2026-04-17 15:09:25 | INFO | [69f38118] [New-OnboardingUser] CreateUser -> lucasnguyen : CREATED
+2026-04-17 15:09:25 | DEBUG | [69f38118] [New-OnboardingUser] Step completed in 0.1472863 seconds
+2026-04-17 15:09:25 | INFO | --------------------------------------------------------
+2026-04-17 15:09:25 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (1)
+2026-04-17 15:09:56 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (2)
+2026-04-17 15:10:58 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (3)
+2026-04-17 15:12:31 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (4)
+2026-04-17 15:14:33 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (5)
+2026-04-17 15:17:04 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (6)
+2026-04-17 15:20:06 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (7)
+2026-04-17 15:23:37 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (8)
+2026-04-17 15:27:39 | WARN | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : RETRY (9)
+2026-04-17 15:32:11 | INFO | [d7c89a9f] [Onboarding] WaitForEntra -> Oliver Bennett : User found
+2026-04-17 15:32:11 | INFO | [d7c89a9f] [Onboarding] AddToGroup -> GRP_ROLE_User : Added to GRP_ROLE_User
+2026-04-17 15:32:12 | INFO | [d7c89a9f] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 15:32:14 | INFO | [d7c89a9f] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 15:32:16 | INFO | [d7c89a9f] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 15:32:16 | WARN | [d7c89a9f] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 15:32:23 | WARN | [d7c89a9f] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (2)
+2026-04-17 15:32:35 | INFO | [d7c89a9f] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 15:32:35 | INFO | [8c3c57ad] [Onboarding] WaitForEntra -> Priya Desai : User found
+2026-04-17 15:32:36 | INFO | [8c3c57ad] [Onboarding] AddToGroup -> GRP_ROLE_User : Added to GRP_ROLE_User
+2026-04-17 15:32:36 | INFO | [8c3c57ad] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 15:32:37 | INFO | [8c3c57ad] [Onboarding] AddToDistributionList -> Finance : Added to Finance
+2026-04-17 15:32:38 | INFO | [8c3c57ad] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 15:32:39 | INFO | [8c3c57ad] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 15:32:39 | INFO | [69f38118] [Onboarding] WaitForEntra -> Lucas Nguyen : User found
+2026-04-17 15:32:39 | INFO | [69f38118] [Onboarding] AddToGroup -> GRP_ROLE_User : Added to GRP_ROLE_User
+2026-04-17 15:32:39 | INFO | [69f38118] [Onboarding] AddToGroup -> GRP-AllStaff : Added to GRP-AllStaff
+2026-04-17 15:32:40 | INFO | [69f38118] [Onboarding] AddToDistributionList -> IT : Added to IT
+2026-04-17 15:32:42 | INFO | [69f38118] [Onboarding] AddToDistributionList -> AllStaff : Added to AllStaff
+2026-04-17 15:32:43 | WARN | [69f38118] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : RETRY (1)
+2026-04-17 15:32:49 | INFO | [69f38118] [Onboarding] AssignLicense -> Microsoft365BusinessBasic : Added to Microsoft365BusinessBasic
+2026-04-17 15:32:49 | INFO | 
+    === Pipeline Finished ===
+    Total: 3
+    Created: 3
+    Already Exists: 0
+    Failed: 0
+    Total Duration: 1405.0518931 sec
+        
+2026-04-17 15:32:49 | INFO | Report generated: C:\Users\Techadmin\Documents\GitHub\scripts\Onboarding\Functions\..\..\Reports\OnboardingReport_20260417_153249.txt

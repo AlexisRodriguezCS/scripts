@@ -1,0 +1,54 @@
+=== Pipeline Report ===
+Total Users: 3
+
+--- Oliver Bennett ---
+Validation: PASS
+Policy:
+  Distribution Lists: IT;AllStaff
+  AD Groups: GRP_ROLE_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Added to GRP_ROLE_User
+  AddToGroup: Added to GRP-AllStaff
+  AddToDistributionList: Added to IT
+  AddToDistributionList: Added to AllStaff
+  AssignLicense: Added to Microsoft365BusinessBasic
+User Creation: Created
+
+--- Priya Desai ---
+Validation: PASS
+Policy:
+  Distribution Lists: Finance;AllStaff
+  AD Groups: GRP_ROLE_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Added to GRP_ROLE_User
+  AddToGroup: Added to GRP-AllStaff
+  AddToDistributionList: Added to Finance
+  AddToDistributionList: Added to AllStaff
+  AssignLicense: Added to Microsoft365BusinessBasic
+User Creation: Created
+
+--- Lucas Nguyen ---
+Validation: PASS
+Policy:
+  Distribution Lists: IT;AllStaff
+  AD Groups: GRP_ROLE_User;GRP-AllStaff
+  License: Microsoft365BusinessBasic
+Onboarding Plan:
+  WaitForEntra: User found
+  AddToGroup: Added to GRP_ROLE_User
+  AddToGroup: Added to GRP-AllStaff
+  AddToDistributionList: Added to IT
+  AddToDistributionList: Added to AllStaff
+  AssignLicense: Added to Microsoft365BusinessBasic
+User Creation: Created
+
+=== Pipeline Summary ===
+Created: 3
+Already Exists: 0
+Failed: 0
+
+Report generated: 2026-04-17 15:32:49
