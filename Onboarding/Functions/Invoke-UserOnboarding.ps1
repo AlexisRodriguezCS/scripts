@@ -53,6 +53,14 @@ function Invoke-UserOnboarding {
         Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
     }
 
+    $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
+
+    # Sync Once for all users
+    if ($anyCreated) {
+        Invoke-EntraSync -Config $Config -LogFile $LogFile
+    } else {
+        Write-Log -Message "No new users created, skipping sync." -Level "INFO" -LogFile $LogFile
+    }
 
     if ($Apply) {
         # Complete onboarding for each user

@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$Path = "$PSScriptRoot\Data\test3.csv",
+    [string]$Path = "$PSScriptRoot\Data\test2.csv",
 
     [Parameter(Mandatory)]
     [string]$Client,

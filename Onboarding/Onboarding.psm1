@@ -6,6 +6,7 @@
 
 # Load functions
 . $PSScriptRoot\Functions\Invoke-PipelineStep.ps1
+. $PSScriptRoot\Functions\Invoke-EntraSync.ps1
 . $PSScriptRoot\Functions\Invoke-UserOnboarding.ps1
 . $PSScriptRoot\Functions\Import-OnboardingCsv.ps1
 . $PSScriptRoot\Functions\ConvertTo-OnboardingStandard.ps1
