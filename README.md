@@ -46,24 +46,32 @@ Includes:
 
 ```json
 {
-    "Domain": "corp.local",
-    "UPNSuffix": "@corp.local",
-    "DefaultOU": "OU=Employees,OU=Users,OU=Identity,DC=corp,DC=local",
-    "GroupsOU": "OU=Role-Based,OU=Security,OU=Groups,DC=corp,DC=local",
-    "DepartmentOU": "OU=Employees,OU=Users,OU=Identity,DC=corp,DC=local",
+    "Domain": "contoso.local",
+    "UPNSuffix": "@contoso.local",
+    "DefaultOU": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
+    "GroupsOU": "OU=Role-Based,OU=Security,OU=Groups,DC=contoso,DC=local",
+    "DepartmentOU": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
     "UsernameFormat": "FirstLast",
     "DefaultLicense": "Microsoft365BusinessBasic",
     "DefaultDistributionList": "AllStaff",
     "DefaultGroups": ["GRP-AllStaff"],
     "LogPath": "Logs\\Onboarding.log",
-    "DistributionLists": ["AllStaff", "Managers", "Finance", "IT", "Sales", "HR", "Marketing"],
-    "TenantDomain": "exampletenant.onmicrosoft.com",
-    "TenantId": "11111111-2222-3333-4444-555555555555",
-    "ClientId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-    "CertThumbprint": "A1B2C3D4E5F60718293A4B5C6D7E8F9012345678",
-    "ADConnectServer": "ADConnectServer",
-    "KeyVaultName": "KeyVaultName",
-    "LicenseSkuId": "00000000-0000-0000-0000-000000000000",
+    "DistributionLists": [
+        "AllStaff",
+        "Managers",
+        "Finance",
+        "IT",
+        "Sales",
+        "HR",
+        "Marketing"
+    ],
+    "TenantDomain": "contoso.onmicrosoft.com",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000",
+    "ADConnectServer": "CONTOSO-ADC01",
+    "KeyVaultName": "contoso-kv-dev",
+    "LicenseSkuId": "22222222-2222-2222-2222-222222222222",
     "UsageLocation": "US"
 }
 ```
