@@ -42,7 +42,7 @@ foreach ($module in $requiredModules) {
 }
 
 # Load config
-$Config = Get-Config -Script "Offboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+$Config = Get-Config -Script "Offboarding" -Client $Client -RootPath "$PSScriptRoot\.."
 if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 # Create logs folder if it doesn't exist
@@ -83,8 +83,10 @@ $result = if ($PSCmdlet.ParameterSetName -eq "Bulk") {
 }
 
 # A leaver that can't be found still has access somewhere, so flag it too
-if ($result.Failed -gt 0 -or $result.NotFound -gt 0) {
+if ($result.Failed -gt 0 -or $result.NotFound -gt 0 -or $result.Stopped -gt 0) {
+    # Stopped = the circuit breaker cut the run short, so those leavers still have access
+    $stopped = if ($result.Stopped) { ", Stopped before being offboarded: $($result.Stopped)" } else { "" }
     Send-Alert -Config $Config -LogFile $LogFile -Title "Offboarding ($Client): needs attention" `
-               -Message "Failed: $($result.Failed), Not found: $($result.NotFound). Report: $($result.ReportFile)"
+               -Message "Failed: $($result.Failed), Not found: $($result.NotFound)$stopped. Report: $($result.ReportFile)"
     exit 1
 }

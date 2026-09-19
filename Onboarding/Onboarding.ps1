@@ -85,8 +85,10 @@ if ($result.Credentials) {
     $result.Credentials | Format-Table -AutoSize | Out-Host
 }
 
-if ($result.Failed -gt 0) {
+if ($result.Failed -gt 0 -or $result.Stopped -gt 0) {
+    # Stopped = the circuit breaker cut the run short, so those people were never touched
+    $stopped = if ($result.Stopped) { " Stopped before being processed: $($result.Stopped)." } else { "" }
     Send-Alert -Config $Config -LogFile $LogFile -Title "Onboarding ($Client): needs attention" `
-               -Message "Failed: $($result.Failed) of $($result.Total). Check the latest report in Reports/."
+               -Message "Failed: $($result.Failed) of $($result.Total).$stopped Check the latest report in Reports/."
     exit 1
 }

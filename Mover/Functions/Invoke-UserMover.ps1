@@ -20,6 +20,8 @@ function Invoke-UserMover {
 
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
+    $processed = @()
+
     foreach ($user in $users) {
         # 2. Validate
         Test-MoverData -PipelineObject $user -LogFile $LogFile -Config $Config
@@ -36,11 +38,18 @@ function Invoke-UserMover {
             Write-Log -Message "[$($user.CorrelationId)] [DRY RUN] Not moving: $($user.Raw.SamAccountName)" -Level "INFO" -LogFile $LogFile
         }
         Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
+
+        # Stop the run if the same failure keeps repeating (AD or M365 down, expired certificate)
+        $processed += $user
+        if (Test-CircuitBreaker -Processed $processed -Config $Config -LogFile $LogFile) {
+            foreach ($rest in $users | Where-Object Status -eq "Pending") { $rest.Status = "Stopped" }
+            break
+        }
     }
 
     # Count from final status so failures in any step are included
     $movedCount  = @($users | Where-Object Status -eq "Moved").Count
-    $failedCount = @($users | Where-Object Status -in @("Failed", "Invalid", "NotFound")).Count
+    $failedCount = @($users | Where-Object Status -in @("Failed", "Invalid", "NotFound", "Stopped")).Count
 
     Write-Log -Message "=== Pipeline Finished === Total: $($users.Count) | Moved: $movedCount | Failed: $failedCount | Duration: $(((Get-Date) - $pipelineStart).TotalSeconds) sec" `
         -Level "INFO" -LogFile $LogFile

@@ -18,6 +18,8 @@ function Invoke-UserOnboarding {
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
     # Create all user(s) first
+    $processed = @()
+
     foreach ($user in $users) {
         # 1. Convert data
         ConvertTo-OnboardingStandard -PipelineObject $user -LogFile $LogFile
@@ -46,6 +48,13 @@ function Invoke-UserOnboarding {
         }
         # Log line break
         Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
+
+        # Stop the run if the same failure keeps repeating (AD down, expired certificate, lost permission)
+        $processed += $user
+        if (Test-CircuitBreaker -Processed $processed -Config $Config -LogFile $LogFile) {
+            foreach ($rest in $users | Where-Object Status -eq "Pending") { $rest.Status = "Stopped" }
+            break
+        }
     }
 
     $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
@@ -61,9 +70,23 @@ function Invoke-UserOnboarding {
 
     if ($Apply) {
         # Complete onboarding for each user
+        $onboarded = @()
+
         foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
             # Execute onboarding
             $null = Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
+
+            # Groups and licenses are the calls most likely to hit an outage, so the breaker runs here too
+            $onboarded += $user
+            if (Test-CircuitBreaker -Processed $onboarded -Config $Config -LogFile $LogFile) {
+                # The accounts exist but never got their access, so they need attention too.
+                # Users already onboarded keep Created / AlreadyExists, so skip the ones that ran.
+                $handled = @($onboarded.CorrelationId)
+                foreach ($rest in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") -and $_.CorrelationId -notin $handled }) {
+                    $rest.Status = "Stopped"
+                }
+                break
+            }
         }
     }
 
@@ -71,6 +94,7 @@ function Invoke-UserOnboarding {
     $successCount = @($users | Where-Object Status -eq "Created").Count
     $alreadyCount = @($users | Where-Object Status -eq "AlreadyExists").Count
     $failedCount  = @($users | Where-Object Status -in @("Failed","Invalid")).Count
+    $stoppedCount = @($users | Where-Object Status -eq "Stopped").Count
 
     $pipelineDuration = (Get-Date) - $pipelineStart
 
@@ -81,6 +105,7 @@ function Invoke-UserOnboarding {
     Created: $successCount
     Already Exists: $alreadyCount
     Failed: $failedCount
+    Stopped: $stoppedCount
     Total Duration: $($pipelineDuration.TotalSeconds) sec
         " -Level "INFO" -LogFile $LogFile
 
@@ -96,6 +121,7 @@ function Invoke-UserOnboarding {
         Created      = $successCount
         AlreadyExist = $alreadyCount
         Failed       = $failedCount
+        Stopped      = $stoppedCount
         DurationSec  = $pipelineDuration.TotalSeconds
         Users        = @($users | ForEach-Object {
             [pscustomobject]@{

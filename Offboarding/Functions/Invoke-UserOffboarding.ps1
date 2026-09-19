@@ -20,6 +20,8 @@ function Invoke-UserOffboarding {
 
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
+    $processed = @()
+
     foreach ($user in $users) {
         # 1. Validate data
         Test-OffboardingData -PipelineObject $user -LogFile $LogFile
@@ -44,12 +46,20 @@ function Invoke-UserOffboarding {
         }
         # Log line break
         Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
+
+        # Stop the run if the same failure keeps repeating (M365 down, expired certificate, lost permission)
+        $processed += $user
+        if (Test-CircuitBreaker -Processed $processed -Config $Config -LogFile $LogFile) {
+            foreach ($rest in $users | Where-Object Status -eq "Pending") { $rest.Status = "Stopped" }
+            break
+        }
     }
 
     # Count from final status so failures in any step are included
     $offboardedCount = @($users | Where-Object Status -eq "Offboarded").Count
     $notFoundCount   = @($users | Where-Object Status -eq "NotFound").Count
     $failedCount     = @($users | Where-Object Status -in @("Failed","Invalid")).Count
+    $stoppedCount    = @($users | Where-Object Status -eq "Stopped").Count
 
     $pipelineDuration = (Get-Date) - $pipelineStart
 
@@ -60,6 +70,7 @@ function Invoke-UserOffboarding {
     Offboarded: $offboardedCount
     Not Found: $notFoundCount
     Failed: $failedCount
+    Stopped: $stoppedCount
     Total Duration: $($pipelineDuration.TotalSeconds) sec
         " -Level "INFO" -LogFile $LogFile
 
@@ -74,6 +85,7 @@ function Invoke-UserOffboarding {
         Offboarded  = $offboardedCount
         NotFound    = $notFoundCount
         Failed      = $failedCount
+        Stopped     = $stoppedCount
         DurationSec = $pipelineDuration.TotalSeconds
         ReportFile  = $reportFile
         Users       = @($users | ForEach-Object {

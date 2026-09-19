@@ -9,6 +9,7 @@
 . $PSScriptRoot\..\Modules\Shared\New-RandomPassword.ps1
 . $PSScriptRoot\..\Modules\Shared\Send-Alert.ps1
 . $PSScriptRoot\..\Modules\Shared\Invoke-Plan.ps1
+. $PSScriptRoot\..\Modules\Shared\Test-CircuitBreaker.ps1
 
 # Load functions
 . $PSScriptRoot\Functions\Invoke-EntraSync.ps1

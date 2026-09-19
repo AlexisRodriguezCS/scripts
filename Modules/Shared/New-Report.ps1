@@ -13,7 +13,7 @@ function New-Report {
     $reportLines += "Total Users: $($Users.Count)`n"
 
     # Anything that didn't finish cleanly goes at the top so it can't be missed
-    $flagged = @($Users | Where-Object { $_.Status -in @("Failed","Invalid","NotFound") })
+    $flagged = @($Users | Where-Object { $_.Status -in @("Failed","Invalid","NotFound","Stopped") })
     if ($flagged.Count -gt 0) {
         $reportLines += "=== NEEDS ATTENTION ($($flagged.Count)) ==="
         foreach ($user in $flagged) {
