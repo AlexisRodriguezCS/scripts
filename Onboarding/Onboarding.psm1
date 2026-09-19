@@ -26,6 +26,7 @@
 . $PSScriptRoot\Actions\Add-OnboardingGroupMember.ps1
 . $PSScriptRoot\Actions\Add-OnboardingDLMember.ps1
 . $PSScriptRoot\Actions\Set-OnboardingLicense.ps1
+. $PSScriptRoot\Actions\New-OnboardingAccessPass.ps1
 . $PSScriptRoot\Actions\Wait-ForEntraUser.ps1
 
 Export-ModuleMember -Function *

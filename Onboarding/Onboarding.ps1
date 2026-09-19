@@ -81,7 +81,7 @@ $result = if ($PSCmdlet.ParameterSetName -eq "Bulk") {
 
 # Show temp passwords once, on screen only (not in logs or reports)
 if ($result.Credentials) {
-    Write-Host "`n=== Temp passwords (shown once, users must change at first sign-in) ===" -ForegroundColor Yellow
+    Write-Host "`n=== Sign-in details (shown once: access pass for day one, temp password must be changed) ===" -ForegroundColor Yellow
     $result.Credentials | Format-Table -AutoSize | Out-Host
 }
 

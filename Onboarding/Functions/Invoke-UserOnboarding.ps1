@@ -34,7 +34,7 @@ function Invoke-UserOnboarding {
         # 3. Apply policies
         Set-OnboardingPolicy -PipelineObject $user -Config $Config -LogFile $LogFile
         # 4. Plan onboarding actions
-        New-OnboardingPlan -PipelineObject $user -LogFile $LogFile
+        New-OnboardingPlan -PipelineObject $user -LogFile $LogFile -Config $Config
         # 5. Build onboarding data
         New-OnboardingIdentity -PipelineObject $user -LogFile $LogFile -Config $Config
         # 6. Create user
@@ -105,8 +105,13 @@ function Invoke-UserOnboarding {
                 Errors   = ($_.Errors | ForEach-Object { if ($_ -is [string]) { $_ } else { "$($_.Step): $($_.Exception)" } }) -join '; '
             }
         })
-        Credentials  = @($users | Where-Object { $_.PSObject.Properties["TempPassword"] } | ForEach-Object {
-            [pscustomobject]@{ Name = $_.Identity.DisplayName; Username = $_.Identity.UserPrincipalName; TempPassword = $_.TempPassword }
+        Credentials  = @($users | Where-Object { $_.PSObject.Properties["TempPassword"] -or $_.PSObject.Properties["TemporaryAccessPass"] } | ForEach-Object {
+            [pscustomobject]@{
+                Name                = $_.Identity.DisplayName
+                Username            = $_.Identity.UserPrincipalName
+                TempPassword        = $_.TempPassword
+                TemporaryAccessPass = $_.TemporaryAccessPass
+            }
         })
     }
 }

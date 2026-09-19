@@ -53,7 +53,7 @@ What a business actually needs from identity automation: **stay secure, stop was
   - *Why:* otherwise company data walks out the door on personal phones.
 - [x] **Conditional Access backup + change detection** – every policy backed up to JSON, added/changed/deleted policies flagged (`Audits -Check ConditionalAccess`)
   - *Why:* a changed CA policy is a common cause of both breaches and outages, and CA is named in most postings.
-- [ ] **Temporary Access Pass onboarding** – new hires get a one-time sign-in code instead of a temp password
+- [x] **Temporary Access Pass onboarding** – optional one-time sign-in code for day one (`UseTemporaryAccessPass`)
   - *Why:* passwordless is the modern standard; no password ever exists to leak.
 
 ### 2. Security operations

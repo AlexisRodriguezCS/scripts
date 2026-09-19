@@ -27,6 +27,8 @@ $stubs = @{
     'Get-MgSiteListItem'        = 'SiteId, ListId, ExpandProperty, [switch]$All'
     'Update-MgSiteListItemField'= 'SiteId, ListId, ListItemId, BodyParameter'
     'Invoke-MgGraphRequest'     = 'Method, Uri, Body, OutputType'
+    'Get-MgUserAuthenticationTemporaryAccessPassMethod' = 'UserId'
+    'New-MgUserAuthenticationTemporaryAccessPassMethod' = 'UserId, BodyParameter'
     'Get-MgSiteListItemVersion' = 'SiteId, ListId, ListItemId, ExpandProperty, [switch]$All'
 
     # SecretManagement

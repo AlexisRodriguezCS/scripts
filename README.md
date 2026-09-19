@@ -163,7 +163,9 @@ Settings every config can have:
     "CertThumbprint": "0000000000000000000000000000000000000000",
     "ADConnectServer": "CONTOSO-ADC01",
     "LicenseSkuId": "22222222-2222-2222-2222-222222222222",
-    "UsageLocation": "US"
+    "UsageLocation": "US",
+    "UseTemporaryAccessPass": true,
+    "AccessPassLifetimeMinutes": 480
 }
 ```
 </details>

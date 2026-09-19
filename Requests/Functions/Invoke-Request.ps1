@@ -28,8 +28,12 @@ function Invoke-Request {
             foreach ($credential in $result.Credentials) {
                 Send-MgUserMail -UserId $Configs.Requests.SenderMailbox -ErrorAction Stop -BodyParameter @{
                     Message = @{
-                        Subject      = "Temporary password: $($credential.Name)"
-                        Body         = @{ ContentType = "Text"; Content = "Username: $($credential.Username)`nTemporary password: $($credential.TempPassword)`nThey must change it at first sign-in." }
+                        Subject      = "Sign-in details: $($credential.Name)"
+                        Body         = @{ ContentType = "Text"; Content = (@(
+                            "Username: $($credential.Username)"
+                            if ($credential.TemporaryAccessPass) { "Temporary Access Pass (day one sign-in code): $($credential.TemporaryAccessPass)" }
+                            if ($credential.TempPassword) { "Temporary password: $($credential.TempPassword) (must be changed at first sign-in)" }
+                        ) -join "`n") }
                         ToRecipients = @(@{ EmailAddress = @{ Address = $Configs.Requests.TempPasswordRecipient } })
                     }
                     SaveToSentItems = $false
