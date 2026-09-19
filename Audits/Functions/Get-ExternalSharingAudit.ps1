@@ -9,7 +9,8 @@ function Get-ExternalSharingAudit {
 
     $check      = "ExternalSharing"
     $maxAgeDays = if ($Config.ExternalUserMaxAgeDays) { $Config.ExternalUserMaxAgeDays } else { 365 }
-    $allowed    = @($Config.AllowedSharingDomains)
+    # Where-Object drops the $null when the setting is missing: @($null) would still count as one entry
+    $allowed    = @($Config.AllowedSharingDomains | Where-Object { $_ })
 
     # --- Sites: how far sharing is allowed to go ---
     # Sites with sharing off are fine, so only the ones that allow it are reported.
