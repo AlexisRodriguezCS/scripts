@@ -63,6 +63,7 @@ Invalid users are logged and skipped.
   * `SetAutoReply`
   * `GrantMailboxAccess` (manager only)
   * `ShareOneDrive` (manager only)
+  * `HideFromAddressBook`
   * `RemoveLicenses`
 * Populates `.Plan`
 

@@ -22,14 +22,15 @@ Pipeline details: [Docs/Offboarding.md](Docs/Offboarding.md)
 12. Turn on out of office pointing to the manager (or `DefaultContact`)
 13. Give the manager full access to the mailbox
 14. Give the manager access to the OneDrive
-15. Remove all M365 licenses
-16. Write a report to `Reports/`
+15. Hide them from the address book (people can't pick them for new email; the manager still has the mailbox)
+16. Remove all M365 licenses
+17. Write a report to `Reports/`
 
-A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–15.
+A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–16.
 
-Steps 5–15 only run with `-Apply`. Steps 13–14 only run when a `Manager` is given.
+Steps 5–16 only run with `-Apply`. Steps 13–14 only run when a `Manager` is given.
 
-**Why this order:** lock them out first (5–7), then remove access (8–10), then hand off data (11–14). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
+**Why this order:** lock them out first (5–7), then remove access (8–10), then hand off data and hide them (11–15). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
 
 ---
 

@@ -30,6 +30,7 @@
 . $PSScriptRoot\Actions\Set-OffboardingAutoReply.ps1
 . $PSScriptRoot\Actions\Grant-OffboardingMailboxAccess.ps1
 . $PSScriptRoot\Actions\Grant-OffboardingOneDriveAccess.ps1
+. $PSScriptRoot\Actions\Hide-OffboardingFromAddressBook.ps1
 . $PSScriptRoot\Actions\Remove-OffboardingLicense.ps1
 
 Export-ModuleMember -Function *
