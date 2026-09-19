@@ -44,6 +44,9 @@ function New-OffboardingPlan {
         # Action: Remove from cloud distribution lists (onboarding adds these in Exchange Online, not AD)
         $plan += @{ Action = "RemoveFromDistributionLists"; Target = $identity.EntraUPN; Result = $null }
 
+        # Action: Remove from Teams / Microsoft 365 groups (and with them, those teams' SharePoint sites)
+        $plan += @{ Action = "RemoveFromCloudGroups"; Target = $identity.EntraUPN; Result = $null }
+
         # Action: Convert mailbox to shared (must happen BEFORE license removal or the mailbox is deleted)
         $plan += @{ Action = "ConvertMailbox"; Target = $identity.EntraUPN; Result = $null }
 

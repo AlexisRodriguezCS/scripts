@@ -23,6 +23,7 @@
 . $PSScriptRoot\Actions\Disable-OffboardingAccount.ps1
 . $PSScriptRoot\Actions\Remove-OffboardingGroupMember.ps1
 . $PSScriptRoot\Actions\Remove-OffboardingDLMember.ps1
+. $PSScriptRoot\Actions\Remove-OffboardingCloudGroupMember.ps1
 . $PSScriptRoot\Actions\Move-OffboardingUser.ps1
 . $PSScriptRoot\Actions\Revoke-OffboardingSession.ps1
 . $PSScriptRoot\Actions\Invoke-OffboardingDeviceRetire.ps1

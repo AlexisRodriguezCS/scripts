@@ -31,6 +31,7 @@ function Start-Offboarding {
         RemoveFromGroup             = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Remove-OffboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
         MoveToDisabledOU            = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Move-OffboardingUser -Identity $p.Identity -Target $t -LogFile $LogFile } }
         RemoveFromDistributionLists = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Remove-OffboardingDLMember -Identity $p.Identity -LogFile $LogFile } }
+        RemoveFromCloudGroups       = @{ MaxRetries = 3; DelaySeconds = 10; Run = { param($p, $t) Remove-OffboardingCloudGroupMember -Identity $p.Identity -Manager $p.Raw.Manager -LogFile $LogFile } }
         ConvertMailbox              = @{ MaxRetries = 3; DelaySeconds = 10; Run = { param($p, $t) Convert-OffboardingMailbox -Identity $p.Identity -LogFile $LogFile } }
         SetAutoReply                = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Set-OffboardingAutoReply -Identity $p.Identity -Target $t -Config $Config -LogFile $LogFile } }
         GrantMailboxAccess          = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Grant-OffboardingMailboxAccess -Identity $p.Identity -Target $t -LogFile $LogFile } }
@@ -49,6 +50,7 @@ function Start-Offboarding {
         NoOneDrive          = "No OneDrive"
         NoDistributionLists = "No distribution lists"
         NoDevices           = "No Intune devices"
+        NoCloudGroups       = "No Teams or cloud groups"
         AlreadyHidden       = "Already hidden from the address book"
         Hidden              = "Hidden from the address book"
     }
