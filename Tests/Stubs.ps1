@@ -39,6 +39,7 @@ $stubs = @{
     'Get-MgGroupMember'         = 'GroupId, [switch]$All'
     'Resolve-DnsName'           = 'Name, Type'
     'Get-MgAuditLogSignIn'      = 'Filter, Top, [switch]$All'
+    'Get-MgAuditLogDirectoryAudit' = 'Filter, [switch]$All'
     'Get-MgUserAuthenticationMethod' = 'UserId'
     'Get-MgUserAuthenticationTemporaryAccessPassMethod' = 'UserId'
     'New-MgUserAuthenticationTemporaryAccessPassMethod' = 'UserId, BodyParameter'
