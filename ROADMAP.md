@@ -42,10 +42,43 @@ What a business actually needs from identity automation: **stay secure, stop was
 
 ## Next up
 
+### Foundation
 - [ ] **Home lab** – domain controller + Entra Connect on Proxmox/Hyper-V, run everything for real, add screenshots to the READMEs
-- [ ] **Temporary Access Pass** – new hires get a one-time sign-in code instead of a temp password (passwordless onboarding)
+- [ ] **Cloud / Hybrid / On-prem** – one `Environment` setting; shared pipeline, per-environment actions (`Actions/Cloud`, `Actions/Hybrid`, `Actions/OnPrem`), CI tests each environment separately
+
+### 1. Gaps job postings ask for
+- [ ] **Intune device cleanup** – stale, non-compliant and ownerless devices; retire devices not seen in 90 days
+  - *Why:* Intune is in almost every Microsoft 365 admin posting.
+- [ ] **Leaver device wipe** – offboarding finds the user's phones/laptops and retires them or wipes company data
+  - *Why:* otherwise company data walks out the door on personal phones.
+- [ ] **Conditional Access backup + change detection** – export every policy to JSON daily, alert when one changes
+  - *Why:* a changed CA policy is a common cause of both breaches and outages, and CA is named in most postings.
+- [ ] **Temporary Access Pass onboarding** – new hires get a one-time sign-in code instead of a temp password
+  - *Why:* passwordless is the modern standard; no password ever exists to leak.
+
+### 2. Security operations
+- [ ] **Compromised account response** – one command: disable, revoke sessions, reset password, remove inbox rules, list recent sign-ins
+  - *Why:* the "someone got phished" playbook, run in seconds instead of from memory.
+- [ ] **Risky sign-ins report** – new countries, impossible travel, risky users from Entra
+- [ ] **Privileged access review** – permanent vs PIM-eligible admin roles
+- [ ] **Email security check** – SPF, DKIM and DMARC for every domain
+  - *Why:* spoofing protection; also listed in postings.
+
+### 3. Groups and access hygiene
+- [ ] **Empty / ownerless groups and Teams** – clean up or assign an owner
+- [ ] **Shared mailbox access report** – who can read which shared mailboxes
+- [ ] **External sharing report** – SharePoint/OneDrive files shared outside the company
+
+### 4. Help desk
+- [ ] **Account unlock + password reset** through the request list
+- [ ] **Group / distribution list membership requests** through the request list, with manager approval
+- [ ] **Mailbox size warnings** before mailboxes fill up
+
+### Later
 - [ ] **Undo from snapshot** – restore a user's groups/attributes from a before-snapshot
-- [ ] **Offboarding: hide from address book, remove from Teams/SharePoint sites, wipe company data from phones (Intune)**
+- [ ] **Offboarding extras** – hide from address book, remove from Teams/SharePoint sites
+- [ ] **Before/after HTML report** – readable page generated from the snapshots, for demos and tickets
+- [ ] **PowerShell Universal portal** – live buttons for the scripts, written in PowerShell only
 
 ---
 
