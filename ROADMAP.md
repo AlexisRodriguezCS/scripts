@@ -72,7 +72,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 ### 4. Help desk
 - [ ] **Account unlock + password reset** through the request list
 - [ ] **Group / distribution list membership requests** through the request list, with manager approval
-- [ ] **Mailbox size warnings** before mailboxes fill up
+- [x] **Mailbox size warnings** before mailboxes fill up (`MailboxQuota`)
 
 ### Later
 - [ ] **Undo from snapshot** – restore a user's groups/attributes from a before-snapshot
