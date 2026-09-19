@@ -34,6 +34,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [HR Requests](Requests/README.md) | Processes approved requests from the SharePoint list, writes the result back | Every 15 min |
 | [Password Expiry](PasswordExpiry/README.md) | Emails people before their password expires | Daily |
 | [Inactive Accounts](InactiveAccounts/README.md) | Disables unused accounts, removes old guests (safety stop included) | Weekly |
+| [Stale Devices](StaleDevices/README.md) | Retires Intune devices that stopped checking in, deletes very old records (safety stop included) | Weekly |
 | [Audits](Audits/README.md) | MFA gaps, admin roles, mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
 
 **Other**: [Security](SECURITY.md) (secrets, permissions, guard rails) · [Lab](Lab/README.md) (reset the test tenant) · [Setup](Setup/) (certificate, secrets, scheduled tasks) · [Roadmap](ROADMAP.md)

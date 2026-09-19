@@ -2,7 +2,6 @@ function Get-Config{
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
-        [ValidateSet("Onboarding", "Offboarding", "Mover", "InactiveAccounts", "PasswordExpiry", "Audits", "Requests")]
         [string]$Script,
 
         [Parameter(Mandatory)]

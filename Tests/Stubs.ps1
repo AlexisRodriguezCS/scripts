@@ -45,6 +45,11 @@ $stubs = @{
     # PnP (SharePoint)
     'Get-PnPUserProfileProperty' = 'Account'
     'Set-PnPTenantSite'         = 'Identity, Owners'
+
+    # Intune
+    'Get-MgDeviceManagementManagedDevice'          = 'Property, Filter, [switch]$All'
+    'Invoke-MgRetireDeviceManagementManagedDevice' = 'ManagedDeviceId'
+    'Remove-MgDeviceManagementManagedDevice'       = 'ManagedDeviceId'
 }
 
 foreach ($name in $stubs.Keys) {
