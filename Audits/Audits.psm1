@@ -19,6 +19,8 @@
 . $PSScriptRoot\Functions\Get-EmailSecurityAudit.ps1
 . $PSScriptRoot\Functions\Get-PrivilegedAccessAudit.ps1
 . $PSScriptRoot\Functions\Get-RiskyUserAudit.ps1
+. $PSScriptRoot\Functions\Get-GroupHygieneAudit.ps1
+. $PSScriptRoot\Functions\Get-SharedMailboxAudit.ps1
 . $PSScriptRoot\Functions\Get-LicenseAudit.ps1
 . $PSScriptRoot\Functions\Get-AccessReview.ps1
 . $PSScriptRoot\Functions\Get-OffboardingCheck.ps1

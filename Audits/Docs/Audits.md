@@ -46,6 +46,17 @@ Every check is a function that returns **findings**. A finding is one row:
 * Source: Entra ID Protection risky users (needs Entra ID P2)
 * Flag: every user at risk or confirmed compromised, with a next step based on the risk level
 
+### Groups – `Get-GroupHygieneAudit`
+
+* Source: Graph groups (cloud only; synced groups are managed in AD), owners, members
+* Labels each as Team, Microsoft 365 group, distribution list or security group
+* Flag: no owner; no members for more than 30 days
+
+### SharedMailboxes – `Get-SharedMailboxAudit`
+
+* Source: Exchange shared mailboxes, mailbox permissions (FullAccess), recipient permissions (SendAs)
+* Flag: sign-in not blocked on the shared mailbox; access held by a disabled account; nobody has access
+
 ### EmailSecurity – `Get-EmailSecurityAudit`
 
 * Source: verified domains from Graph (skips `*.onmicrosoft.com`), public DNS

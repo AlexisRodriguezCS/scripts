@@ -31,6 +31,8 @@ function Invoke-Audit {
                 "EmailSecurity"    { Get-EmailSecurityAudit -LogFile $LogFile }
                 "PrivilegedAccess" { Get-PrivilegedAccessAudit -Config $Config -LogFile $LogFile }
                 "RiskyUsers"       { Get-RiskyUserAudit -LogFile $LogFile }
+                "Groups"           { Get-GroupHygieneAudit -LogFile $LogFile }
+                "SharedMailboxes"  { Get-SharedMailboxAudit -LogFile $LogFile }
                 "Licenses"         { Get-LicenseAudit -Config $Config -LogFile $LogFile }
                 "AccessReview"     { Get-AccessReview -Config $Config -OutputFolder "$reportDir\AccessReview_$runStamp" -LogFile $LogFile }
                 "OffboardingCheck" { Get-OffboardingCheck -Path $Path -Config $Config -LogFile $LogFile }

@@ -65,8 +65,8 @@ What a business actually needs from identity automation: **stay secure, stop was
   - *Why:* spoofing protection; also listed in postings.
 
 ### 3. Groups and access hygiene
-- [ ] **Empty / ownerless groups and Teams** – clean up or assign an owner
-- [ ] **Shared mailbox access report** – who can read which shared mailboxes
+- [x] **Empty / ownerless groups and Teams** – flagged for cleanup or a new owner (`Audits -Check Groups`)
+- [x] **Shared mailbox access report** – FullAccess/SendAs, disabled people with access, sign-in not blocked (`Audits -Check SharedMailboxes`)
 - [ ] **External sharing report** – SharePoint/OneDrive files shared outside the company
 
 ### 4. Help desk
