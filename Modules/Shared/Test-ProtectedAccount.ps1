@@ -19,7 +19,8 @@ function Test-ProtectedAccount {
     }
 
     # VIPs, break-glass and service accounts listed per client
-    if ($AdUser.SamAccountName -in @($Config.ProtectedAccounts)) {
+    # (check the list exists first: $null -in @($null) is true in PowerShell)
+    if ($Config.ProtectedAccounts -and $AdUser.SamAccountName -and $AdUser.SamAccountName -in $Config.ProtectedAccounts) {
         return "Protected account (on the ProtectedAccounts list). IT must run this by hand with -AllowProtected."
     }
 

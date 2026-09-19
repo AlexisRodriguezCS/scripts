@@ -62,6 +62,11 @@ Describe "Security guard rails" {
                 Should -BeNullOrEmpty
         }
 
+        It "doesn't block anyone when no list is configured" {
+            Test-ProtectedAccount -AdUser ([pscustomobject]@{ adminCount = $null }) -Config ([pscustomobject]@{}) |
+                Should -BeNullOrEmpty
+        }
+
         It "doesn't block normal users" {
             Test-ProtectedAccount -AdUser ([pscustomobject]@{ SamAccountName = "jdoe"; adminCount = $null }) -Config ([pscustomobject]@{ ProtectedAccounts = @("ceo") }) |
                 Should -BeNullOrEmpty
