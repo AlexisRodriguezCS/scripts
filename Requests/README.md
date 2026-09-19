@@ -16,6 +16,9 @@ HR doesn't run scripts. They fill in a SharePoint list, and the scripts do the r
 | **Role change** | Username, Job title, Department, Role, Manager username |
 | **Leaver** | Username, Manager email (gets their mailbox + OneDrive) |
 | **Update info** | Username + only the boxes that change (phone, title, office...) |
+| **Unlock account** | Username |
+| **Reset password** | Username (IT gets the temporary password and hands it over; it's never shown in the list) |
+| **Group access** | Username, Group, Add or remove (only groups IT has allowed for requests) |
 
 4. **When**: leave blank for as soon as possible, or pick a date and time (e.g. a leaver's last day at 5 PM)
 5. Save. The request waits for approval.
@@ -58,7 +61,7 @@ The **Status** column tells you what's happening:
 2. **Check the approval is real**: SharePoint's version history must show the change to Approved was made by someone on `Approvers`, and not by the person who submitted it. Otherwise: *Needs attention*
 3. Skip items whose **When** is in the future (shows "Scheduled: will run ...")
 4. Set **Processing** (so two runs can't do the same request)
-5. Run the matching script: onboarding, mover, offboarding, or user attributes
+5. Run the matching script: onboarding, mover, offboarding, user attributes, or the help desk actions (unlock, reset password, group access)
 6. Temp passwords are emailed to IT, **never** written to the list
 7. Set **Done** or **Needs attention** with a plain-English result
 8. Alert IT if anything needs attention
