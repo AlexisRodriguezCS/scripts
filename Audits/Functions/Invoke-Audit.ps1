@@ -33,6 +33,7 @@ function Invoke-Audit {
                 "RiskyUsers"       { Get-RiskyUserAudit -LogFile $LogFile }
                 "Groups"           { Get-GroupHygieneAudit -LogFile $LogFile }
                 "SharedMailboxes"  { Get-SharedMailboxAudit -LogFile $LogFile }
+                "ExternalSharing"  { Get-ExternalSharingAudit -Config $Config -LogFile $LogFile }
                 "Licenses"         { Get-LicenseAudit -Config $Config -LogFile $LogFile }
                 "AccessReview"     { Get-AccessReview -Config $Config -OutputFolder "$reportDir\AccessReview_$runStamp" -LogFile $LogFile }
                 "OffboardingCheck" { Get-OffboardingCheck -Path $Path -Config $Config -LogFile $LogFile }

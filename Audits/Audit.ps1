@@ -11,7 +11,7 @@ param(
     [Parameter(Mandatory)]
     [string]$Client,
 
-    [ValidateSet("All", "Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "ConditionalAccess", "EmailSecurity", "PrivilegedAccess", "RiskyUsers", "Groups", "SharedMailboxes", "Licenses", "AccessReview", "OffboardingCheck")]
+    [ValidateSet("All", "Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "ConditionalAccess", "EmailSecurity", "PrivilegedAccess", "RiskyUsers", "Groups", "SharedMailboxes", "ExternalSharing", "Licenses", "AccessReview", "OffboardingCheck")]
     [string[]]$Check = "All",
 
     # Leavers CSV (SamAccountName), for OffboardingCheck
@@ -27,7 +27,7 @@ $LogFile = "$PSScriptRoot\$($Config.LogPath)"
 
 # "All" = every check that doesn't need extra input
 $checks = if ($Check -contains "All") {
-    @("Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "ConditionalAccess", "EmailSecurity", "PrivilegedAccess", "RiskyUsers", "Groups", "SharedMailboxes", "Licenses", "AccessReview") + $(if ($Path) { "OffboardingCheck" })
+    @("Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "ConditionalAccess", "EmailSecurity", "PrivilegedAccess", "RiskyUsers", "Groups", "SharedMailboxes", "ExternalSharing", "Licenses", "AccessReview") + $(if ($Path) { "OffboardingCheck" })
 } else { $Check }
 
 if ("OffboardingCheck" -in $checks -and -not $Path) {
@@ -47,6 +47,13 @@ if ($checks | Where-Object { $_ -in @("MailForwarding", "SharedMailboxes") }) {
                            -CertificateThumbprint $Config.CertThumbprint `
                            -Organization $Config.TenantDomain `
                            -ShowBanner:$false
+}
+
+if ("ExternalSharing" -in $checks) {
+    Connect-PnPOnline -Url $Config.SharePointAdminUrl `
+                      -ClientId $Config.ClientId `
+                      -Thumbprint $Config.CertThumbprint `
+                      -Tenant $Config.TenantDomain
 }
 
 $results = @(Invoke-Audit -Checks $checks -Config $Config -LogFile $LogFile -Path $Path)
