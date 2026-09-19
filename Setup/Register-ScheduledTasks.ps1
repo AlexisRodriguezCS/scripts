@@ -34,9 +34,12 @@ $tasks = @(
 $principal = New-ScheduledTaskPrincipal -UserId $RunAs -LogonType Password -RunLevel Highest
 $settings  = New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Hours 2) -MultipleInstances IgnoreNew -StartWhenAvailable
 
+# [0] = normal task, [1] = task that takes no -Client (e.g. report cleanup)
+$clientArg = @("-Client `"$Client`"", "")
+
 foreach ($task in $tasks) {
     $action = New-ScheduledTaskAction -Execute $pwsh -WorkingDirectory $root `
-              -Argument "-NoProfile -NonInteractive -File `"$root\$($task.Script)`" $(if (-not $task.NoClient) { "-Client `"$Client`"" }) $($task.Args)"
+              -Argument ("-NoProfile -NonInteractive -File `"$root\$($task.Script)`" " + $clientArg[[bool]$task.NoClient] + " $($task.Args)")
 
     # Re-running this script updates the tasks instead of failing
     $null = Register-ScheduledTask -TaskPath $TaskFolder -TaskName "$($task.Name) ($Client)" -Action $action `
