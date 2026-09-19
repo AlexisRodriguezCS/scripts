@@ -1,21 +1,30 @@
 function Import-OnboardingCsv {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
+        # Bulk: CSV path
+        [Parameter(Mandatory, ParameterSetName = "Bulk")]
         [string]$Path,
+        # Single: rows already built from parameters
+        [Parameter(Mandatory, ParameterSetName = "Rows")]
+        [PSCustomObject[]]$Rows,
         [string]$LogFile
     )
 
-    Write-Log -Message "[Import-OnboardingCsv] Import -> File : Started ($Path)" -Level "DEBUG" -LogFile $LogFile
-
-    # Check file exists
-    if (-Not (Test-Path $Path)) {
-        Write-Log -Message "CSV not found: $Path" -Level "ERROR" -LogFile $LogFile
-        throw "CSV file not found"
+    if ($PSCmdlet.ParameterSetName -eq "Rows") {
+        $csv = $Rows
     }
+    else {
+        Write-Log -Message "[Import-OnboardingCsv] Import -> File : Started ($Path)" -Level "DEBUG" -LogFile $LogFile
 
-    # Import CSV
-    $csv = Import-Csv -Path $Path
+        # Check file exists
+        if (-Not (Test-Path $Path)) {
+            Write-Log -Message "CSV not found: $Path" -Level "ERROR" -LogFile $LogFile
+            throw "CSV file not found"
+        }
+
+        # Import CSV
+        $csv = Import-Csv -Path $Path
+    }
 
     # Build pipeline objects
     $pipelineObjects = foreach ($row in $csv) {

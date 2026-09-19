@@ -1,8 +1,8 @@
 function Invoke-UserOnboarding {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
-        [string]$Path, # CSV path
+        [string]$Path, # CSV path (bulk)
+        [PSCustomObject[]]$Rows, # or rows built from parameters (single)
         [Parameter(Mandatory)]
         [string]$LogFile, # Log file path
         [Parameter(Mandatory)]
@@ -13,7 +13,7 @@ function Invoke-UserOnboarding {
     $pipelineStart = Get-Date
 
     # Call import function
-    $users = Import-OnboardingCsv -Path $Path -LogFile $LogFile
+    $users = if ($Rows) { Import-OnboardingCsv -Rows $Rows -LogFile $LogFile } else { Import-OnboardingCsv -Path $Path -LogFile $LogFile }
 
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
@@ -97,6 +97,14 @@ function Invoke-UserOnboarding {
         AlreadyExist = $alreadyCount
         Failed       = $failedCount
         DurationSec  = $pipelineDuration.TotalSeconds
+        Users        = @($users | ForEach-Object {
+            [pscustomobject]@{
+                Name     = "$($_.Raw.FirstName) $($_.Raw.LastName)"
+                Username = $_.Identity.UserPrincipalName
+                Status   = $_.Status
+                Errors   = ($_.Errors | ForEach-Object { if ($_ -is [string]) { $_ } else { "$($_.Step): $($_.Exception)" } }) -join '; '
+            }
+        })
         Credentials  = @($users | Where-Object { $_.PSObject.Properties["TempPassword"] } | ForEach-Object {
             [pscustomobject]@{ Name = $_.Identity.DisplayName; Username = $_.Identity.UserPrincipalName; TempPassword = $_.TempPassword }
         })

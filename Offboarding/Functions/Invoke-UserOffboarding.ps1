@@ -1,8 +1,8 @@
 function Invoke-UserOffboarding {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
-        [string]$Path, # CSV path
+        [string]$Path, # CSV path (bulk)
+        [PSCustomObject[]]$Rows, # or rows built from parameters (single)
         [Parameter(Mandatory)]
         [string]$LogFile, # Log file path
         [Parameter(Mandatory)]
@@ -11,9 +11,12 @@ function Invoke-UserOffboarding {
     )
 
     $pipelineStart = Get-Date
+    $runStamp      = Get-Date -Format 'yyyyMMdd_HHmmss'
+    $reportDir     = "$PSScriptRoot\..\..\Reports"
+    $snapshotDir   = "$reportDir\Snapshots\Offboarding_$runStamp"
 
     # Call import function
-    $users = Import-OffboardingCsv -Path $Path -LogFile $LogFile
+    $users = if ($Rows) { Import-OffboardingCsv -Rows $Rows -LogFile $LogFile } else { Import-OffboardingCsv -Path $Path -LogFile $LogFile }
 
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
@@ -34,7 +37,7 @@ function Invoke-UserOffboarding {
         New-OffboardingPlan -PipelineObject $user -LogFile $LogFile -Config $Config
         # 4. Execute plan
         if ($Apply) {
-            $null = Start-Offboarding -PipelineObject $user -LogFile $LogFile -Config $Config
+            $null = Start-Offboarding -PipelineObject $user -LogFile $LogFile -Config $Config -SnapshotFolder $snapshotDir
         } else {
             Write-Log -Message "[$($user.CorrelationId)] [DRY RUN] Not offboarding user: $($user.Raw.SamAccountName)" `
                 -Level "INFO" -LogFile $LogFile
@@ -61,9 +64,8 @@ function Invoke-UserOffboarding {
         " -Level "INFO" -LogFile $LogFile
 
     # Generate report
-    $reportDir  = "$PSScriptRoot\..\..\Reports"
     $null = New-Item -ItemType Directory -Path $reportDir -Force
-    $reportFile = "$reportDir\OffboardingReport_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
+    $reportFile = "$reportDir\OffboardingReport_$runStamp.txt"
     $null = New-Report -Users $users -ReportFile $reportFile
     Write-Log -Message "Report generated: $reportFile" -Level "INFO" -LogFile $LogFile
 
@@ -73,5 +75,13 @@ function Invoke-UserOffboarding {
         NotFound    = $notFoundCount
         Failed      = $failedCount
         DurationSec = $pipelineDuration.TotalSeconds
+        ReportFile  = $reportFile
+        Users       = @($users | ForEach-Object {
+            [pscustomobject]@{
+                SamAccountName = $_.Raw.SamAccountName
+                Status         = $_.Status
+                Errors         = ($_.Errors | ForEach-Object { if ($_ -is [string]) { $_ } else { "$($_.Step): $($_.Exception)" } }) -join '; '
+            }
+        })
     }
 }

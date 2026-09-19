@@ -6,51 +6,56 @@ What a business actually needs from identity automation: **stay secure, stop was
 
 ## Done
 
-- [x] **Onboarding** – new hire gets account, groups, email lists, license
-- [x] **Offboarding** – leaver locked out, access removed, data handed to manager, licenses freed
+**Employee lifecycle (Joiner – Mover – Leaver)**
+- [x] **Onboarding** – new hire gets account, groups, email lists, license, random temp password
+- [x] **Role change (mover)** – new title/department/manager, old role access swapped for new
+- [x] **User attributes** – HR/IT update details (title, phone, office...), only what changed
+- [x] **Offboarding** – lock out, remove access, mailbox + OneDrive to manager, free licenses
+- [x] **One person or bulk** – every people script takes parameters or a CSV
+
+**Security**
+- [x] **Inactive accounts** – disable unused employees, remove old guests, safety stop
+- [x] **MFA gaps** – no MFA, admins on SMS only
+- [x] **Admin audit** – role holders, too many Global Admins, guests with admin
+- [x] **Mail forwarding audit** – forwarding and inbox rules to outside addresses
+- [x] **Expiring app secrets / certificates**
+
+**Save money**
+- [x] **License report** – bought vs assigned, cost per department
+- [x] **Wasted licenses** – unused, on disabled accounts, on idle accounts
+
+**Audits and compliance**
+- [x] **Access review** – one sheet per manager, Keep/Remove
+- [x] **Offboarding check** – leavers still enabled, in groups, or licensed
+- [x] **Before/after snapshots** – every change recorded as JSON
+
+**Help desk**
+- [x] **Password expiry emails** – 14/7/1 days, never duplicated
+
+**Platform**
+- [x] **HR self-service** – SharePoint list + approval, results written back in plain English
+- [x] **Scheduled / emergency** – requests run at a set time (a leaver's last day at 5 PM) or ASAP
+- [x] **Alerts** – Teams and/or email when anything needs attention
+- [x] **Scheduled tasks** – one setup script, runs as a gMSA (no stored password)
 
 ---
 
 ## Next up
 
-### 1. Complete the employee lifecycle
-- [ ] **Role change (mover)** – when someone changes department or role, swap their groups, email lists and OU. Onboarding + offboarding + mover = the full *Joiner-Mover-Leaver* process every IT team runs.
-  - *Why:* people who change jobs keep their old access forever ("permission creep"). Auditors flag this constantly.
-
-### 2. Security
-- [ ] **Stale accounts** – find accounts with no sign-in for 90+ days, disable them, report.
-  - *Why:* unused accounts are an easy way in for attackers, and nobody notices them.
-- [ ] **MFA gaps** – list users with no MFA, and admins without strong MFA.
-  - *Why:* no MFA is the #1 way accounts get taken over. Cyber insurance asks about it.
-- [ ] **Admin audit** – who has Global Admin and other powerful roles, and are they permanent.
-  - *Why:* too many admins = big damage if one is hacked.
-- [ ] **Mail forwarding audit** – find mailboxes auto-forwarding to outside addresses.
-  - *Why:* the first thing attackers set up after a break-in, to quietly copy email out.
-- [ ] **Guest user cleanup** – external guests who haven't signed in for 90 days.
-  - *Why:* old vendors and contractors still having access to company files.
-- [ ] **Expiring app secrets / certificates** – warn 30 days before app registrations expire.
-  - *Why:* an expired secret silently breaks integrations (including these scripts).
-
-### 3. Save money
-- [ ] **License report** – who has what license, what it costs, per department.
-  - *Why:* finance wants to know what M365 costs per team.
-- [ ] **Wasted licenses** – licenses on disabled or inactive users, and unassigned ones still being paid for.
-  - *Why:* often 10–20% of licenses are wasted. Easy savings to show a manager.
-
-### 4. Audits and compliance
-- [ ] **Access review export** – each manager gets a list of what their team has access to, to approve or remove.
-  - *Why:* required for SOC 2, ISO 27001, HIPAA and most audits, usually every quarter.
-- [ ] **Offboarding check** – confirm every leaver from HR is actually disabled with no licenses.
-  - *Why:* proves to auditors that offboarding really happened.
-
-### 5. Help desk time savers
-- [ ] **Password expiry emails** – remind users 14/7/1 days before their password expires.
-  - *Why:* cuts "I'm locked out" tickets.
+- [ ] **Home lab** – domain controller + Entra Connect on Proxmox/Hyper-V, run everything for real, add screenshots to the READMEs
+- [ ] **Temporary Access Pass** – new hires get a one-time sign-in code instead of a temp password (passwordless onboarding)
+- [ ] **Undo from snapshot** – restore a user's groups/attributes from a before-snapshot
+- [ ] **Offboarding: hide from address book, remove from Teams/SharePoint sites, wipe company data from phones (Intune)**
 
 ---
 
-## Platform
+## Last: demo portal
 
-- [ ] **Alerts** – email or Teams message when anything lands in NEEDS ATTENTION
-- [ ] **Scheduled runs** – run on a schedule from an HR export (self-hosted GitHub runner or Task Scheduler)
-- [ ] **Home lab** – domain controller + Entra Connect on Proxmox/Hyper-V to test everything for real
+A small web page, hosted on the lab PC, that shows what the scripts do in real time:
+
+- Pick a request (new hire, role change, leaver, update info) and watch each step run with a progress animation
+- Each change shown as it happens, e.g. **Lisa Taylor – Title: Accountant → Finance Manager ✓**
+- Offboarding shows the user's **before** and **after** side by side (from the snapshots): enabled → disabled, 5 groups → 0, E3 license → none, mailbox → shared
+- Reads the same reports and snapshots the scripts already write, so it doesn't change how anything works
+
+Good for demos and interviews. The real HR front door stays the SharePoint list (sign-in, permissions and approvals come free with Microsoft 365).

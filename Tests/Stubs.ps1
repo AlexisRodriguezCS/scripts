@@ -1,29 +1,51 @@
-# CI runners don't have RSAT / Microsoft.Graph / ExchangeOnlineManagement installed, and Pester
+# CI runners don't have RSAT / Microsoft.Graph / ExchangeOnlineManagement / PnP installed, and Pester
 # can only mock commands that exist. Define empty stand-ins for any that are missing.
 $stubs = @{
-    'Get-ADUser'                = 'Identity, Filter, Properties, Server'
+    # Active Directory
+    'Get-ADUser'                = 'Identity, Filter, Properties, Server, SearchBase'
     'New-ADUser'                = 'Name, GivenName, Surname, SamAccountName, UserPrincipalName, Path, AccountPassword, ChangePasswordAtLogon, Enabled'
+    'Set-ADUser'                = 'Identity, Description, Title, Department, Manager, Office, OfficePhone, MobilePhone, Company, EmployeeID, City, State, StreetAddress, PostalCode'
     'Disable-ADAccount'         = 'Identity'
     'Set-ADAccountPassword'     = 'Identity, NewPassword, [switch]$Reset'
-    'Set-ADUser'                = 'Identity, Description'
+    'Get-ADGroupMember'         = 'Identity'
+    'Add-ADGroupMember'         = 'Identity, Members'
     'Remove-ADGroupMember'      = 'Identity, Members'
     'Move-ADObject'             = 'Identity, TargetPath'
-    'Get-MgUser'                = 'UserId, Property'
+
+    # Microsoft Graph
+    'Get-MgUser'                = 'UserId, Property, Filter, [switch]$All'
+    'Update-MgUser'             = 'UserId, AccountEnabled, UsageLocation'
+    'Remove-MgUser'             = 'UserId'
     'Revoke-MgUserSignInSession'= 'UserId'
     'Set-MgUserLicense'         = 'UserId, AddLicenses, RemoveLicenses'
-    'Get-Mailbox'               = 'Identity'
+    'Send-MgUserMail'           = 'UserId, BodyParameter'
+    'Get-MgSubscribedSku'       = '[switch]$All'
+    'Get-MgApplication'         = 'Property, [switch]$All'
+    'Get-MgDirectoryRole'       = '[switch]$All'
+    'Get-MgDirectoryRoleMember' = 'DirectoryRoleId, [switch]$All'
+    'Get-MgReportAuthenticationMethodUserRegistrationDetail' = '[switch]$All'
+    'Get-MgSiteListItem'        = 'SiteId, ListId, ExpandProperty, [switch]$All'
+    'Update-MgSiteListItemField'= 'SiteId, ListId, ListItemId, BodyParameter'
+
+    # Exchange Online
+    'Get-Mailbox'               = 'Identity, ResultSize'
     'Set-Mailbox'               = 'Identity, Type'
     'Add-MailboxPermission'     = 'Identity, User, AccessRights, InheritanceType'
     'Set-MailboxAutoReplyConfiguration' = 'Identity, AutoReplyState, InternalMessage, ExternalMessage, ExternalAudience'
-    'Get-PnPUserProfileProperty' = 'Account'
     'Get-Recipient'             = 'Filter, RecipientTypeDetails, ResultSize'
+    'Add-DistributionGroupMember'    = 'Identity, Member'
     'Remove-DistributionGroupMember' = 'Identity, Member, [switch]$BypassSecurityGroupManagerCheck'
+    'Get-AcceptedDomain'        = ''
+    'Get-InboxRule'             = 'Mailbox'
+
+    # PnP (SharePoint)
+    'Get-PnPUserProfileProperty' = 'Account'
     'Set-PnPTenantSite'         = 'Identity, Owners'
 }
 
 foreach ($name in $stubs.Keys) {
     if (-not (Get-Command $name -ErrorAction SilentlyContinue)) {
-        $params = ($stubs[$name] -split ',\s*' | ForEach-Object { if ($_ -like '*$*') { $_ } else { "`$$_" } }) -join ', '
+        $params = ($stubs[$name] -split ',\s*' | Where-Object { $_ } | ForEach-Object { if ($_ -like '*$*') { $_ } else { "`$$_" } }) -join ', '
         Set-Item "function:global:$name" ([scriptblock]::Create("[CmdletBinding(SupportsShouldProcess)] param($params)"))
     }
 }

@@ -29,14 +29,17 @@ Steps 7–12 and 14 only run with `-Apply`. Temp passwords are never written to 
 
 ## Usage
 
-Dry run (no changes):
+**One person**
+```powershell
+.\Onboarding\Onboarding.ps1 -Client "ClientA" -FirstName Alex -LastName Johnson -Title "Accountant" -Department Finance -Role Accountant -Manager "Mary Smith"
+```
+
+**Many people**
 ```powershell
 .\Onboarding\Onboarding.ps1 -Client "ClientA" -Path .\Onboarding\Data\test.csv
 ```
-Apply:
-```powershell
-.\Onboarding\Onboarding.ps1 -Client "ClientA" -Path .\Onboarding\Data\test.csv -Apply
-```
+
+Both are a dry run (no changes). Add `-Apply` to make the changes.
 
 ---
 

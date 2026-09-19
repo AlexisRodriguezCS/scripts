@@ -2,7 +2,10 @@
 
 [![PowerShell CI](https://github.com/AlexisRodriguezCS/scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/AlexisRodriguezCS/scripts/actions/workflows/ci.yml)
 
-PowerShell automation for Active Directory and Microsoft 365 administration.
+PowerShell automation for the whole employee lifecycle in Active Directory and Microsoft 365:
+new hires, role changes, leavers, plus the security, cost and compliance checks a business runs every week.
+
+HR requests changes through a SharePoint list. IT can run any script directly. Nothing changes without `-Apply`.
 
 Built for a **hybrid** environment: users live in on-prem Active Directory and sync to Entra ID with Entra Connect; licenses, mailboxes and OneDrive are in Microsoft 365.
 
@@ -13,36 +16,40 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 
 ---
 
-## Structure
-
-```
-scripts/
-├── .github/workflows/      # CI: lint (PSScriptAnalyzer) + tests (Pester)
-├── Config/Clients/         # Per-client config (gitignored)
-├── Modules/Shared/         # Logging, config, errors, step runner, report
-├── Onboarding/             # New user provisioning from HR CSV
-├── Offboarding/            # Leaver deprovisioning + handoff to manager
-├── Lab/                    # Test tenant tools
-└── Tests/                  # Pester tests
-```
-
----
-
 ## Scripts
 
-| Script | What it does |
-|--------|--------------|
-| [Onboarding](Onboarding/README.md) | AD account, groups, distribution lists, M365 license |
-| [Offboarding](Offboarding/README.md) | Disable, strip access, shared mailbox, out of office, OneDrive to manager, remove licenses |
-| [Lab](Lab/README.md) | Reset the test tenant |
+**People (Joiner – Mover – Leaver)**
 
-What's next: [ROADMAP.md](ROADMAP.md)
+| Script | What it does | One person or CSV |
+|--------|--------------|:---:|
+| [Onboarding](Onboarding/README.md) | New hire: AD account, groups, email lists, license, random temp password | Both |
+| [Mover](Mover/README.md) | Role change: new title/department/manager, swap old access for new | Both |
+| [User Attributes](UserAttributes/README.md) | Update details: title, phone, office, manager... only what changed | Both |
+| [Offboarding](Offboarding/README.md) | Leaver: lock out, remove access, mailbox + OneDrive to manager, free licenses | Both |
+
+**Scheduled**
+
+| Script | What it does | When |
+|--------|--------------|------|
+| [HR Requests](Requests/README.md) | Processes approved requests from the SharePoint list, writes the result back | Every 15 min |
+| [Password Expiry](PasswordExpiry/README.md) | Emails people before their password expires | Daily |
+| [Inactive Accounts](InactiveAccounts/README.md) | Disables unused accounts, removes old guests (safety stop included) | Weekly |
+| [Audits](Audits/README.md) | MFA gaps, admin roles, mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
+
+**Other**: [Lab](Lab/README.md) (reset the test tenant) · [Setup](Setup/Register-ScheduledTasks.ps1) (create the scheduled tasks) · [Roadmap](ROADMAP.md)
 
 ---
 
 ## How it works
 
-Both pipelines share the same engine (`Modules/Shared`):
+Every script follows the same pipeline and shares the same engine (`Modules/Shared`):
+
+```
+Input ──► Validate ──► Look up ──► Plan ──► Snapshot ──► Execute (retries) ──► Snapshot ──► Report ──► Alert
+          bad rows                  only     before                              after       problems   Teams /
+          skipped                   what                                                     first      email
+                                    changed
+```
 
 **Dry run by default**
 - Nothing changes without `-Apply`
@@ -52,17 +59,29 @@ Both pipelines share the same engine (`Modules/Shared`):
 - Every row is validated before anything touches AD or M365
 - Bad rows are skipped and reported, the rest keep going
 - Each user gets a plan (list of actions) that is logged before it runs
+- Only what's actually different is planned
 
 **Retries**
 - Each action has its own retry count and delay (e.g. waiting for Entra sync retries longer than a group add)
 - Backoff grows each attempt, with jitter so parallel runs don't retry in lockstep
 - Errors are classified (Network, Throttle, Auth, Conflict, Dependency) and flagged retryable or not
+- Critical steps stop the plan if they fail (e.g. offboarding never strips access from an account it couldn't disable)
 
 **Idempotent (safe to re-run)**
 - Checks before acting: user already exists, already in group, license already assigned, mailbox already shared
-- No duplicate accounts, memberships or licenses if a run is repeated
-- Each pipeline step records that it completed, so it won't run twice for the same user
+- No duplicate accounts, memberships, licenses or emails if a run is repeated
 - A failed run can simply be run again
+
+**Before / after snapshots**
+- Before any change, the user's state is saved to JSON: enabled, OU, title, department, manager, groups, licenses, mailbox type
+- Saved again after, in `Reports/Snapshots/`
+- Audit trail of exactly what changed, and a way to undo mistakes
+
+**Safety**
+- Inactive accounts: stops if more than 10% of the tenant looks inactive
+- Offboarding: disable first, licenses last (removing them before the mailbox is converted would delete it)
+- Temp passwords are random, shown or emailed once, never logged or stored
+- Only role groups (`GRP_ROLE_*`) are changed on a role change; hand-granted access is left alone
 
 **Logging**
 - Every line tagged with a per-user correlation ID, so one user's journey can be followed through the log
@@ -74,10 +93,7 @@ Both pipelines share the same engine (`Modules/Shared`):
 - A user that can't be found, fails validation, or has an action fail after all retries is marked
 - Every report starts with a **NEEDS ATTENTION** section listing those users and exactly what failed and why
 - The run keeps going for everyone else; one bad user doesn't stop the batch
-- Exit code 1 if anything was flagged, so a scheduler or pipeline shows the run as failed
-
-**Reporting**
-- Report per run in `Reports/`: validation, plan, result of every action, final status, totals
+- Alert to Teams and/or email, and exit code 1, so a scheduler shows the run as failed
 
 ---
 
@@ -85,18 +101,29 @@ Both pipelines share the same engine (`Modules/Shared`):
 
 - PowerShell 7
 - ActiveDirectory module (RSAT)
-- ExchangeOnlineManagement
 - Microsoft.Graph
-- PnP.PowerShell (offboarding only)
-- An Entra app registration with a certificate (app-only auth)
+- ExchangeOnlineManagement
+- PnP.PowerShell (offboarding OneDrive handoff, request list setup)
+- An Entra app registration with a certificate (app-only auth, no passwords)
+- Entra ID P1 for sign-in based checks (inactive accounts, MFA, idle licenses)
 
 ---
 
 ## Configuration
 
-One folder per client: `Config/Clients/<Client>/Onboarding.json` and `Offboarding.json`.
+One folder per client: `Config/Clients/<Client>/<Script>.json` (gitignored, never committed).
+For scheduled runs the folder can live outside the repo: set `SCRIPTS_CONFIG_ROOT`.
 
-Onboarding.json
+Every config can also have optional alert settings:
+```json
+"AlertWebhookUrl": "https://prod-00.westus.logic.azure.com/workflows/...",
+"AlertEmail": "it-alerts@contoso.com",
+"AlertSender": "automation@contoso.com"
+```
+
+<details>
+<summary>Onboarding.json (also used by Mover and User Attributes)</summary>
+
 ```json
 {
     "Domain": "contoso.local",
@@ -104,6 +131,8 @@ Onboarding.json
     "DefaultOU": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
     "GroupsOU": "OU=Role-Based,OU=Security,OU=Groups,DC=contoso,DC=local",
     "DepartmentOU": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
+    "Departments": ["Finance", "IT", "Sales", "HR", "Marketing"],
+    "ManagedGroupPrefix": "GRP_ROLE_",
     "UsernameFormat": "FirstLast",
     "DefaultLicense": "Microsoft365BusinessBasic",
     "DefaultDistributionList": "AllStaff",
@@ -119,8 +148,11 @@ Onboarding.json
     "UsageLocation": "US"
 }
 ```
+</details>
 
-Offboarding.json
+<details>
+<summary>Offboarding.json</summary>
+
 ```json
 {
     "DisabledOU": "OU=Disabled,OU=Users,OU=Identity,DC=contoso,DC=local",
@@ -134,6 +166,80 @@ Offboarding.json
     "CertThumbprint": "0000000000000000000000000000000000000000"
 }
 ```
+</details>
+
+<details>
+<summary>InactiveAccounts.json</summary>
+
+```json
+{
+    "MemberInactiveDays": 90,
+    "GuestInactiveDays": 90,
+    "MaxPercentToDisable": 10,
+    "ExcludeAccounts": ["breakglass@contoso.onmicrosoft.com", "svc-scanner@contoso.com"],
+    "LogPath": "Logs\\InactiveAccounts.log",
+    "TenantDomain": "contoso.onmicrosoft.com",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+</details>
+
+<details>
+<summary>PasswordExpiry.json</summary>
+
+```json
+{
+    "NotifyDays": [14, 7, 1],
+    "SearchBase": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
+    "SenderMailbox": "it-helpdesk@contoso.com",
+    "PasswordResetUrl": "https://aka.ms/sspr",
+    "EmailSubject": "Your password expires in {Days}",
+    "EmailBody": "Hi {Name},\n\nYour password expires {Date} ({Days}).\nChange it here: {ResetUrl}\n\nIT Help Desk",
+    "LogPath": "Logs\\PasswordExpiry.log",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+</details>
+
+<details>
+<summary>Audits.json</summary>
+
+```json
+{
+    "DefaultOU": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
+    "MaxGlobalAdmins": 4,
+    "CredentialWarningDays": 30,
+    "InactiveDays": 90,
+    "LicensePrices": { "O365_BUSINESS_ESSENTIALS": 6.00, "SPE_E3": 36.00 },
+    "LogPath": "Logs\\Audits.log",
+    "TenantDomain": "contoso.onmicrosoft.com",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+</details>
+
+<details>
+<summary>Requests.json</summary>
+
+```json
+{
+    "SiteId": "contoso.sharepoint.com:/sites/HR",
+    "ListName": "IT Requests",
+    "SenderMailbox": "automation@contoso.com",
+    "TempPasswordRecipient": "it-helpdesk@contoso.com",
+    "TenantDomain": "contoso.onmicrosoft.com",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+</details>
 
 ---
 
@@ -144,3 +250,4 @@ Invoke-Pester ./Tests
 ```
 
 AD, Graph, Exchange and PnP cmdlets are mocked, so tests run anywhere (including CI) without a tenant.
+CI runs PSScriptAnalyzer and every test on each push.

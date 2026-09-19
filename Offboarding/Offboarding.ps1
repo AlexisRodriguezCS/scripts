@@ -1,7 +1,23 @@
 #Requires -Version 7.0
-[CmdletBinding()]
+<#
+    One person:
+      .\Offboarding\Offboarding.ps1 -Client "ClientA" -SamAccountName jsmith -Manager maryjohnson@contoso.com
+    Many people (CSV: SamAccountName, Manager):
+      .\Offboarding\Offboarding.ps1 -Client "ClientA" -Path .\Offboarding\Data\test.csv
+
+    Add -Apply to make the changes.
+#>
+[CmdletBinding(DefaultParameterSetName = "Single")]
 param(
-    [string]$Path = "$PSScriptRoot\Data\test.csv",
+    [Parameter(Mandatory, ParameterSetName = "Bulk")]
+    [string]$Path,
+
+    [Parameter(Mandatory, ParameterSetName = "Single")]
+    [string]$SamAccountName,
+
+    # Manager's UPN: gets the mailbox + OneDrive (optional)
+    [Parameter(ParameterSetName = "Single")]
+    [string]$Manager,
 
     [Parameter(Mandatory)]
     [string]$Client,
@@ -55,9 +71,16 @@ if ($Apply) {
 }
 
 # Run pipeline
-$result = Invoke-UserOffboarding -Path $Path -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
+$result = if ($PSCmdlet.ParameterSetName -eq "Bulk") {
+    Invoke-UserOffboarding -Path $Path -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
+} else {
+    Invoke-UserOffboarding -Rows @([pscustomobject]@{ SamAccountName = $SamAccountName; Manager = $Manager }) `
+                           -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
+}
 
 # A leaver that can't be found still has access somewhere, so flag it too
 if ($result.Failed -gt 0 -or $result.NotFound -gt 0) {
+    Send-Alert -Config $Config -LogFile $LogFile -Title "Offboarding ($Client): needs attention" `
+               -Message "Failed: $($result.Failed), Not found: $($result.NotFound). Report: $($result.ReportFile)"
     exit 1
 }

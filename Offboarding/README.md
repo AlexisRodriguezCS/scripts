@@ -24,6 +24,8 @@ Pipeline details: [Docs/Offboarding.md](Docs/Offboarding.md)
 14. Remove all M365 licenses
 15. Write a report to `Reports/`
 
+A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–14.
+
 Steps 5–14 only run with `-Apply`. Steps 12–13 only run when a `Manager` is given.
 
 **Why this order:** lock them out first (5–6), then remove access (7–9), then hand off data (10–13). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
@@ -32,14 +34,19 @@ Steps 5–14 only run with `-Apply`. Steps 12–13 only run when a `Manager` is 
 
 ## Usage
 
-Dry run (no changes):
+**One person** (also the emergency option: runs right away)
+```powershell
+.\Offboarding\Offboarding.ps1 -Client "ClientA" -SamAccountName johnsmith -Manager maryjohnson@contoso.com
+```
+
+**Many people**
 ```powershell
 .\Offboarding\Offboarding.ps1 -Client "ClientA" -Path .\Offboarding\Data\test.csv
 ```
-Apply:
-```powershell
-.\Offboarding\Offboarding.ps1 -Client "ClientA" -Path .\Offboarding\Data\test.csv -Apply
-```
+
+Both are a dry run (no changes). Add `-Apply` to make the changes.
+
+**Scheduled** (e.g. last day at 5 PM): HR submits a Leaver request with a "When" time. See [Requests](../Requests/README.md).
 
 ---
 
