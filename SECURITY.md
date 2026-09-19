@@ -59,7 +59,7 @@ Each client config has its own `ClientId`, so **each script can use its own app 
 | Inactive Accounts | `User.ReadWrite.All`, `AuditLog.Read.All` | – | – | Disable users |
 | Stale Devices | `DeviceManagementManagedDevices.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All` | – | – | – |
 | Password Expiry | `Mail.Send` (limit to the sender mailbox with an application access policy) | – | – | Read users |
-| Audits | `User.Read.All`, `AuditLog.Read.All`, `Directory.Read.All`, `Application.Read.All`, `Organization.Read.All`, `Policy.Read.All` | *View-Only Recipients* | – | Read users |
+| Audits | `User.Read.All`, `AuditLog.Read.All`, `Directory.Read.All`, `Application.Read.All`, `Organization.Read.All`, `Policy.Read.All`, `Domain.Read.All` | *View-Only Recipients* | – | Read users |
 | Requests | `Sites.Selected` (only the HR site) | – | – | – |
 | Incident Response | `User.ReadWrite.All`, `AuditLog.Read.All`, `UserAuthenticationMethod.Read.All` | *Mail Recipients* | – | Disable, reset password |
 
