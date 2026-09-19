@@ -24,6 +24,12 @@ function Write-Log {
             $Message = "$Message".Replace($secret, "***")
         }
 
+        # Rotate at 10 MB and keep the last 5, so a scheduled task can't fill the disk
+        if ((Test-Path $LogFile) -and (Get-Item $LogFile).Length -gt 10MB) {
+            Move-Item -Path $LogFile -Destination "$LogFile.$(Get-Date -Format 'yyyyMMddHHmmss')" -Force
+            Get-ChildItem -Path "$LogFile.*" | Sort-Object Name -Descending | Select-Object -Skip 5 | Remove-Item -Force
+        }
+
         "$Time | $Level | $Message" | Out-File -FilePath $LogFile -Append -Encoding utf8
         
         switch ($Level) {

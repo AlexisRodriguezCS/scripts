@@ -84,6 +84,20 @@ AD rights are **delegated on specific OUs**, not Domain Admin.
 
 ---
 
+## Data retention
+
+Reports and before/after snapshots contain personal data (names, groups, managers), so they don't live forever:
+
+| What | Kept | How |
+|---|---|---|
+| Reports, snapshots, access review sheets | 90 days (`-Days`) | [`Setup/Remove-OldReports.ps1`](Setup/Remove-OldReports.ps1), weekly scheduled task |
+| Log files | Last 5 × 10 MB per script | `Write-Log` rotates automatically |
+| Temp passwords | Never stored | Memory only |
+
+Reports and logs are gitignored and never committed.
+
+---
+
 ## Reporting a problem
 
 Open a private security advisory on GitHub rather than a public issue.

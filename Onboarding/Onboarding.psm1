@@ -8,6 +8,7 @@
 . $PSScriptRoot\..\Modules\Shared\Invoke-PipelineStep.ps1
 . $PSScriptRoot\..\Modules\Shared\New-RandomPassword.ps1
 . $PSScriptRoot\..\Modules\Shared\Send-Alert.ps1
+. $PSScriptRoot\..\Modules\Shared\Invoke-Plan.ps1
 
 # Load functions
 . $PSScriptRoot\Functions\Invoke-EntraSync.ps1
