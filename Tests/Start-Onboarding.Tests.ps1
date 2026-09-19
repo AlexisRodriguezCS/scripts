@@ -52,7 +52,7 @@ Describe "Start-Onboarding" {
         $result = Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $result.Status | Should -Be "Invalid"
-        Assert-MockCalled Write-Log -Times 1 -ModuleName Onboarding
+        Should -Invoke Write-Log -Times 1 -ModuleName Onboarding
     }
 
     It "skips processing and returns early when status is Failed" {
@@ -61,7 +61,7 @@ Describe "Start-Onboarding" {
         $result = Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $result.Status | Should -Be "Failed"
-        Assert-MockCalled Write-Log -Times 1 -ModuleName Onboarding
+        Should -Invoke Write-Log -Times 1 -ModuleName Onboarding
     }
 
     # ---------------------------------------------------------------
@@ -73,7 +73,7 @@ Describe "Start-Onboarding" {
 
         $result = Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
-        Assert-MockCalled Add-PipelineError -Times 1 -ModuleName Onboarding
+        Should -Invoke Add-PipelineError -Times 1 -ModuleName Onboarding
         $obj.Plan[0].Result | Should -BeNullOrEmpty
     }
 
@@ -89,7 +89,7 @@ Describe "Start-Onboarding" {
         Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $obj.Plan[0].Result | Should -Be "User found"
-        Assert-MockCalled Wait-ForEntraUser -Times 1 -ModuleName Onboarding
+        Should -Invoke Wait-ForEntraUser -Times 1 -ModuleName Onboarding
     }
 
     It "executes AddToGroup and records result" {
@@ -100,7 +100,7 @@ Describe "Start-Onboarding" {
         Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $obj.Plan[0].Result | Should -Be "Added to IT-Staff"
-        Assert-MockCalled Add-OnboardingGroupMember -Times 1 -ModuleName Onboarding
+        Should -Invoke Add-OnboardingGroupMember -Times 1 -ModuleName Onboarding
     }
 
     It "executes AddToDistributionList and records result" {
@@ -111,7 +111,7 @@ Describe "Start-Onboarding" {
         Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $obj.Plan[0].Result | Should -Be "Added to IT-DL"
-        Assert-MockCalled Add-OnboardingDLMember -Times 1 -ModuleName Onboarding
+        Should -Invoke Add-OnboardingDLMember -Times 1 -ModuleName Onboarding
     }
 
     It "executes AssignLicense and records result" {
@@ -122,7 +122,7 @@ Describe "Start-Onboarding" {
         Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $obj.Plan[0].Result | Should -Be "Already assigned ENTERPRISEPACK"
-        Assert-MockCalled Set-OnboardingLicense -Times 1 -ModuleName Onboarding
+        Should -Invoke Set-OnboardingLicense -Times 1 -ModuleName Onboarding
     }
 
     It "records AlreadyExists result when group member already present" {
@@ -152,8 +152,8 @@ Describe "Start-Onboarding" {
         Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $obj.Plan[0].Result              | Should -Be "Added to IT-Staff"
-        Assert-MockCalled Add-OnboardingGroupMember -Times 3 -ModuleName Onboarding
-        Assert-MockCalled Start-Sleep -Times 2 -ModuleName Onboarding
+        Should -Invoke Add-OnboardingGroupMember -Times 3 -ModuleName Onboarding
+        Should -Invoke Start-Sleep -Times 2 -ModuleName Onboarding
     }
 
     It "marks result as Failed and calls Add-PipelineError when all retries exhausted" {
@@ -164,8 +164,8 @@ Describe "Start-Onboarding" {
         Start-Onboarding -PipelineObject $obj -LogFile $script:logFile -Config $script:config
 
         $obj.Plan[0].Result | Should -Be "Failed"
-        Assert-MockCalled Add-OnboardingGroupMember -Times 3 -ModuleName Onboarding  # MaxRetries for AddToGroup
-        Assert-MockCalled Add-PipelineError -Times 1 -ModuleName Onboarding
+        Should -Invoke Add-OnboardingGroupMember -Times 3 -ModuleName Onboarding  # MaxRetries for AddToGroup
+        Should -Invoke Add-PipelineError -Times 1 -ModuleName Onboarding
     }
 
     # ---------------------------------------------------------------
@@ -186,8 +186,8 @@ Describe "Start-Onboarding" {
 
         # Second action should never have run
         $obj.Plan[1].Result | Should -BeNullOrEmpty
-        Assert-MockCalled Add-OnboardingGroupMember -Times 0 -ModuleName Onboarding
-        Assert-MockCalled Wait-ForEntraUser -Times 10 -ModuleName Onboarding  # MaxRetries for WaitForEntra
+        Should -Invoke Add-OnboardingGroupMember -Times 0 -ModuleName Onboarding
+        Should -Invoke Wait-ForEntraUser -Times 10 -ModuleName Onboarding  # MaxRetries for WaitForEntra
     }
 
     # ---------------------------------------------------------------

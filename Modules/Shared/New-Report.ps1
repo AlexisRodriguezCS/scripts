@@ -12,6 +12,24 @@ function New-Report {
     $reportLines += "=== Pipeline Report ==="
     $reportLines += "Total Users: $($Users.Count)`n"
 
+    # Anything that didn't finish cleanly goes at the top so it can't be missed
+    $flagged = @($Users | Where-Object { $_.Status -in @("Failed","Invalid","NotFound") })
+    if ($flagged.Count -gt 0) {
+        $reportLines += "=== NEEDS ATTENTION ($($flagged.Count)) ==="
+        foreach ($user in $flagged) {
+            $name = if ($user.Raw.SamAccountName) { $user.Raw.SamAccountName } else { "$($user.Raw.FirstName) $($user.Raw.LastName)" }
+            $reportLines += "! $name : $($user.Status)"
+            foreach ($err in $user.Errors) {
+                # Validation errors are strings, pipeline errors are objects
+                $reportLines += if ($err -is [string]) { "    - $err" } else { "    - $($err.Step): $($err.Message) $($err.Exception)" }
+            }
+            foreach ($step in $user.Plan | Where-Object { $_.Result -eq "Failed" }) {
+                $reportLines += "    - $($step.Action) -> $($step.Target) : FAILED"
+            }
+        }
+        $reportLines += ""
+    }
+
     foreach ($user in $Users) {
         # Onboarding rows have first/last name, offboarding rows only have a SamAccountName
         $name = if ($user.Raw.SamAccountName) { $user.Raw.SamAccountName } else { "$($user.Raw.FirstName) $($user.Raw.LastName)" }

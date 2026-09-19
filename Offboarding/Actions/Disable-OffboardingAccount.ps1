@@ -1,5 +1,6 @@
 function Disable-OffboardingAccount {
     [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Random throwaway password, never stored or shown')]
     param(
         [Parameter(Mandatory)]
         [PSCustomObject]$Identity,

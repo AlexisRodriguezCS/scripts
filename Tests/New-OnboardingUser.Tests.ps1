@@ -39,7 +39,7 @@ Describe "New-OnboardingUser" {
 
         $obj.Status              | Should -Be "AlreadyExists"
         $obj.StepsCompleted      | Should -Contain "New-OnboardingUser"
-        Assert-MockCalled New-ADUser -Times 0 -ModuleName Onboarding
+        Should -Invoke New-ADUser -Times 0 -ModuleName Onboarding
     }
 
     It "creates user and sets status to Created when user does not exist" {
@@ -51,7 +51,7 @@ Describe "New-OnboardingUser" {
 
         $obj.Status              | Should -Be "Created"
         $obj.StepsCompleted      | Should -Contain "New-OnboardingUser"
-        Assert-MockCalled New-ADUser -Times 1 -ModuleName Onboarding
+        Should -Invoke New-ADUser -Times 1 -ModuleName Onboarding
     }
 
     It "does not run step twice if already completed" {
@@ -65,7 +65,7 @@ Describe "New-OnboardingUser" {
         New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
 
         $obj.Status | Should -Be $before
-        Assert-MockCalled New-ADUser -Times 0 -ModuleName Onboarding
+        Should -Invoke New-ADUser -Times 0 -ModuleName Onboarding
     }
 
     It "does not run step if pipeline status is already Failed" {
@@ -78,7 +78,7 @@ Describe "New-OnboardingUser" {
         New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
 
         $obj.Status | Should -Be "Failed"
-        Assert-MockCalled New-ADUser -Times 0 -ModuleName Onboarding
+        Should -Invoke New-ADUser -Times 0 -ModuleName Onboarding
     }
 
     It "does not run step if pipeline status is already Invalid" {
@@ -91,7 +91,7 @@ Describe "New-OnboardingUser" {
         New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
 
         $obj.Status | Should -Be "Invalid"
-        Assert-MockCalled New-ADUser -Times 0 -ModuleName Onboarding
+        Should -Invoke New-ADUser -Times 0 -ModuleName Onboarding
     }
 
     It "sets status to Failed when AD lookup throws" {
@@ -101,7 +101,7 @@ Describe "New-OnboardingUser" {
         New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
 
         $obj.Status | Should -Be "Failed"
-        Assert-MockCalled Add-PipelineError -Times 1 -ModuleName Onboarding
+        Should -Invoke Add-PipelineError -Times 1 -ModuleName Onboarding
     }
 
     It "sets status to Failed when New-ADUser throws" {
@@ -112,7 +112,7 @@ Describe "New-OnboardingUser" {
         New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
 
         $obj.Status | Should -Be "Failed"
-        Assert-MockCalled Add-PipelineError -Times 1 -ModuleName Onboarding
+        Should -Invoke Add-PipelineError -Times 1 -ModuleName Onboarding
     }
 
 }

@@ -57,6 +57,7 @@ if ($Apply) {
 # Run pipeline
 $result = Invoke-UserOffboarding -Path $Path -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
 
-if ($result.Failed -gt 0) {
+# A leaver that can't be found still has access somewhere, so flag it too
+if ($result.Failed -gt 0 -or $result.NotFound -gt 0) {
     exit 1
 }

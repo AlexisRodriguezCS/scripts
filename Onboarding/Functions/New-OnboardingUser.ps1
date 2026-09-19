@@ -1,5 +1,7 @@
 function New-OnboardingUser {
     [CmdletBinding()]
+    # TODO: temp password is predictable; generate a random one and deliver it securely
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Temp password, must change at first logon')]
     param(
         [Parameter(Mandatory)]
         [PSCustomObject]$PipelineObject,

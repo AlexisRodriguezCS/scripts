@@ -61,9 +61,14 @@ Both pipelines share the same engine (`Modules/Shared`):
 - Objects are logged as JSON
 - Step timings recorded per user
 
+**Flags anything that breaks**
+- A user that can't be found, fails validation, or has an action fail after all retries is marked
+- Every report starts with a **NEEDS ATTENTION** section listing those users and exactly what failed and why
+- The run keeps going for everyone else; one bad user doesn't stop the batch
+- Exit code 1 if anything was flagged, so a scheduler or pipeline shows the run as failed
+
 **Reporting**
 - Report per run in `Reports/`: validation, plan, result of every action, final status, totals
-- Exit code 1 if any user failed (for schedulers / CI)
 
 ---
 
