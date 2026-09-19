@@ -57,7 +57,7 @@ What a business actually needs from identity automation: **stay secure, stop was
   - *Why:* passwordless is the modern standard; no password ever exists to leak.
 
 ### 2. Security operations
-- [ ] **Compromised account response** – one command: disable, revoke sessions, reset password, remove inbox rules, list recent sign-ins
+- [x] **Compromised account response** – evidence first, then disable, reset, sign out, remove forwarding and malicious inbox rules (`IncidentResponse`)
   - *Why:* the "someone got phished" playbook, run in seconds instead of from memory.
 - [ ] **Risky sign-ins report** – new countries, impossible travel, risky users from Entra
 - [ ] **Privileged access review** – permanent vs PIM-eligible admin roles

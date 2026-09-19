@@ -14,7 +14,7 @@ $stubs = @{
 
     # Microsoft Graph
     'Get-MgUser'                = 'UserId, Property, Filter, [switch]$All'
-    'Update-MgUser'             = 'UserId, AccountEnabled, UsageLocation'
+    'Update-MgUser'             = 'UserId, AccountEnabled, UsageLocation, PasswordProfile'
     'Remove-MgUser'             = 'UserId'
     'Revoke-MgUserSignInSession'= 'UserId'
     'Set-MgUserLicense'         = 'UserId, AddLicenses, RemoveLicenses'
@@ -27,6 +27,8 @@ $stubs = @{
     'Get-MgSiteListItem'        = 'SiteId, ListId, ExpandProperty, [switch]$All'
     'Update-MgSiteListItemField'= 'SiteId, ListId, ListItemId, BodyParameter'
     'Invoke-MgGraphRequest'     = 'Method, Uri, Body, OutputType'
+    'Get-MgAuditLogSignIn'      = 'Filter, Top, [switch]$All'
+    'Get-MgUserAuthenticationMethod' = 'UserId'
     'Get-MgUserAuthenticationTemporaryAccessPassMethod' = 'UserId'
     'New-MgUserAuthenticationTemporaryAccessPassMethod' = 'UserId, BodyParameter'
     'Get-MgSiteListItemVersion' = 'SiteId, ListId, ListItemId, ExpandProperty, [switch]$All'
@@ -36,7 +38,7 @@ $stubs = @{
 
     # Exchange Online
     'Get-Mailbox'               = 'Identity, ResultSize'
-    'Set-Mailbox'               = 'Identity, Type'
+    'Set-Mailbox'               = 'Identity, Type, ForwardingSmtpAddress, ForwardingAddress, DeliverToMailboxAndForward'
     'Add-MailboxPermission'     = 'Identity, User, AccessRights, InheritanceType'
     'Set-MailboxAutoReplyConfiguration' = 'Identity, AutoReplyState, InternalMessage, ExternalMessage, ExternalAudience'
     'Get-Recipient'             = 'Filter, RecipientTypeDetails, ResultSize'
@@ -44,6 +46,7 @@ $stubs = @{
     'Remove-DistributionGroupMember' = 'Identity, Member, [switch]$BypassSecurityGroupManagerCheck'
     'Get-AcceptedDomain'        = ''
     'Get-InboxRule'             = 'Mailbox'
+    'Disable-InboxRule'         = 'Identity, Mailbox'
 
     # PnP (SharePoint)
     'Get-PnPUserProfileProperty' = 'Account'
