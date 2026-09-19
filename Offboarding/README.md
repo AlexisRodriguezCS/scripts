@@ -18,19 +18,20 @@ Pipeline details: [Docs/Offboarding.md](Docs/Offboarding.md)
 8. Remove from every AD group (logged so it can be restored)
 9. Move to the disabled OU
 10. Remove from cloud distribution lists
-11. Convert the mailbox to shared
-12. Turn on out of office pointing to the manager (or `DefaultContact`)
-13. Give the manager full access to the mailbox
-14. Give the manager access to the OneDrive
-15. Hide them from the address book (people can't pick them for new email; the manager still has the mailbox)
-16. Remove all M365 licenses
-17. Write a report to `Reports/`
+11. Remove from Teams, Microsoft 365 groups and cloud security groups (and so from those teams' SharePoint sites). If they were a team's **only owner**, the manager becomes owner first; with no manager, the report flags the team
+12. Convert the mailbox to shared
+13. Turn on out of office pointing to the manager (or `DefaultContact`)
+14. Give the manager full access to the mailbox
+15. Give the manager access to the OneDrive
+16. Hide them from the address book (people can't pick them for new email; the manager still has the mailbox)
+17. Remove all M365 licenses
+18. Write a report to `Reports/`
 
-A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–16.
+A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–17.
 
-Steps 5–16 only run with `-Apply`. Steps 13–14 only run when a `Manager` is given.
+Steps 5–17 only run with `-Apply`. Steps 14–15 only run when a `Manager` is given.
 
-**Why this order:** lock them out first (5–7), then remove access (8–10), then hand off data and hide them (11–15). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
+**Why this order:** lock them out first (5–7), then remove access (8–11), then hand off data and hide them (12–16). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
 
 ---
 

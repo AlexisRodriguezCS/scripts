@@ -55,7 +55,7 @@ Each client config has its own `ClientId`, so **each script can use its own app 
 |---|---|---|---|---|
 | Onboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All` (access pass) | Exchange.ManageAsApp + *Recipient Management* | – | Create users in the employee OUs, manage role groups |
 | Mover / User Attributes | – | Exchange.ManageAsApp + *Recipient Management* | – | Write user attributes, manage role groups, move within employee OUs |
-| Offboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All` | Exchange.ManageAsApp + *Recipient Management* | `Sites.FullControl.All` (OneDrive handoff) | Disable, reset password, manage groups, move to Disabled OU, write `msExchHideFromAddressLists` |
+| Offboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`, `Group.ReadWrite.All` (Teams/cloud groups) | Exchange.ManageAsApp + *Recipient Management* | `Sites.FullControl.All` (OneDrive handoff) | Disable, reset password, manage groups, move to Disabled OU, write `msExchHideFromAddressLists` |
 | Inactive Accounts | `User.ReadWrite.All`, `AuditLog.Read.All` | – | – | Disable users |
 | Stale Devices | `DeviceManagementManagedDevices.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All` | – | – | – |
 | Password Expiry | `Mail.Send` (limit to the sender mailbox with an application access policy) | – | – | Read users |

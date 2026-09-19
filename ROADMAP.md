@@ -78,7 +78,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 ### Later
 - [x] **Undo from snapshot** – restore account, groups, attributes and OU from a before-snapshot (`Rollback`)
 - [x] **Offboarding: hide from address book**
-- [ ] **Offboarding: remove from Teams / Microsoft 365 groups**
+- [x] **Offboarding: remove from Teams / Microsoft 365 groups** (manager takes over teams they solely owned)
 - [ ] **Before/after HTML report** – readable page generated from the snapshots, for demos and tickets
 - [ ] **PowerShell Universal portal** – live buttons for the scripts, written in PowerShell only
 

@@ -59,6 +59,7 @@ Invalid users are logged and skipped.
   * `RemoveFromGroup` (one per group)
   * `MoveToDisabledOU`
   * `RemoveFromDistributionLists`
+  * `RemoveFromCloudGroups` (Teams / Microsoft 365 / cloud security groups; manager takes over sole ownership)
   * `ConvertMailbox`
   * `SetAutoReply`
   * `GrantMailboxAccess` (manager only)
