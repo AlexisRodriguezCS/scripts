@@ -72,6 +72,8 @@ $stubs = @{
     # PnP (SharePoint)
     'Get-PnPUserProfileProperty' = 'Account'
     'Set-PnPTenantSite'         = 'Identity, Owners'
+    'Get-PnPTenantSite'         = 'Identity, [switch]$IncludeOneDriveSites'
+    'Get-PnPExternalUser'       = 'PageSize, Position'
 
     # Intune
     'Get-MgDeviceManagementManagedDevice'          = 'Property, Filter, [switch]$All'

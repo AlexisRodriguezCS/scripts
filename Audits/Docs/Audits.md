@@ -57,6 +57,14 @@ Every check is a function that returns **findings**. A finding is one row:
 * Source: Exchange shared mailboxes, mailbox permissions (FullAccess), recipient permissions (SendAs)
 * Flag: sign-in not blocked on the shared mailbox; access held by a disabled account; nobody has access
 
+### ExternalSharing – `Get-ExternalSharingAudit`
+
+* Source: PnP tenant sites (including OneDrive) and the tenant's external (guest) users, read a page at a time
+* Sites with sharing turned off are skipped; the rest are reported with their sharing level
+* Flag site: `ExternalUserAndGuestSharing` – "anyone with the link" works with no sign-in
+* Flag guest: domain not in `AllowedSharingDomains` (when set); invited more than `ExternalUserMaxAgeDays` days ago (default 365)
+* Needs `Connect-PnPOnline` to the SharePoint admin URL, so `SharePointAdminUrl` must be in the config
+
 ### EmailSecurity – `Get-EmailSecurityAudit`
 
 * Source: verified domains from Graph (skips `*.onmicrosoft.com`), public DNS

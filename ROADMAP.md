@@ -67,7 +67,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 ### 3. Groups and access hygiene
 - [x] **Empty / ownerless groups and Teams** – flagged for cleanup or a new owner (`Audits -Check Groups`)
 - [x] **Shared mailbox access report** – FullAccess/SendAs, disabled people with access, sign-in not blocked (`Audits -Check SharedMailboxes`)
-- [ ] **External sharing report** – SharePoint/OneDrive files shared outside the company
+- [x] **External sharing report** – sites where "anyone with the link" works, and guests nobody reviewed (`Audits -Check ExternalSharing`)
 
 ### 4. Help desk
 - [x] **User activity timeline** – sign-ins, SSPR/admin resets, lockouts (and which device), MFA and CA failures, with a plain-English summary (`UserActivity`)
