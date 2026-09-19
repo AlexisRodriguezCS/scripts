@@ -47,7 +47,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 - [ ] **Cloud / Hybrid / On-prem** – one `Environment` setting; shared pipeline, per-environment actions (`Actions/Cloud`, `Actions/Hybrid`, `Actions/OnPrem`), CI tests each environment separately
 
 ### 1. Gaps job postings ask for
-- [ ] **Intune device cleanup** – stale, non-compliant and ownerless devices; retire devices not seen in 90 days
+- [x] **Intune device cleanup** – retire devices not seen in 90 days, delete records after 180 (`StaleDevices`)
   - *Why:* Intune is in almost every Microsoft 365 admin posting.
 - [ ] **Leaver device wipe** – offboarding finds the user's phones/laptops and retires them or wipes company data
   - *Why:* otherwise company data walks out the door on personal phones.

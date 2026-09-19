@@ -57,6 +57,7 @@ Each client config has its own `ClientId`, so **each script can use its own app 
 | Mover / User Attributes | – | Exchange.ManageAsApp + *Recipient Management* | – | Write user attributes, manage role groups, move within employee OUs |
 | Offboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All` | Exchange.ManageAsApp + *Recipient Management* | `Sites.FullControl.All` (OneDrive handoff) | Disable, reset password, manage groups, move to Disabled OU |
 | Inactive Accounts | `User.ReadWrite.All`, `AuditLog.Read.All` | – | – | Disable users |
+| Stale Devices | `DeviceManagementManagedDevices.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All` | – | – | – |
 | Password Expiry | `Mail.Send` (limit to the sender mailbox with an application access policy) | – | – | Read users |
 | Audits | `User.Read.All`, `AuditLog.Read.All`, `Directory.Read.All`, `Application.Read.All`, `Organization.Read.All` | *View-Only Recipients* | – | Read users |
 | Requests | `Sites.Selected` (only the HR site) | – | – | – |
