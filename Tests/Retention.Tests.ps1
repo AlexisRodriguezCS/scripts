@@ -31,8 +31,8 @@ Describe "Retention" {
     Context "Log rotation" {
 
         It "rotates a log over 10 MB and keeps writing" {
-            $log = "TestDrive:\big.log"
-            [IO.File]::WriteAllBytes((Join-Path (Resolve-Path "TestDrive:\").Path "big.log"), [byte[]]::new(11MB))
+            $log = Join-Path $TestDrive "big.log"
+            [IO.File]::WriteAllBytes($log, [byte[]]::new(11MB))
 
             Write-Log -Message "after rotation" -LogFile $log 6>$null
 
