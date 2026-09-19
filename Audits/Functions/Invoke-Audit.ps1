@@ -27,6 +27,7 @@ function Invoke-Audit {
                 "AdminRoles"       { Get-AdminRoleAudit -Config $Config -LogFile $LogFile }
                 "MailForwarding"   { Get-MailForwardingAudit -LogFile $LogFile }
                 "AppCredentials"   { Get-AppCredentialAudit -Config $Config -LogFile $LogFile }
+                "ConditionalAccess" { Get-ConditionalAccessAudit -BackupFolder "$PSScriptRoot\..\..\Backups\ConditionalAccess" -LogFile $LogFile }
                 "Licenses"         { Get-LicenseAudit -Config $Config -LogFile $LogFile }
                 "AccessReview"     { Get-AccessReview -Config $Config -OutputFolder "$reportDir\AccessReview_$runStamp" -LogFile $LogFile }
                 "OffboardingCheck" { Get-OffboardingCheck -Path $Path -Config $Config -LogFile $LogFile }
