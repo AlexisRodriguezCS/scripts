@@ -25,6 +25,7 @@ $pwsh = (Get-Command pwsh).Source
 $tasks = @(
     @{ Name = "HR request queue";          Script = "Requests\Invoke-RequestQueue.ps1";      Args = "-Apply"; Trigger = New-ScheduledTaskTrigger -Once -At "6:00" -RepetitionInterval (New-TimeSpan -Minutes 15) }
     @{ Name = "Password expiry reminders"; Script = "PasswordExpiry\PasswordExpiry.ps1";     Args = "-Apply"; Trigger = New-ScheduledTaskTrigger -Daily -At "8:00" }
+    @{ Name = "Mailbox size warnings";     Script = "MailboxQuota\MailboxQuota.ps1";         Args = "-Apply"; Trigger = New-ScheduledTaskTrigger -Daily -At "8:10" }
     @{ Name = "Inactive accounts review";  Script = "InactiveAccounts\InactiveAccounts.ps1"; Args = "";       Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At "7:00" }
     @{ Name = "Stale devices review";      Script = "StaleDevices\StaleDevices.ps1";         Args = "";       Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At "7:15" }
     @{ Name = "Weekly audits";             Script = "Audits\Audit.ps1";                      Args = "";       Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At "7:30" }
