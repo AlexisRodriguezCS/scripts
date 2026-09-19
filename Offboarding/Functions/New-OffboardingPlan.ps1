@@ -58,6 +58,9 @@ function New-OffboardingPlan {
         }
 
         # Action: Remove all licenses
+        # Action: Hide from the address book (after mailbox handoff: the manager still has access, new senders can't find them)
+        $plan += @{ Action = "HideFromAddressBook"; Target = $identity.EntraUPN; Result = $null }
+
         $plan += @{ Action = "RemoveLicenses"; Target = $identity.EntraUPN; Result = $null }
 
         $PipelineObject.Plan = $plan

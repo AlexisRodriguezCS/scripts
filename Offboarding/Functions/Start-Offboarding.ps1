@@ -35,6 +35,7 @@ function Start-Offboarding {
         SetAutoReply                = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Set-OffboardingAutoReply -Identity $p.Identity -Target $t -Config $Config -LogFile $LogFile } }
         GrantMailboxAccess          = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Grant-OffboardingMailboxAccess -Identity $p.Identity -Target $t -LogFile $LogFile } }
         ShareOneDrive               = @{ MaxRetries = 3; DelaySeconds = 10; Run = { param($p, $t) Grant-OffboardingOneDriveAccess -Identity $p.Identity -Target $t -LogFile $LogFile } }
+        HideFromAddressBook         = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Hide-OffboardingFromAddressBook -Identity $p.Identity -LogFile $LogFile } }
         RemoveLicenses              = @{ MaxRetries = 4; DelaySeconds = 5;  Run = { param($p, $t) Remove-OffboardingLicense -Identity $p.Identity -LogFile $LogFile } }
     }
 
@@ -48,6 +49,8 @@ function Start-Offboarding {
         NoOneDrive          = "No OneDrive"
         NoDistributionLists = "No distribution lists"
         NoDevices           = "No Intune devices"
+        AlreadyHidden       = "Already hidden from the address book"
+        Hidden              = "Hidden from the address book"
     }
 
     if ($SnapshotFolder) { $null = Save-UserSnapshot -PipelineObject $PipelineObject -Stage Before -Folder $SnapshotFolder -LogFile $LogFile }
