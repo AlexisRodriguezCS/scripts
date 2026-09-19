@@ -29,7 +29,8 @@ jobs:
       shell: pwsh
       run: |
         Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
-        $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error
+        # ParseError = broken syntax; the Error filter alone lets those through
+        $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error, ParseError
         $results | Format-Table -AutoSize
         if ($results) { exit 1 }
 
