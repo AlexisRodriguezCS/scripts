@@ -67,6 +67,56 @@ Describe "Audits" {
         }
     }
 
+    Context "ConditionalAccess" {
+
+        BeforeAll {
+            $backups = Join-Path $TestDrive "ca"
+
+            function New-Policy([string]$Id, [string]$Name, [string]$Modified, [string]$State = "enabled") {
+                @{ id = $Id; displayName = $Name; state = $State; modifiedDateTime = $Modified }
+            }
+        }
+
+        It "saves a baseline on the first run without flagging anything" {
+            Mock Invoke-MgGraphRequest { @{ value = @((New-Policy "1" "Require MFA" "2026-09-01T00:00:00Z")) } } -ModuleName Audits
+
+            $findings = @(Get-ConditionalAccessAudit -BackupFolder $backups)
+
+            @($findings | Where-Object Flagged).Count | Should -Be 0
+            @(Get-ChildItem $backups -Filter "policies_*.json").Count | Should -Be 1
+        }
+
+        It "flags changed, new and deleted policies against the last backup" {
+            # Previous backup: two policies
+            Remove-Item $backups -Recurse -Force -ErrorAction SilentlyContinue
+            $null = New-Item -ItemType Directory -Path $backups
+            ConvertTo-Json -Depth 5 -InputObject @(
+                (New-Policy "1" "Require MFA" "2026-09-01T00:00:00Z"),
+                (New-Policy "2" "Block legacy auth" "2026-09-01T00:00:00Z")
+            ) | Out-File (Join-Path $backups "policies_20260101_000000.json")
+
+            # Now: policy 1 changed to report-only, policy 2 deleted, policy 3 new
+            Mock Invoke-MgGraphRequest { @{ value = @(
+                (New-Policy "1" "Require MFA" "2026-09-18T00:00:00Z" -State "enabledForReportingButNotEnforced"),
+                (New-Policy "3" "Allow everything" "2026-09-18T00:00:00Z")
+            ) } } -ModuleName Audits
+
+            $findings = @(Get-ConditionalAccessAudit -BackupFolder $backups)
+
+            ($findings | Where-Object Name -eq "Require MFA").Reason       | Should -Match "Changed.*enabled -> enabledForReportingButNotEnforced"
+            ($findings | Where-Object Name -eq "Allow everything").Reason  | Should -Be "New policy since last backup"
+            ($findings | Where-Object Name -eq "Block legacy auth").Reason | Should -Match "deleted"
+        }
+
+        It "follows paging so no policy is missed" {
+            Remove-Item $backups -Recurse -Force -ErrorAction SilentlyContinue
+            Mock Invoke-MgGraphRequest { @{ value = @((New-Policy "1" "A" "x")); '@odata.nextLink' = "page2" } } -ModuleName Audits -ParameterFilter { $Uri -notlike "page2" }
+            Mock Invoke-MgGraphRequest { @{ value = @((New-Policy "2" "B" "x")) } } -ModuleName Audits -ParameterFilter { $Uri -eq "page2" }
+
+            @(Get-ConditionalAccessAudit -BackupFolder $backups).Count | Should -Be 2
+        }
+    }
+
     Context "Licenses" {
 
         BeforeAll {

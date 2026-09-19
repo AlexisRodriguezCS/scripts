@@ -34,6 +34,14 @@ Every check is a function that returns **findings**. A finding is one row:
 * Source: Exchange mailboxes + inbox rules
 * Flag: forwarding or inbox rule sending mail to a domain that isn't ours
 
+### ConditionalAccess – `Get-ConditionalAccessAudit`
+
+* Source: Graph Conditional Access policies (raw JSON, all pages)
+* Saves `Backups/ConditionalAccess/policies_<date>.json` every run (outside `Reports/`, so the 90-day cleanup keeps them)
+* Compares with the previous backup by policy ID and `modifiedDateTime`
+* Flag: new policy, changed policy (and state change, e.g. enabled → report-only), deleted policy
+* First run just saves a baseline
+
 ### AppCredentials – `Get-AppCredentialAudit`
 
 * Source: Graph app registrations (secrets + certificates)

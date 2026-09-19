@@ -11,7 +11,7 @@ param(
     [Parameter(Mandatory)]
     [string]$Client,
 
-    [ValidateSet("All", "Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "Licenses", "AccessReview", "OffboardingCheck")]
+    [ValidateSet("All", "Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "ConditionalAccess", "Licenses", "AccessReview", "OffboardingCheck")]
     [string[]]$Check = "All",
 
     # Leavers CSV (SamAccountName), for OffboardingCheck
@@ -27,7 +27,7 @@ $LogFile = "$PSScriptRoot\$($Config.LogPath)"
 
 # "All" = every check that doesn't need extra input
 $checks = if ($Check -contains "All") {
-    @("Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "Licenses", "AccessReview") + $(if ($Path) { "OffboardingCheck" })
+    @("Mfa", "AdminRoles", "MailForwarding", "AppCredentials", "ConditionalAccess", "Licenses", "AccessReview") + $(if ($Path) { "OffboardingCheck" })
 } else { $Check }
 
 if ("OffboardingCheck" -in $checks -and -not $Path) {
