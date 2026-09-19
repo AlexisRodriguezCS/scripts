@@ -208,6 +208,63 @@ Describe "Audits" {
         }
     }
 
+    Context "Groups" {
+
+        It "flags ownerless and long-empty groups, skips synced ones" {
+            Mock Get-MgGroup {
+                [pscustomobject]@{ Id = "1"; DisplayName = "Project X";   GroupTypes = @("Unified"); ResourceProvisioningOptions = @("Team"); CreatedDateTime = $now.AddDays(-200) }
+                [pscustomobject]@{ Id = "2"; DisplayName = "Old Empty";   GroupTypes = @(); SecurityEnabled = $true; CreatedDateTime = $now.AddDays(-200) }
+                [pscustomobject]@{ Id = "3"; DisplayName = "New Empty";   GroupTypes = @(); SecurityEnabled = $true; CreatedDateTime = $now.AddDays(-2) }
+                [pscustomobject]@{ Id = "4"; DisplayName = "From AD";     OnPremisesSyncEnabled = $true; CreatedDateTime = $now.AddDays(-200) }
+            } -ModuleName Audits
+            Mock Get-MgGroupOwner  { if ($GroupId -ne "1") { [pscustomobject]@{ Id = "owner" } } } -ModuleName Audits
+            Mock Get-MgGroupMember { if ($GroupId -eq "1") { [pscustomobject]@{ Id = "m" } } } -ModuleName Audits
+
+            $findings = @(Get-GroupHygieneAudit -Now $now)
+
+            $findings.Name | Should -Not -Contain "From AD"
+            ($findings | Where-Object Name -eq "Project X").Reason | Should -Match "No owner"
+            ($findings | Where-Object Name -eq "Project X").Detail | Should -Match "^Team"
+            ($findings | Where-Object Name -eq "Old Empty").Reason | Should -Match "Empty for 200 days"
+            ($findings | Where-Object Name -eq "New Empty").Flagged | Should -BeFalse
+        }
+    }
+
+    Context "SharedMailboxes" {
+
+        It "flags open sign-in, disabled people with access, and mailboxes nobody can open" {
+            Mock Get-Mailbox {
+                [pscustomobject]@{ PrimarySmtpAddress = "billing@corp.com" }
+                [pscustomobject]@{ PrimarySmtpAddress = "orphan@corp.com" }
+            } -ModuleName Audits
+            Mock Get-User {
+                switch ($Identity) {
+                    "billing@corp.com" { [pscustomobject]@{ AccountDisabled = $false } }   # sign-in not blocked
+                    "orphan@corp.com"  { [pscustomobject]@{ AccountDisabled = $true } }
+                    "leaver@corp.com"  { [pscustomobject]@{ AccountDisabled = $true } }
+                    default            { [pscustomobject]@{ AccountDisabled = $false } }
+                }
+            } -ModuleName Audits
+            Mock Get-MailboxPermission {
+                if ($Identity -eq "billing@corp.com") {
+                    [pscustomobject]@{ User = "NT AUTHORITY\SELF"; AccessRights = "ReadPermission"; IsInherited = $false }
+                    [pscustomobject]@{ User = "finance@corp.com";  AccessRights = "FullAccess"; IsInherited = $false }
+                    [pscustomobject]@{ User = "leaver@corp.com";   AccessRights = "FullAccess"; IsInherited = $false }
+                }
+            } -ModuleName Audits
+            Mock Get-RecipientPermission { } -ModuleName Audits
+
+            $findings = @(Get-SharedMailboxAudit)
+            $flagged  = @($findings | Where-Object Flagged)
+
+            ($flagged | Where-Object { $_.Name -eq "billing@corp.com" -and $_.Detail -eq "Sign-in allowed" }) | Should -Not -BeNullOrEmpty
+            ($flagged | Where-Object { $_.Detail -eq "FullAccess: leaver@corp.com" }).Reason | Should -Match "disabled"
+            ($flagged | Where-Object { $_.Name -eq "orphan@corp.com" }).Reason | Should -Match "Nobody can open"
+            ($findings | Where-Object { $_.Detail -eq "FullAccess: finance@corp.com" }).Flagged | Should -BeFalse
+            $flagged.Count | Should -Be 3
+        }
+    }
+
     Context "Licenses" {
 
         BeforeAll {

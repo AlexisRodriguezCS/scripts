@@ -17,6 +17,8 @@ Details: [Docs/Audits.md](Docs/Audits.md)
 | `AppCredentials` | App secrets/certificates expired or expiring in 30 days | Expired secrets silently break integrations |
 | `PrivilegedAccess` | Admins with **permanent** powerful roles instead of PIM (activate only when needed); break-glass accounts excluded | A standing admin account is always a prize; PIM shrinks the window |
 | `RiskyUsers` | Accounts Entra ID Protection marks at risk or compromised, with the next step | Leaked passwords and impossible travel caught by Microsoft, acted on by you |
+| `Groups` | Cloud groups and Teams with no owner, or empty for 30+ days | Ownerless groups keep access nobody reviews; empty ones are clutter |
+| `SharedMailboxes` | Who has FullAccess / SendAs on each shared mailbox; disabled people still with access; sign-in not blocked; mailboxes nobody can open | Shared mailboxes quietly collect access over the years |
 | `EmailSecurity` | SPF, DKIM and DMARC for every domain: missing, broken (+all, two SPF records) or monitor-only | Without them anyone can send email that looks like it came from you |
 | `ConditionalAccess` | Backs up every Conditional Access policy to JSON; flags policies added, deleted or changed since the last backup | A changed policy can lock everyone out or quietly turn MFA off; the backup is the restore point |
 | `Licenses` | Unused licenses, licenses on disabled/idle accounts, cost per department | Money: often 10–20% of licenses are wasted |

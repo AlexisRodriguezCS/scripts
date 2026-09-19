@@ -32,6 +32,9 @@ $stubs = @{
     'Get-MgRoleManagementDirectoryRoleAssignmentScheduleInstance' = 'ExpandProperty, [switch]$All'
     'Get-MgRoleManagementDirectoryRoleEligibilityScheduleInstance' = 'ExpandProperty, [switch]$All'
     'Get-MgRiskyUser'           = 'Filter, [switch]$All'
+    'Get-MgGroup'               = 'Property, Filter, [switch]$All'
+    'Get-MgGroupOwner'          = 'GroupId, [switch]$All'
+    'Get-MgGroupMember'         = 'GroupId, [switch]$All'
     'Resolve-DnsName'           = 'Name, Type'
     'Get-MgAuditLogSignIn'      = 'Filter, Top, [switch]$All'
     'Get-MgUserAuthenticationMethod' = 'UserId'
@@ -43,7 +46,7 @@ $stubs = @{
     'Get-Secret'                = 'Name, Vault, [switch]$AsPlainText'
 
     # Exchange Online
-    'Get-Mailbox'               = 'Identity, ResultSize'
+    'Get-Mailbox'               = 'Identity, ResultSize, RecipientTypeDetails'
     'Set-Mailbox'               = 'Identity, Type, ForwardingSmtpAddress, ForwardingAddress, DeliverToMailboxAndForward'
     'Add-MailboxPermission'     = 'Identity, User, AccessRights, InheritanceType'
     'Set-MailboxAutoReplyConfiguration' = 'Identity, AutoReplyState, InternalMessage, ExternalMessage, ExternalAudience'
@@ -52,6 +55,9 @@ $stubs = @{
     'Remove-DistributionGroupMember' = 'Identity, Member, [switch]$BypassSecurityGroupManagerCheck'
     'Get-AcceptedDomain'        = ''
     'Get-InboxRule'             = 'Mailbox'
+    'Get-User'                  = 'Identity'
+    'Get-MailboxPermission'     = 'Identity'
+    'Get-RecipientPermission'   = 'Identity'
     'Disable-InboxRule'         = 'Identity, Mailbox'
 
     # PnP (SharePoint)

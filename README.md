@@ -35,7 +35,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [Password Expiry](PasswordExpiry/README.md) | Emails people before their password expires | Daily |
 | [Inactive Accounts](InactiveAccounts/README.md) | Disables unused accounts, removes old guests (safety stop included) | Weekly |
 | [Stale Devices](StaleDevices/README.md) | Retires Intune devices that stopped checking in, deletes very old records (safety stop included) | Weekly |
-| [Audits](Audits/README.md) | MFA gaps, admin roles, standing admins (PIM), risky users, Conditional Access changes (with backups), SPF/DKIM/DMARC, mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
+| [Audits](Audits/README.md) | MFA gaps, admin roles, standing admins (PIM), risky users, Conditional Access changes (with backups), SPF/DKIM/DMARC, mail forwarding, ownerless groups, shared mailbox access, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
 
 **Security incidents** (IT runs by hand)
 
