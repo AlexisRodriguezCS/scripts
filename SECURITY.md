@@ -14,7 +14,7 @@ How these scripts handle secrets and access. Short version: **no passwords anywh
 | Teams webhook URL | **Yes** (anyone with it can post) | Vault (SecretManagement) | The service account |
 | Any other API key | **Yes** | Vault | The service account |
 | Service account password | – | **None**: gMSA, Windows rotates it automatically | – |
-| New hire temp passwords | **Yes** | Memory only: shown once on screen or emailed to IT | Never logged, never in reports or the SharePoint list |
+| New hire temp passwords and access passes | **Yes** | Memory only: shown once on screen or emailed to IT | Never logged, never in reports or the SharePoint list |
 | Client configs | No secrets inside | `Config/Clients/` (gitignored) or `SCRIPTS_CONFIG_ROOT` | – |
 
 ---
@@ -53,7 +53,7 @@ Each client config has its own `ClientId`, so **each script can use its own app 
 
 | Script | Microsoft Graph (application) | Exchange | SharePoint | AD (delegated to the gMSA) |
 |---|---|---|---|---|
-| Onboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All` | Exchange.ManageAsApp + *Recipient Management* | – | Create users in the employee OUs, manage role groups |
+| Onboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All` (access pass) | Exchange.ManageAsApp + *Recipient Management* | – | Create users in the employee OUs, manage role groups |
 | Mover / User Attributes | – | Exchange.ManageAsApp + *Recipient Management* | – | Write user attributes, manage role groups, move within employee OUs |
 | Offboarding | `User.ReadWrite.All`, `LicenseAssignment.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All` | Exchange.ManageAsApp + *Recipient Management* | `Sites.FullControl.All` (OneDrive handoff) | Disable, reset password, manage groups, move to Disabled OU |
 | Inactive Accounts | `User.ReadWrite.All`, `AuditLog.Read.All` | – | – | Disable users |

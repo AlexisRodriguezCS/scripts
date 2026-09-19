@@ -17,13 +17,14 @@ Pipeline details: [Docs/Onboarding.md](Docs/Onboarding.md)
 7. Create the AD user with a random temp password (skip if it already exists)
 8. Trigger an Entra Connect delta sync
 9. Wait for the user to appear in Entra
+    * Optional: create a **Temporary Access Pass** (one-time sign-in code for day one, valid from 8:00 on the start date) when `UseTemporaryAccessPass` is on
 10. Add to AD groups
 11. Assign the M365 license (this creates the mailbox)
 12. Add to distribution lists (waits for the mailbox to exist)
 13. Write a report to `Reports/`
 14. Show the temp passwords on screen, once
 
-Steps 7–12 and 14 only run with `-Apply`. Temp passwords are never written to logs or reports, and users must change them at first sign-in.
+Steps 7–12 and 14 only run with `-Apply`. Temp passwords and access passes are never written to logs or reports; temp passwords must be changed at first sign-in.
 
 ---
 

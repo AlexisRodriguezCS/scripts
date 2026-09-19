@@ -24,6 +24,7 @@ function Start-Onboarding {
     # Action -> function to call + retry settings
     $actions = @{
         WaitForEntra          = @{ MaxRetries = 10; DelaySeconds = 30; Run = { param($p, $t) Wait-ForEntraUser -Identity $p.Identity -LogFile $LogFile } }
+        CreateAccessPass      = @{ MaxRetries = 3;  DelaySeconds = 10; Run = { param($p, $t) New-OnboardingAccessPass -PipelineObject $p -Config $Config -LogFile $LogFile } }
         AddToGroup            = @{ MaxRetries = 3;  DelaySeconds = 5;  Run = { param($p, $t) Add-OnboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
         AssignLicense         = @{ MaxRetries = 4;  DelaySeconds = 5;  Run = { param($p, $t) Set-OnboardingLicense -Identity $p.Identity -Config $Config -LogFile $LogFile } }
         # Mailbox takes a few minutes to appear after licensing

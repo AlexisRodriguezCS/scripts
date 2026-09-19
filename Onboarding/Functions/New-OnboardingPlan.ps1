@@ -5,13 +5,16 @@ function New-OnboardingPlan {
         [PSCustomObject]$PipelineObject,
 
         [Parameter(Mandatory)]
-        [string]$LogFile
-    )  
+        [string]$LogFile,
+
+        # Optional: turns on extras like the Temporary Access Pass
+        [PSCustomObject]$Config = [pscustomobject]@{}
+    )
 
     $stepName = "New-OnboardingPlan"
 
-    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepAction {
-        param($PipelineObject, $LogFile)
+    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepArgs @($Config) -StepAction {
+        param($PipelineObject, $LogFile, $Config)
 
         # Initialize onboarding plan
         $PipelineObject.Plan = @()
@@ -26,6 +29,14 @@ function New-OnboardingPlan {
             Result = $null
         }
 
+        # Action: One-time sign-in code for day one (passwordless setup), if the client uses it
+        if ($Config.UseTemporaryAccessPass) {
+            $PipelineObject.Plan += @{
+                Action = "CreateAccessPass"
+                Target = "$($raw.FirstName) $($raw.LastName)"
+                Result = $null
+            }
+        }
 
         # Action: Add to AD groups
         if ($raw.ADGroups) {
