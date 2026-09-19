@@ -75,7 +75,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 - [x] **Mailbox size warnings** before mailboxes fill up (`MailboxQuota`)
 
 ### Later
-- [ ] **Undo from snapshot** – restore a user's groups/attributes from a before-snapshot
+- [x] **Undo from snapshot** – restore account, groups, attributes and OU from a before-snapshot (`Rollback`)
 - [ ] **Offboarding extras** – hide from address book, remove from Teams/SharePoint sites
 - [ ] **Before/after HTML report** – readable page generated from the snapshots, for demos and tickets
 - [ ] **PowerShell Universal portal** – live buttons for the scripts, written in PowerShell only

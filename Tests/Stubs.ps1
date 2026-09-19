@@ -7,6 +7,7 @@ $stubs = @{
     'Set-ADUser'                = 'Identity, Description, Title, Department, Manager, Office, OfficePhone, MobilePhone, Company, EmployeeID, City, State, StreetAddress, PostalCode, ChangePasswordAtLogon'
     'Disable-ADAccount'         = 'Identity'
     'Unlock-ADAccount'          = 'Identity'
+    'Enable-ADAccount'          = 'Identity'
     'Set-ADAccountPassword'     = 'Identity, NewPassword, [switch]$Reset'
     'Get-ADGroupMember'         = 'Identity'
     'Add-ADGroupMember'         = 'Identity, Members'
