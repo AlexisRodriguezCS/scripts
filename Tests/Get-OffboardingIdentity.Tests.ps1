@@ -44,6 +44,19 @@ Describe "Get-OffboardingIdentity" {
         $obj.Identity.EntraUPN          | Should -Be "johndoe@tenant.onmicrosoft.com"
     }
 
+    It "refuses to offboard an AD admin from a request" {
+        Mock Get-ADUser {
+            [pscustomobject]@{ SamAccountName = "johndoe"; DistinguishedName = "CN=John Doe,OU=IT,DC=corp,DC=local"; MemberOf = @(); adminCount = 1 }
+        } -ModuleName Offboarding
+
+        $obj = New-TestObject
+        Get-OffboardingIdentity -PipelineObject $obj -LogFile $logFile -Config $Config
+
+        $obj.Status   | Should -Be "Invalid"
+        $obj.Errors   | Should -Match "Protected account"
+        $obj.Identity | Should -Be $null
+    }
+
     It "sets status to NotFound when the user is not in AD" {
         Mock Get-ADUser { $null } -ModuleName Offboarding
 

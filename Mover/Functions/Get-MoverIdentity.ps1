@@ -24,7 +24,7 @@ function Get-MoverIdentity {
         # Look up the user (read-only, runs in dry run too)
         try {
             $adUser = Get-ADUser -Filter "SamAccountName -eq '$($raw.SamAccountName)'" `
-                                 -Properties DisplayName, Title, Department, Manager, MemberOf -ErrorAction Stop
+                                 -Properties DisplayName, Title, Department, Manager, MemberOf, adminCount -ErrorAction Stop
         }
         catch {
             throw "AD lookup failed: $($_.Exception.Message)"
@@ -33,6 +33,15 @@ function Get-MoverIdentity {
         if (-not $adUser) {
             $PipelineObject.Status = "NotFound"
             Write-Log -Message "[$id] [$stepName] Lookup -> $($raw.SamAccountName) : NOT_FOUND" -Level "WARN" -LogFile $LogFile
+            return
+        }
+
+        # Admins and VIPs can't have their access changed from a request; IT has to do it by hand
+        $protected = Test-ProtectedAccount -AdUser $adUser -Config $Config
+        if ($protected) {
+            $PipelineObject.Errors.Add($protected)
+            $PipelineObject.Status = "Invalid"
+            Write-Log -Message "[$id] [$stepName] Lookup -> $($raw.SamAccountName) : PROTECTED" -Level "WARN" -LogFile $LogFile
             return
         }
 
@@ -53,7 +62,7 @@ function Get-MoverIdentity {
             SamAccountName    = $raw.SamAccountName
             DisplayName       = $adUser.DisplayName
             DistinguishedName = $adUser.DistinguishedName
-            EntraUPN          = "$($raw.SamAccountName)@$($Config.TenantDomain)"  # Same format New-OnboardingIdentity assigns
+            EntraUPN          = Resolve-EntraUpn -SamAccountName $raw.SamAccountName -AdUpn $adUser.UserPrincipalName -Config $Config
             MemberOf          = @($adUser.MemberOf)
             ManagerDN         = $managerDn
             Current           = $adUser

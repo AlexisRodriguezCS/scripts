@@ -15,6 +15,8 @@ Describe "New-OnboardingUser" {
                     SamAccountName    = "jdoe"
                     UserPrincipalName = "jdoe@corp.local"
                     OU                = "OU=IT,DC=corp,DC=local"
+                    EntraUPN          = "jdoe@tenant.onmicrosoft.com"
+                    EmployeeID        = "E100"
                 }
                 Errors         = [System.Collections.Generic.List[object]]::new()
                 Plan           = @()
@@ -31,7 +33,7 @@ Describe "New-OnboardingUser" {
     }
 
     It "sets status to AlreadyExists when user already exists in AD" {
-        Mock Get-ADUser { return @{ SamAccountName = "jdoe" } } -ModuleName Onboarding
+        Mock Get-ADUser { return @{ SamAccountName = "jdoe"; EmployeeID = "E100" } } -ModuleName Onboarding
         Mock New-ADUser {}                                       -ModuleName Onboarding
 
         $obj = New-TestObject
@@ -52,6 +54,33 @@ Describe "New-OnboardingUser" {
         $obj.Status              | Should -Be "Created"
         $obj.StepsCompleted      | Should -Contain "New-OnboardingUser"
         Should -Invoke New-ADUser -Times 1 -ModuleName Onboarding
+    }
+
+    It "gives a different person with the same name the next free username" {
+        Mock Get-ADUser { @{ SamAccountName = "jdoe"; EmployeeID = "E001" } } -ModuleName Onboarding -ParameterFilter { $Filter -like "*'jdoe'*" }
+        Mock Get-ADUser { $null } -ModuleName Onboarding -ParameterFilter { $Filter -like "*'jdoe2'*" }
+        Mock New-ADUser {} -ModuleName Onboarding
+
+        $obj = New-TestObject
+        New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
+
+        $obj.Status                     | Should -Be "Created"
+        $obj.Identity.SamAccountName    | Should -Be "jdoe2"
+        $obj.Identity.UserPrincipalName | Should -Be "jdoe2@corp.local"
+        $obj.Identity.EntraUPN          | Should -Be "jdoe2@tenant.onmicrosoft.com"
+        Should -Invoke New-ADUser -Times 1 -Exactly -ModuleName Onboarding -ParameterFilter { $SamAccountName -eq "jdoe2" -and $EmployeeID -eq "E100" }
+    }
+
+    It "refuses to guess when the username is taken and there is no Employee ID" {
+        Mock Get-ADUser { @{ SamAccountName = "jdoe" } } -ModuleName Onboarding
+        Mock New-ADUser {} -ModuleName Onboarding
+
+        $obj = New-TestObject
+        $obj.Identity.EmployeeID = $null
+        New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
+
+        $obj.Status | Should -Be "Failed"
+        Should -Invoke New-ADUser -Times 0 -Exactly -ModuleName Onboarding
     }
 
     It "does not run step twice if already completed" {

@@ -27,6 +27,7 @@ $tasks = @(
     @{ Name = "Password expiry reminders"; Script = "PasswordExpiry\PasswordExpiry.ps1";     Args = "-Apply"; Trigger = New-ScheduledTaskTrigger -Daily -At "8:00" }
     @{ Name = "Inactive accounts review";  Script = "InactiveAccounts\InactiveAccounts.ps1"; Args = "";       Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At "7:00" }
     @{ Name = "Weekly audits";             Script = "Audits\Audit.ps1";                      Args = "";       Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At "7:30" }
+    @{ Name = "Delete old reports";        Script = "Setup\Remove-OldReports.ps1";           Args = "-Apply"; Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At "3:00"; NoClient = $true }
 )
 
 # gMSA accounts log on as a service with no stored password
@@ -35,7 +36,7 @@ $settings  = New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Hou
 
 foreach ($task in $tasks) {
     $action = New-ScheduledTaskAction -Execute $pwsh -WorkingDirectory $root `
-              -Argument "-NoProfile -NonInteractive -File `"$root\$($task.Script)`" -Client `"$Client`" $($task.Args)"
+              -Argument "-NoProfile -NonInteractive -File `"$root\$($task.Script)`" $(if (-not $task.NoClient) { "-Client `"$Client`"" }) $($task.Args)"
 
     # Re-running this script updates the tasks instead of failing
     $null = Register-ScheduledTask -TaskPath $TaskFolder -TaskName "$($task.Name) ($Client)" -Action $action `

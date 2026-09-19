@@ -33,6 +33,7 @@ $fields = @(
     @{ DisplayName = "First name";            InternalName = "FirstName";       Type = "Text" }
     @{ DisplayName = "Last name";             InternalName = "LastName";        Type = "Text" }
     @{ DisplayName = "Username";              InternalName = "Username";        Type = "Text" }
+    @{ DisplayName = "Employee ID";           InternalName = "EmployeeID";      Type = "Text" }
     @{ DisplayName = "Job title";             InternalName = "JobTitle";        Type = "Text" }
     @{ DisplayName = "Department";            InternalName = "Department";      Type = "Choice"; Choices = $Departments }
     @{ DisplayName = "Role";                  InternalName = "Role";            Type = "Choice"; Choices = $Roles }

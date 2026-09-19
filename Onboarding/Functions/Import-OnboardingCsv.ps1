@@ -40,6 +40,7 @@ function Import-OnboardingCsv {
             Role             = $row.Role
             EmploymentType   = $row.EmploymentType
             StartDate        = $row.StartDate
+            EmployeeID       = $row.EmployeeID     # Optional; lets re-runs tell the same person from a namesake
             DistributionList = $null 
             ADGroups         = $null
             License          = $null

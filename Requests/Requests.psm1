@@ -7,5 +7,6 @@
 . $PSScriptRoot\Functions\ConvertTo-RequestRow.ps1
 . $PSScriptRoot\Functions\Invoke-Request.ps1
 . $PSScriptRoot\Functions\Set-RequestStatus.ps1
+. $PSScriptRoot\Functions\Test-RequestApproval.ps1
 
 Export-ModuleMember -Function *

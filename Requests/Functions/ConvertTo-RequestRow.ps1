@@ -15,6 +15,7 @@ function ConvertTo-RequestRow {
                 FirstName = Get-Field "FirstName"; LastName = Get-Field "LastName"; Title = Get-Field "JobTitle"
                 Manager = Get-Field "ManagerName"; Location = Get-Field "Office"; Department = Get-Field "Department"
                 Role = Get-Field "Role"; EmploymentType = Get-Field "EmploymentType"; StartDate = Get-Field "StartDate"
+                EmployeeID = Get-Field "EmployeeID"
             }
         }
         "Role change" {

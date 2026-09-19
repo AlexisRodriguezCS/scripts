@@ -22,6 +22,9 @@ param(
     [Parameter(Mandatory)]
     [string]$Client,
 
+    # IT only: allow admin/VIP accounts (the HR request queue never sets this)
+    [switch]$AllowProtected,
+
     [switch]$Apply
 )
 
@@ -39,7 +42,8 @@ foreach ($module in $requiredModules) {
 }
 
 # Load config
-$Config = Get-Config -Script "Offboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+$Config = Get-Config -Script "Offboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 # Create logs folder if it doesn't exist
 if (-Not (Test-Path "$PSScriptRoot\Logs")) {

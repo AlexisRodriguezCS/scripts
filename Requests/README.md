@@ -12,7 +12,7 @@ HR doesn't run scripts. They fill in a SharePoint list, and the scripts do the r
 
 | Request type | Fill in |
 |---|---|
-| **New hire** | First name, Last name, Job title, Department, Role, Manager name, Start date |
+| **New hire** | First name, Last name, Employee ID, Job title, Department, Role, Manager name, Start date |
 | **Role change** | Username, Job title, Department, Role, Manager username |
 | **Leaver** | Username, Manager email (gets their mailbox + OneDrive) |
 | **Update info** | Username + only the boxes that change (phone, title, office...) |
@@ -54,10 +54,11 @@ The **Status** column tells you what's happening:
 
 ## Steps (each run)
 
-1. Read the list, keep **Approved** items
-2. Skip items whose **When** is in the future (shows "Scheduled: will run ...")
-3. Set **Processing** (so two runs can't do the same request)
-4. Run the matching script: onboarding, mover, offboarding, or user attributes
-5. Temp passwords are emailed to IT, **never** written to the list
-6. Set **Done** or **Needs attention** with a plain-English result
-7. Alert IT if anything needs attention
+1. Read the list, keep **Approved** items (and ones stuck on **Processing** for over an hour, from a crashed run)
+2. **Check the approval is real**: SharePoint's version history must show the change to Approved was made by someone on `Approvers`, and not by the person who submitted it. Otherwise: *Needs attention*
+3. Skip items whose **When** is in the future (shows "Scheduled: will run ...")
+4. Set **Processing** (so two runs can't do the same request)
+5. Run the matching script: onboarding, mover, offboarding, or user attributes
+6. Temp passwords are emailed to IT, **never** written to the list
+7. Set **Done** or **Needs attention** with a plain-English result
+8. Alert IT if anything needs attention

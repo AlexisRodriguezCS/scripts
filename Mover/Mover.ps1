@@ -24,6 +24,9 @@ param(
     [Parameter(ParameterSetName = "Single")] [string]$Manager,          # New manager's SamAccountName
     [Parameter(ParameterSetName = "Single")] [string]$EmploymentType = "Regular Full-Time",
 
+    # IT only: allow admin/VIP accounts (the HR request queue never sets this)
+    [switch]$AllowProtected,
+
     [switch]$Apply
 )
 
@@ -39,7 +42,8 @@ foreach ($module in @("ActiveDirectory", "ExchangeOnlineManagement")) {
 }
 
 # Same client rules as onboarding (groups, DLs, OUs)
-$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
 $LogFile = "$PSScriptRoot\Logs\Mover.log"

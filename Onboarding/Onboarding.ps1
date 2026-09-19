@@ -21,6 +21,7 @@ param(
     [Parameter(ParameterSetName = "Single")] [string]$Location,
     [Parameter(ParameterSetName = "Single")] [string]$EmploymentType = "Regular Full-Time",
     [Parameter(ParameterSetName = "Single")] [string]$StartDate,
+    [Parameter(ParameterSetName = "Single")] [string]$EmployeeID,
 
     [Parameter(Mandatory)]
     [string]$Client,
@@ -73,7 +74,7 @@ $result = if ($PSCmdlet.ParameterSetName -eq "Bulk") {
 } else {
     $row = [pscustomobject]@{
         FirstName = $FirstName; LastName = $LastName; Title = $Title; Manager = $Manager; Location = $Location
-        Department = $Department; Role = $Role; EmploymentType = $EmploymentType; StartDate = $StartDate
+        Department = $Department; Role = $Role; EmploymentType = $EmploymentType; StartDate = $StartDate; EmployeeID = $EmployeeID
     }
     Invoke-UserOnboarding -Rows @($row) -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
 }

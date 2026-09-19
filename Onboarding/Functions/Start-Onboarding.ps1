@@ -21,97 +21,29 @@ function Start-Onboarding {
         return $PipelineObject
     }
 
-    # Retry configurations
-    $retryConfig = @{
-        WaitForEntra          = @{ MaxRetries = 10; DelaySeconds = 30 }
-        AddToGroup            = @{ MaxRetries = 3; DelaySeconds = 5  }
-        AddToDistributionList = @{ MaxRetries = 8; DelaySeconds = 20 } # Mailbox takes a few minutes to appear after licensing
-        AssignLicense         = @{ MaxRetries = 4; DelaySeconds = 5  }
+    # Action -> function to call + retry settings
+    $actions = @{
+        WaitForEntra          = @{ MaxRetries = 10; DelaySeconds = 30; Run = { param($p, $t) Wait-ForEntraUser -Identity $p.Identity -LogFile $LogFile } }
+        AddToGroup            = @{ MaxRetries = 3;  DelaySeconds = 5;  Run = { param($p, $t) Add-OnboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
+        AssignLicense         = @{ MaxRetries = 4;  DelaySeconds = 5;  Run = { param($p, $t) Set-OnboardingLicense -Identity $p.Identity -Config $Config -LogFile $LogFile } }
+        # Mailbox takes a few minutes to appear after licensing
+        AddToDistributionList = @{ MaxRetries = 8;  DelaySeconds = 20; Run = { param($p, $t) Add-OnboardingDLMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
     }
 
-
-    foreach ($actionItem in $PipelineObject.Plan) {
-        $action = $actionItem.Action
-        $target = $actionItem.Target
-
-        # Initialize result
-        $actionItem.Result = $null
-
-        if (-not $retryConfig.ContainsKey($action)) {
-            Add-PipelineError -PipelineObject $PipelineObject `
-                              -Step $action `
-                              -Message "Unknown action: $action" `
-                              -LogFile $LogFile
-
-            Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : FAILED (unknown action)" `
-                -Level "ERROR" -LogFile $LogFile
-
-            return $PipelineObject
-        }
-
-        $retryParams  = $retryConfig[$action]
-        $attempt = 0
-        $success = $false
-
-        while (-not $success -and $attempt -lt $retryParams.MaxRetries) {
-            $attempt++
-            try {
-                # Call action function
-                $result = switch ($action) {
-                    "WaitForEntra" { Wait-ForEntraUser -Identity $PipelineObject.Identity -LogFile $LogFile }
-                    "AddToGroup" { Add-OnboardingGroupMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
-                    "AddToDistributionList" { Add-OnboardingDLMember -Identity $PipelineObject.Identity -Target $target -LogFile $LogFile }
-                    "AssignLicense" { Set-OnboardingLicense -Identity $PipelineObject.Identity -Config $Config -LogFile $LogFile }
-                }
-
-                # Results for reporting
-                $actionItem.Result = switch ($result) {
-                    "Added"          { "Added to $target" }
-                    "AlreadyExists"  { "Already in $target" }
-                    "AlreadyAssigned"{ "Already assigned $target" }
-                    "Found"          { "User found" }
-                    default          { $result }
-                }
-
-                $success = $true
-
-                # Single-line log per action
-                $logStatus = $actionItem.Result
-                Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : $logStatus" `
-                          -Level "INFO" -LogFile $LogFile
-            }
-            catch {
-                # Retry logging
-                if ($attempt -lt $retryParams.MaxRetries) {
-                    Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : RETRY ($attempt)" `
-                        -Level "WARN" -LogFile $LogFile
-                    $delay = ($retryParams.DelaySeconds * $attempt) + (Get-Random -Minimum 1 -Maximum 3)
-                    Start-Sleep -Seconds $delay
-                } else {
-                    # All retries exhausted → mark structured pipeline error
-                    Add-PipelineError -PipelineObject $PipelineObject `
-                                    -Step $action `
-                                    -Message "Failed during $action → $target" `
-                                    -Exception $_.Exception `
-                                    -LogFile $LogFile
-
-                    $actionItem.Result = "Failed"
-                    Write-Log -Message "[$correlationId] [Onboarding] $action -> $target : FAILED" `
-                        -Level "ERROR" -LogFile $LogFile
-                }
-            }
-        }
-
-        # Abort if WaitForEntra failed all retries
-        if ($action -eq "WaitForEntra" -and -not $success) {
-            Write-Log -Message "[$correlationId] [Onboarding] WaitForEntra -> $displayName : FAILED (not found)" `
-                -Level "ERROR" -LogFile $LogFile
-            
-            return $PipelineObject
-        }
+    # Results for reporting
+    $resultText = @{
+        Added           = "Added to {0}"
+        AlreadyExists   = "Already in {0}"
+        AlreadyAssigned = "Already assigned {0}"
+        Found           = "User found"
     }
 
-    if ($PipelineObject.Errors.Count -gt 0) {
+    # Nothing else can work until the user exists in Entra
+    $ok = Invoke-Plan -PipelineObject $PipelineObject -Actions $actions -ResultText $resultText `
+                      -StopOnFailure "WaitForEntra" -LogFile $LogFile
+
+    # Keep Created / AlreadyExists on success so the report shows what happened to the account
+    if (-not $ok) {
         $PipelineObject.Status = "Failed"
     }
 

@@ -54,7 +54,7 @@ function Get-UserAttributesIdentity {
             SamAccountName    = $sam
             DisplayName       = $adUser.DisplayName
             DistinguishedName = $adUser.DistinguishedName
-            EntraUPN          = "$sam@$($Config.TenantDomain)"
+            EntraUPN          = Resolve-EntraUpn -SamAccountName $sam -AdUpn $adUser.UserPrincipalName -Config $Config
             Current           = $adUser
         }
 
