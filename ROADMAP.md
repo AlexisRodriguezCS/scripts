@@ -42,17 +42,6 @@ What a business actually needs from identity automation: **stay secure, stop was
 
 ## Next up
 
-### Interview prep
-- [ ] **Study sessions** – get quizzed on how the scripts work, one area per session, until each can be explained without looking:
-  - [ ] Shared engine: pipeline steps, `Invoke-Plan` retries/backoff, stop-on-failure, idempotency
-  - [ ] Onboarding: step order (license before DLs), username collisions, temp password / access pass
-  - [ ] Offboarding: why disable first and licenses last, device retire, mailbox/OneDrive handoff, snapshots
-  - [ ] Mover and user attributes: diff-based plans, managed groups only, OU move last
-  - [ ] Security: certificate auth, vault secrets and log masking, protected accounts, approval verification
-  - [ ] Request queue: SharePoint list, scheduled vs emergency, stuck requests
-  - [ ] Audits and incident response: what each check flags and why, evidence before containment
-  - [ ] User activity: reading sign-in errors, the "password changed but phone still has the old one" case
-
 ### Foundation
 - [ ] **Home lab** – domain controller + Entra Connect on Proxmox/Hyper-V, run everything for real, add screenshots to the READMEs
 - [ ] **Cloud / Hybrid / On-prem** – one `Environment` setting; shared pipeline, per-environment actions (`Actions/Cloud`, `Actions/Hybrid`, `Actions/OnPrem`), CI tests each environment separately
