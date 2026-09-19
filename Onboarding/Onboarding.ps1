@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 [CmdletBinding()]
 param(
     [string]$Path = "$PSScriptRoot\Data\test2.csv",
@@ -48,7 +49,7 @@ if ($Apply) {
 }
 
 # Run pipeline
-$result = Invoke-UserOnboarding -Path $Path -LogFile $LogFile -Config $Config -Apply $Apply
+$result = Invoke-UserOnboarding -Path $Path -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
 
 if ($result.Failed -gt 0) {
     exit 1

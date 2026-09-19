@@ -15,10 +15,6 @@ function Invoke-UserOnboarding {
     # Call import function
     $users = Import-OnboardingCsv -Path $Path -LogFile $LogFile
 
-    $successCount = 0
-    $failedCount = 0
-    $alreadyCount = 0
-
     Write-Log -Message "--------------------------------------------------------" -LogFile $LogFile
 
     # Create all user(s) first
@@ -30,7 +26,6 @@ function Invoke-UserOnboarding {
 
         # User failed validation
         if ($user.Status -eq "Invalid") {
-            $failedCount++
             Write-Log -Message "[$($user.CorrelationId)] [INVALID] Validation failed: $($user.Raw.FirstName) $($user.Raw.LastName)" `
                 -Level "ERROR" -LogFile $LogFile
             continue
@@ -57,7 +52,9 @@ function Invoke-UserOnboarding {
 
     # Sync Once for all users
     if ($anyCreated) {
-        Invoke-EntraSync -Config $Config -LogFile $LogFile
+        # A failed sync is not fatal: WaitForEntra retries until the scheduled sync cycle picks the users up
+        try { Invoke-EntraSync -Config $Config -LogFile $LogFile }
+        catch { Write-Log -Message "$($_.Exception.Message) - relying on scheduled sync" -Level "WARN" -LogFile $LogFile }
     } else {
         Write-Log -Message "No new users created, skipping sync." -Level "INFO" -LogFile $LogFile
     }
@@ -66,15 +63,14 @@ function Invoke-UserOnboarding {
         # Complete onboarding for each user
         foreach ($user in $users | Where-Object { $_.Status -in @("Created","AlreadyExists") }) {
             # Execute onboarding
-            Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
-
-            switch ($user.Status) {
-                "Failed"        { $failedCount++ }
-                "Created"       { $successCount++ }
-                "AlreadyExists" { $alreadyCount++ }
-            }
+            $null = Start-Onboarding -PipelineObject $user -LogFile $LogFile -Config $Config
         }
     }
+
+    # Count from final status so failures in any step (validation, creation, onboarding) are included
+    $successCount = @($users | Where-Object Status -eq "Created").Count
+    $alreadyCount = @($users | Where-Object Status -eq "AlreadyExists").Count
+    $failedCount  = @($users | Where-Object Status -in @("Failed","Invalid")).Count
 
     $pipelineDuration = (Get-Date) - $pipelineStart
 
@@ -89,7 +85,9 @@ function Invoke-UserOnboarding {
         " -Level "INFO" -LogFile $LogFile
 
     # Generate report
-    $reportFile = "$PSScriptRoot\..\..\Reports\OnboardingReport_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
+    $reportDir  = "$PSScriptRoot\..\..\Reports"
+    $null = New-Item -ItemType Directory -Path $reportDir -Force
+    $reportFile = "$reportDir\OnboardingReport_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
     $null = New-Report -Users $users -ReportFile $reportFile
     Write-Log -Message "Report generated: $reportFile" -Level "INFO" -LogFile $LogFile
 

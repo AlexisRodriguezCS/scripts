@@ -13,38 +13,37 @@ function New-Report {
     $reportLines += "Total Users: $($Users.Count)`n"
 
     foreach ($user in $Users) {
-        $name = "$($user.Raw.FirstName) $($user.Raw.LastName)"
+        # Onboarding rows have first/last name, offboarding rows only have a SamAccountName
+        $name = if ($user.Raw.SamAccountName) { $user.Raw.SamAccountName } else { "$($user.Raw.FirstName) $($user.Raw.LastName)" }
         $validation = if ($user.Errors.Count -eq 0) { "PASS" } else { "FAIL" }
         $reportLines += "--- $name ---"
         $reportLines += "Validation: $validation"
 
-        # Policy overview
-        $reportLines += "Policy:"
-        $reportLines += "  Distribution Lists: $($user.Raw.DistributionList -join '; ')"
-        $reportLines += "  AD Groups: $($user.Raw.ADGroups -join '; ')"
-        $reportLines += "  License: $($user.Raw.License)"
+        # Policy overview (onboarding only)
+        if ($user.Raw.PSObject.Properties["ADGroups"]) {
+            $reportLines += "Policy:"
+            $reportLines += "  Distribution Lists: $($user.Raw.DistributionList -join '; ')"
+            $reportLines += "  AD Groups: $($user.Raw.ADGroups -join '; ')"
+            $reportLines += "  License: $($user.Raw.License)"
+        }
 
         # Planned actions + results
-        $reportLines += "Onboarding Plan:"
+        $reportLines += "Plan:"
         foreach ($step in $user.Plan) {
-            $result = $step.Result ? $step.Result : "PENDING"
+            $result = if ($step.Result) { $step.Result } else { "PENDING" }
             $reportLines += "  $($step.Action): $result"
         }
 
-        # User creation summary
-        $reportLines += "User Creation: $($user.Status)"
+        # Final status
+        $reportLines += "Status: $($user.Status)"
         $reportLines += ""
     }
 
-    # Aggregate summary
-    $created       = ($Users | Where-Object Status -eq "Created").Count
-    $alreadyExists = ($Users | Where-Object Status -eq "AlreadyExists").Count
-    $failed        = ($Users | Where-Object Status -eq "Failed").Count
-
+    # Aggregate summary (one line per final status)
     $reportLines += "=== Pipeline Summary ==="
-    $reportLines += "Created: $created"
-    $reportLines += "Already Exists: $alreadyExists"
-    $reportLines += "Failed: $failed"
+    foreach ($group in $Users | Group-Object Status) {
+        $reportLines += "$($group.Name): $($group.Count)"
+    }
     $reportLines += "`nReport generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 
     # Save to file

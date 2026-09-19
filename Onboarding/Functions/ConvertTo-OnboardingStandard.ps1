@@ -29,7 +29,12 @@ function ConvertTo-OnboardingStandard
                 $rawData.$prop = $null
             }
         }
-        
+
+        # Trim only; these are matched against policy rules, not displayed
+        foreach ($prop in "Role","EmploymentType","StartDate") {
+            if ($rawData.$prop) { $rawData.$prop = $rawData.$prop.Trim() }
+        }
+
         # Normalize Department with exceptions
         if (-not [string]::IsNullOrWhiteSpace($rawData.Department)) {
 

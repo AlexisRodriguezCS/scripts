@@ -16,8 +16,8 @@ Describe "Import-OnboardingCsv" {
     }
 
     It "maps names correctly" {
-        $result[0].Raw.FirstName | Should -Be "John"
-        $result[1].Raw.FirstName | Should -Be "Lisa"
+        $result[0].Raw.FirstName | Should -Be "Ethan"
+        $result[1].Raw.FirstName | Should -Be "Sofia"
     }
 
     It "initializes status" {

@@ -3,9 +3,9 @@
 . $PSScriptRoot\..\Modules\Shared\Write-Log.ps1
 . $PSScriptRoot\..\Modules\Shared\Get-Config.ps1
 . $PSScriptRoot\..\Modules\Shared\New-Report.ps1
+. $PSScriptRoot\..\Modules\Shared\Invoke-PipelineStep.ps1
 
 # Load functions
-. $PSScriptRoot\Functions\Invoke-PipelineStep.ps1
 . $PSScriptRoot\Functions\Invoke-EntraSync.ps1
 . $PSScriptRoot\Functions\Invoke-UserOnboarding.ps1
 . $PSScriptRoot\Functions\Import-OnboardingCsv.ps1

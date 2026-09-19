@@ -33,6 +33,10 @@ function New-OnboardingIdentity {
             default            { "$($raw.FirstName.ToLower())$($raw.LastName.ToLower())" }
         }
 
+        # Strip characters AD rejects (spaces, apostrophes, hyphens, accents) and enforce the 20-char sAMAccountName limit
+        $username = $username -replace '[^a-z0-9.]', ''
+        if ($username.Length -gt 20) { $username = $username.Substring(0, 20).TrimEnd('.') }
+
         # Set OU based on department
         $ou = "OU=$($raw.Department),$($Config.DefaultOU)"
 

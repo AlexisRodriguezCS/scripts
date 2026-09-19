@@ -1,4 +1,4 @@
-name: PowerShell Tests
+name: PowerShell CI
 
 on:
   push:
@@ -7,19 +7,33 @@ on:
     branches: [ main ]
 
 jobs:
+  lint:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run PSScriptAnalyzer
+      shell: pwsh
+      run: |
+        Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
+        $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error
+        $results | Format-Table -AutoSize
+        if ($results) { exit 1 }
+
   test:
     runs-on: windows-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Install Pester
       shell: pwsh
-      run: |
-        Install-Module -Name Pester -Force -Scope CurrentUser -SkipPublisherCheck
+      run: Install-Module -Name Pester -MinimumVersion 5.0 -Force -Scope CurrentUser -SkipPublisherCheck
 
     - name: Run Pester tests
       shell: pwsh
       run: |
-        Invoke-Pester -Path ./Onboarding/Tests -Output Detailed
+        $config = New-PesterConfiguration
+        $config.Run.Path = './Tests'
+        $config.Run.Exit = $true
+        $config.Output.Verbosity = 'Detailed'
+        Invoke-Pester -Configuration $config

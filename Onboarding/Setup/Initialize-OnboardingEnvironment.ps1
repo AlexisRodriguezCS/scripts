@@ -1,12 +1,16 @@
 [CmdletBinding()]
 param(
-    [string]$AdminUPN = "alexis@testadscripts.onmicrosoft.com"
+    [Parameter(Mandatory)]
+    [string]$Client,
+
+    [Parameter(Mandatory)]
+    [string]$AdminUPN
 )
 
 . "$PSScriptRoot\..\..\Modules\Shared\Write-Log.ps1"
 . "$PSScriptRoot\..\..\Modules\Shared\Get-Config.ps1"
 
-$Config  = Get-Config -Script "Onboarding"
+$Config  = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\..\.."
 $LogFile = "$PSScriptRoot\..\Logs\Setup.log"
 
 # ------------------------
