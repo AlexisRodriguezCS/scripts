@@ -34,6 +34,18 @@ Every check is a function that returns **findings**. A finding is one row:
 * Source: Exchange mailboxes + inbox rules
 * Flag: forwarding or inbox rule sending mail to a domain that isn't ours
 
+### PrivilegedAccess – `Get-PrivilegedAccessAudit`
+
+* Source: Graph role definitions + active and eligible role schedule instances (PIM)
+* Only powerful roles (Global, Privileged Role, Security, Exchange, SharePoint, User, Application, Intune, Hybrid Identity admins...)
+* Flag: standing (`Assigned`, no end date) assignment, except `BreakGlassAccounts`
+* Listed, not flagged: PIM-activated and eligible assignments
+
+### RiskyUsers – `Get-RiskyUserAudit`
+
+* Source: Entra ID Protection risky users (needs Entra ID P2)
+* Flag: every user at risk or confirmed compromised, with a next step based on the risk level
+
 ### EmailSecurity – `Get-EmailSecurityAudit`
 
 * Source: verified domains from Graph (skips `*.onmicrosoft.com`), public DNS

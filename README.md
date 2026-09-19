@@ -35,7 +35,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [Password Expiry](PasswordExpiry/README.md) | Emails people before their password expires | Daily |
 | [Inactive Accounts](InactiveAccounts/README.md) | Disables unused accounts, removes old guests (safety stop included) | Weekly |
 | [Stale Devices](StaleDevices/README.md) | Retires Intune devices that stopped checking in, deletes very old records (safety stop included) | Weekly |
-| [Audits](Audits/README.md) | MFA gaps, admin roles, Conditional Access changes (with backups), SPF/DKIM/DMARC, mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
+| [Audits](Audits/README.md) | MFA gaps, admin roles, standing admins (PIM), risky users, Conditional Access changes (with backups), SPF/DKIM/DMARC, mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
 
 **Security incidents** (IT runs by hand)
 
@@ -238,6 +238,7 @@ Settings every config can have:
 {
     "DefaultOU": "OU=Employees,OU=Users,OU=Identity,DC=contoso,DC=local",
     "MaxGlobalAdmins": 4,
+    "BreakGlassAccounts": ["breakglass1@contoso.onmicrosoft.com", "breakglass2@contoso.onmicrosoft.com"],
     "CredentialWarningDays": 30,
     "InactiveDays": 90,
     "LicensePrices": { "O365_BUSINESS_ESSENTIALS": 6.00, "SPE_E3": 36.00 },

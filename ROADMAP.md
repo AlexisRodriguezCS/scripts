@@ -59,8 +59,8 @@ What a business actually needs from identity automation: **stay secure, stop was
 ### 2. Security operations
 - [x] **Compromised account response** – evidence first, then disable, reset, sign out, remove forwarding and malicious inbox rules (`IncidentResponse`)
   - *Why:* the "someone got phished" playbook, run in seconds instead of from memory.
-- [ ] **Risky sign-ins report** – new countries, impossible travel, risky users from Entra
-- [ ] **Privileged access review** – permanent vs PIM-eligible admin roles
+- [x] **Risky users** – Entra ID Protection at-risk and compromised accounts with next steps (`Audits -Check RiskyUsers`)
+- [x] **Privileged access review** – standing vs PIM-eligible admin roles (`Audits -Check PrivilegedAccess`)
 - [x] **Email security check** – SPF, DKIM and DMARC for every domain (`Audits -Check EmailSecurity`)
   - *Why:* spoofing protection; also listed in postings.
 
