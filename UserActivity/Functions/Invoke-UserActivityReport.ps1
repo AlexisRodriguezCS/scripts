@@ -1,8 +1,12 @@
 function Invoke-UserActivityReport {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
+        # Cloud / hybrid clients
         [string]$UserPrincipalName,
+
+        # On-prem only clients (no Entra): AD sources only
+        [string]$SamAccountName,
+        [switch]$OnPremOnly,
 
         [ValidateRange(1, 30)]
         [int]$Days = 14,
@@ -16,19 +20,28 @@ function Invoke-UserActivityReport {
     $runStamp  = Get-Date -Format 'yyyyMMdd_HHmmss'
     $reportDir = "$PSScriptRoot\..\..\Reports"
 
-    $user = Get-MgUser -UserId $UserPrincipalName -Property "id,displayName,userPrincipalName,onPremisesSyncEnabled,onPremisesSamAccountName" -ErrorAction Stop
+    if ($OnPremOnly) {
+        $adUser = Get-ADUser -Identity $SamAccountName -Properties DisplayName -ErrorAction Stop
+        $user = [pscustomobject]@{ Id = $null; DisplayName = $adUser.DisplayName; UserPrincipalName = $SamAccountName
+                                   OnPremisesSyncEnabled = $true; OnPremisesSamAccountName = $SamAccountName }
+    } else {
+        $user = Get-MgUser -UserId $UserPrincipalName -Property "id,displayName,userPrincipalName,onPremisesSyncEnabled,onPremisesSamAccountName" -ErrorAction Stop
+    }
+    $UserPrincipalName = $user.UserPrincipalName
 
-    # Each source on its own: one missing permission shouldn't hide the rest
+    # Each source on its own: one missing permission or license shouldn't hide the rest
     $events = [System.Collections.Generic.List[object]]::new()
     $state  = $null
 
-    $sources = [ordered]@{
-        "Sign-ins"     = { Get-SignInEvents -UserId $user.Id -Since $since }
-        "Entra audit"  = { Get-AuditEvents -UserId $user.Id -Since $since }
-    }
-    foreach ($name in $sources.Keys) {
-        try { foreach ($e in & $sources[$name]) { $events.Add($e) } }
-        catch { $events.Add((New-ActivityEvent -Time (Get-Date) -Source $name -Event "Couldn't read $name" -Detail $_.Exception.Message)) }
+    if (-not $OnPremOnly) {
+        $sources = [ordered]@{
+            "Sign-ins"     = @{ Read = { Get-SignInEvents -UserId $user.Id -Since $since }; Hint = "sign-in logs need Entra ID P1 and AuditLog.Read.All" }
+            "Entra audit"  = @{ Read = { Get-AuditEvents -UserId $user.Id -Since $since };  Hint = "needs AuditLog.Read.All" }
+        }
+        foreach ($name in $sources.Keys) {
+            try { foreach ($e in & $sources[$name].Read) { $events.Add($e) } }
+            catch { $events.Add((New-ActivityEvent -Time (Get-Date) -Source $name -Event "Couldn't read $name ($($sources[$name].Hint))" -Detail $_.Exception.Message)) }
+        }
     }
 
     # AD only exists for synced users

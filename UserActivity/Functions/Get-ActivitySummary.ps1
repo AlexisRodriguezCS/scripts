@@ -38,8 +38,13 @@ function Get-ActivitySummary {
     }
 
     # 2. The classic: password changed, but something still uses the old one
-    $passwordEvents = @($Events | Where-Object { $_.Source -in @("Entra audit", "AD") -and $_.Event -match "password" -and $_.Event -notmatch "FAILED" } |
-                        Sort-Object Time -Descending)
+    # Only real changes (SSPR, admin reset, user change, AD "password set"), not "wrong password" or failed attempts.
+    # Works whether or not the client has SSPR: without it, admin resets and AD still show up.
+    $passwordEvents = @($Events | Where-Object {
+                            $_.Source -in @("Entra audit", "AD") -and
+                            $_.Event -match '(?i)(reset|change)\b.*password|password (set|reset|change)' -and
+                            $_.Event -notmatch '(?i)FAILED|wrong'
+                        } | Sort-Object Time -Descending)
     $oldPasswordCodes = @(50126, 50053, 50133, 50173)
 
     if ($passwordEvents) {

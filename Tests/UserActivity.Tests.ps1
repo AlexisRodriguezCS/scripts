@@ -46,6 +46,24 @@ Describe "UserActivity" {
             ($summary -join " ") | Should -Match "Last successful sign-in: .*Teams"
         }
 
+        It "doesn't mistake a wrong password for a password change" {
+            $events = @(
+                (New-ActivityEvent -Time $t0 -Source "AD" -Event "Wrong password (AD)" -Result Failure)
+                (New-ActivityEvent -Time $t0.AddMinutes(1) -Source "Sign-in" -Event "Sign-in failed: Wrong password" -Result Failure -ErrorCode 50126 -Detail "App: Outlook")
+            )
+            $summary = @(Get-ActivitySummary -Events $events -State $null)
+            ($summary -join " ") | Should -Not -Match "Password was changed"
+            ($summary -join " ") | Should -Match "1 wrong-password sign-in"
+        }
+
+        It "works without SSPR: an admin reset or AD 'password set' counts too" {
+            $events = @(
+                (New-ActivityEvent -Time $t0 -Source "AD" -Event "Password set (AD)")
+                (New-ActivityEvent -Time $t0.AddMinutes(5) -Source "Sign-in" -Event "Sign-in failed: Wrong password" -Result Failure -ErrorCode 50126 -Detail "App: Outlook | Device: Android")
+            )
+            (Get-ActivitySummary -Events $events -State $null)[0] | Should -Match "Password set \(AD\).*1 sign-in\(s\) failed with the old password"
+        }
+
         It "leads with account state: locked out, and by which device" {
             $state = [pscustomobject]@{ Enabled = $true; LockedOut = $true; LockoutTime = $t0; PasswordExpired = $false; LockoutSources = @("JDOE-LAPTOP") }
 
@@ -89,6 +107,26 @@ Describe "UserActivity" {
             ($lines -join "`n") | Should -Match "Reset password \(self-service\)"
             $result.Summary[0] | Should -Match "failed with the old password"
             (Import-Csv $result.CsvFile)[0].Event | Should -Match "Signed in"   # newest first
+        }
+
+        It "works for on-prem only clients from AD alone" {
+            Mock Get-MgUser { throw "Graph should not be called" } -ModuleName UserActivity
+            Mock Get-ADUser {
+                [pscustomobject]@{ DisplayName = "Jane Doe"; Enabled = $true; LockedOut = $true; AccountLockoutTime = $t0; PasswordLastSet = $t0.AddDays(-1); PasswordExpired = $false }
+            } -ModuleName UserActivity
+
+            $result = Invoke-UserActivityReport -SamAccountName "jdoe" -OnPremOnly -Days 7
+
+            $result.Summary[0] | Should -Match "LOCKED OUT"
+            Should -Invoke Get-MgAuditLogSignIn -ModuleName UserActivity -Times 0 -Exactly
+        }
+
+        It "explains what's missing when a source isn't licensed" {
+            Mock Get-MgAuditLogSignIn { throw "Tenant does not have a SKU required" } -ModuleName UserActivity
+
+            $result = Invoke-UserActivityReport -UserPrincipalName "jdoe@corp.com" -Days 7
+
+            (Get-Content $result.ReportFile -Raw) | Should -Match "sign-in logs need Entra ID P1"
         }
 
         It "keeps going when one source can't be read" {

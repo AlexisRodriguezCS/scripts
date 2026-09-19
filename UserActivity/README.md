@@ -31,6 +31,15 @@ One command shows everything that happened to the account, as a single timeline 
 
 If one source can't be read (e.g. a missing permission), the others still show and the report says what was missing.
 
+### Works with whatever the client has
+
+| Client has | What you get |
+|---|---|
+| Hybrid (AD + Entra, P1) | Everything above |
+| Entra without P1 | Audit logs + AD; the report says sign-in logs need P1 |
+| No SSPR | Same; admin resets and AD "password set" still count as password changes |
+| On-prem only (`"Environment": "OnPrem"`) | AD only: lockouts and which device, password set/expired, wrong passwords. Use `-SamAccountName` |
+
 ---
 
 ## Usage
@@ -38,6 +47,7 @@ If one source can't be read (e.g. a missing permission), the others still show a
 ```powershell
 .\UserActivity\Get-UserActivity.ps1 -Client "ClientA" -UserPrincipalName jdoe@contoso.com
 .\UserActivity\Get-UserActivity.ps1 -Client "ClientA" -UserPrincipalName jdoe@contoso.com -Days 30
+.\UserActivity\Get-UserActivity.ps1 -Client "ClientB" -SamAccountName jdoe          # on-prem only client
 ```
 
 Example summary:
