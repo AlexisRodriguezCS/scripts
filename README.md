@@ -77,6 +77,12 @@ Input ──► Validate ──► Look up ──► Plan ──► Snapshot ─
 - Errors are classified (Network, Throttle, Auth, Conflict, Dependency) and flagged retryable or not
 - Critical steps stop the plan if they fail (e.g. offboarding never strips access from an account it couldn't disable)
 
+**Circuit breaker**
+- If several people in a row fail (default 5, `MaxConsecutiveFailures`), the whole run stops instead of grinding through the rest
+- That pattern means the system is down, the certificate expired or a permission was removed, not that one user is odd
+- Everyone not reached is reported as **Stopped**, so nobody is silently skipped, and the alert fires
+- Bad CSV rows and users that don't exist don't count: those are data problems, not an outage
+
 **Idempotent (safe to re-run)**
 - Checks before acting: user already exists, already in group, license already assigned, mailbox already shared
 - No duplicate accounts, memberships, licenses or emails if a run is repeated
@@ -164,6 +170,7 @@ Settings every config can have:
     "DefaultLicense": "Microsoft365BusinessBasic",
     "DefaultDistributionList": "AllStaff",
     "DefaultGroups": ["GRP-AllStaff"],
+    "MaxConsecutiveFailures": 5,
     "LogPath": "Logs\\Onboarding.log",
     "DistributionLists": ["AllStaff", "Managers", "Finance", "IT", "Sales", "HR", "Marketing"],
     "TenantDomain": "contoso.onmicrosoft.com",
@@ -187,6 +194,7 @@ Settings every config can have:
     "DisabledOU": "OU=Disabled,OU=Users,OU=Identity,DC=contoso,DC=local",
     "DefaultContact": "helpdesk@contoso.com",
     "AutoReplyMessage": "{Name} is no longer with the company. Please contact {Contact}.",
+    "MaxConsecutiveFailures": 5,
     "LogPath": "Logs\\Offboarding.log",
     "TenantDomain": "contoso.onmicrosoft.com",
     "SharePointAdminUrl": "https://contoso-admin.sharepoint.com",

@@ -17,6 +17,8 @@ function Invoke-UserAttributesUpdate {
     # 1. Build requests
     $users = @($Requests | ForEach-Object { New-UserAttributesRequest -Row $_ -LogFile $LogFile })
 
+    $processed = @()
+
     foreach ($user in $users) {
         # 2. Validate
         Test-UserAttributesData -PipelineObject $user -LogFile $LogFile
@@ -30,6 +32,13 @@ function Invoke-UserAttributesUpdate {
         } else {
             Write-Log -Message "[$($user.CorrelationId)] [DRY RUN] Not updating: $($user.Raw.SamAccountName)" -Level "INFO" -LogFile $LogFile
         }
+
+        # Stop the run if the same failure keeps repeating (AD down, expired certificate, lost permission)
+        $processed += $user
+        if (Test-CircuitBreaker -Processed $processed -Config $Config -LogFile $LogFile) {
+            foreach ($rest in $users | Where-Object Status -eq "Pending") { $rest.Status = "Stopped" }
+            break
+        }
     }
 
     # 6. Report
@@ -41,7 +50,7 @@ function Invoke-UserAttributesUpdate {
     return [pscustomobject]@{
         Total      = $users.Count
         Updated    = @($users | Where-Object Status -eq "Updated").Count
-        Failed     = @($users | Where-Object Status -in @("Failed", "Invalid", "NotFound")).Count
+        Failed     = @($users | Where-Object Status -in @("Failed", "Invalid", "NotFound", "Stopped")).Count
         ReportFile = $reportFile
         Users      = @($users | ForEach-Object {
             [pscustomobject]@{

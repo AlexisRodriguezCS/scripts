@@ -7,6 +7,7 @@
 . $PSScriptRoot\..\Modules\Shared\New-Report.ps1
 . $PSScriptRoot\..\Modules\Shared\Invoke-PipelineStep.ps1
 . $PSScriptRoot\..\Modules\Shared\Invoke-Plan.ps1
+. $PSScriptRoot\..\Modules\Shared\Test-CircuitBreaker.ps1
 . $PSScriptRoot\..\Modules\Shared\Save-UserSnapshot.ps1
 . $PSScriptRoot\..\Modules\Shared\Send-Alert.ps1
 
