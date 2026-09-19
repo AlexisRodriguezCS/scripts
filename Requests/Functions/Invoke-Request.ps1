@@ -76,5 +76,9 @@ function Invoke-Request {
                 default    { @{ Ok = $false; Message = "Needs attention ($($user.Status)): $($user.Errors)" } }
             }
         }
+        # Help desk requests: small, so they return their own plain-English result
+        "Unlock account" { Invoke-AccountUnlock -SamAccountName $row.SamAccountName -Config $Configs.Requests -Apply $Apply }
+        "Reset password" { Invoke-PasswordReset -SamAccountName $row.SamAccountName -Config $Configs.Requests -Apply $Apply }
+        "Group access"   { Invoke-GroupAccessRequest -SamAccountName $row.SamAccountName -Group $row.Group -Change $row.Change -Config $Configs.Requests -Apply $Apply }
     }
 }

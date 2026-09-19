@@ -61,7 +61,7 @@ Each client config has its own `ClientId`, so **each script can use its own app 
 | Password Expiry | `Mail.Send` (limit to the sender mailbox with an application access policy) | – | – | Read users |
 | Mailbox Quota | `Mail.Send` (limit to the sender mailbox) | *View-Only Recipients* | – | – |
 | Audits | `User.Read.All`, `AuditLog.Read.All`, `Directory.Read.All`, `Application.Read.All`, `Organization.Read.All`, `Policy.Read.All`, `Domain.Read.All`, `RoleManagement.Read.Directory`, `IdentityRiskyUser.Read.All`, `Group.Read.All` | *View-Only Recipients* | – | Read users |
-| Requests | `Sites.Selected` (only the HR site) | – | – | – |
+| Requests | `Sites.Selected` (only the HR site), `Mail.Send` (sender mailbox) | – | – | Unlock, reset password, manage `RequestableGroups` only |
 | Incident Response | `User.ReadWrite.All`, `AuditLog.Read.All`, `UserAuthenticationMethod.Read.All` | *Mail Recipients* | – | Disable, reset password |
 
 AD rights are **delegated on specific OUs**, not Domain Admin.

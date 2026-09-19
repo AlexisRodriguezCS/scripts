@@ -35,6 +35,12 @@ function ConvertTo-RequestRow {
                 OfficePhone = Get-Field "OfficePhone"; MobilePhone = Get-Field "MobilePhone"
             }
         }
+        { $_ -in @("Unlock account", "Reset password") } {
+            [pscustomobject]@{ SamAccountName = Get-Field "Username" }
+        }
+        "Group access" {
+            [pscustomobject]@{ SamAccountName = Get-Field "Username"; Group = Get-Field "GroupName"; Change = Get-Field "GroupChange" }
+        }
         default { throw "Unknown request type '$(Get-Field "RequestType")'" }
     }
 }

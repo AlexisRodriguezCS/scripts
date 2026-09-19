@@ -263,6 +263,8 @@ Settings every config can have:
     "TempPasswordRecipient": "it-helpdesk@contoso.com",
     "Approvers": ["hr-lead@contoso.com", "it-manager@contoso.com"],
     "ProcessingTimeoutMinutes": 60,
+    "RequestableGroups": ["GRP-Printers", "GRP-VPN", "GRP-Project-X"],
+    "ProtectedAccounts": ["ceo", "breakglass"],
     "TenantDomain": "contoso.onmicrosoft.com",
     "TenantId": "00000000-0000-0000-0000-000000000000",
     "ClientId": "11111111-1111-1111-1111-111111111111",

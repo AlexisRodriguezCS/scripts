@@ -29,7 +29,7 @@ $null = New-PnPList -Title $ListName -Template GenericList -OnQuickLaunch
 
 # Display name is what HR sees; internal name is what the scripts read
 $fields = @(
-    @{ DisplayName = "Request type";          InternalName = "RequestType";     Type = "Choice"; Choices = @("New hire", "Role change", "Leaver", "Update info"); Required = $true }
+    @{ DisplayName = "Request type";          InternalName = "RequestType";     Type = "Choice"; Choices = @("New hire", "Role change", "Leaver", "Update info", "Unlock account", "Reset password", "Group access"); Required = $true }
     @{ DisplayName = "First name";            InternalName = "FirstName";       Type = "Text" }
     @{ DisplayName = "Last name";             InternalName = "LastName";        Type = "Text" }
     @{ DisplayName = "Username";              InternalName = "Username";        Type = "Text" }
@@ -45,6 +45,8 @@ $fields = @(
     @{ DisplayName = "Office";                InternalName = "Office";          Type = "Text" }
     @{ DisplayName = "Office phone";          InternalName = "OfficePhone";     Type = "Text" }
     @{ DisplayName = "Mobile phone";          InternalName = "MobilePhone";     Type = "Text" }
+    @{ DisplayName = "Group";                 InternalName = "GroupName";       Type = "Text" }
+    @{ DisplayName = "Add or remove";         InternalName = "GroupChange";     Type = "Choice"; Choices = @("Add", "Remove") }
     @{ DisplayName = "Status";                InternalName = "Status";          Type = "Choice"; Choices = @("New", "Approved", "Processing", "Done", "Needs attention", "Rejected") }
     @{ DisplayName = "Result";                InternalName = "Result";          Type = "Note" }
 )

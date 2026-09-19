@@ -70,8 +70,8 @@ What a business actually needs from identity automation: **stay secure, stop was
 - [ ] **External sharing report** – SharePoint/OneDrive files shared outside the company
 
 ### 4. Help desk
-- [ ] **Account unlock + password reset** through the request list
-- [ ] **Group / distribution list membership requests** through the request list, with manager approval
+- [x] **Account unlock + password reset** through the request list (temp password to IT only, admins refused)
+- [x] **Group membership requests** through the request list, approved, allowlisted groups only (`RequestableGroups`)
 - [x] **Mailbox size warnings** before mailboxes fill up (`MailboxQuota`)
 
 ### Later
