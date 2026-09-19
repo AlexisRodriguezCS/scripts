@@ -36,6 +36,8 @@ scripts/
 | [Offboarding](Offboarding/README.md) | Disable, strip access, shared mailbox, out of office, OneDrive to manager, remove licenses |
 | [Lab](Lab/README.md) | Reset the test tenant |
 
+What's next: [ROADMAP.md](ROADMAP.md)
+
 ---
 
 ## How it works
