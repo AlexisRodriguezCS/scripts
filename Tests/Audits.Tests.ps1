@@ -154,6 +154,60 @@ Describe "Audits" {
         }
     }
 
+    Context "PrivilegedAccess" {
+
+        BeforeAll {
+            function New-Instance([string]$Upn, [string]$RoleId, [string]$Type, $End) {
+                [pscustomobject]@{ PrincipalId = "p"; RoleDefinitionId = $RoleId; AssignmentType = $Type; EndDateTime = $End
+                                   Principal = [pscustomobject]@{ AdditionalProperties = @{ userPrincipalName = $Upn } } }
+            }
+
+            Mock Get-MgRoleManagementDirectoryRoleDefinition {
+                [pscustomobject]@{ Id = "ga"; DisplayName = "Global Administrator" }
+                [pscustomobject]@{ Id = "rd"; DisplayName = "Directory Readers" }
+            } -ModuleName Audits
+            Mock Get-MgRoleManagementDirectoryRoleAssignmentScheduleInstance {
+                New-Instance "standing@corp.com"   "ga" "Assigned"  $null
+                New-Instance "breakglass@corp.com" "ga" "Assigned"  $null
+                New-Instance "pim@corp.com"        "ga" "Activated" (Get-Date).AddHours(2)
+                New-Instance "reader@corp.com"     "rd" "Assigned"  $null
+            } -ModuleName Audits
+            Mock Get-MgRoleManagementDirectoryRoleEligibilityScheduleInstance {
+                New-Instance "eligible@corp.com" "ga" $null $null
+            } -ModuleName Audits
+
+            $script:findings = @(Get-PrivilegedAccessAudit -Config ([pscustomobject]@{ BreakGlassAccounts = @("breakglass@corp.com") }))
+        }
+
+        It "flags standing Global Admins" {
+            ($findings | Where-Object Name -eq "standing@corp.com").Reason | Should -Match "Permanent Global Administrator"
+        }
+
+        It "doesn't flag break-glass, PIM-activated or eligible admins" {
+            @($findings | Where-Object { $_.Flagged }).Count | Should -Be 1
+            ($findings | Where-Object Name -eq "eligible@corp.com").Detail | Should -Match "eligible"
+        }
+
+        It "ignores low-privilege roles" {
+            $findings.Name | Should -Not -Contain "reader@corp.com"
+        }
+    }
+
+    Context "RiskyUsers" {
+
+        It "flags risky users with a next step that matches the risk" {
+            Mock Get-MgRiskyUser {
+                [pscustomobject]@{ UserPrincipalName = "a@corp.com"; RiskLevel = "high"; RiskState = "atRisk" }
+                [pscustomobject]@{ UserPrincipalName = "b@corp.com"; RiskLevel = "high"; RiskState = "confirmedCompromised" }
+            } -ModuleName Audits
+
+            $findings = @(Get-RiskyUserAudit)
+
+            ($findings | Where-Object Name -eq "a@corp.com").Reason | Should -Match "At risk \(high\)"
+            ($findings | Where-Object Name -eq "b@corp.com").Reason | Should -Match "compromised account response"
+        }
+    }
+
     Context "Licenses" {
 
         BeforeAll {
