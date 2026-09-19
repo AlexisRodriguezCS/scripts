@@ -20,6 +20,7 @@ Each stage has a single responsibility. No stage performs multiple roles.
   * `Raw`
   * `Errors`
   * `Plan`
+  * `Status` (`Pending`)
 
 No data changes occur here.
 
@@ -46,67 +47,87 @@ Purpose: normalize data before evaluation.
 * Validates required fields
 * Checks for missing or invalid values
 * Appends errors to `.Errors`
+* Sets `Status` to `Valid` or `Invalid`
 
-Does not stop execution.
-Invalid objects continue through the pipeline with errors attached.
+Invalid users are logged and skipped.
 
 ---
 
-### 4. Build Identity
+### 4. Policy
 
-**Function:** `Build-UserIdentity`
+**Function:** `Set-OnboardingPolicy`
 
-* Generates:
+* Determines:
 
-  * `SamAccountName`
-  * `UPN`
-  * `Email`
-  * `DisplayName`
-* Ensures uniqueness
-
-Transforms HR data into technical identity.
+  * Distribution lists (department, managers, all staff)
+  * Security groups (role based + defaults)
+  * License
 
 ---
 
 ### 5. Plan
 
-**Function:** `Resolve-OnboardingPlan`
+**Function:** `New-OnboardingPlan`
 
-* Determines:
+* Turns the policy into a list of actions:
 
-  * Target OU
-  * Security groups
-  * License assignment
+  * `WaitForEntra`
+  * `AddToGroup`
+  * `AddToDistributionList`
+  * `AssignLicense`
 * Populates `.Plan`
 
 No changes are made to Active Directory at this stage.
 
 ---
 
-### 6. Execute
+### 6. Build Identity
 
-**Function:** `Invoke-OnboardingExecution`
+**Function:** `New-OnboardingIdentity`
 
-* Creates AD user
-* Assigns groups
-* Applies licensing
+* Generates:
 
-Execution only occurs if:
+  * `SamAccountName` (AD-safe characters, max 20)
+  * `UserPrincipalName`
+  * `EntraUPN`
+  * `DisplayName`
+  * `OU`
 
-* `.Errors` is empty
-* User does not already exist
+Transforms HR data into technical identity.
 
 ---
 
-### 7. Report(WIP)
+### 7. Create User (`-Apply` only)
 
-Returns structured results per user:
+**Function:** `New-OnboardingUser`
 
-* Username
+* Creates the AD user
+* Sets `Status` to `Created`, or `AlreadyExists` if the account is already there
+
+Then **`Invoke-EntraSync`** triggers one delta sync for all new users.
+
+---
+
+### 8. Execute (`-Apply` only)
+
+**Function:** `Start-Onboarding`
+
+* Runs each plan action with retries and backoff
+* Waits for the user to show up in Entra first
+* Stops if the user never syncs
+
+---
+
+### 9. Report
+
+**Function:** `New-Report` (shared)
+
+Writes a report to `Reports/` per user:
+
+* Validation
+* Policy
+* Plan results
 * Status
-* Errors
-
-Allows export to CSV or logging system.
 
 ---
 
@@ -131,11 +152,13 @@ Test: validate required info
 
 Policy: decide groups, DLs, licenses, other rules
 
+Plan: build a list of actions from the policy
+
 Build: generate system-ready attributes (samAccountName, UserPrincipalName, DisplayName, OU)
 
-Plan: compare Policy to current AD/state; build a plan of actions
+Create: create the AD user, sync to Entra
 
-Execute: apply the plan (create user, add to groups, assign licenses)
+Execute: apply the plan (add to groups, DLs, assign licenses)
 
 Report: log results, counts, pass/fail
 ```
