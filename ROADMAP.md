@@ -61,7 +61,7 @@ What a business actually needs from identity automation: **stay secure, stop was
   - *Why:* the "someone got phished" playbook, run in seconds instead of from memory.
 - [ ] **Risky sign-ins report** – new countries, impossible travel, risky users from Entra
 - [ ] **Privileged access review** – permanent vs PIM-eligible admin roles
-- [ ] **Email security check** – SPF, DKIM and DMARC for every domain
+- [x] **Email security check** – SPF, DKIM and DMARC for every domain (`Audits -Check EmailSecurity`)
   - *Why:* spoofing protection; also listed in postings.
 
 ### 3. Groups and access hygiene

@@ -34,6 +34,13 @@ Every check is a function that returns **findings**. A finding is one row:
 * Source: Exchange mailboxes + inbox rules
 * Flag: forwarding or inbox rule sending mail to a domain that isn't ours
 
+### EmailSecurity – `Get-EmailSecurityAudit`
+
+* Source: verified domains from Graph (skips `*.onmicrosoft.com`), public DNS
+* Flag SPF: missing, more than one record, `+all`, `?all`
+* Flag DMARC: missing, `p=none` (monitor only)
+* Flag DKIM: no `selector1` / `selector2` CNAME (how Microsoft 365 publishes DKIM keys)
+
 ### ConditionalAccess – `Get-ConditionalAccessAudit`
 
 * Source: Graph Conditional Access policies (raw JSON, all pages)

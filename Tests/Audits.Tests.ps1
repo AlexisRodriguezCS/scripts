@@ -117,6 +117,43 @@ Describe "Audits" {
         }
     }
 
+    Context "EmailSecurity" {
+
+        BeforeAll {
+            Mock Get-MgDomain {
+                [pscustomobject]@{ Id = "good.com";  IsVerified = $true }
+                [pscustomobject]@{ Id = "bad.com";   IsVerified = $true }
+                [pscustomobject]@{ Id = "corp.onmicrosoft.com"; IsVerified = $true }
+            } -ModuleName Audits
+
+            # good.com: strict SPF, DMARC reject, DKIM. bad.com: +all SPF, p=none DMARC, no DKIM
+            Mock Resolve-DnsName { [pscustomobject]@{ Strings = @("v=spf1 include:spf.protection.outlook.com -all") } } -ModuleName Audits -ParameterFilter { $Name -eq "good.com" }
+            Mock Resolve-DnsName { [pscustomobject]@{ Strings = @("v=DMARC1; p=reject; rua=mailto:d@good.com") } } -ModuleName Audits -ParameterFilter { $Name -eq "_dmarc.good.com" }
+            Mock Resolve-DnsName { [pscustomobject]@{ NameHost = "selector1-good-com._domainkey.corp.onmicrosoft.com" } } -ModuleName Audits -ParameterFilter { $Name -like "*._domainkey.good.com" }
+            Mock Resolve-DnsName { [pscustomobject]@{ Strings = @("v=spf1 +all") } } -ModuleName Audits -ParameterFilter { $Name -eq "bad.com" }
+            Mock Resolve-DnsName { [pscustomobject]@{ Strings = @("v=DMARC1; p=none") } } -ModuleName Audits -ParameterFilter { $Name -eq "_dmarc.bad.com" }
+            Mock Resolve-DnsName { $null } -ModuleName Audits -ParameterFilter { $Name -like "*._domainkey.bad.com" }
+
+            $script:findings = @(Get-EmailSecurityAudit)
+        }
+
+        It "skips onmicrosoft.com domains" {
+            $findings.Name | Should -Not -Contain "corp.onmicrosoft.com"
+        }
+
+        It "passes a well configured domain" {
+            @($findings | Where-Object { $_.Name -eq "good.com" -and $_.Flagged }).Count | Should -Be 0
+        }
+
+        It "flags +all SPF, monitor-only DMARC and missing DKIM" {
+            $bad = @($findings | Where-Object { $_.Name -eq "bad.com" -and $_.Flagged }).Reason
+            $bad | Should -HaveCount 3
+            ($bad -join " ") | Should -Match "\+all"
+            ($bad -join " ") | Should -Match "p=none"
+            ($bad -join " ") | Should -Match "DKIM"
+        }
+    }
+
     Context "Licenses" {
 
         BeforeAll {
