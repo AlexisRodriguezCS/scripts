@@ -44,7 +44,8 @@ Describe "Remove-OffboardingCloudGroupMember" {
         $null = Remove-OffboardingCloudGroupMember -Identity $identity -Manager "boss@corp.com" -LogFile "TestDrive:\x.log"
 
         Should -Invoke New-MgGroupOwnerByRef -ModuleName Offboarding -Times 1 -Exactly -ParameterFilter {
-            $GroupId -eq "t1" -and $BodyParameter.'@odata.id' -like "*boss-id"
+            # The real Graph module (if installed) turns the hashtable into its own type, so check the serialized body
+            $GroupId -eq "t1" -and ($BodyParameter | ConvertTo-Json -Depth 5) -like "*directoryObjects/boss-id*"
         }
         Should -Invoke Remove-MgGroupOwnerByRef -ModuleName Offboarding -Times 1 -Exactly -ParameterFilter { $GroupId -eq "t1" }
     }
