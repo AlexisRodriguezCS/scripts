@@ -47,8 +47,9 @@ function New-OnboardingIdentity {
             DisplayName       = "$($raw.FirstName) $($raw.LastName)"
             SamAccountName    = $username
             UserPrincipalName = "$username$($Config.UPNSuffix)"  # on-prem AD UPN
-            EntraUPN          = "$username@$($Config.TenantDomain)" # Entra/M365 UPN
+            EntraUPN          = Resolve-EntraUpn -SamAccountName $username -AdUpn "$username$($Config.UPNSuffix)" -Config $Config # Entra/M365 UPN
             OU                = $ou
+            EmployeeID        = $raw.EmployeeID
         } 
 
         # Log identity information

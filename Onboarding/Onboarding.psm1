@@ -2,6 +2,8 @@
 . $PSScriptRoot\..\Modules\Shared\Add-PipelineError.ps1
 . $PSScriptRoot\..\Modules\Shared\Write-Log.ps1
 . $PSScriptRoot\..\Modules\Shared\Get-Config.ps1
+. $PSScriptRoot\..\Modules\Shared\Resolve-EntraUpn.ps1
+. $PSScriptRoot\..\Modules\Shared\Test-ProtectedAccount.ps1
 . $PSScriptRoot\..\Modules\Shared\New-Report.ps1
 . $PSScriptRoot\..\Modules\Shared\Invoke-PipelineStep.ps1
 . $PSScriptRoot\..\Modules\Shared\New-RandomPassword.ps1

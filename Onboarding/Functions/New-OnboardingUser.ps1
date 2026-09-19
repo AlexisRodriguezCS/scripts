@@ -15,38 +15,69 @@ function New-OnboardingUser {
         param($PipelineObject, $LogFile)
         
         $Identity = $PipelineObject.Identity
+        $id       = $PipelineObject.CorrelationId.Substring(0,8)
+        $baseName = $Identity.SamAccountName
 
-        # Check if user already exists in AD before attempting creation
-        try {
-            $exist = $null -ne (Get-ADUser -Filter "SamAccountName -eq '$($Identity.SamAccountName)'" -ErrorAction Stop)
-        }
-        catch {
-            throw "AD lookup failed: $($_.Exception.Message)"
+        # Find a free username. An existing account is only treated as "this person" when the Employee ID matches;
+        # a different John Smith gets johnsmith2 instead of the old John Smith's account.
+        for ($n = 1; $n -le 99; $n++) {
+            $suffix    = if ($n -eq 1) { "" } else { "$n" }
+            $candidate = $baseName.Substring(0, [math]::Min($baseName.Length, 20 - $suffix.Length)).TrimEnd('.') + $suffix
+
+            try {
+                $existing = Get-ADUser -Filter "SamAccountName -eq '$candidate'" -Properties EmployeeID -ErrorAction Stop
+            }
+            catch {
+                throw "AD lookup failed: $($_.Exception.Message)"
+            }
+
+            if (-not $existing) { break }
+
+            # Same person (re-run): nothing to create, continue with the rest of the plan
+            if ($Identity.EmployeeID -and $existing.EmployeeID -eq $Identity.EmployeeID) {
+                $Identity.SamAccountName = $candidate
+                $PipelineObject.Status = "AlreadyExists"
+                Write-Log -Message "[$id] [$stepName] CreateUser -> $candidate : ALREADY_EXISTS (Employee ID $($Identity.EmployeeID))" `
+                        -Level "INFO" -LogFile $LogFile
+                return
+            }
+
+            # Without an Employee ID we can't tell a re-run from a different person, so don't guess
+            if (-not $Identity.EmployeeID) {
+                throw "Username $candidate is already taken and no EmployeeID was given to confirm it's the same person"
+            }
+
+            Write-Log -Message "[$id] [$stepName] CreateUser -> $candidate : TAKEN by a different person, trying next" -Level "INFO" -LogFile $LogFile
         }
 
-        # Skips creating a user so it goes to next action
-        if ($exist) {
-            $PipelineObject.Status = "AlreadyExists"
-            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] CreateUser -> $($Identity.SamAccountName) : ALREADY_EXISTS" `
-                    -Level "INFO" -LogFile $LogFile
-            return
+        # Update the identity if we had to pick another username
+        if ($candidate -ne $baseName) {
+            $Identity.SamAccountName    = $candidate
+            $Identity.UserPrincipalName = $candidate + ($Identity.UserPrincipalName -replace '^[^@]+')
+            $Identity.EntraUPN          = $candidate + ($Identity.EntraUPN -replace '^[^@]+')
+            $Identity.DisplayName       = "$($Identity.DisplayName) ($candidate)"   # AD names must be unique in an OU
         }
 
         # Generate temp password
         $plainPassword  = New-RandomPassword
         $securePassword = ConvertTo-SecureString $plainPassword -AsPlainText -Force
 
+        $newUser = @{
+            Name                  = $Identity.DisplayName
+            GivenName             = $Identity.FirstName
+            Surname               = $Identity.LastName
+            SamAccountName        = $Identity.SamAccountName
+            UserPrincipalName     = $Identity.UserPrincipalName
+            Path                  = $Identity.OU
+            AccountPassword       = $securePassword
+            ChangePasswordAtLogon = $true
+            Enabled               = $true
+        }
+        # Stored so re-runs can recognise this person
+        if ($Identity.EmployeeID) { $newUser.EmployeeID = $Identity.EmployeeID }
+
         try {
-            New-ADUser `
-            -Name $Identity.DisplayName `
-            -GivenName $Identity.FirstName `
-            -Surname $Identity.LastName `
-            -SamAccountName $Identity.SamAccountName `
-            -UserPrincipalName $Identity.UserPrincipalName `
-            -Path $Identity.OU `
-            -AccountPassword $securePassword `
-            -ChangePasswordAtLogon $true `
-            -Enabled $true
+            New-ADUser @newUser -ErrorAction Stop
         }
         catch {
             throw "User creation failed: $($_.Exception.Message)"

@@ -36,7 +36,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [Inactive Accounts](InactiveAccounts/README.md) | Disables unused accounts, removes old guests (safety stop included) | Weekly |
 | [Audits](Audits/README.md) | MFA gaps, admin roles, mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
 
-**Other**: [Lab](Lab/README.md) (reset the test tenant) · [Setup](Setup/Register-ScheduledTasks.ps1) (create the scheduled tasks) · [Roadmap](ROADMAP.md)
+**Other**: [Security](SECURITY.md) (secrets, permissions, guard rails) · [Lab](Lab/README.md) (reset the test tenant) · [Setup](Setup/) (certificate, secrets, scheduled tasks) · [Roadmap](ROADMAP.md)
 
 ---
 
@@ -77,6 +77,15 @@ Input ──► Validate ──► Look up ──► Plan ──► Snapshot ─
 - Saved again after, in `Reports/Snapshots/`
 - Audit trail of exactly what changed, and a way to undo mistakes
 
+**Security** ([details](SECURITY.md))
+- No passwords or client secrets: certificate sign-in, private key non-exportable, readable only by the service account (gMSA)
+- Remaining secrets (e.g. Teams webhook) live in a vault; configs only hold a `secret:Name` reference
+- Loaded secrets are masked as `***` in every log line
+- CI scans the full git history for leaked secrets (gitleaks)
+- Admin and VIP accounts can't be offboarded or moved from an HR request
+- HR request approvals are verified from SharePoint's version history, not trusted
+- A new hire never takes over an existing account unless the Employee ID matches
+
 **Safety**
 - Inactive accounts: stops if more than 10% of the tenant looks inactive
 - Offboarding: disable first, licenses last (removing them before the mailbox is converted would delete it)
@@ -104,7 +113,8 @@ Input ──► Validate ──► Look up ──► Plan ──► Snapshot ─
 - Microsoft.Graph
 - ExchangeOnlineManagement
 - PnP.PowerShell (offboarding OneDrive handoff, request list setup)
-- An Entra app registration with a certificate (app-only auth, no passwords)
+- Microsoft.PowerShell.SecretManagement + a vault (SecretStore in the lab, Azure Key Vault in production)
+- An Entra app registration with a certificate (app-only auth, no passwords): [`Setup/New-AutomationCertificate.ps1`](Setup/New-AutomationCertificate.ps1)
 - Entra ID P1 for sign-in based checks (inactive accounts, MFA, idle licenses)
 
 ---
@@ -114,12 +124,19 @@ Input ──► Validate ──► Look up ──► Plan ──► Snapshot ─
 One folder per client: `Config/Clients/<Client>/<Script>.json` (gitignored, never committed).
 For scheduled runs the folder can live outside the repo: set `SCRIPTS_CONFIG_ROOT`.
 
-Every config can also have optional alert settings:
+Settings every config can have:
 ```json
-"AlertWebhookUrl": "https://prod-00.westus.logic.azure.com/workflows/...",
+"AlertWebhookUrl": "secret:ClientA-TeamsWebhook",
 "AlertEmail": "it-alerts@contoso.com",
-"AlertSender": "automation@contoso.com"
+"AlertSender": "automation@contoso.com",
+"SecretVault": "AutomationVault",
+"UseAdUpnForEntra": true,
+"ProtectedAccounts": ["ceo", "breakglass"]
 ```
+
+- `secret:Name` values are read from the vault at run time ([`Setup/Set-AutomationSecret.ps1`](Setup/Set-AutomationSecret.ps1) stores them)
+- `UseAdUpnForEntra`: `true` when AD UPNs use your real domain (production); leave out in a `.local` lab
+- `ProtectedAccounts`: usernames HR requests can never offboard or move (AD admins are always protected)
 
 <details>
 <summary>Onboarding.json (also used by Mover and User Attributes)</summary>
@@ -233,6 +250,8 @@ Every config can also have optional alert settings:
     "ListName": "IT Requests",
     "SenderMailbox": "automation@contoso.com",
     "TempPasswordRecipient": "it-helpdesk@contoso.com",
+    "Approvers": ["hr-lead@contoso.com", "it-manager@contoso.com"],
+    "ProcessingTimeoutMinutes": 60,
     "TenantDomain": "contoso.onmicrosoft.com",
     "TenantId": "00000000-0000-0000-0000-000000000000",
     "ClientId": "11111111-1111-1111-1111-111111111111",

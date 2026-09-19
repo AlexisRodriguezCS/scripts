@@ -3,7 +3,7 @@
 $stubs = @{
     # Active Directory
     'Get-ADUser'                = 'Identity, Filter, Properties, Server, SearchBase'
-    'New-ADUser'                = 'Name, GivenName, Surname, SamAccountName, UserPrincipalName, Path, AccountPassword, ChangePasswordAtLogon, Enabled'
+    'New-ADUser'                = 'Name, GivenName, Surname, SamAccountName, UserPrincipalName, Path, AccountPassword, ChangePasswordAtLogon, Enabled, EmployeeID'
     'Set-ADUser'                = 'Identity, Description, Title, Department, Manager, Office, OfficePhone, MobilePhone, Company, EmployeeID, City, State, StreetAddress, PostalCode'
     'Disable-ADAccount'         = 'Identity'
     'Set-ADAccountPassword'     = 'Identity, NewPassword, [switch]$Reset'
@@ -26,6 +26,10 @@ $stubs = @{
     'Get-MgReportAuthenticationMethodUserRegistrationDetail' = '[switch]$All'
     'Get-MgSiteListItem'        = 'SiteId, ListId, ExpandProperty, [switch]$All'
     'Update-MgSiteListItemField'= 'SiteId, ListId, ListItemId, BodyParameter'
+    'Get-MgSiteListItemVersion' = 'SiteId, ListId, ListItemId, ExpandProperty, [switch]$All'
+
+    # SecretManagement
+    'Get-Secret'                = 'Name, Vault, [switch]$AsPlainText'
 
     # Exchange Online
     'Get-Mailbox'               = 'Identity, ResultSize'

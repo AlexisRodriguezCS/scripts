@@ -1,6 +1,8 @@
 # Load shared
 . $PSScriptRoot\..\Modules\Shared\Write-Log.ps1
 . $PSScriptRoot\..\Modules\Shared\Get-Config.ps1
+. $PSScriptRoot\..\Modules\Shared\Resolve-EntraUpn.ps1
+. $PSScriptRoot\..\Modules\Shared\Test-ProtectedAccount.ps1
 . $PSScriptRoot\..\Modules\Shared\Send-Alert.ps1
 
 # Load functions

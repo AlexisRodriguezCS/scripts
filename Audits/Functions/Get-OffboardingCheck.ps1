@@ -27,7 +27,8 @@ function Get-OffboardingCheck {
         if ($adUser.Enabled)                { $problems += "Account still enabled" }
         if (@($adUser.MemberOf).Count -gt 0) { $problems += "Still in $(@($adUser.MemberOf).Count) groups" }
 
-        $mgUser = Get-MgUser -UserId "$sam@$($Config.TenantDomain)" -Property "assignedLicenses" -ErrorAction SilentlyContinue
+        $entraUpn = Resolve-EntraUpn -SamAccountName $sam -AdUpn $adUser.UserPrincipalName -Config $Config
+        $mgUser = Get-MgUser -UserId $entraUpn -Property "assignedLicenses" -ErrorAction SilentlyContinue
         if ($mgUser.AssignedLicenses) { $problems += "Still has $(@($mgUser.AssignedLicenses).Count) license(s)" }
 
         New-AuditFinding -Check "OffboardingCheck" -Name $sam `

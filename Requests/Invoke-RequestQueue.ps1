@@ -47,9 +47,17 @@ if ($Apply) {
 # ------------------------
 # PROCESS APPROVED REQUESTS
 # ------------------------
+# A request left on "Processing" this long means a run crashed mid-way; pick it up again
+# (every script is safe to re-run, so finishing a half-done request is fine)
+$timeout    = if ($rq.ProcessingTimeoutMinutes) { $rq.ProcessingTimeoutMinutes } else { 60 }
+$stuckSince = (Get-Date).AddMinutes(-$timeout)
+
 # ponytail: reads the whole list and filters here; add an indexed Status column + server-side filter past ~5000 items
 $items = @(Get-MgSiteListItem -SiteId $rq.SiteId -ListId $rq.ListName -ExpandProperty "fields" -All -ErrorAction Stop |
-           Where-Object { $_.Fields.AdditionalProperties.Status -eq "Approved" })
+           Where-Object {
+               $status = $_.Fields.AdditionalProperties.Status
+               $status -eq "Approved" -or ($status -eq "Processing" -and [datetime]$_.LastModifiedDateTime -lt $stuckSince)
+           })
 
 Write-Log -Message "[Requests] $($items.Count) approved request(s) waiting" -Level "INFO" -LogFile $LogFile
 
@@ -57,6 +65,21 @@ $needsAttention = 0
 
 foreach ($item in $items) {
     $fields = $item.Fields.AdditionalProperties
+
+    if ($fields.Status -eq "Processing") {
+        Write-Log -Message "[Requests] #$($item.Id) was stuck on Processing since $($item.LastModifiedDateTime), retrying" -Level "WARN" -LogFile $LogFile
+    }
+
+    # Check who really approved it, from SharePoint's version history
+    $versions = @(Get-MgSiteListItemVersion -SiteId $rq.SiteId -ListId $rq.ListName -ListItemId $item.Id -ExpandProperty "fields" -All -ErrorAction Stop)
+    $problem  = Test-RequestApproval -Versions $versions -SubmittedBy "$($item.CreatedBy.User.AdditionalProperties.email)" -Config $rq
+
+    if ($problem) {
+        Write-Log -Message "[Requests] #$($item.Id) $($fields.RequestType) : NOT PROCESSED - $problem" -Level "WARN" -LogFile $LogFile
+        if ($Apply) { Set-RequestStatus -Config $rq -ItemId $item.Id -Status "Needs attention" -Result "Not processed: $problem" }
+        $needsAttention++
+        continue
+    }
 
     # Scheduled requests (e.g. a leaver's last day at 5 PM) wait until their time; blank = as soon as possible
     if ($fields.EffectiveDate -and [datetime]$fields.EffectiveDate -gt (Get-Date)) {

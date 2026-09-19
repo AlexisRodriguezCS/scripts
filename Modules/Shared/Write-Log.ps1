@@ -19,6 +19,11 @@ function Write-Log {
             $Message = $Message | ConvertTo-Json -Compress -Depth 5
         }
 
+        # Mask any secret loaded by Get-Config (e.g. a webhook URL inside an error message)
+        foreach ($secret in $script:SecretValues) {
+            $Message = "$Message".Replace($secret, "***")
+        }
+
         "$Time | $Level | $Message" | Out-File -FilePath $LogFile -Append -Encoding utf8
         
         switch ($Level) {
