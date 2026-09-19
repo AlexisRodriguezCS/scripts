@@ -55,6 +55,7 @@ Invalid users are logged and skipped.
 
   * `DisableAccount`
   * `RevokeSessions`
+  * `RetireDevices` (Intune: remove company data from phones/laptops)
   * `RemoveFromGroup` (one per group)
   * `MoveToDisabledOU`
   * `RemoveFromDistributionLists`

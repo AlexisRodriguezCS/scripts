@@ -49,7 +49,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 ### 1. Gaps job postings ask for
 - [x] **Intune device cleanup** – retire devices not seen in 90 days, delete records after 180 (`StaleDevices`)
   - *Why:* Intune is in almost every Microsoft 365 admin posting.
-- [ ] **Leaver device wipe** – offboarding finds the user's phones/laptops and retires them or wipes company data
+- [x] **Leaver device retire** – offboarding retires the leaver's phones/laptops (company data removed, personal data untouched)
   - *Why:* otherwise company data walks out the door on personal phones.
 - [ ] **Conditional Access backup + change detection** – export every policy to JSON daily, alert when one changes
   - *Why:* a changed CA policy is a common cause of both breaches and outages, and CA is named in most postings.
