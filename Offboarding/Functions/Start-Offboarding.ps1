@@ -27,6 +27,7 @@ function Start-Offboarding {
         RemoveFromGroup    = @{ MaxRetries = 3; DelaySeconds = 5 }
         MoveToDisabledOU   = @{ MaxRetries = 3; DelaySeconds = 5 }
         RevokeSessions     = @{ MaxRetries = 4; DelaySeconds = 5 }
+        RemoveFromDistributionLists = @{ MaxRetries = 3; DelaySeconds = 5 }
         ConvertMailbox     = @{ MaxRetries = 3; DelaySeconds = 10 }
         SetAutoReply       = @{ MaxRetries = 3; DelaySeconds = 5 }
         GrantMailboxAccess = @{ MaxRetries = 3; DelaySeconds = 5 }
@@ -67,6 +68,7 @@ function Start-Offboarding {
                     "RemoveFromGroup"    { Remove-OffboardingGroupMember -Identity $identity -Target $target -LogFile $LogFile }
                     "MoveToDisabledOU"   { Move-OffboardingUser -Identity $identity -Target $target -LogFile $LogFile }
                     "RevokeSessions"     { Revoke-OffboardingSession -Identity $identity -LogFile $LogFile }
+                    "RemoveFromDistributionLists" { Remove-OffboardingDLMember -Identity $identity -LogFile $LogFile }
                     "ConvertMailbox"     { Convert-OffboardingMailbox -Identity $identity -LogFile $LogFile }
                     "SetAutoReply"       { Set-OffboardingAutoReply -Identity $identity -Target $target -Config $Config -LogFile $LogFile }
                     "GrantMailboxAccess" { Grant-OffboardingMailboxAccess -Identity $identity -Target $target -LogFile $LogFile }
@@ -82,6 +84,7 @@ function Start-Offboarding {
                     "NoMailbox"     { "No mailbox" }
                     "NoLicenses"    { "No licenses" }
                     "NoOneDrive"    { "No OneDrive" }
+                    "NoDistributionLists" { "No distribution lists" }
                     default         { $result }
                 }
 

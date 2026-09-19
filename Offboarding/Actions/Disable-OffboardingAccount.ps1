@@ -15,7 +15,7 @@ function Disable-OffboardingAccount {
     Disable-ADAccount -Identity $dn -ErrorAction Stop
 
     # Reset password to a random value nobody knows
-    $securePassword = ConvertTo-SecureString "$([guid]::NewGuid())!Aa1" -AsPlainText -Force
+    $securePassword = ConvertTo-SecureString (New-RandomPassword -Length 32) -AsPlainText -Force
     Set-ADAccountPassword -Identity $dn -NewPassword $securePassword -Reset -ErrorAction Stop
 
     # Stamp the account so it's clear why it's disabled

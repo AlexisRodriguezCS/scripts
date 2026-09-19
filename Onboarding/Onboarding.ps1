@@ -51,6 +51,12 @@ if ($Apply) {
 # Run pipeline
 $result = Invoke-UserOnboarding -Path $Path -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent
 
+# Show temp passwords once, on screen only (not in logs or reports)
+if ($result.Credentials) {
+    Write-Host "`n=== Temp passwords (shown once, users must change at first sign-in) ===" -ForegroundColor Yellow
+    $result.Credentials | Format-Table -AutoSize | Out-Host
+}
+
 if ($result.Failed -gt 0) {
     exit 1
 }

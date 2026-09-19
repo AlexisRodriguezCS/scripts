@@ -38,6 +38,15 @@ function New-OnboardingPlan {
             }
         }
 
+        # Action: Assign license (before DLs: the mailbox only exists once licensed)
+        if ($raw.License) {
+            $PipelineObject.Plan += @{
+                Action = "AssignLicense"
+                Target = $raw.License
+                Result = $null
+            }
+        }
+
         # Action: Add to distribution lists
         if ($raw.DistributionList) {
             foreach ($dist in $raw.DistributionList -split ';') {
@@ -49,15 +58,6 @@ function New-OnboardingPlan {
             }
         }
 
-        # Action: Assign license
-        if ($raw.License) {
-            $PipelineObject.Plan += @{
-                Action = "AssignLicense"
-                Target = $raw.License
-                Result = $null
-            }
-        }   
-    
         # Log planned actions
         foreach ($item in $PipelineObject.Plan) {
             Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] $($item.Action) -> $($item.Target) : PENDING" `

@@ -4,6 +4,7 @@
 . $PSScriptRoot\..\Modules\Shared\Get-Config.ps1
 . $PSScriptRoot\..\Modules\Shared\New-Report.ps1
 . $PSScriptRoot\..\Modules\Shared\Invoke-PipelineStep.ps1
+. $PSScriptRoot\..\Modules\Shared\New-RandomPassword.ps1
 
 # Load functions
 . $PSScriptRoot\Functions\Invoke-EntraSync.ps1

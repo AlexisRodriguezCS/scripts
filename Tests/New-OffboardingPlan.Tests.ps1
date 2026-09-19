@@ -38,7 +38,10 @@ Describe "New-OffboardingPlan" {
 
         $actions = $obj.Plan.Action
         $actions[0] | Should -Be "DisableAccount"
+        $actions[1] | Should -Be "RevokeSessions"
+        $actions.IndexOf("RemoveFromDistributionLists") | Should -BeLessThan $actions.IndexOf("ConvertMailbox")
         $actions.IndexOf("ConvertMailbox") | Should -BeLessThan $actions.IndexOf("RemoveLicenses")
+        $actions[-1] | Should -Be "RemoveLicenses"
     }
 
     It "plans one group removal per group" {

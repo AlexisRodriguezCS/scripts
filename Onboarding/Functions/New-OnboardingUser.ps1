@@ -1,7 +1,6 @@
 function New-OnboardingUser {
     [CmdletBinding()]
-    # TODO: temp password is predictable; generate a random one and deliver it securely
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Temp password, must change at first logon')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Random temp password, shown once, must change at first logon')]
     param(
         [Parameter(Mandatory)]
         [PSCustomObject]$PipelineObject,
@@ -34,7 +33,7 @@ function New-OnboardingUser {
         }
 
         # Generate temp password
-        $plainPassword  = "Welcome@$(Get-Date -Format 'yyyy')!"
+        $plainPassword  = New-RandomPassword
         $securePassword = ConvertTo-SecureString $plainPassword -AsPlainText -Force
 
         try {
@@ -54,6 +53,8 @@ function New-OnboardingUser {
         }
 
         $PipelineObject.Status = "Created"
+        # Kept in memory only (never logged or reported); shown once at the end of the run
+        $PipelineObject | Add-Member -NotePropertyName TempPassword -NotePropertyValue $plainPassword -Force
         Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] CreateUser -> $($Identity.SamAccountName) : CREATED" `
             -Level "INFO" -LogFile $LogFile
     }

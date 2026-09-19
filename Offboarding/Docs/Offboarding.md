@@ -54,9 +54,10 @@ Invalid users are logged and skipped.
 * Builds the list of actions, in this order:
 
   * `DisableAccount`
+  * `RevokeSessions`
   * `RemoveFromGroup` (one per group)
   * `MoveToDisabledOU`
-  * `RevokeSessions`
+  * `RemoveFromDistributionLists`
   * `ConvertMailbox`
   * `SetAutoReply`
   * `GrantMailboxAccess` (manager only)

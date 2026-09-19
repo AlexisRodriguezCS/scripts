@@ -73,8 +73,8 @@ Invalid users are logged and skipped.
 
   * `WaitForEntra`
   * `AddToGroup`
-  * `AddToDistributionList`
   * `AssignLicense`
+  * `AddToDistributionList` (after the license, the mailbox only exists once licensed)
 * Populates `.Plan`
 
 No changes are made to Active Directory at this stage.

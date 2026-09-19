@@ -42,6 +42,15 @@ Describe "New-OnboardingPlan" {
         $obj.Plan[0].Action | Should -Be "WaitForEntra"
     }
 
+    It "assigns the license before adding to distribution lists (no mailbox until licensed)" {
+        $obj = New-TestObject
+
+        New-OnboardingPlan -PipelineObject $obj -LogFile $logFile
+
+        $actions = @($obj.Plan | ForEach-Object { $_.Action })
+        $actions.IndexOf("AssignLicense") | Should -BeLessThan $actions.IndexOf("AddToDistributionList")
+    }
+
     It "adds group actions for each AD group" {
         $obj = New-TestObject -ADGroups "GroupA;GroupB"
 

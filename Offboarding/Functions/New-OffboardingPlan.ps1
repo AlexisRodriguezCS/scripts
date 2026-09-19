@@ -25,6 +25,9 @@ function New-OffboardingPlan {
         # Action: Disable account first so the user loses access immediately
         $plan += @{ Action = "DisableAccount"; Target = $identity.SamAccountName; Result = $null }
 
+        # Action: Kill M365 sessions right away (AD disable only reaches Entra on the next sync)
+        $plan += @{ Action = "RevokeSessions"; Target = $identity.EntraUPN; Result = $null }
+
         # Action: Remove from every AD group (logged in the plan so they can be restored)
         foreach ($group in $identity.MemberOf) {
             $plan += @{ Action = "RemoveFromGroup"; Target = $group; Result = $null }
@@ -35,8 +38,8 @@ function New-OffboardingPlan {
             $plan += @{ Action = "MoveToDisabledOU"; Target = $Config.DisabledOU; Result = $null }
         }
 
-        # Action: Kill M365 sessions (AD disable only reaches Entra on the next sync)
-        $plan += @{ Action = "RevokeSessions"; Target = $identity.EntraUPN; Result = $null }
+        # Action: Remove from cloud distribution lists (onboarding adds these in Exchange Online, not AD)
+        $plan += @{ Action = "RemoveFromDistributionLists"; Target = $identity.EntraUPN; Result = $null }
 
         # Action: Convert mailbox to shared (must happen BEFORE license removal or the mailbox is deleted)
         $plan += @{ Action = "ConvertMailbox"; Target = $identity.EntraUPN; Result = $null }

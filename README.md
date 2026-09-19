@@ -4,6 +4,13 @@
 
 PowerShell automation for Active Directory and Microsoft 365 administration.
 
+Built for a **hybrid** environment: users live in on-prem Active Directory and sync to Entra ID with Entra Connect; licenses, mailboxes and OneDrive are in Microsoft 365.
+
+```
+On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Online / OneDrive / Licenses
+  accounts, groups, OUs                                 mailboxes, DLs, files
+```
+
 ---
 
 ## Structure

@@ -25,7 +25,7 @@ function Start-Onboarding {
     $retryConfig = @{
         WaitForEntra          = @{ MaxRetries = 10; DelaySeconds = 30 }
         AddToGroup            = @{ MaxRetries = 3; DelaySeconds = 5  }
-        AddToDistributionList = @{ MaxRetries = 2; DelaySeconds = 3  }
+        AddToDistributionList = @{ MaxRetries = 8; DelaySeconds = 20 } # Mailbox takes a few minutes to appear after licensing
         AssignLicense         = @{ MaxRetries = 4; DelaySeconds = 5  }
     }
 

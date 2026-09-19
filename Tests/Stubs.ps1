@@ -16,6 +16,8 @@ $stubs = @{
     'Add-MailboxPermission'     = 'Identity, User, AccessRights, InheritanceType'
     'Set-MailboxAutoReplyConfiguration' = 'Identity, AutoReplyState, InternalMessage, ExternalMessage, ExternalAudience'
     'Get-PnPUserProfileProperty' = 'Account'
+    'Get-Recipient'             = 'Filter, RecipientTypeDetails, ResultSize'
+    'Remove-DistributionGroupMember' = 'Identity, Member, [switch]$BypassSecurityGroupManagerCheck'
     'Set-PnPTenantSite'         = 'Identity, Owners'
 }
 

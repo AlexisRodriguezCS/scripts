@@ -4,6 +4,7 @@
 . $PSScriptRoot\..\Modules\Shared\Get-Config.ps1
 . $PSScriptRoot\..\Modules\Shared\New-Report.ps1
 . $PSScriptRoot\..\Modules\Shared\Invoke-PipelineStep.ps1
+. $PSScriptRoot\..\Modules\Shared\New-RandomPassword.ps1
 
 # Load functions
 . $PSScriptRoot\Functions\Invoke-UserOffboarding.ps1
@@ -16,6 +17,7 @@
 # Load actions
 . $PSScriptRoot\Actions\Disable-OffboardingAccount.ps1
 . $PSScriptRoot\Actions\Remove-OffboardingGroupMember.ps1
+. $PSScriptRoot\Actions\Remove-OffboardingDLMember.ps1
 . $PSScriptRoot\Actions\Move-OffboardingUser.ps1
 . $PSScriptRoot\Actions\Revoke-OffboardingSession.ps1
 . $PSScriptRoot\Actions\Convert-OffboardingMailbox.ps1

@@ -97,5 +97,8 @@ function Invoke-UserOnboarding {
         AlreadyExist = $alreadyCount
         Failed       = $failedCount
         DurationSec  = $pipelineDuration.TotalSeconds
+        Credentials  = @($users | Where-Object { $_.PSObject.Properties["TempPassword"] } | ForEach-Object {
+            [pscustomobject]@{ Name = $_.Identity.DisplayName; Username = $_.Identity.UserPrincipalName; TempPassword = $_.TempPassword }
+        })
     }
 }
