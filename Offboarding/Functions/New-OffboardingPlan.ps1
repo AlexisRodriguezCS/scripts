@@ -28,6 +28,9 @@ function New-OffboardingPlan {
         # Action: Kill M365 sessions right away (AD disable only reaches Entra on the next sync)
         $plan += @{ Action = "RevokeSessions"; Target = $identity.EntraUPN; Result = $null }
 
+        # Action: Remove company data from their phones and laptops (Intune retire)
+        $plan += @{ Action = "RetireDevices"; Target = $identity.EntraUPN; Result = $null }
+
         # Action: Remove from every AD group (logged in the plan so they can be restored)
         foreach ($group in $identity.MemberOf) {
             $plan += @{ Action = "RemoveFromGroup"; Target = $group; Result = $null }

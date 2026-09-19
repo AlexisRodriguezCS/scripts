@@ -25,6 +25,7 @@
 . $PSScriptRoot\Actions\Remove-OffboardingDLMember.ps1
 . $PSScriptRoot\Actions\Move-OffboardingUser.ps1
 . $PSScriptRoot\Actions\Revoke-OffboardingSession.ps1
+. $PSScriptRoot\Actions\Invoke-OffboardingDeviceRetire.ps1
 . $PSScriptRoot\Actions\Convert-OffboardingMailbox.ps1
 . $PSScriptRoot\Actions\Set-OffboardingAutoReply.ps1
 . $PSScriptRoot\Actions\Grant-OffboardingMailboxAccess.ps1

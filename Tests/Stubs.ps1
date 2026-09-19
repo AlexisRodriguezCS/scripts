@@ -50,6 +50,7 @@ $stubs = @{
     'Get-MgDeviceManagementManagedDevice'          = 'Property, Filter, [switch]$All'
     'Invoke-MgRetireDeviceManagementManagedDevice' = 'ManagedDeviceId'
     'Remove-MgDeviceManagementManagedDevice'       = 'ManagedDeviceId'
+    'Get-MgUserManagedDevice'                      = 'UserId, Property, [switch]$All'
 }
 
 foreach ($name in $stubs.Keys) {

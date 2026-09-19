@@ -27,6 +27,7 @@ function Start-Offboarding {
     $actions = @{
         DisableAccount              = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Disable-OffboardingAccount -Identity $p.Identity -LogFile $LogFile } }
         RevokeSessions              = @{ MaxRetries = 4; DelaySeconds = 5;  Run = { param($p, $t) Revoke-OffboardingSession -Identity $p.Identity -LogFile $LogFile } }
+        RetireDevices               = @{ MaxRetries = 3; DelaySeconds = 10; Run = { param($p, $t) Invoke-OffboardingDeviceRetire -Identity $p.Identity -LogFile $LogFile } }
         RemoveFromGroup             = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Remove-OffboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
         MoveToDisabledOU            = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Move-OffboardingUser -Identity $p.Identity -Target $t -LogFile $LogFile } }
         RemoveFromDistributionLists = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Remove-OffboardingDLMember -Identity $p.Identity -LogFile $LogFile } }
@@ -46,6 +47,7 @@ function Start-Offboarding {
         NoLicenses          = "No licenses"
         NoOneDrive          = "No OneDrive"
         NoDistributionLists = "No distribution lists"
+        NoDevices           = "No Intune devices"
     }
 
     if ($SnapshotFolder) { $null = Save-UserSnapshot -PipelineObject $PipelineObject -Stage Before -Folder $SnapshotFolder -LogFile $LogFile }

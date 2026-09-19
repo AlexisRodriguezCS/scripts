@@ -14,21 +14,22 @@ Pipeline details: [Docs/Offboarding.md](Docs/Offboarding.md)
 4. Build the plan of actions
 5. Disable the AD account, reset the password to a random one, stamp the description
 6. Sign the user out of all M365 sessions
-7. Remove from every AD group (logged so it can be restored)
-8. Move to the disabled OU
-9. Remove from cloud distribution lists
-10. Convert the mailbox to shared
-11. Turn on out of office pointing to the manager (or `DefaultContact`)
-12. Give the manager full access to the mailbox
-13. Give the manager access to the OneDrive
-14. Remove all M365 licenses
-15. Write a report to `Reports/`
+7. Remove company data from their phones and laptops (Intune retire; personal data untouched)
+8. Remove from every AD group (logged so it can be restored)
+9. Move to the disabled OU
+10. Remove from cloud distribution lists
+11. Convert the mailbox to shared
+12. Turn on out of office pointing to the manager (or `DefaultContact`)
+13. Give the manager full access to the mailbox
+14. Give the manager access to the OneDrive
+15. Remove all M365 licenses
+16. Write a report to `Reports/`
 
-A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–14.
+A **before** and **after** snapshot of the user (groups, licenses, mailbox, OU...) is saved to `Reports/Snapshots/` around steps 5–15.
 
-Steps 5–14 only run with `-Apply`. Steps 12–13 only run when a `Manager` is given.
+Steps 5–15 only run with `-Apply`. Steps 13–14 only run when a `Manager` is given.
 
-**Why this order:** lock them out first (5–6), then remove access (7–9), then hand off data (10–13). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
+**Why this order:** lock them out first (5–7), then remove access (8–10), then hand off data (11–14). Licenses go last because removing them before the mailbox is converted would delete the mailbox.
 
 ---
 
