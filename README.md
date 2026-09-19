@@ -37,6 +37,12 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [Stale Devices](StaleDevices/README.md) | Retires Intune devices that stopped checking in, deletes very old records (safety stop included) | Weekly |
 | [Audits](Audits/README.md) | MFA gaps, admin roles, Conditional Access changes (with backups), mail forwarding, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
 
+**Security incidents** (IT runs by hand)
+
+| Script | What it does |
+|--------|--------------|
+| [Compromised Account Response](IncidentResponse/README.md) | Collects evidence (inbox rules, sign-ins, MFA methods), then disables, resets, signs out, removes forwarding and malicious inbox rules |
+
 **Other**: [Security](SECURITY.md) (secrets, permissions, guard rails) · [Lab](Lab/README.md) (reset the test tenant) · [Setup](Setup/) (certificate, secrets, scheduled tasks) · [Roadmap](ROADMAP.md)
 
 ---

@@ -61,6 +61,7 @@ Each client config has its own `ClientId`, so **each script can use its own app 
 | Password Expiry | `Mail.Send` (limit to the sender mailbox with an application access policy) | – | – | Read users |
 | Audits | `User.Read.All`, `AuditLog.Read.All`, `Directory.Read.All`, `Application.Read.All`, `Organization.Read.All`, `Policy.Read.All` | *View-Only Recipients* | – | Read users |
 | Requests | `Sites.Selected` (only the HR site) | – | – | – |
+| Incident Response | `User.ReadWrite.All`, `AuditLog.Read.All`, `UserAuthenticationMethod.Read.All` | *Mail Recipients* | – | Disable, reset password |
 
 AD rights are **delegated on specific OUs**, not Domain Admin.
 
@@ -94,6 +95,7 @@ Reports and before/after snapshots contain personal data (names, groups, manager
 | Reports, snapshots, access review sheets | 90 days (`-Days`) | [`Setup/Remove-OldReports.ps1`](Setup/Remove-OldReports.ps1), weekly scheduled task |
 | Log files | Last 5 × 10 MB per script | `Write-Log` rotates automatically |
 | Conditional Access backups | Kept (they are restore points, not personal data) | `Backups/ConditionalAccess/`, gitignored |
+| Incident evidence | Kept until the incident is closed; delete by hand after | `Backups/Incidents/`, gitignored |
 | Temp passwords | Never stored | Memory only |
 
 Reports and logs are gitignored and never committed.
