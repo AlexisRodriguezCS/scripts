@@ -144,4 +144,34 @@ Describe "New-OnboardingUser" {
         Should -Invoke Add-PipelineError -Times 1 -ModuleName Onboarding
     }
 
+    It "creates the account with the details HR gave: title, department, manager, office" {
+        Mock Get-ADUser { return $null } -ModuleName Onboarding
+        Mock New-ADUser {}               -ModuleName Onboarding
+
+        $obj = New-TestObject
+        $obj.Identity | Add-Member Title      "Accountant" -Force
+        $obj.Identity | Add-Member Department "Finance"    -Force
+        $obj.Identity | Add-Member Office     "Chicago"    -Force
+        $obj.Identity | Add-Member Company    "Contoso"    -Force
+        $obj.Identity | Add-Member ManagerDN  "CN=Boss,DC=corp,DC=local" -Force
+
+        New-OnboardingUser -PipelineObject $obj -LogFile $script:logFile
+
+        Should -Invoke New-ADUser -Times 1 -Exactly -ModuleName Onboarding -ParameterFilter {
+            $Title -eq "Accountant" -and $Department -eq "Finance" -and
+            $Office -eq "Chicago" -and $Company -eq "Contoso" -and $Manager -eq "CN=Boss,DC=corp,DC=local"
+        }
+    }
+
+    It "leaves out the details HR didn't fill in (AD rejects empty values)" {
+        Mock Get-ADUser { return $null } -ModuleName Onboarding
+        Mock New-ADUser {}               -ModuleName Onboarding
+
+        # New-TestObject has no Title / Department / Manager
+        New-OnboardingUser -PipelineObject (New-TestObject) -LogFile $script:logFile
+
+        Should -Invoke New-ADUser -Times 1 -Exactly -ModuleName Onboarding -ParameterFilter {
+            -not $PSBoundParameters.ContainsKey("Title") -and -not $PSBoundParameters.ContainsKey("Manager")
+        }
+    }
 }

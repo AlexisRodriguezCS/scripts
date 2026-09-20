@@ -1,6 +1,7 @@
 Describe "New-OnboardingIdentity" {
 
     BeforeAll {
+        . "$PSScriptRoot\Stubs.ps1"
 
         function New-TestObject {
             param(
@@ -124,5 +125,64 @@ Describe "New-OnboardingIdentity" {
         New-OnboardingIdentity -PipelineObject $obj -LogFile $logFile -Config $Config
 
         $obj.Identity | Should -Be $before
+    }
+
+    Context "Details HR filled in" {
+
+        It "carries title, department and office into the identity" {
+            $obj = New-TestObject
+            $obj.Raw | Add-Member Title "Accountant" -Force
+            $obj.Raw | Add-Member Location "Chicago" -Force
+
+            New-OnboardingIdentity -PipelineObject $obj -LogFile $logFile -Config ([pscustomobject]@{
+                UsernameFormat = "FirstLast"; DefaultOU = "DC=corp,DC=local"; UPNSuffix = "@corp.local"
+                TenantDomain = "tenant.onmicrosoft.com"; Company = "Contoso"
+            })
+
+            $obj.Identity.Title      | Should -Be "Accountant"
+            $obj.Identity.Department | Should -Be "IT"
+            $obj.Identity.Office     | Should -Be "Chicago"
+            $obj.Identity.Company    | Should -Be "Contoso"
+        }
+
+        It "finds the manager by the full name HR typed" {
+            Mock Get-ADUser { [pscustomobject]@{ DistinguishedName = "CN=Boss,OU=IT,DC=corp,DC=local" } } -ModuleName Onboarding
+
+            $obj = New-TestObject
+            $obj.Raw | Add-Member Manager "Mary Johnson" -Force
+
+            New-OnboardingIdentity -PipelineObject $obj -LogFile $logFile -Config $Config
+
+            $obj.Identity.ManagerDN | Should -Be "CN=Boss,OU=IT,DC=corp,DC=local"
+            Should -Invoke Get-ADUser -ModuleName Onboarding -Times 1 -Exactly -ParameterFilter {
+                $Filter -like "*DisplayName -eq 'Mary Johnson'*"
+            }
+        }
+
+        It "still creates the account when the manager can't be found" {
+            Mock Get-ADUser { } -ModuleName Onboarding
+
+            $obj = New-TestObject
+            $obj.Raw | Add-Member Manager "Ghost Person" -Force
+
+            New-OnboardingIdentity -PipelineObject $obj -LogFile $logFile -Config $Config
+
+            $obj.Identity.ManagerDN | Should -BeNullOrEmpty
+            $obj.Status             | Should -Be "Valid"
+        }
+
+        It "won't guess when two people share the manager's name" {
+            Mock Get-ADUser {
+                [pscustomobject]@{ DistinguishedName = "CN=Mary Johnson,OU=IT,DC=corp,DC=local" }
+                [pscustomobject]@{ DistinguishedName = "CN=Mary Johnson,OU=HR,DC=corp,DC=local" }
+            } -ModuleName Onboarding
+
+            $obj = New-TestObject
+            $obj.Raw | Add-Member Manager "Mary Johnson" -Force
+
+            New-OnboardingIdentity -PipelineObject $obj -LogFile $logFile -Config $Config
+
+            $obj.Identity.ManagerDN | Should -BeNullOrEmpty
+        }
     }
 }

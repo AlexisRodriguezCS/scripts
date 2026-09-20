@@ -76,6 +76,13 @@ function New-OnboardingUser {
         # Stored so re-runs can recognise this person
         if ($Identity.EmployeeID) { $newUser.EmployeeID = $Identity.EmployeeID }
 
+        # Who they are and who they report to; skipped when HR left the field blank
+        # (AD rejects an empty value, so only what was filled in is sent)
+        foreach ($attribute in "Title", "Department", "Office", "Company") {
+            if ($Identity.$attribute) { $newUser[$attribute] = $Identity.$attribute }
+        }
+        if ($Identity.ManagerDN) { $newUser.Manager = $Identity.ManagerDN }
+
         try {
             New-ADUser @newUser -ErrorAction Stop
         }
