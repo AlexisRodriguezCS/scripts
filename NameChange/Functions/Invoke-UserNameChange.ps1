@@ -28,7 +28,7 @@ function Invoke-UserNameChange {
         # 3. Look up the user and work out the new name
         Get-NameChangeIdentity -PipelineObject $user -LogFile $LogFile -Config $Config
         # 4. Plan only what's different
-        New-NameChangePlan -PipelineObject $user -LogFile $LogFile
+        New-NameChangePlan -PipelineObject $user -LogFile $LogFile -Config $Config
         # 5. Execute
         if ($Apply) {
             $null = Start-NameChange -PipelineObject $user -LogFile $LogFile -Config $Config -SnapshotFolder "$reportDir\Snapshots\NameChange_$runStamp"

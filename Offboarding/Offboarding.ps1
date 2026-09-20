@@ -30,23 +30,25 @@ param(
 
 Import-Module "$PSScriptRoot\Offboarding.psm1" -Force
 
+# Load config first: what this client needs depends on whether they have Microsoft 365
+$Config = Get-Config -Script "Offboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
+
 # ------------------------
 # CHECK REQUIRED MODULES
 # ------------------------
-# A dry run only reads AD to build the plan. The cloud modules are used once changes
-# are applied, so an on-prem-only machine can still preview what would happen.
+# "OnPrem" = Active Directory only: no mailbox, no license, no OneDrive to hand over.
+# A dry run reads AD to build the plan, so the cloud modules are only needed to apply.
+$hasCloud = "$($Config.Environment)" -ne "OnPrem"
+
 $requiredModules = @("ActiveDirectory")
-if ($Apply) { $requiredModules += @("ExchangeOnlineManagement", "Microsoft.Graph", "PnP.PowerShell") }
+if ($Apply -and $hasCloud) { $requiredModules += @("ExchangeOnlineManagement", "Microsoft.Graph", "PnP.PowerShell") }
 
 foreach ($module in $requiredModules) {
     if (-Not (Get-Module -ListAvailable -Name $module)) {
         throw "Missing module: $module"
     }
 }
-
-# Load config
-$Config = Get-Config -Script "Offboarding" -Client $Client -RootPath "$PSScriptRoot\.."
-if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 # Create logs folder if it doesn't exist
 if (-Not (Test-Path "$PSScriptRoot\Logs")) {
@@ -59,7 +61,7 @@ $LogFile = "$PSScriptRoot\Logs\Offboarding.log"
 # ------------------------
 # AUTHENTICATE
 # ------------------------
-if ($Apply) {
+if ($Apply -and $hasCloud) {
     Connect-MgGraph -TenantId $Config.TenantId `
                     -ClientId $Config.ClientId `
                     -CertificateThumbprint $Config.CertThumbprint `
