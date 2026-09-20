@@ -35,14 +35,14 @@ Import-Module "$PSScriptRoot\Mover.psm1" -Force
 # ------------------------
 # CHECK REQUIRED MODULES
 # ------------------------
-foreach ($module in @("ActiveDirectory", "ExchangeOnlineManagement")) {
+foreach ($module in @("ActiveDirectory", "ExchangeOnlineManagement", "Microsoft.Graph")) {
     if (-Not (Get-Module -ListAvailable -Name $module)) {
         throw "Missing module: $module"
     }
 }
 
 # Same client rules as onboarding (groups, DLs, OUs)
-$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
 if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
@@ -63,6 +63,14 @@ if ($Apply) {
                            -CertificateThumbprint $Config.CertThumbprint `
                            -Organization $Config.TenantDomain `
                            -ShowBanner:$false
+
+    # Only needed when the client maps roles to licenses
+    if ($Config.RoleLicenseSkuIds) {
+        Connect-MgGraph -TenantId $Config.TenantId `
+                        -ClientId $Config.ClientId `
+                        -CertificateThumbprint $Config.CertThumbprint `
+                        -NoWelcome
+    }
 }
 
 $result = Invoke-UserMover -Requests $requests -LogFile $LogFile -Config $Config -Apply $Apply.IsPresent

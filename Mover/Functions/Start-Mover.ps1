@@ -21,6 +21,7 @@ function Start-Mover {
         AddToGroup            = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Add-OnboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
         RemoveFromGroup       = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Remove-OffboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
         MoveToDepartmentOU    = @{ MaxRetries = 3; DelaySeconds = 5;  Run = { param($p, $t) Move-OffboardingUser -Identity $p.Identity -Target $t -LogFile $LogFile } }
+        SwitchLicense         = @{ MaxRetries = 4; DelaySeconds = 10; Run = { param($p, $t) Switch-MoverLicense -Identity $p.Identity -Target $t -Config $Config -LogFile $LogFile } }
         SyncDistributionLists = @{ MaxRetries = 3; DelaySeconds = 10; Run = { param($p, $t) Sync-MoverDLMembership -Identity $p.Identity -Target $t -Config $Config -LogFile $LogFile } }
     }
 
@@ -30,6 +31,7 @@ function Start-Mover {
         Removed       = "Removed from {0}"
         NotMember     = "Not in {0}"
         NoMailbox     = "No mailbox"
+        AlreadyAssigned = "Already has the new role's license"
     }
 
     if ($SnapshotFolder) { $null = Save-UserSnapshot -PipelineObject $PipelineObject -Stage Before -Folder $SnapshotFolder -LogFile $LogFile }
