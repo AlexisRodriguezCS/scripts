@@ -18,12 +18,17 @@ param(
     # Name after the name change
     [string]$NewLastName = "Brooks",
 
+    # Show every log line on screen. Off by default: the full output of each step is
+    # saved to its own file either way, so the screen stays readable.
+    [switch]$Detailed,
+
     [switch]$Apply
 )
 
 $ErrorActionPreference = "Continue"
 $root     = Split-Path $PSScriptRoot -Parent
-$runStamp = Get-Date -Format 'yyyyMMdd_HHmmss'
+$runStart = Get-Date
+$runStamp = $runStart.ToString('yyyyMMdd_HHmmss')
 $outDir   = Join-Path $PSScriptRoot "Output\Demo_$runStamp"
 $null     = New-Item -ItemType Directory -Path $outDir -Force
 
@@ -35,6 +40,9 @@ Import-Module ActiveDirectory
 # Everything printed is also kept, so a screenshot and a file say the same thing
 Start-Transcript -Path (Join-Path $outDir "demo.txt") | Out-Null
 
+# Each state is also kept as an object, so summary.json describes the whole run
+$script:timeline = [System.Collections.Generic.List[object]]::new()
+
 function Show-State {
     param([string]$Label, [string[]]$Names)
 
@@ -45,7 +53,8 @@ function Show-State {
     }
 
     if (-not $user) {
-        Write-Host "   $Label : no account" -ForegroundColor DarkGray
+        Write-Host "   $Label no account" -ForegroundColor DarkGray
+        $script:timeline.Add([pscustomobject]@{ Stage = $Label; Exists = $false })
         return
     }
 
@@ -58,10 +67,22 @@ function Show-State {
     Write-Host "      Enabled  : $($user.Enabled)"
     Write-Host "      Where    : $ou"
     Write-Host "      Access   : $(if ($groups) { $groups -join ', ' } else { 'none' })"
+
+    $script:timeline.Add([pscustomobject]@{
+        Stage          = $Label
+        Exists         = $true
+        DisplayName    = "$($user.DisplayName)"
+        SamAccountName = "$($user.SamAccountName)"
+        Title          = "$($user.Title)"
+        Department     = "$($user.Department)"
+        Enabled        = [bool]$user.Enabled
+        OU             = $ou
+        Groups         = $groups
+    })
 }
 
 function Invoke-Chapter {
-    param([int]$Number, [string]$Title, [string]$Story, [scriptblock]$Run)
+    param([int]$Number, [string]$Title, [string]$Story, [string]$StepName, [scriptblock]$Run)
 
     Write-Host "`n$('=' * 70)" -ForegroundColor Cyan
     Write-Host " $Number. $Title" -ForegroundColor Cyan
@@ -69,7 +90,37 @@ function Invoke-Chapter {
     Write-Host "$('=' * 70)" -ForegroundColor Cyan
 
     $start = Get-Date
-    & $Run
+
+    # Everything the step printed, kept whole in its own file.
+    # *>&1 and not 2>&1: the scripts log with Write-Host, which is its own stream.
+    $output = & $Run *>&1 | Out-String
+    $output | Out-File (Join-Path $outDir "$Number-$StepName.log") -Encoding utf8
+
+    if ($Detailed) {
+        Write-Host $output.TrimEnd()
+    }
+    else {
+        # The lines that say what actually changed: "AddToGroup -> GRP-AllStaff : Added"
+        # Planned-but-not-yet-run lines (PENDING) and the correlation id are noise here.
+        $did = $output -split "`r?`n" |
+               Where-Object { $_ -match '^\[[0-9a-f]{8}\]\s+\w+\s+->' -and $_ -notmatch ': PENDING\s*$' } |
+               ForEach-Object {
+                   # Drop the correlation id and shorten full DNs to just the group or OU name
+                   $line = $_ -replace '^\[[0-9a-f]{8}\]\s+', ''
+                   $line = $line -replace 'CN=([^,]+),OU=[^:]+', '$1'
+                   $line = $line -replace '(OU=[^,]+),OU=[^:]+', '$1'
+                   "      $line"
+               }
+
+        if ($did) { $did | ForEach-Object { Write-Host $_ -ForegroundColor DarkGray } }
+
+        # Never hide a problem to make the demo look tidy.
+        # -cmatch for FAILED: -match is case-insensitive and would flag a healthy "Failed: 0".
+        $output -split "`r?`n" |
+            Where-Object { $_ -match 'WARNING|Missing module' -or $_ -cmatch 'FAILED' -or $_ -match 'Failed:\s*[1-9]' } |
+            ForEach-Object { Write-Host "      $($_.Trim())" -ForegroundColor Yellow }
+    }
+
     Write-Host "   ... $([math]::Round(((Get-Date) - $start).TotalSeconds, 1))s" -ForegroundColor DarkGray
 }
 
@@ -90,38 +141,38 @@ if ($Apply) {
 # Not named $apply: PowerShell variables are case-insensitive, so it would overwrite the -Apply switch
 $applySplat = if ($Apply) { @{ Apply = $true } } else { @{} }
 
-Invoke-Chapter 1 "HIRED" "HR sends a new starter. Account, right department, right access, temporary password." {
+Invoke-Chapter 1 "HIRED" "HR sends a new starter. Account, right department, right access, temporary password." "hired" {
     & "$root\Onboarding\Onboarding.ps1" -Client $Client -FirstName $FirstName -LastName $LastName `
         -Title "Sales Rep" -Department Sales -Role "Sales Rep" @applySplat
-    Show-State "After hiring:" @($startSam)
 }
+Show-State "After hiring:" @($startSam)
 
-Invoke-Chapter 2 "PROMOTED" "Moving to IT. Old access comes off, new access goes on, and they move department." {
+Invoke-Chapter 2 "PROMOTED" "Moving to IT. Old access comes off, new access goes on, and they move department." "promoted" {
     & "$root\Mover\Mover.ps1" -Client $Client -SamAccountName $startSam `
         -Title "Support Technician" -Department IT -Role Technician @applySplat
-    Show-State "After the role change:" @($startSam)
 }
+Show-State "After the role change:" @($startSam)
 
-Invoke-Chapter 3 "NAME CHANGE" "They got married. New name, new username, and mail to the old address still arrives." {
+Invoke-Chapter 3 "NAME CHANGE" "They got married. New name, new username, and mail to the old address still arrives." "namechange" {
     & "$root\NameChange\Set-UserName.ps1" -Client $Client -SamAccountName $startSam `
         -NewLastName $NewLastName -NewUsername $endSam @applySplat
-    Show-State "After the name change:" @($endSam, $startSam)
 }
+Show-State "After the name change:" @($endSam, $startSam)
 
-Invoke-Chapter 4 "LEAVING" "Last day. Locked out, access stripped, moved to the leavers area." {
+Invoke-Chapter 4 "LEAVING" "Last day. Locked out, access stripped, moved to the leavers area." "leaving" {
     & "$root\Offboarding\Offboarding.ps1" -Client $Client -SamAccountName $endSam @applySplat
-    Show-State "After offboarding:" @($endSam)
 }
+Show-State "After offboarding:" @($endSam)
 
 # The undo only means something if it comes from what was recorded before the change
 $snapshot = Get-ChildItem "$root\Reports\Snapshots" -Recurse -Filter "$endSam`_before.json" -ErrorAction SilentlyContinue |
             Sort-Object LastWriteTime | Select-Object -Last 1
 
 if ($snapshot) {
-    Invoke-Chapter 5 "UNDO" "Wrong person. Put them back exactly as the before-snapshot recorded them." {
+    Invoke-Chapter 5 "UNDO" "Wrong person. Put them back exactly as the before-snapshot recorded them." "undo" {
         & "$root\Rollback\Restore-FromSnapshot.ps1" -SnapshotFile $snapshot.FullName @applySplat
-        Show-State "After the undo:" @($endSam)
     }
+    Show-State "After the undo:" @($endSam)
 }
 else {
     Write-Host "`n   No before-snapshot yet: run with -Apply to produce one." -ForegroundColor DarkGray
@@ -130,33 +181,34 @@ else {
 # ------------------------
 # COLLECT WHAT IT PRODUCED
 # ------------------------
-$collected = 0
-foreach ($pattern in @("OnboardingReport_$runStamp*", "MoverReport_$runStamp*", "NameChangeReport_$runStamp*",
-                       "OffboardingReport_$runStamp*", "RestoreReport_$runStamp*")) {
-    Get-ChildItem "$root\Reports" -Filter $pattern -ErrorAction SilentlyContinue | ForEach-Object {
-        Copy-Item $_.FullName -Destination $outDir -Force; $collected++
-    }
-}
-
-# Reports written seconds either side of the run stamp still belong to it
-if ($collected -eq 0) {
-    Get-ChildItem "$root\Reports" -Filter "*.txt" -ErrorAction SilentlyContinue |
-        Where-Object { $_.LastWriteTime -gt (Get-Date).AddMinutes(-5) } |
-        ForEach-Object { Copy-Item $_.FullName -Destination $outDir -Force; $collected++ }
-}
+# Written since this run began, so an earlier run's reports are never swept in.
+# The file name's timestamp is a second or two after $runStamp, so it can't be matched on.
+Get-ChildItem "$root\Reports" -Filter "*.txt" -ErrorAction SilentlyContinue |
+    Where-Object { $_.LastWriteTime -ge $runStart } |
+    ForEach-Object { Copy-Item $_.FullName -Destination $outDir -Force }
 
 $snapshotDir = Join-Path $outDir "Snapshots"
 $null = New-Item -ItemType Directory -Path $snapshotDir -Force
 Get-ChildItem "$root\Reports\Snapshots" -Recurse -Filter "$endSam*.json" -ErrorAction SilentlyContinue |
-    Where-Object { $_.LastWriteTime -gt (Get-Date).AddMinutes(-5) } |
+    Where-Object { $_.LastWriteTime -ge $runStart } |
     ForEach-Object { Copy-Item $_.FullName -Destination $snapshotDir -Force }
+
+# The same story as an object: what a page or another script would read
+[pscustomobject]@{
+    Client   = $Client
+    RunAt    = (Get-Date).ToString("s")
+    Employee = "$FirstName $LastName"
+    Timeline = $script:timeline
+} | ConvertTo-Json -Depth 5 | Out-File (Join-Path $outDir "summary.json") -Encoding utf8
 
 Stop-Transcript | Out-Null
 
 Write-Host "`n$('=' * 70)" -ForegroundColor Green
 Write-Host " Done. Everything from this run is in:" -ForegroundColor Green
 Write-Host "   $outDir" -ForegroundColor Green
-Write-Host "      demo.txt     what you just saw, word for word"
-Write-Host "      *Report*.txt one report per step"
-Write-Host "      Snapshots\   before and after, as JSON"
+Write-Host "      demo.txt      what you just saw, word for word"
+Write-Host "      summary.json  the same story as data, for a page or another script"
+Write-Host "      1-hired.log   the full output of each step"
+Write-Host "      *Report*.txt  one report per step"
+Write-Host "      Snapshots\    before and after, as JSON"
 Write-Host "$('=' * 70)`n" -ForegroundColor Green
