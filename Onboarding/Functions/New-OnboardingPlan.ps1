@@ -22,15 +22,21 @@ function New-OnboardingPlan {
         # Get raw data
         $raw = $PipelineObject.Raw
 
+        # "OnPrem" clients have no Microsoft 365: no sync to wait for, no mailbox, no license.
+        # Anything else (the default) has a tenant, so the cloud steps are planned.
+        $hasCloud = "$($Config.Environment)" -ne "OnPrem"
+
         # Action: Wait for Entra sync
-        $PipelineObject.Plan += @{
-            Action = "WaitForEntra"
-            Target = "$($raw.FirstName) $($raw.LastName)"
-            Result = $null
+        if ($hasCloud) {
+            $PipelineObject.Plan += @{
+                Action = "WaitForEntra"
+                Target = "$($raw.FirstName) $($raw.LastName)"
+                Result = $null
+            }
         }
 
         # Action: One-time sign-in code for day one (passwordless setup), if the client uses it
-        if ($Config.UseTemporaryAccessPass) {
+        if ($hasCloud -and $Config.UseTemporaryAccessPass) {
             $PipelineObject.Plan += @{
                 Action = "CreateAccessPass"
                 Target = "$($raw.FirstName) $($raw.LastName)"
@@ -50,7 +56,7 @@ function New-OnboardingPlan {
         }
 
         # Action: Assign license (before DLs: the mailbox only exists once licensed)
-        if ($raw.License) {
+        if ($hasCloud -and $raw.License) {
             $PipelineObject.Plan += @{
                 Action = "AssignLicense"
                 Target = $raw.License
@@ -58,8 +64,8 @@ function New-OnboardingPlan {
             }
         }
 
-        # Action: Add to distribution lists
-        if ($raw.DistributionList) {
+        # Action: Add to distribution lists (these live in Exchange Online, not AD)
+        if ($hasCloud -and $raw.DistributionList) {
             foreach ($dist in $raw.DistributionList -split ';') {
                 $PipelineObject.Plan += @{
                     Action = "AddToDistributionList"

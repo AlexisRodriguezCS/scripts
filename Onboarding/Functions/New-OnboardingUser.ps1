@@ -63,7 +63,10 @@ function New-OnboardingUser {
         $securePassword = ConvertTo-SecureString $plainPassword -AsPlainText -Force
 
         $newUser = @{
+            # Name is the AD object's own name (the CN); DisplayName is what Outlook,
+            # Teams and the address book show. Without it the person appears blank there.
             Name                  = $Identity.DisplayName
+            DisplayName           = $Identity.DisplayName
             GivenName             = $Identity.FirstName
             Surname               = $Identity.LastName
             SamAccountName        = $Identity.SamAccountName

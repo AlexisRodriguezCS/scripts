@@ -34,16 +34,21 @@ Import-Module "$PSScriptRoot\Onboarding.psm1" -Force
 # ------------------------
 # CHECK REQUIRED MODULES
 # ------------------------
-$requiredModules = @("ActiveDirectory", "ExchangeOnlineManagement", "Microsoft.Graph")
+# Load config first: what this client needs depends on whether they have Microsoft 365
+$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+
+# "OnPrem" = Active Directory only. Anything else (the default) has a tenant as well.
+$hasCloud = "$($Config.Environment)" -ne "OnPrem"
+
+# A dry run only reads AD to build the plan; the cloud modules are used once changes are applied
+$requiredModules = @("ActiveDirectory")
+if ($Apply -and $hasCloud) { $requiredModules += @("ExchangeOnlineManagement", "Microsoft.Graph") }
 
 foreach ($module in $requiredModules) {
     if (-Not (Get-Module -ListAvailable -Name $module)) {
         throw "Missing module: $module"
     }
 }
-
-# Load config
-$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
 
 # Create logs folder if it doesn't exist
 if (-Not (Test-Path "$PSScriptRoot\Logs")) {
@@ -56,7 +61,7 @@ $LogFile = "$PSScriptRoot\Logs\Onboarding.log"
 # ------------------------
 # AUTHENTICATE
 # ------------------------
-if ($Apply) {
+if ($Apply -and $hasCloud) {
     Connect-MgGraph -TenantId $Config.TenantId `
                     -ClientId $Config.ClientId `
                     -CertificateThumbprint $Config.CertThumbprint `

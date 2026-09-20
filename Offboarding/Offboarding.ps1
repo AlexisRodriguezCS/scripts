@@ -33,7 +33,10 @@ Import-Module "$PSScriptRoot\Offboarding.psm1" -Force
 # ------------------------
 # CHECK REQUIRED MODULES
 # ------------------------
-$requiredModules = @("ActiveDirectory", "ExchangeOnlineManagement", "Microsoft.Graph", "PnP.PowerShell")
+# A dry run only reads AD to build the plan. The cloud modules are used once changes
+# are applied, so an on-prem-only machine can still preview what would happen.
+$requiredModules = @("ActiveDirectory")
+if ($Apply) { $requiredModules += @("ExchangeOnlineManagement", "Microsoft.Graph", "PnP.PowerShell") }
 
 foreach ($module in $requiredModules) {
     if (-Not (Get-Module -ListAvailable -Name $module)) {

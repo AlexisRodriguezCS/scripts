@@ -20,7 +20,11 @@ param(
     # Where the repo lives inside the VM, so the config lands in the right place
     [string]$RepoPath = (Split-Path $PSScriptRoot -Parent),
 
-    [string]$Client = "Lab"
+    [string]$Client = "Lab",
+
+    # Directory Services Restore Mode password. Left out, you are asked for it.
+    # Pass it when running this from the host over PowerShell Direct, where nothing can prompt.
+    [securestring]$SafeModePassword
 )
 
 $ErrorActionPreference = "Stop"
@@ -34,15 +38,17 @@ $isDomainController = (Get-CimInstance Win32_ComputerSystem).DomainRole -in @(4,
 if (-not $isDomainController) {
     Write-Host "Stage 1: promoting this server to a domain controller for $DomainName" -ForegroundColor Cyan
 
-    # The Directory Services Restore Mode password. Asked for here, never written down.
-    $safeModePassword = Read-Host "Choose a recovery (DSRM) password" -AsSecureString
+    # The recovery password used to start AD in repair mode. Never written to disk.
+    if (-not $SafeModePassword) {
+        $SafeModePassword = Read-Host "Choose a recovery (DSRM) password" -AsSecureString
+    }
 
     Install-WindowsFeature -Name AD-Domain-Services, RSAT-AD-PowerShell -IncludeManagementTools
 
     Import-Module ADDSDeployment
     Install-ADDSForest -DomainName $DomainName `
                        -DomainNetbiosName $NetBiosName `
-                       -SafeModeAdministratorPassword $safeModePassword `
+                       -SafeModeAdministratorPassword $SafeModePassword `
                        -InstallDns `
                        -NoRebootOnCompletion:$false `
                        -Force

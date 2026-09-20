@@ -59,12 +59,16 @@ function Invoke-UserOnboarding {
 
     $anyCreated = $users | Where-Object { $_.Status -eq "Created" }
 
-    # Sync Once for all users
-    if ($anyCreated) {
+    # Sync once for everyone created in this run
+    if ("$($Config.Environment)" -eq "OnPrem") {
+        Write-Log -Message "On-prem client: no Entra sync needed." -Level "INFO" -LogFile $LogFile
+    }
+    elseif ($anyCreated) {
         # A failed sync is not fatal: WaitForEntra retries until the scheduled sync cycle picks the users up
         try { Invoke-EntraSync -Config $Config -LogFile $LogFile }
         catch { Write-Log -Message "$($_.Exception.Message) - relying on scheduled sync" -Level "WARN" -LogFile $LogFile }
-    } else {
+    }
+    else {
         Write-Log -Message "No new users created, skipping sync." -Level "INFO" -LogFile $LogFile
     }
 

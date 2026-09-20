@@ -3,7 +3,7 @@
 $stubs = @{
     # Active Directory
     'Get-ADUser'                = 'Identity, Filter, Properties, Server, SearchBase'
-    'New-ADUser'                = 'Name, GivenName, Surname, SamAccountName, UserPrincipalName, Path, AccountPassword, ChangePasswordAtLogon, Enabled, EmployeeID, Title, Department, Manager, Office, Company'
+    'New-ADUser'                = 'Name, DisplayName, GivenName, Surname, SamAccountName, UserPrincipalName, Path, AccountPassword, ChangePasswordAtLogon, Enabled, EmployeeID, Title, Department, Manager, Office, Company'
     'Set-ADUser'                = 'Identity, Replace, Description, Title, Department, Manager, Office, OfficePhone, MobilePhone, Company, EmployeeID, City, State, StreetAddress, PostalCode, ChangePasswordAtLogon, GivenName, Surname, DisplayName, SamAccountName, UserPrincipalName, EmailAddress'
     'Disable-ADAccount'         = 'Identity'
     'Unlock-ADAccount'          = 'Identity'

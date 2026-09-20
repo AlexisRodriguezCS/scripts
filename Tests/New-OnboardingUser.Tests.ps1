@@ -144,6 +144,18 @@ Describe "New-OnboardingUser" {
         Should -Invoke Add-PipelineError -Times 1 -ModuleName Onboarding
     }
 
+    It "sets DisplayName, not just the object name" {
+        # Without it the person is blank in Outlook, Teams and the address book
+        Mock Get-ADUser { return $null } -ModuleName Onboarding
+        Mock New-ADUser {}               -ModuleName Onboarding
+
+        New-OnboardingUser -PipelineObject (New-TestObject) -LogFile $script:logFile
+
+        Should -Invoke New-ADUser -Times 1 -Exactly -ModuleName Onboarding -ParameterFilter {
+            $DisplayName -eq "John Doe" -and $Name -eq "John Doe"
+        }
+    }
+
     It "creates the account with the details HR gave: title, department, manager, office" {
         Mock Get-ADUser { return $null } -ModuleName Onboarding
         Mock New-ADUser {}               -ModuleName Onboarding
