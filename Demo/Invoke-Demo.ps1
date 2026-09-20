@@ -35,6 +35,11 @@ $null     = New-Item -ItemType Directory -Path $outDir -Force
 $startSam = "$($FirstName.ToLower())$($LastName.ToLower())"
 $endSam   = "$($FirstName.ToLower())$($NewLastName.ToLower())"
 
+# An on-prem client skips every Microsoft 365 step, which is most of them
+$onboardingConfig = "$root\Config\Clients\$Client\Onboarding.json"
+$script:isOnPrem  = (Test-Path $onboardingConfig) -and
+                    ((Get-Content $onboardingConfig -Raw | ConvertFrom-Json).Environment -eq "OnPrem")
+
 Import-Module ActiveDirectory
 
 # Everything printed is also kept, so a screenshot and a file say the same thing
@@ -61,12 +66,24 @@ function Show-State {
     $groups = @($user.MemberOf | ForEach-Object { ($_ -split ',')[0] -replace '^CN=' })
     $ou     = ($user.DistinguishedName -split ',', 2)[1] -replace ',DC=.+$'
 
+    $fields = [ordered]@{
+        "Name    " = "$($user.DisplayName)   ($($user.SamAccountName))"
+        "Job     " = "$($user.Title), $($user.Department)"
+        "Enabled " = "$($user.Enabled)"
+        "Where   " = $ou
+        "Access  " = $(if ($groups) { $groups -join ', ' } else { 'none' })
+    }
+
     Write-Host "   $Label" -ForegroundColor Yellow
-    Write-Host "      Name     : $($user.DisplayName)   ($($user.SamAccountName))"
-    Write-Host "      Job      : $($user.Title), $($user.Department)"
-    Write-Host "      Enabled  : $($user.Enabled)"
-    Write-Host "      Where    : $ou"
-    Write-Host "      Access   : $(if ($groups) { $groups -join ', ' } else { 'none' })"
+    foreach ($field in $fields.Keys) {
+        # Mark what this step actually changed: without it a rename looks like nothing
+        # happened, because job, OU and access are meant to stay exactly as they were
+        $changed = $script:lastFields -and $script:lastFields[$field] -ne $fields[$field]
+        $marker  = if ($changed) { "   <- changed" } else { "" }
+
+        Write-Host "      $field : $($fields[$field])$marker" -ForegroundColor $(if ($changed) { "Green" } else { "Gray" })
+    }
+    $script:lastFields = $fields
 
     $script:timeline.Add([pscustomobject]@{
         Stage          = $Label
@@ -82,7 +99,7 @@ function Show-State {
 }
 
 function Invoke-Chapter {
-    param([int]$Number, [string]$Title, [string]$Story, [string]$StepName, [scriptblock]$Run)
+    param([int]$Number, [string]$Title, [string]$Story, [string]$StepName, [string]$SkippedInCloud, [scriptblock]$Run)
 
     Write-Host "`n$('=' * 70)" -ForegroundColor Cyan
     Write-Host " $Number. $Title" -ForegroundColor Cyan
@@ -121,6 +138,12 @@ function Invoke-Chapter {
             ForEach-Object { Write-Host "      $($_.Trim())" -ForegroundColor Yellow }
     }
 
+    # On an on-prem client the Microsoft 365 steps never run. Saying so beats letting
+    # someone think the script only does the four things they can see.
+    if ($SkippedInCloud -and $script:isOnPrem) {
+        Write-Host "      (skipped, this client has no Microsoft 365: $SkippedInCloud)" -ForegroundColor DarkCyan
+    }
+
     Write-Host "   ... $([math]::Round(((Get-Date) - $start).TotalSeconds, 1))s" -ForegroundColor DarkGray
 }
 
@@ -128,6 +151,7 @@ Write-Host @"
 
   Employee lifecycle demo - $Client
   $(if ($Apply) { "LIVE: this will change Active Directory" } else { "PREVIEW: nothing will be changed (add -Apply)" })
+  $(if ($script:isOnPrem) { "This client is Active Directory only, so every Microsoft 365 step is skipped." } else { "Hybrid client: Active Directory and Microsoft 365." })
   Output: $outDir
 "@ -ForegroundColor $(if ($Apply) { "Green" } else { "Yellow" })
 
@@ -141,25 +165,29 @@ if ($Apply) {
 # Not named $apply: PowerShell variables are case-insensitive, so it would overwrite the -Apply switch
 $applySplat = if ($Apply) { @{ Apply = $true } } else { @{} }
 
-Invoke-Chapter 1 "HIRED" "HR sends a new starter. Account, right department, right access, temporary password." "hired" {
+Invoke-Chapter 1 "HIRED" "HR sends a new starter. Account, right department, right access, temporary password." "hired" `
+    "Entra sync, Microsoft 365 license, mailbox, distribution lists, day-one access pass" {
     & "$root\Onboarding\Onboarding.ps1" -Client $Client -FirstName $FirstName -LastName $LastName `
         -Title "Sales Rep" -Department Sales -Role "Sales Rep" @applySplat
 }
 Show-State "After hiring:" @($startSam)
 
-Invoke-Chapter 2 "PROMOTED" "Moving to IT. Old access comes off, new access goes on, and they move department." "promoted" {
+Invoke-Chapter 2 "PROMOTED" "Moving to IT. Old access comes off, new access goes on, and they move department." "promoted" `
+    "swapping the department distribution lists and the role's Microsoft 365 license" {
     & "$root\Mover\Mover.ps1" -Client $Client -SamAccountName $startSam `
         -Title "Support Technician" -Department IT -Role Technician @applySplat
 }
 Show-State "After the role change:" @($startSam)
 
-Invoke-Chapter 3 "NAME CHANGE" "They got married. New name, new username, and mail to the old address still arrives." "namechange" {
+Invoke-Chapter 3 "NAME CHANGE" "They got married. New name, new username, and mail to the old address still arrives." "namechange" `
+    "pushing the new name to Microsoft 365 straight away instead of waiting for the next sync" {
     & "$root\NameChange\Set-UserName.ps1" -Client $Client -SamAccountName $startSam `
         -NewLastName $NewLastName -NewUsername $endSam @applySplat
 }
 Show-State "After the name change:" @($endSam, $startSam)
 
-Invoke-Chapter 4 "LEAVING" "Last day. Locked out, access stripped, moved to the leavers area." "leaving" {
+Invoke-Chapter 4 "LEAVING" "Last day. Locked out, access stripped, moved to the leavers area." "leaving" `
+    "signing them out everywhere, wiping company data from their phone, handing the mailbox and OneDrive to their manager, out of office, hiding them from the address book, freeing the license" {
     & "$root\Offboarding\Offboarding.ps1" -Client $Client -SamAccountName $endSam @applySplat
 }
 Show-State "After offboarding:" @($endSam)
@@ -169,7 +197,8 @@ $snapshot = Get-ChildItem "$root\Reports\Snapshots" -Recurse -Filter "$endSam`_b
             Sort-Object LastWriteTime | Select-Object -Last 1
 
 if ($snapshot) {
-    Invoke-Chapter 5 "UNDO" "Wrong person. Put them back exactly as the before-snapshot recorded them." "undo" {
+    Invoke-Chapter 5 "UNDO" "Wrong person. Put them back exactly as the before-snapshot recorded them." "undo" `
+        "the license and mailbox type, which the report lists for a person to put back by hand" {
         & "$root\Rollback\Restore-FromSnapshot.ps1" -SnapshotFile $snapshot.FullName @applySplat
     }
     Show-State "After the undo:" @($endSam)
