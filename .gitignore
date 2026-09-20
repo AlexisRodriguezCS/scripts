@@ -4,3 +4,6 @@ Config/Clients/
 **/Logs/
 Reports/
 Backups/
+
+# Demo runs produce real account data; keep it out of the repo
+Demo/Output/
