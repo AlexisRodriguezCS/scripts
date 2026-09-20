@@ -93,4 +93,33 @@ Describe "UserAttributes" {
             Should -Invoke Set-ADUser -ModuleName UserAttributes -Times 0 -Exactly
         }
     }
+
+    Context "Protected accounts" {
+
+        BeforeEach {
+            Mock Get-ADUser {
+                [pscustomobject]@{ SamAccountName = "admin"; DistinguishedName = "CN=Admin,DC=corp,DC=local"; DisplayName = "Admin"; Title = "Tech"; adminCount = 1 }
+            } -ModuleName UserAttributes
+            Mock Set-ADUser {} -ModuleName UserAttributes
+            Mock Save-UserSnapshot {} -ModuleName UserAttributes
+        }
+
+        It "refuses to edit an AD admin" {
+            $result = Invoke-UserAttributesUpdate -Requests @([pscustomobject]@{ SamAccountName = "admin"; Title = "Boss" }) `
+                                                 -LogFile $logFile -Config $Config -Apply $true
+
+            $result.Users[0].Status | Should -Be "Invalid"
+            $result.Users[0].Errors | Should -Match "Protected account"
+            Should -Invoke Set-ADUser -ModuleName UserAttributes -Times 0 -Exactly
+        }
+
+        It "lets IT through with -AllowProtected" {
+            $result = Invoke-UserAttributesUpdate -Requests @([pscustomobject]@{ SamAccountName = "admin"; Title = "Boss" }) `
+                                                 -LogFile $logFile -Apply $true `
+                                                 -Config ([pscustomobject]@{ TenantDomain = "tenant.onmicrosoft.com"; AllowProtected = $true })
+
+            $result.Users[0].Status | Should -Be "Updated"
+            Should -Invoke Set-ADUser -ModuleName UserAttributes -Times 1 -Exactly
+        }
+    }
 }

@@ -25,7 +25,7 @@ function Get-UserAttributesIdentity {
 
         # Look up the user in AD with every attribute we might change (read-only, runs in dry run too)
         try {
-            $adUser = Get-ADUser -Filter "SamAccountName -eq '$sam'" -Properties ($script:ManagedUserAttributes + "DisplayName") -ErrorAction Stop
+            $adUser = Get-ADUser -Filter "SamAccountName -eq '$sam'" -Properties ($script:ManagedUserAttributes + @("DisplayName", "adminCount")) -ErrorAction Stop
         }
         catch {
             throw "AD lookup failed: $($_.Exception.Message)"
@@ -34,6 +34,15 @@ function Get-UserAttributesIdentity {
         if (-not $adUser) {
             $PipelineObject.Status = "NotFound"
             Write-Log -Message "[$id] [$stepName] Lookup -> $sam : NOT_FOUND" -Level "WARN" -LogFile $LogFile
+            return
+        }
+
+        # Admins and VIPs can't be edited from an HR request; IT has to do it by hand
+        $protected = Test-ProtectedAccount -AdUser $adUser -Config $Config
+        if ($protected) {
+            $PipelineObject.Errors.Add($protected)
+            $PipelineObject.Status = "Invalid"
+            Write-Log -Message "[$id] [$stepName] Lookup -> $sam : PROTECTED" -Level "WARN" -LogFile $LogFile
             return
         }
 

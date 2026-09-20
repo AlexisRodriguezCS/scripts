@@ -34,6 +34,9 @@ param(
     [Parameter(ParameterSetName = "Single")] [string]$PostalCode,
     [Parameter(ParameterSetName = "Single")] [string]$Description,
 
+    # IT only: allow admin/VIP accounts (the HR request queue never sets this)
+    [switch]$AllowProtected,
+
     [switch]$Apply
 )
 
@@ -45,6 +48,7 @@ if (-Not (Get-Module -ListAvailable -Name "ActiveDirectory")) {
 
 # Same client settings as onboarding (tenant domain)
 $Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
 $LogFile = "$PSScriptRoot\Logs\UserAttributes.log"
@@ -55,7 +59,7 @@ $requests = if ($PSCmdlet.ParameterSetName -eq "Bulk") {
 } else {
     $row = [ordered]@{ SamAccountName = $SamAccountName }
     foreach ($name in $PSBoundParameters.Keys) {
-        if ($name -notin @("Client", "SamAccountName", "Apply") -and $name -notin [System.Management.Automation.PSCmdlet]::CommonParameters) {
+        if ($name -notin @("Client", "SamAccountName", "Apply", "AllowProtected") -and $name -notin [System.Management.Automation.PSCmdlet]::CommonParameters) {
             $row[$name] = $PSBoundParameters[$name]
         }
     }

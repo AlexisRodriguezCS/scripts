@@ -73,6 +73,37 @@ Describe "InactiveAccounts" {
             Test-InactiveAccount -PipelineObject $user -LogFile $logFile -Config $Config -Now $now
             $user.Status | Should -Be "Excluded"
         }
+
+        It "reports an idle admin instead of disabling it" {
+            $user   = New-TestUser "admin@corp.com" -LastSignIn "2020-01-01"
+            $admins = [System.Collections.Generic.HashSet[string]]::new()
+            $null   = $admins.Add("$($user.Raw.Id)")
+
+            Test-InactiveAccount -PipelineObject $user -LogFile $logFile -Config $Config -AdminIds $admins -Now $now
+
+            $user.Status     | Should -Be "AdminReview"
+            $user.Raw.Reason | Should -Match "admin role"
+        }
+
+        It "still disables an idle account that holds no admin role" {
+            $user   = New-TestUser "sally@corp.com" -LastSignIn "2020-01-01"
+            $admins = [System.Collections.Generic.HashSet[string]]::new()
+            $null   = $admins.Add("someone-else")
+
+            Test-InactiveAccount -PipelineObject $user -LogFile $logFile -Config $Config -AdminIds $admins -Now $now
+
+            $user.Status | Should -Be "Inactive"
+        }
+
+        It "never touches accounts on the ProtectedAccounts list" {
+            $user = New-TestUser "ceo@corp.com" -LastSignIn "2020-01-01"
+            $user.Raw.SamAccountName = "ceo"
+
+            Test-InactiveAccount -PipelineObject $user -LogFile $logFile -Now $now `
+                                 -Config ([pscustomobject]@{ MemberInactiveDays = 90; ProtectedAccounts = @("ceo") })
+
+            $user.Status | Should -Be "Excluded"
+        }
     }
 
     Context "New-InactiveAccountPlan" {
@@ -96,6 +127,7 @@ Describe "InactiveAccounts" {
             $users = @(1..5 | ForEach-Object { New-TestUser "old$_@corp.com" -LastSignIn "2025-01-01" }) +
                      @(1..5 | ForEach-Object { New-TestUser "new$_@corp.com" -LastSignIn (Get-Date).AddDays(-1) })
             Mock Get-InactiveAccountData { $users } -ModuleName InactiveAccounts
+            Mock Get-AdminAccountId { [System.Collections.Generic.HashSet[string]]::new() } -ModuleName InactiveAccounts
             Mock Start-InactiveAccountCleanup {} -ModuleName InactiveAccounts
             Mock New-Report {} -ModuleName InactiveAccounts
             Mock Export-Csv {} -ModuleName InactiveAccounts

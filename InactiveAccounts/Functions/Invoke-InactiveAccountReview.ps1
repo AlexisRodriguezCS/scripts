@@ -18,9 +18,12 @@ function Invoke-InactiveAccountReview {
     # Safety net: if a huge share of the tenant looks inactive, something is wrong (e.g. sign-in data missing)
     $maxPercent = if ($Config.MaxPercentToDisable) { $Config.MaxPercentToDisable } else { 10 }
 
+    # Admin role holders, read once: they are reported, never disabled automatically
+    $adminIds = Get-AdminAccountId -LogFile $LogFile
+
     foreach ($user in $users) {
-        # 2. Decide: active, excluded, or inactive
-        Test-InactiveAccount -PipelineObject $user -LogFile $LogFile -Config $Config
+        # 2. Decide: active, excluded, inactive, or an admin for a human to review
+        Test-InactiveAccount -PipelineObject $user -LogFile $LogFile -Config $Config -AdminIds $adminIds
         # 3. Plan: disable members, remove guests
         New-InactiveAccountPlan -PipelineObject $user -LogFile $LogFile
     }
@@ -56,11 +59,12 @@ function Invoke-InactiveAccountReview {
               -Level "INFO" -LogFile $LogFile
 
     return [pscustomobject]@{
-        Checked    = $users.Count
-        Inactive   = $inactive.Count
-        Disabled   = @($users | Where-Object Status -eq "Disabled").Count
-        Removed    = @($users | Where-Object Status -eq "Removed").Count
-        Failed     = @($users | Where-Object Status -eq "Failed").Count
-        ReportFile = $reportFile
+        Checked     = $users.Count
+        Inactive    = $inactive.Count
+        AdminReview = @($users | Where-Object Status -eq "AdminReview").Count
+        Disabled    = @($users | Where-Object Status -eq "Disabled").Count
+        Removed     = @($users | Where-Object Status -eq "Removed").Count
+        Failed      = @($users | Where-Object Status -eq "Failed").Count
+        ReportFile  = $reportFile
     }
 }

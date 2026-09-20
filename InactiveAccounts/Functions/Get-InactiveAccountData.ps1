@@ -37,7 +37,7 @@ function Get-InactiveAccountData {
             Errors = [System.Collections.Generic.List[object]]::new()
             Plan   = @()
             Identity = [pscustomobject]@{ SamAccountName = $user.OnPremisesSamAccountName; EntraUPN = $user.UserPrincipalName }
-            Status  = "Pending"   # Active | Excluded | Inactive | Disabled | Removed | Failed
+            Status  = "Pending"   # Active | Excluded | Inactive | AdminReview | Disabled | Removed | Failed
             StepsCompleted = [System.Collections.Generic.HashSet[string]]::new()
             StepDurations  = @{}
         }
