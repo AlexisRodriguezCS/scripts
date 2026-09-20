@@ -35,19 +35,21 @@ Import-Module "$PSScriptRoot\Mover.psm1" -Force
 # ------------------------
 # CHECK REQUIRED MODULES
 # ------------------------
-# A dry run only reads AD to build the plan. The cloud modules are used once changes
-# are applied, so an on-prem-only machine can still preview what would happen.
+# Same client rules as onboarding (groups, DLs, OUs)
+$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
+
+# "OnPrem" = Active Directory only: no distribution lists, no licenses, no tenant to connect to
+$hasCloud = "$($Config.Environment)" -ne "OnPrem"
+
+# A dry run only reads AD to build the plan; the cloud modules are used once changes are applied
 $requiredModules = @("ActiveDirectory")
-if ($Apply) { $requiredModules += @("ExchangeOnlineManagement", "Microsoft.Graph") }
+if ($Apply -and $hasCloud) { $requiredModules += @("ExchangeOnlineManagement", "Microsoft.Graph") }
 
 foreach ($module in $requiredModules) {
     if (-Not (Get-Module -ListAvailable -Name $module)) {
         throw "Missing module: $module"
     }
 }
-
-# Same client rules as onboarding (groups, DLs, OUs)
-$Config = Get-Config -Script "Onboarding" -Client $Client -RootPath "$PSScriptRoot\.."
 if ($AllowProtected) { $Config | Add-Member -NotePropertyName AllowProtected -NotePropertyValue $true -Force }
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
@@ -63,7 +65,7 @@ $requests = if ($PSCmdlet.ParameterSetName -eq "Bulk") {
 # ------------------------
 # AUTHENTICATE
 # ------------------------
-if ($Apply) {
+if ($Apply -and $hasCloud) {
     Connect-ExchangeOnline -AppId $Config.ClientId `
                            -CertificateThumbprint $Config.CertThumbprint `
                            -Organization $Config.TenantDomain `

@@ -25,6 +25,9 @@ function New-MoverPlan {
         # Only role groups are managed here; anything granted by hand (outside the prefix) is left alone
         $prefix = if ($Config.ManagedGroupPrefix) { $Config.ManagedGroupPrefix } else { "GRP_ROLE_" }
 
+        # An OnPrem client has no Microsoft 365: no distribution lists, no licenses
+        $hasCloud = "$($Config.Environment)" -ne "OnPrem"
+
         # Action: attributes (title, department, manager) - only what changed
         $desired = @{ Title = $raw.Title; Department = $raw.Department }
         if ($identity.ManagerDN) { $desired.Manager = $identity.ManagerDN }
@@ -55,7 +58,7 @@ function New-MoverPlan {
 
         # Action: the new role's license, when the client maps roles to licenses.
         # A promotion from a Business Basic role to an E3 role is otherwise done by hand and forgotten.
-        if ($Config.RoleLicenseSkuIds) {
+        if ($hasCloud -and $Config.RoleLicenseSkuIds) {
             $roleSku = $Config.RoleLicenseSkuIds.PSObject.Properties |
                        Where-Object { $_.Name -eq $raw.Role } | Select-Object -First 1
             if ($roleSku) {
@@ -64,9 +67,11 @@ function New-MoverPlan {
         }
 
         # Action: department / Managers DLs in Exchange Online (checked at run time, needs a connection)
-        $managedLists = @($Config.DistributionLists | Where-Object { $_ -ne $Config.DefaultDistributionList })
-        $desiredLists = @($raw.DistributionList -split ';' | Where-Object { $_ -in $managedLists })
-        $plan += @{ Action = "SyncDistributionLists"; Target = ($desiredLists -join ';'); Result = $null }
+        if ($hasCloud) {
+            $managedLists = @($Config.DistributionLists | Where-Object { $_ -ne $Config.DefaultDistributionList })
+            $desiredLists = @($raw.DistributionList -split ';' | Where-Object { $_ -in $managedLists })
+            $plan += @{ Action = "SyncDistributionLists"; Target = ($desiredLists -join ';'); Result = $null }
+        }
 
         $PipelineObject.Plan = $plan
 

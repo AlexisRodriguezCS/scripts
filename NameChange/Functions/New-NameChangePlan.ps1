@@ -5,13 +5,15 @@ function New-NameChangePlan {
         [PSCustomObject]$PipelineObject,
 
         [Parameter(Mandatory)]
-        [string]$LogFile
+        [string]$LogFile,
+
+        [PSCustomObject]$Config = [pscustomobject]@{}
     )
 
     $stepName = "New-NameChangePlan"
 
-    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepAction {
-        param($PipelineObject, $LogFile)
+    Invoke-PipelineStep -PipelineObject $PipelineObject -StepName $stepName -LogFile $LogFile -StepArgs @($Config) -StepAction {
+        param($PipelineObject, $LogFile, $Config)
 
         if ($PipelineObject.Status -ne "Valid") { return }
 
@@ -38,8 +40,9 @@ function New-NameChangePlan {
             $plan += @{ Action = "UpdateEmail"; Target = $identity.NewUpn; Result = $null }
         }
 
-        # Action: push it to Microsoft 365 now instead of waiting for the next sync cycle
-        if ($plan.Count) {
+        # Action: push it to Microsoft 365 now instead of waiting for the next sync cycle.
+        # An OnPrem client has no tenant to push to.
+        if ($plan.Count -and "$($Config.Environment)" -ne "OnPrem") {
             $plan += @{ Action = "SyncToEntra"; Target = $identity.NewUpn; Result = $null }
         }
 

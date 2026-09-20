@@ -22,14 +22,20 @@ function New-OffboardingPlan {
         $identity = $PipelineObject.Identity
         $plan = @()
 
+        # An OnPrem client has no Microsoft 365: no sessions to revoke, no Intune, no mailbox,
+        # no licenses. Disabling the account and stripping AD groups is the whole job.
+        $hasCloud = "$($Config.Environment)" -ne "OnPrem"
+
         # Action: Disable account first so the user loses access immediately
         $plan += @{ Action = "DisableAccount"; Target = $identity.SamAccountName; Result = $null }
 
-        # Action: Kill M365 sessions right away (AD disable only reaches Entra on the next sync)
-        $plan += @{ Action = "RevokeSessions"; Target = $identity.EntraUPN; Result = $null }
+        if ($hasCloud) {
+            # Action: Kill M365 sessions right away (AD disable only reaches Entra on the next sync)
+            $plan += @{ Action = "RevokeSessions"; Target = $identity.EntraUPN; Result = $null }
 
-        # Action: Remove company data from their phones and laptops (Intune retire)
-        $plan += @{ Action = "RetireDevices"; Target = $identity.EntraUPN; Result = $null }
+            # Action: Remove company data from their phones and laptops (Intune retire)
+            $plan += @{ Action = "RetireDevices"; Target = $identity.EntraUPN; Result = $null }
+        }
 
         # Action: Remove from every AD group (logged in the plan so they can be restored)
         foreach ($group in $identity.MemberOf) {
@@ -41,30 +47,33 @@ function New-OffboardingPlan {
             $plan += @{ Action = "MoveToDisabledOU"; Target = $Config.DisabledOU; Result = $null }
         }
 
-        # Action: Remove from cloud distribution lists (onboarding adds these in Exchange Online, not AD)
-        $plan += @{ Action = "RemoveFromDistributionLists"; Target = $identity.EntraUPN; Result = $null }
+        # Everything below lives in Microsoft 365, so an OnPrem client stops here
+        if ($hasCloud) {
+            # Action: Remove from cloud distribution lists (onboarding adds these in Exchange Online, not AD)
+            $plan += @{ Action = "RemoveFromDistributionLists"; Target = $identity.EntraUPN; Result = $null }
 
-        # Action: Remove from Teams / Microsoft 365 groups (and with them, those teams' SharePoint sites)
-        $plan += @{ Action = "RemoveFromCloudGroups"; Target = $identity.EntraUPN; Result = $null }
+            # Action: Remove from Teams / Microsoft 365 groups (and with them, those teams' SharePoint sites)
+            $plan += @{ Action = "RemoveFromCloudGroups"; Target = $identity.EntraUPN; Result = $null }
 
-        # Action: Convert mailbox to shared (must happen BEFORE license removal or the mailbox is deleted)
-        $plan += @{ Action = "ConvertMailbox"; Target = $identity.EntraUPN; Result = $null }
+            # Action: Convert mailbox to shared (must happen BEFORE license removal or the mailbox is deleted)
+            $plan += @{ Action = "ConvertMailbox"; Target = $identity.EntraUPN; Result = $null }
 
-        # Action: Out of office pointing senders to the manager (or the default contact)
-        $contact = if ($PipelineObject.Raw.Manager) { $PipelineObject.Raw.Manager } else { $Config.DefaultContact }
-        $plan += @{ Action = "SetAutoReply"; Target = $contact; Result = $null }
+            # Action: Out of office pointing senders to the manager (or the default contact)
+            $contact = if ($PipelineObject.Raw.Manager) { $PipelineObject.Raw.Manager } else { $Config.DefaultContact }
+            $plan += @{ Action = "SetAutoReply"; Target = $contact; Result = $null }
 
-        # Action: Hand the manager the mailbox and OneDrive
-        if ($PipelineObject.Raw.Manager) {
-            $plan += @{ Action = "GrantMailboxAccess"; Target = $PipelineObject.Raw.Manager; Result = $null }
-            $plan += @{ Action = "ShareOneDrive"; Target = $PipelineObject.Raw.Manager; Result = $null }
+            # Action: Hand the manager the mailbox and OneDrive
+            if ($PipelineObject.Raw.Manager) {
+                $plan += @{ Action = "GrantMailboxAccess"; Target = $PipelineObject.Raw.Manager; Result = $null }
+                $plan += @{ Action = "ShareOneDrive"; Target = $PipelineObject.Raw.Manager; Result = $null }
+            }
+
+            # Action: Hide from the address book (after mailbox handoff: the manager still has access, new senders can't find them)
+            $plan += @{ Action = "HideFromAddressBook"; Target = $identity.EntraUPN; Result = $null }
+
+            # Action: Remove all licenses (last: removing them earlier would delete the mailbox)
+            $plan += @{ Action = "RemoveLicenses"; Target = $identity.EntraUPN; Result = $null }
         }
-
-        # Action: Remove all licenses
-        # Action: Hide from the address book (after mailbox handoff: the manager still has access, new senders can't find them)
-        $plan += @{ Action = "HideFromAddressBook"; Target = $identity.EntraUPN; Result = $null }
-
-        $plan += @{ Action = "RemoveLicenses"; Target = $identity.EntraUPN; Result = $null }
 
         $PipelineObject.Plan = $plan
 
