@@ -29,5 +29,6 @@
 
 # Load actions
 . $PSScriptRoot\Actions\Sync-MoverDLMembership.ps1
+. $PSScriptRoot\Actions\Switch-MoverLicense.ps1
 
 Export-ModuleMember -Function *

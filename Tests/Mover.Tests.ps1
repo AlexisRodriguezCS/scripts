@@ -105,4 +105,79 @@ Describe "Mover" {
             Should -Invoke Remove-DistributionGroupMember -ModuleName Mover -Times 1 -Exactly -ParameterFilter { $Identity -eq "IT" }
         }
     }
+
+    Context "Switch-MoverLicense" {
+
+        BeforeAll {
+            $script:licenseConfig = [pscustomobject]@{
+                UsageLocation     = "US"
+                RoleLicenseSkuIds = [pscustomobject]@{ "Accountant" = "sku-basic"; "Finance PowerUser" = "sku-e3" }
+            }
+            $script:identity = [pscustomobject]@{ SamAccountName = "lisa"; EntraUPN = "lisa@tenant.onmicrosoft.com" }
+        }
+
+        BeforeEach {
+            Mock Get-MgUser {
+                # Holds the basic role license plus Visio, which nobody asked this script to manage
+                [pscustomobject]@{ UsageLocation = "US"; AssignedLicenses = @(
+                    [pscustomobject]@{ SkuId = "sku-basic" }, [pscustomobject]@{ SkuId = "sku-visio" }) }
+            } -ModuleName Mover
+            Mock Set-MgUserLicense {} -ModuleName Mover
+            Mock Update-MgUser {} -ModuleName Mover
+        }
+
+        It "plans the new role's license when the client maps roles to licenses" {
+            Mock Get-ADUser {
+                [pscustomobject]@{ DistinguishedName = "CN=Lisa,OU=Finance,OU=Employees,DC=corp,DC=local"
+                                   DisplayName = "Lisa"; Title = "Accountant"; Department = "Finance"; MemberOf = @() }
+            } -ModuleName Mover
+
+            $cfg = [pscustomobject]@{
+                DefaultOU = "OU=Employees,DC=corp,DC=local"; TenantDomain = "tenant.onmicrosoft.com"
+                DefaultDistributionList = "AllStaff"; DistributionLists = @("AllStaff", "Finance")
+                Departments = @("Finance"); RoleLicenseSkuIds = $licenseConfig.RoleLicenseSkuIds
+            }
+
+            $user = New-MoverRequest -Row ([pscustomobject]@{ SamAccountName = "lisa"; Title = "Finance Manager"; Department = "Finance"; Role = "Finance PowerUser" }) -LogFile $logFile
+            Test-MoverData     -PipelineObject $user -LogFile $logFile -Config $cfg
+            Get-MoverIdentity  -PipelineObject $user -LogFile $logFile -Config $cfg
+            Set-OnboardingPolicy -PipelineObject $user -LogFile $logFile -Config $cfg
+            New-MoverPlan      -PipelineObject $user -LogFile $logFile -Config $cfg
+
+            @($user.Plan | Where-Object Action -eq "SwitchLicense").Target | Should -Be "sku-e3"
+        }
+
+        It "swaps the old role license and leaves other licenses alone" {
+            $result = InModuleScope Mover -Parameters @{ identity = $identity; Config = $licenseConfig } {
+                param($identity, $Config)
+                Switch-MoverLicense -Identity $identity -Target "sku-e3" -Config $Config -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Match "Swapped"
+            Should -Invoke Set-MgUserLicense -ModuleName Mover -Times 1 -Exactly -ParameterFilter {
+                $AddLicenses[0].SkuId -eq "sku-e3" -and $RemoveLicenses -contains "sku-basic" -and $RemoveLicenses -notcontains "sku-visio"
+            }
+        }
+
+        It "does nothing when they already have the right license" {
+            $result = InModuleScope Mover -Parameters @{ identity = $identity; Config = $licenseConfig } {
+                param($identity, $Config)
+                Switch-MoverLicense -Identity $identity -Target "sku-basic" -Config $Config -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Be "AlreadyAssigned"
+            Should -Invoke Set-MgUserLicense -ModuleName Mover -Times 0 -Exactly
+        }
+
+        It "sets a usage location first when the account has none" {
+            Mock Get-MgUser { [pscustomobject]@{ UsageLocation = $null; AssignedLicenses = @() } } -ModuleName Mover
+
+            $null = InModuleScope Mover -Parameters @{ identity = $identity; Config = $licenseConfig } {
+                param($identity, $Config)
+                Switch-MoverLicense -Identity $identity -Target "sku-e3" -Config $Config -LogFile "TestDrive:\x.log"
+            }
+
+            Should -Invoke Update-MgUser -ModuleName Mover -Times 1 -Exactly -ParameterFilter { $UsageLocation -eq "US" }
+        }
+    }
 }

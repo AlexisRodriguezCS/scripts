@@ -19,14 +19,24 @@ Pipeline details: [Docs/Mover.md](Docs/Mover.md)
 8. Add the new role groups
 9. Remove the old role groups
 10. Move to the new department OU
-11. Swap department distribution lists (All Staff is never touched)
-12. Save an **after** snapshot
-13. Write a report to `Reports/`
+11. Swap the Microsoft 365 license, if the client maps roles to licenses (`RoleLicenseSkuIds`)
+12. Swap department distribution lists (All Staff is never touched)
+13. Save an **after** snapshot
+14. Write a report to `Reports/`
 
-Steps 6–12 only run with `-Apply`.
+Steps 6–13 only run with `-Apply`.
 
 Only groups starting with `GRP_ROLE_` (configurable: `ManagedGroupPrefix`) are added or removed.
 Anything granted by hand stays.
+
+Licenses work the same way: only the SKUs listed in `RoleLicenseSkuIds` are swapped. A Visio or Project licence bought separately is left alone. Leave the setting out and licenses aren't touched at all.
+
+```json
+"RoleLicenseSkuIds": {
+    "Accountant":        "22222222-2222-2222-2222-222222222222",
+    "Finance PowerUser": "33333333-3333-3333-3333-333333333333"
+}
+```
 
 ---
 

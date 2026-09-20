@@ -53,6 +53,16 @@ function New-MoverPlan {
             $plan += @{ Action = "MoveToDepartmentOU"; Target = $targetOu; Result = $null }
         }
 
+        # Action: the new role's license, when the client maps roles to licenses.
+        # A promotion from a Business Basic role to an E3 role is otherwise done by hand and forgotten.
+        if ($Config.RoleLicenseSkuIds) {
+            $roleSku = $Config.RoleLicenseSkuIds.PSObject.Properties |
+                       Where-Object { $_.Name -eq $raw.Role } | Select-Object -First 1
+            if ($roleSku) {
+                $plan += @{ Action = "SwitchLicense"; Target = $roleSku.Value; Result = $null }
+            }
+        }
+
         # Action: department / Managers DLs in Exchange Online (checked at run time, needs a connection)
         $managedLists = @($Config.DistributionLists | Where-Object { $_ -ne $Config.DefaultDistributionList })
         $desiredLists = @($raw.DistributionList -split ';' | Where-Object { $_ -in $managedLists })
