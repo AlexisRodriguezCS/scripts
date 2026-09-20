@@ -69,7 +69,9 @@ function Set-OnboardingPolicy {
 
         # Log what was set
         $id   = $PipelineObject.CorrelationId.Substring(0,8)
-        $name = "$($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)"
+        # A role change works from a username, so there is no first/last name to print
+        $name = "$($PipelineObject.Raw.FirstName) $($PipelineObject.Raw.LastName)".Trim()
+        if (-not $name) { $name = $PipelineObject.Raw.SamAccountName }
 
         $dl     = $PipelineObject.Raw.DistributionList
         $groups = $PipelineObject.Raw.ADGroups
