@@ -127,6 +127,7 @@ Describe "InactiveAccounts" {
             $users = @(1..5 | ForEach-Object { New-TestUser "old$_@corp.com" -LastSignIn "2025-01-01" }) +
                      @(1..5 | ForEach-Object { New-TestUser "new$_@corp.com" -LastSignIn (Get-Date).AddDays(-1) })
             Mock Get-InactiveAccountData { $users } -ModuleName InactiveAccounts
+            Mock Get-AdminAccountId { [System.Collections.Generic.HashSet[string]]::new() } -ModuleName InactiveAccounts
             Mock Start-InactiveAccountCleanup {} -ModuleName InactiveAccounts
             Mock New-Report {} -ModuleName InactiveAccounts
             Mock Export-Csv {} -ModuleName InactiveAccounts
