@@ -10,6 +10,7 @@ What a business actually needs from identity automation: **stay secure, stop was
 - [x] **Onboarding** – new hire gets account, groups, email lists, license, random temp password
 - [x] **Role change (mover)** – new title/department/manager, old role access swapped for new
 - [x] **User attributes** – HR/IT update details (title, phone, office...), only what changed
+- [x] **Name change** – marriage or legal name change: name, optional username and email, old address kept as an alias
 - [x] **Offboarding** – lock out, remove access, mailbox + OneDrive to manager, free licenses
 - [x] **One person or bulk** – every people script takes parameters or a CSV
 

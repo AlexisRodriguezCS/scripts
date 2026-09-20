@@ -25,6 +25,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [Onboarding](Onboarding/README.md) | New hire: AD account, groups, email lists, license, random temp password | Both |
 | [Mover](Mover/README.md) | Role change: new title/department/manager, swap old access for new | Both |
 | [User Attributes](UserAttributes/README.md) | Update details: title, phone, office, manager... only what changed | Both |
+| [Name Change](NameChange/README.md) | Marriage or legal name change: new name, optional new username and email, old address kept as an alias | Both |
 | [Offboarding](Offboarding/README.md) | Leaver: lock out, remove access, mailbox + OneDrive to manager, free licenses | Both |
 
 **Scheduled**
