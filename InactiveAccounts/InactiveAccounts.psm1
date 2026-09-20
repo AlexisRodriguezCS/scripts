@@ -11,6 +11,7 @@
 # Load functions
 . $PSScriptRoot\Functions\Invoke-InactiveAccountReview.ps1
 . $PSScriptRoot\Functions\Get-InactiveAccountData.ps1
+. $PSScriptRoot\Functions\Get-AdminAccountId.ps1
 . $PSScriptRoot\Functions\Test-InactiveAccount.ps1
 . $PSScriptRoot\Functions\New-InactiveAccountPlan.ps1
 . $PSScriptRoot\Functions\Start-InactiveAccountCleanup.ps1

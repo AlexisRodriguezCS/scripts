@@ -10,20 +10,21 @@ Pipeline details: [Docs/InactiveAccounts.md](Docs/InactiveAccounts.md)
 ## Steps
 
 1. Get every enabled account and its last sign-in from Entra
-2. Skip anyone on the exclusion list (break-glass, service accounts)
+2. Skip anyone on the exclusion list (`ExcludeAccounts`) or the protected list (`ProtectedAccounts`): break-glass, service and VIP accounts
 3. Mark as inactive:
    * Employees: no sign-in for `MemberInactiveDays` (default 90)
    * Guests: no sign-in for `GuestInactiveDays` (default 90)
    * Never signed in: counted from the day the account was created, so new hires aren't caught
-4. Plan: disable employees, remove guests
-5. **Safety stop:** if more than `MaxPercentToDisable` (default 10%) of accounts look inactive, nothing is changed (usually means sign-in data is missing)
-6. Save **before** snapshot
-7. Disable (synced users in AD, cloud users in Entra) or remove guest
-8. Save **after** snapshot
-9. Write a report + CSV to `Reports/`
-10. Alert if there's anything to review
+4. An idle account that **holds an admin role** is never disabled automatically: it goes in the report as `AdminReview` for a human (an unused admin account is often break-glass, on purpose)
+5. Plan: disable employees, remove guests
+6. **Safety stop:** if more than `MaxPercentToDisable` (default 10%) of accounts look inactive, nothing is changed (usually means sign-in data is missing)
+7. Save **before** snapshot
+8. Disable (synced users in AD, cloud users in Entra) or remove guest
+9. Save **after** snapshot
+10. Write a report + CSV to `Reports/`
+11. Alert if there's anything to review
 
-Steps 6–8 only run with `-Apply`.
+Steps 7–9 only run with `-Apply`.
 
 ---
 

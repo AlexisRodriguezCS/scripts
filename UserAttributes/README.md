@@ -12,7 +12,7 @@ Pipeline details: [Docs/UserAttributes.md](Docs/UserAttributes.md)
 
 1. Read the request (one person or a CSV)
 2. Validate: username, only allowed attributes, nothing empty or too long
-3. Look up the user in AD (and the manager, if changing manager)
+3. Look up the user in AD (and the manager, if changing manager), and stop if the account is protected (admin or VIP)
 4. Plan one change per value that is actually different
 5. Save a **before** snapshot
 6. Apply each change
@@ -20,6 +20,8 @@ Pipeline details: [Docs/UserAttributes.md](Docs/UserAttributes.md)
 8. Write a report to `Reports/`
 
 Steps 5–7 only run with `-Apply`. If nothing is different, nothing is changed (`NoChange`).
+
+Admin and VIP accounts (`adminCount = 1`, or on the `ProtectedAccounts` list) are refused, so an HR request can't edit them. IT can override by running the script by hand with `-AllowProtected`.
 
 ---
 
