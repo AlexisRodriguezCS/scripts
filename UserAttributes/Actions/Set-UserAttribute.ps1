@@ -17,6 +17,10 @@ function Set-UserAttribute {
         [Parameter(Mandatory)]
         [string]$Value,
 
+        # What it was, so the log says "'Sales Rep' is now 'Support Technician'"
+        [AllowEmptyString()]
+        [string]$Old,
+
         [Parameter(Mandatory)]
         [string]$LogFile
     )
@@ -26,5 +30,9 @@ function Set-UserAttribute {
     $params[$Attribute] = $Value
 
     Set-ADUser @params
+
+    if ($PSBoundParameters.ContainsKey("Old")) {
+        return "$(if ($Old) { "'$Old'" } else { "(empty)" }) is now '$Value'"
+    }
     return "Updated"
 }

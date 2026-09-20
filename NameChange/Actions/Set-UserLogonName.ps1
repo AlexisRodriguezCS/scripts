@@ -22,5 +22,6 @@ function Set-UserLogonName {
     Write-Log -Message "[Set-UserLogonName] $($Identity.SamAccountName) -> $($Identity.NewSamAccountName): the old username stops working, tell them before they next sign in" `
               -Level "WARN" -LogFile $LogFile
 
-    return "Signs in as $($Identity.NewUpn)"
+    # The old name is the point of the line: it's what stops working
+    return "$($Identity.Current.UserPrincipalName) is now $($Identity.NewUpn)"
 }

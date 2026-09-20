@@ -8,6 +8,10 @@ function Rename-UserAccount {
         [string]$LogFile
     )
 
+    # Kept before the change, so the log can say what it was and not just what it is
+    $previousName = "$($Identity.Current.DisplayName)"
+    if (-not $previousName) { $previousName = "$($Identity.Current.GivenName) $($Identity.Current.Surname)".Trim() }
+
     # First name, last name and what everyone sees in Outlook
     Set-ADUser -Identity $Identity.DistinguishedName `
                -GivenName $Identity.FirstName `
@@ -25,5 +29,8 @@ function Rename-UserAccount {
         $Identity.DistinguishedName = $Identity.DistinguishedName -replace '^CN=[^,]+', "CN=$($Identity.DisplayName)"
     }
 
+    if ($previousName -and $previousName -cne $Identity.DisplayName) {
+        return "$previousName is now $($Identity.DisplayName)"
+    }
     return "Renamed to $($Identity.DisplayName)"
 }

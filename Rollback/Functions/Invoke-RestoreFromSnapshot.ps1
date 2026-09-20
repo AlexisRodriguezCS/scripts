@@ -23,7 +23,7 @@ function Invoke-RestoreFromSnapshot {
     if ($Apply -and $user.Status -eq "Valid") {
         $actions = @{
             EnableAccount   = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Enable-ADAccount -Identity $p.Identity.DistinguishedName -ErrorAction Stop; "Enabled" } }
-            SetAttribute    = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t, $item) Set-UserAttribute -Identity $p.Identity -Attribute $t -Value $item.Value -LogFile $LogFile } }
+            SetAttribute    = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t, $item) Set-UserAttribute -Identity $p.Identity -Attribute $t -Value $item.Value -Old $item.Old -LogFile $LogFile } }
             AddToGroup      = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Add-ADGroupMember -Identity $t -Members $p.Identity.DistinguishedName -ErrorAction Stop; "Added back" } }
             RemoveFromGroup = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Remove-OffboardingGroupMember -Identity $p.Identity -Target $t -LogFile $LogFile } }
             MoveToOU        = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Move-OffboardingUser -Identity $p.Identity -Target $t -LogFile $LogFile } }
