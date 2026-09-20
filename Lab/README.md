@@ -14,9 +14,14 @@ Creates the Hyper-V VM. You need a Windows Server ISO first — the [free 180-da
 
 ```powershell
 .\Lab\New-LabVM.ps1 -IsoPath "C:\Users\me\Downloads\server2025.iso"
+
+# or keep the whole lab on another drive
+.\Lab\New-LabVM.ps1 -IsoPath "C:\Users\me\Downloads\server2025.iso" -Path "S:\Hyper-V"
 ```
 
 Makes a Generation 2 VM (4 GB dynamic RAM, 2 CPUs, 60 GB disk) on the Default Switch, boots from the ISO, and turns off checkpoints — snapshots of a domain controller cause more problems than they solve.
+
+`-Path` puts the VM's config and its disk in one folder, so the whole lab is a single thing to move, back up or delete.
 
 Then install Windows in the VM window: **Desktop Experience**, Custom, whole disk.
 

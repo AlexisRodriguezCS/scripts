@@ -6,6 +6,9 @@
 
     .\Lab\New-LabVM.ps1 -IsoPath "C:\Users\me\Downloads\server2025.iso"
 
+    Put the lab on another drive with -Path:
+    .\Lab\New-LabVM.ps1 -IsoPath "...\server2025.iso" -Path "S:\Hyper-V"
+
     Then install Windows in the VM window, and run Lab\Initialize-LabDomain.ps1 inside it.
 #>
 [CmdletBinding()]
@@ -22,7 +25,11 @@ param(
     [int]$DiskGB = 60,
 
     # "Default Switch" gives the VM internet through the host, with no network setup
-    [string]$SwitchName = "Default Switch"
+    [string]$SwitchName = "Default Switch",
+
+    # Where the VM and its disk go, e.g. a second SSD: -Path "S:\Hyper-V".
+    # Left out, Hyper-V's own default folders are used.
+    [string]$Path
 )
 
 $ErrorActionPreference = "Stop"
@@ -35,14 +42,19 @@ if (-not (Get-VMSwitch -Name $SwitchName -ErrorAction SilentlyContinue)) {
     throw "No virtual switch called '$SwitchName'. Run Get-VMSwitch to see what you have."
 }
 
-$vhdPath = Join-Path (Get-VMHost).VirtualHardDiskPath "$Name.vhdx"
+# Keep the VM's config and its disk together, so the whole lab is one folder to copy or delete
+$vmRoot  = if ($Path) { $Path } else { (Get-VMHost).VirtualMachinePath }
+$diskDir = if ($Path) { Join-Path $Path "Disks" } else { (Get-VMHost).VirtualHardDiskPath }
+$null    = New-Item -ItemType Directory -Path $vmRoot, $diskDir -Force
+
+$vhdPath = Join-Path $diskDir "$Name.vhdx"
 if (Test-Path $vhdPath) { throw "$vhdPath already exists; delete it or pick another -Name" }
 
-Write-Host "Creating $Name ($MemoryGB GB RAM, $DiskGB GB disk)..." -ForegroundColor Cyan
+Write-Host "Creating $Name ($MemoryGB GB RAM, $DiskGB GB disk) in $vmRoot..." -ForegroundColor Cyan
 
 # Generation 2 = UEFI, which Server 2019 and later expect
 $vm = New-VM -Name $Name -Generation 2 -MemoryStartupBytes ($MemoryGB * 1GB) `
-             -NewVHDPath $vhdPath -NewVHDSizeBytes ($DiskGB * 1GB) -SwitchName $SwitchName
+             -Path $vmRoot -NewVHDPath $vhdPath -NewVHDSizeBytes ($DiskGB * 1GB) -SwitchName $SwitchName
 
 # Dynamic memory: the DC idles at about 1.5 GB, so the host keeps the rest
 Set-VMMemory  -VMName $Name -DynamicMemoryEnabled $true -MinimumBytes 1GB -MaximumBytes ($MemoryGB * 1GB)
