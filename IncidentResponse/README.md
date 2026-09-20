@@ -2,6 +2,8 @@
 
 The "someone got phished" playbook as one command. IT runs it by hand, the moment a compromise is suspected.
 
+Pipeline details: [Docs/IncidentResponse.md](Docs/IncidentResponse.md)
+
 ---
 
 ## Steps

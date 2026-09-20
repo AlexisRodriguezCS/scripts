@@ -4,6 +4,8 @@ Puts a user back the way a **before** snapshot recorded them. For mistakes: the 
 
 Every script that changes a user (onboarding excluded) saves `Reports/Snapshots/<Script>_<date>/<user>_before.json` first. This script uses that file.
 
+Pipeline details: [Docs/Rollback.md](Docs/Rollback.md)
+
 ---
 
 ## Steps

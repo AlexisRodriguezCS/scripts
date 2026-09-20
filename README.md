@@ -36,7 +36,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 | [Mailbox Size Warnings](MailboxQuota/README.md) | Emails people before their mailbox fills up (80/90/95%, once a month per level) | Daily |
 | [Inactive Accounts](InactiveAccounts/README.md) | Disables unused accounts, removes old guests (safety stop included) | Weekly |
 | [Stale Devices](StaleDevices/README.md) | Retires Intune devices that stopped checking in, deletes very old records (safety stop included) | Weekly |
-| [Audits](Audits/README.md) | MFA gaps, admin roles, standing admins (PIM), risky users, Conditional Access changes (with backups), SPF/DKIM/DMARC, mail forwarding, ownerless groups, shared mailbox access, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
+| [Audits](Audits/README.md) | MFA gaps, admin roles, standing admins (PIM), risky users, Conditional Access changes (with backups), SPF/DKIM/DMARC, mail forwarding, ownerless groups, shared mailbox access, external sharing and stale guests, expiring app secrets, wasted licenses, access reviews, offboarding check | Weekly |
 
 **IT tools** (run by hand)
 
@@ -280,6 +280,71 @@ Settings every config can have:
 }
 ```
 </details>
+
+<details>
+<summary>MailboxQuota.json</summary>
+
+```json
+{
+    "WarnAtPercent": [80, 90, 95],
+    "SenderMailbox": "it-helpdesk@contoso.com",
+    "EmailSubject": "Your mailbox is {Percent}% full",
+    "EmailBody": "Hi {Name},\n\nYour mailbox is {Percent}% full ({Used} of {Quota} GB).\nDelete or archive old mail so you don't stop receiving messages.\n\nIT Help Desk",
+    "TenantDomain": "contoso.onmicrosoft.com",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+</details>
+
+<details>
+<summary>StaleDevices.json</summary>
+
+```json
+{
+    "RetireAfterDays": 90,
+    "DeleteAfterDays": 180,
+    "MaxPercentToChange": 20,
+    "ExcludeDevices": ["LOBBY-KIOSK", "CONF-ROOM-01"],
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+</details>
+
+<details>
+<summary>IncidentResponse.json</summary>
+
+```json
+{
+    "TenantDomain": "contoso.onmicrosoft.com",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000",
+    "AlertEmail": "security@contoso.com"
+}
+```
+</details>
+
+<details>
+<summary>UserActivity.json</summary>
+
+```json
+{
+    "LockoutServer": "DC01.contoso.local",
+    "Environment": "Hybrid",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "ClientId": "11111111-1111-1111-1111-111111111111",
+    "CertThumbprint": "0000000000000000000000000000000000000000"
+}
+```
+
+`Environment` set to `OnPrem` makes the script use `-SamAccountName` and skip Entra entirely.
+</details>
+
+Every config also takes `AlertWebhookUrl` / `AlertEmail` (see [Alerts](#how-it-works)) and `MaxConsecutiveFailures` for the circuit breaker. Secrets are written as `"secret:Name"` and read from the vault, never stored here.
 
 ---
 

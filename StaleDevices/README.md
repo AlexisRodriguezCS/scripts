@@ -3,6 +3,8 @@
 Cleans up laptops and phones that stopped checking in to Intune.
 Lost, replaced or forgotten devices still hold company data and clutter compliance reports.
 
+Pipeline details: [Docs/StaleDevices.md](Docs/StaleDevices.md)
+
 ---
 
 ## Steps

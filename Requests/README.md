@@ -65,3 +65,21 @@ The **Status** column tells you what's happening:
 6. Temp passwords are emailed to IT, **never** written to the list
 7. Set **Done** or **Needs attention** with a plain-English result
 8. Alert IT if anything needs attention
+
+A request type the automation doesn't know (renamed in the list, or a typo) is reported as *Needs attention* naming the type, rather than failing quietly.
+
+---
+
+## Usage
+
+**Preview** — reads the list and shows what would happen. Nothing is changed and the list isn't updated:
+```powershell
+.\Requests\Invoke-RequestQueue.ps1 -Client "ClientA"
+```
+
+**Process** — the scheduled run:
+```powershell
+.\Requests\Invoke-RequestQueue.ps1 -Client "ClientA" -Apply
+```
+
+Runs every 15 minutes as a scheduled task ([`Setup/Register-ScheduledTasks.ps1`](../Setup/Register-ScheduledTasks.ps1)). Safe to run by hand at any time: each request is claimed as *Processing* first, so two runs can't process the same one.
