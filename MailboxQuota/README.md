@@ -2,6 +2,8 @@
 
 Emails people before their mailbox fills up. A full mailbox stops sending (and then receiving) mail, which always turns into an urgent ticket.
 
+Pipeline details: [Docs/MailboxQuota.md](Docs/MailboxQuota.md)
+
 ---
 
 ## Steps

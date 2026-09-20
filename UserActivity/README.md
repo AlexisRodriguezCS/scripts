@@ -3,6 +3,8 @@
 "My password doesn't work." "I got locked out." "I can't get into Teams."
 One command shows everything that happened to the account, as a single timeline with a **plain-English summary on top**. Read-only.
 
+Pipeline details: [Docs/UserActivity.md](Docs/UserActivity.md)
+
 ---
 
 ## What it looks at
