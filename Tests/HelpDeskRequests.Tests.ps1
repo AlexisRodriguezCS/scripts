@@ -107,4 +107,17 @@ Describe "Help desk requests" {
             $row.Change | Should -Be "Add"
         }
     }
+
+    Context "Unknown request type" {
+
+        It "says which type it doesn't handle instead of failing silently" {
+            Mock ConvertTo-RequestRow { [pscustomobject]@{ SamAccountName = "jdoe" } } -ModuleName Requests
+
+            $outcome = Invoke-Request -Fields @{ RequestType = "Office move" } -Configs @{ Requests = $Config } `
+                                      -LogFile "TestDrive:\r.log" -Apply $false
+
+            $outcome.Ok      | Should -BeFalse
+            $outcome.Message | Should -Match "Office move"
+        }
+    }
 }

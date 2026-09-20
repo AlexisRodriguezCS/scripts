@@ -36,3 +36,5 @@ Restore:
 ```
 
 Snapshots are kept 90 days (see [SECURITY.md](../SECURITY.md)). A user deleted from AD can't be restored this way; use the AD Recycle Bin.
+
+**No alerts.** The scheduled scripts alert because nobody is watching them. This one is run by hand, so the result is on screen and in `Reports/RestoreReport_*.txt`; anything the restore couldn't do (licenses, mailbox type) is listed under **DO BY HAND**.

@@ -27,6 +27,15 @@ function Test-StaleDevice {
             return
         }
 
+        # A device that never checked in has no last sync; it's as stale as it gets
+        if (-not $raw.LastSync) {
+            $raw.DaysSinceSync = [int]::MaxValue
+            $PipelineObject.Status = "Stale"
+            Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] $($raw.DeviceName) ($($raw.Owner)) : STALE - never checked in" `
+                      -Level "INFO" -LogFile $LogFile
+            return
+        }
+
         $raw.DaysSinceSync = [int]($Now - [datetime]$raw.LastSync).TotalDays
 
         if ($raw.DaysSinceSync -ge $Config.RetireAfterDays) {

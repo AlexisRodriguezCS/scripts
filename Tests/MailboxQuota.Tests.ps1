@@ -13,6 +13,20 @@ Describe "MailboxQuota" {
         Mock Write-Log {} -ModuleName MailboxQuota
     }
 
+    It "keeps a name with regex characters intact in the email" {
+        Mock Send-MgUserMail {} -ModuleName MailboxQuota
+
+        InModuleScope MailboxQuota {
+            $raw = [pscustomobject]@{ DisplayName = 'O''Neil $1 & Co'; Mail = "x@corp.com"; PercentUsed = 92; UsedGB = 92; QuotaGB = 100 }
+            $cfg = [pscustomobject]@{ SenderMailbox = "it@corp.com"; EmailSubject = "{Percent}% full"; EmailBody = "Hi {Name}, {Used} of {Quota} GB used." }
+            Send-MailboxQuotaWarning -Raw $raw -Config $cfg -LogFile "TestDrive:\q.log"
+        }
+
+        Should -Invoke Send-MgUserMail -ModuleName MailboxQuota -Times 1 -Exactly -ParameterFilter {
+            $BodyParameter.Message.Body.Content -eq 'Hi O''Neil $1 & Co, 92 of 100 GB used.'
+        }
+    }
+
     It "reads byte counts from Exchange size strings" {
         InModuleScope MailboxQuota { ConvertTo-Bytes "49.5 GB (53,150,220,288 bytes)" } | Should -Be 53150220288
         InModuleScope MailboxQuota { ConvertTo-Bytes "Unlimited" } | Should -BeNullOrEmpty

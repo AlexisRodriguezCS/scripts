@@ -27,7 +27,7 @@ foreach ($module in @("ActiveDirectory", "Microsoft.Graph")) {
 $Config = Get-Config -Script "InactiveAccounts" -Client $Client -RootPath "$PSScriptRoot\.."
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
-$LogFile = "$PSScriptRoot\$($Config.LogPath)"
+$LogFile = "$PSScriptRoot\Logs\InactiveAccounts.log"
 
 # ------------------------
 # AUTHENTICATE (read access is needed even for a review)
