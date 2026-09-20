@@ -94,6 +94,31 @@ Describe "UserAttributes" {
         }
     }
 
+    Context "Set-UserAttribute log line" {
+
+        It "says what the value was, not just that it updated" {
+            Mock Set-ADUser {} -ModuleName UserAttributes
+
+            $result = InModuleScope UserAttributes {
+                $identity = [pscustomobject]@{ DistinguishedName = "CN=John,DC=corp,DC=local" }
+                Set-UserAttribute -Identity $identity -Attribute "Title" -Value "Senior Tech" -Old "Tech" -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Be "'Tech' is now 'Senior Tech'"
+        }
+
+        It "says (empty) when there was nothing there before" {
+            Mock Set-ADUser {} -ModuleName UserAttributes
+
+            $result = InModuleScope UserAttributes {
+                $identity = [pscustomobject]@{ DistinguishedName = "CN=John,DC=corp,DC=local" }
+                Set-UserAttribute -Identity $identity -Attribute "OfficePhone" -Value "555-0142" -Old "" -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Be "(empty) is now '555-0142'"
+        }
+    }
+
     Context "Protected accounts" {
 
         BeforeEach {

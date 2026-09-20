@@ -110,6 +110,57 @@ Describe "NameChange" {
         }
     }
 
+    Context "Log lines say what it was" {
+
+        BeforeEach {
+            $script:identity = [pscustomobject]@{
+                SamAccountName    = "jsmith"
+                NewSamAccountName = "jjohnson"
+                DistinguishedName = "CN=Jane Smith,OU=Sales,DC=corp,DC=local"
+                DisplayName       = "Jane Johnson"
+                FirstName         = "Jane"
+                LastName          = "Johnson"
+                NewUpn            = "jjohnson@corp.com"
+                Current           = [pscustomobject]@{
+                    DisplayName       = "Jane Smith"
+                    GivenName         = "Jane"
+                    Surname           = "Smith"
+                    UserPrincipalName = "jsmith@corp.com"
+                    proxyAddresses    = @("SMTP:jsmith@corp.com")
+                }
+            }
+        }
+
+        It "renaming says the old name, not just the new one" {
+            $result = InModuleScope NameChange -Parameters @{ identity = $identity } {
+                param($identity)
+                Rename-UserAccount -Identity $identity -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Be "Jane Smith is now Jane Johnson"
+        }
+
+        It "changing the sign-in name says the old one, since that is what stops working" {
+            Mock Get-ADUser { $null } -ModuleName NameChange
+
+            $result = InModuleScope NameChange -Parameters @{ identity = $identity } {
+                param($identity)
+                Set-UserLogonName -Identity $identity -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Be "jsmith@corp.com is now jjohnson@corp.com"
+        }
+
+        It "changing the address says the old one and what happened to it" {
+            $result = InModuleScope NameChange -Parameters @{ identity = $identity } {
+                param($identity)
+                Update-UserEmailAddress -Identity $identity -Target "jjohnson@corp.com" -KeepOld $true -LogFile "TestDrive:\x.log"
+            }
+
+            $result | Should -Be "jsmith@corp.com is now jjohnson@corp.com (jsmith@corp.com kept as an alias)"
+        }
+    }
+
     Context "Username and email" {
 
         It "changes the sign-in name and makes the new address primary" {

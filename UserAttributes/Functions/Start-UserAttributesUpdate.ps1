@@ -13,7 +13,7 @@ function Start-UserAttributesUpdate {
     if ($PipelineObject.Status -ne "Valid") { return $PipelineObject }
 
     $actions = @{
-        SetAttribute = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t, $item) Set-UserAttribute -Identity $p.Identity -Attribute $t -Value $item.Value -LogFile $LogFile } }
+        SetAttribute = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t, $item) Set-UserAttribute -Identity $p.Identity -Attribute $t -Value $item.Value -Old $item.Old -LogFile $LogFile } }
     }
 
     if ($SnapshotFolder) { $null = Save-UserSnapshot -PipelineObject $PipelineObject -Stage Before -Folder $SnapshotFolder -LogFile $LogFile }

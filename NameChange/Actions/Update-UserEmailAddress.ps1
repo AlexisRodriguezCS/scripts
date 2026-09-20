@@ -40,6 +40,11 @@ function Update-UserEmailAddress {
     Set-ADUser -Identity $Identity.DistinguishedName -Replace @{ proxyAddresses = $addresses } -ErrorAction Stop
     Set-ADUser -Identity $Identity.DistinguishedName -EmailAddress $Target -ErrorAction Stop
 
-    $kept = if ($KeepOld) { ", old address kept as an alias" } else { ", old address removed" }
-    return "Now $Target$kept"
+    $previous = "$(@($existing | Where-Object { $_ -clike 'SMTP:*' } | Select-Object -First 1) -replace '^SMTP:')"
+    $kept     = if ($KeepOld) { "kept as an alias" } else { "removed" }
+
+    if ($previous) { return "$previous is now $Target ($previous $kept)" }
+
+    # On-prem clients often have no address at all, which is worth saying plainly
+    return "Set to $Target (had no address before)"
 }
