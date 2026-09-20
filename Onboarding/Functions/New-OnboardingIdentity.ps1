@@ -40,6 +40,24 @@ function New-OnboardingIdentity {
         # Set OU based on department
         $ou = "OU=$($raw.Department),$($Config.DefaultOU)"
 
+        # HR writes the manager as a full name ("Mary Johnson") or a username; AD stores a DN.
+        # A manager that can't be matched doesn't block the account: the new hire still needs to
+        # work on day one, so it's logged as a warning and the account is created without one.
+        $managerDn = $null
+        if ($raw.Manager) {
+            $search = $raw.Manager -replace "'", "\'"   # names like O'Brien would break the filter
+            $found  = @(Get-ADUser -Filter "SamAccountName -eq '$search' -or DisplayName -eq '$search'" -ErrorAction SilentlyContinue)
+
+            if ($found.Count -eq 1) {
+                $managerDn = $found[0].DistinguishedName
+            } else {
+                # 0 = nobody by that name, 2+ = two people share it and picking one would be a guess
+                $why = if ($found.Count -eq 0) { "NOT_FOUND" } else { "$($found.Count) people match that name" }
+                Write-Log -Message "[$($PipelineObject.CorrelationId.Substring(0,8))] [$stepName] Manager -> $($raw.Manager) : $why, account created without a manager" `
+                          -Level "WARN" -LogFile $LogFile
+            }
+        }
+
         # Store Identity object
         $PipelineObject.Identity = [PSCustomObject]@{
             FirstName         = $raw.FirstName
@@ -50,7 +68,14 @@ function New-OnboardingIdentity {
             EntraUPN          = Resolve-EntraUpn -SamAccountName $username -AdUpn "$username$($Config.UPNSuffix)" -Config $Config # Entra/M365 UPN
             OU                = $ou
             EmployeeID        = $raw.EmployeeID
-        } 
+            # HR fills these in on the request; without them the org chart, Outlook details
+            # and the access review (which groups people by manager) are all empty
+            Title             = $raw.Title
+            Department        = $raw.Department
+            ManagerDN         = $managerDn
+            Office            = $raw.Location
+            Company           = $Config.Company
+        }
 
         # Log identity information
         $id = $PipelineObject.CorrelationId.Substring(0,8)

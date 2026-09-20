@@ -13,8 +13,8 @@ Pipeline details: [Docs/Onboarding.md](Docs/Onboarding.md)
 3. Validate required fields (skip invalid rows)
 4. Pick distribution lists, AD groups and license from department, title and role
 5. Build the plan of actions
-6. Generate username, UPN, display name and OU
-7. Create the AD user with a random temp password (skip if it already exists)
+6. Generate username, UPN, display name and OU, and look the manager up in AD
+7. Create the AD user with a random temp password, job title, department, office, company and manager (skip if it already exists)
 8. Trigger an Entra Connect delta sync
 9. Wait for the user to appear in Entra
     * Optional: create a **Temporary Access Pass** (one-time sign-in code for day one, valid from 8:00 on the start date) when `UseTemporaryAccessPass` is on
@@ -49,6 +49,8 @@ Both are a dry run (no changes). Add `-Apply` to make the changes.
 | FirstName | LastName | Title | Manager | Location | Department | Role | EmploymentType | StartDate |
 |-----------|----------|-------|---------|----------|------------|------|----------------|-----------|
 | Alex | Johnson | Systems Administrator | Mary Smith | New York | IT | Admin | Regular Full-Time | 2026-02-26 |
+
+**Manager** can be a full name or a username. If nobody in AD matches (or two people share the name), the account is still created and the report says the manager wasn't set.
 
 ---
 
