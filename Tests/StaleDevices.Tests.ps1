@@ -41,6 +41,16 @@ Describe "StaleDevices" {
         $d.Plan   | Should -HaveCount 0
     }
 
+    It "treats a device that never checked in as stale" {
+        $d = New-TestDevice "NEVER-1" 0
+        $d.Raw.LastSync = $null
+        Invoke-Decide $d
+
+        $d.Status         | Should -Be "Stale"
+        $d.Plan[0].Action | Should -Be "DeleteRecord"
+        $d.Errors         | Should -HaveCount 0
+    }
+
     It "retires a device not seen for 90+ days" {
         $d = New-TestDevice "LAPTOP-2" 120; Invoke-Decide $d
         $d.Plan[0].Action | Should -Be "Retire"

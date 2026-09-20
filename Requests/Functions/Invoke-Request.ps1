@@ -80,5 +80,11 @@ function Invoke-Request {
         "Unlock account" { Invoke-AccountUnlock -SamAccountName $row.SamAccountName -Config $Configs.Requests -Apply $Apply }
         "Reset password" { Invoke-PasswordReset -SamAccountName $row.SamAccountName -Config $Configs.Requests -Apply $Apply }
         "Group access"   { Invoke-GroupAccessRequest -SamAccountName $row.SamAccountName -Group $row.Group -Change $row.Change -Config $Configs.Requests -Apply $Apply }
+
+        # A request type nobody handles (renamed in the list, or a typo) would otherwise fall
+        # through and come back as an empty "Needs attention" that tells HR nothing
+        default {
+            @{ Ok = $false; Message = "Needs attention: '$type' isn't a request type this automation handles. IT has been alerted." }
+        }
     }
 }

@@ -23,7 +23,7 @@ Import-Module "$PSScriptRoot\Audits.psm1" -Force
 $Config = Get-Config -Script "Audits" -Client $Client -RootPath "$PSScriptRoot\.."
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
-$LogFile = "$PSScriptRoot\$($Config.LogPath)"
+$LogFile = "$PSScriptRoot\Logs\Audits.log"
 
 # "All" = every check that doesn't need extra input
 $checks = if ($Check -contains "All") {

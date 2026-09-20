@@ -51,7 +51,7 @@ if (-Not (Test-Path "$PSScriptRoot\Logs")) {
 }
 
 # Set log file path
-$LogFile = "$PSScriptRoot\$($Config.LogPath)"
+$LogFile = "$PSScriptRoot\Logs\Offboarding.log"
 
 # ------------------------
 # AUTHENTICATE

@@ -13,14 +13,15 @@ function Send-PasswordExpiryEmail {
 
     $days = if ($Raw.DaysLeft -eq 1) { "1 day" } elseif ($Raw.DaysLeft -eq 0) { "today" } else { "$($Raw.DaysLeft) days" }
 
-    # Plain language; the template lives in config so HR/IT can change wording without touching code
-    $body = $Config.EmailBody `
-        -replace '\{Name\}',     $Raw.DisplayName `
-        -replace '\{Days\}',     $days `
-        -replace '\{Date\}',     $Raw.ExpiresOn.ToString('dddd, MMMM d') `
-        -replace '\{ResetUrl\}', $Config.PasswordResetUrl
+    # Plain language; the template lives in config so HR/IT can change wording without touching code.
+    # .Replace() and not -replace: a name like "O'Neil $ Co" would be read as a regex substitution
+    $body = $Config.EmailBody.
+        Replace('{Name}',     "$($Raw.DisplayName)").
+        Replace('{Days}',     $days).
+        Replace('{Date}',     $Raw.ExpiresOn.ToString('dddd, MMMM d')).
+        Replace('{ResetUrl}', "$($Config.PasswordResetUrl)")
 
-    $subject = $Config.EmailSubject -replace '\{Days\}', $days
+    $subject = $Config.EmailSubject.Replace('{Days}', $days)
 
     Send-MgUserMail -UserId $Config.SenderMailbox -ErrorAction Stop -BodyParameter @{
         Message = @{

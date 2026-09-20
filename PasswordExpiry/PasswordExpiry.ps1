@@ -28,7 +28,7 @@ foreach ($module in @("ActiveDirectory", "Microsoft.Graph")) {
 $Config = Get-Config -Script "PasswordExpiry" -Client $Client -RootPath "$PSScriptRoot\.."
 
 $null = New-Item -ItemType Directory -Path "$PSScriptRoot\Logs" -Force
-$LogFile = "$PSScriptRoot\$($Config.LogPath)"
+$LogFile = "$PSScriptRoot\Logs\PasswordExpiry.log"
 
 # ------------------------
 # AUTHENTICATE
