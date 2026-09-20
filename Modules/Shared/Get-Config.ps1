@@ -19,6 +19,10 @@ function Get-Config{
         throw "Client config not found: $clientPath"
     }
 
+    # Remembered so every log line can say which client it belongs to:
+    # one log file per script holds every client that ran that day
+    $script:LogClient = $Client
+
     $clientConfig = Get-Content $clientPath -Raw | ConvertFrom-Json
 
     # Secrets are never stored in config files. A value like "secret:ClientA-TeamsWebhook" is a

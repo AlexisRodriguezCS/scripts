@@ -112,10 +112,27 @@ Input ──► Validate ──► Look up ──► Plan ──► Snapshot ─
 - Only role groups (`GRP_ROLE_*`) are changed on a role change; hand-granted access is left alone
 
 **Logging**
-- Every line tagged with a per-user correlation ID, so one user's journey can be followed through the log
-- Levels: DEBUG / INFO / WARN / ERROR
-- Objects are logged as JSON
-- Step timings recorded per user
+- **One file per day** per script: `Logs\Onboarding-2026-09-20.log`, so "what happened on the 14th" is one file
+- A **`.jsonl` copy** beside it, one JSON object per line, for querying instead of grepping
+- Every line carries a **run ID** (this execution) and a **correlation ID** (this person), so one batch or one user can be pulled out of a busy day
+- The **client name** is on every JSON line, so a shared log file can be split per client
+- Levels: DEBUG / INFO / WARN / ERROR, objects logged as JSON, step timings recorded per user
+- Secrets loaded from the vault are masked as `***` in both files
+
+```powershell
+# every failed step for one client last Tuesday
+Get-Content .\Onboarding\Logs\Onboarding-2026-09-15.jsonl |
+    ConvertFrom-Json | Where-Object { $_.Level -eq "ERROR" -and $_.Client -eq "ClientA" }
+
+# everything one run did
+... | Where-Object RunId -eq "8f3a1c20"
+```
+
+**Retention**
+- Reports and snapshots: **90 days** (they hold names, groups and managers)
+- Logs: **365 days**
+- Incident evidence and Conditional Access backups: kept, deliberately
+- All handled by [`Setup/Remove-OldReports.ps1`](Setup/Remove-OldReports.ps1), scheduled weekly
 
 **Flags anything that breaks**
 - A user that can't be found, fails validation, or has an action fail after all retries is marked

@@ -14,6 +14,14 @@ param(
     [ValidateRange(7, 3650)]
     [int]$Days = 90,
 
+    # Logs are kept longer than reports: they hold far less personal data, and
+    # "show me what happened last year" is a question audits actually ask
+    [ValidateRange(7, 3650)]
+    [int]$LogDays = 365,
+
+    # Where the per-script Logs folders live
+    [string]$RepoPath = "$PSScriptRoot\..",
+
     [switch]$Apply
 )
 
@@ -34,3 +42,23 @@ if ($Apply) {
 }
 
 Write-Host "$(if ($Apply) { 'Deleted' } else { 'Would delete' }) $($old.Count) file(s) older than $Days days from $Path"
+
+# ------------------------
+# LOGS
+# ------------------------
+# Every script keeps its own Logs folder with one file per day (and a .jsonl beside it)
+$logCutoff = (Get-Date).AddDays(-$LogDays)
+$oldLogs   = @(Get-ChildItem -Path $RepoPath -Directory -ErrorAction SilentlyContinue | ForEach-Object {
+    $logDir = Join-Path $_.FullName "Logs"
+    if (Test-Path $logDir) {
+        Get-ChildItem -Path $logDir -File -Include "*.log", "*.jsonl", "*.log.*" -Recurse -ErrorAction SilentlyContinue |
+            Where-Object LastWriteTime -lt $logCutoff
+    }
+})
+
+foreach ($file in $oldLogs) {
+    if ($Apply) { Remove-Item -Path $file.FullName -Force }
+    else        { Write-Host "Would delete: $($file.FullName)" }
+}
+
+Write-Host "$(if ($Apply) { 'Deleted' } else { 'Would delete' }) $($oldLogs.Count) log file(s) older than $LogDays days"

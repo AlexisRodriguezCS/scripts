@@ -32,7 +32,8 @@ Describe "Security guard rails" {
 
             Write-Log -Message "Alert failed: 404 from https://hooks.example.com/abc123" -LogFile "TestDrive:\app.log" 6>$null
 
-            $log = Get-Content "TestDrive:\app.log" -Raw
+            # Logs are written one file per day: app.log becomes app-2026-09-20.log
+            $log = Get-Content "TestDrive:\app-$(Get-Date -Format 'yyyy-MM-dd').log" -Raw
             $log | Should -Not -Match "abc123"
             $log | Should -Match "Alert failed: 404 from \*\*\*"
         }
