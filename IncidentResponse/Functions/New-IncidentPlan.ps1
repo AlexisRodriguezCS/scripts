@@ -16,6 +16,12 @@ function New-IncidentPlan {
     $plan += @{ Action = "ResetPassword";  Target = $identity.EntraUPN; Result = $null }
     $plan += @{ Action = "RevokeSessions"; Target = $identity.EntraUPN; Result = $null }
 
+    # Apps the user consented to keep their own refresh tokens: revoking sessions doesn't stop them,
+    # so a "document viewer" with Mail.Read carries on reading mail after the account is disabled
+    if ($evidence.Grants.Count) {
+        $plan += @{ Action = "RevokeAppConsents"; Target = "$($evidence.Grants.Count) app consent(s)"; Result = $null }
+    }
+
     # Then stop email leaving
     if ($evidence.Forwarding) {
         $plan += @{ Action = "RemoveForwarding"; Target = ($evidence.Forwarding -join ', '); Result = $null }

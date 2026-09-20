@@ -26,6 +26,13 @@ Describe "IncidentResponse" {
             [pscustomobject]@{ Id = "m1"; AdditionalProperties = @{ '@odata.type' = "#microsoft.graph.phoneAuthenticationMethod"; createdDateTime = (Get-Date).AddDays(-1).ToString("o") } }
         } -ModuleName IncidentResponse
 
+        Mock Get-MgUserOauth2PermissionGrant {
+            # The user's own consent to a third-party app, and an admin consent for the whole tenant
+            [pscustomobject]@{ Id = "g1"; ClientId = "app-evil"; ResourceId = "graph"; Scope = "Mail.Read offline_access"; ConsentType = "Principal" }
+            [pscustomobject]@{ Id = "g2"; ClientId = "app-company"; ResourceId = "graph"; Scope = "User.Read"; ConsentType = "AllPrincipals" }
+        } -ModuleName IncidentResponse
+        Mock Remove-MgOauth2PermissionGrant {} -ModuleName IncidentResponse
+
         Mock Disable-ADAccount {} -ModuleName IncidentResponse
         Mock Set-ADUser {} -ModuleName IncidentResponse
         Mock Set-ADAccountPassword {} -ModuleName IncidentResponse
@@ -51,7 +58,8 @@ Describe "IncidentResponse" {
         $result.Plan[0] | Should -Match "^DisableAccount"
         $result.Plan[1] | Should -Match "^ResetPassword"
         $result.Plan[2] | Should -Match "^RevokeSessions"
-        $result.Plan[3] | Should -Match "^RemoveForwarding -> smtp:attacker@evil.com"
+        $result.Plan[3] | Should -Match "^RevokeAppConsents"
+        $result.Plan[4] | Should -Match "^RemoveForwarding -> smtp:attacker@evil.com"
         @($result.Plan | Where-Object { $_ -like "DisableInboxRule*" }).Count | Should -Be 1   # the RSS one, not "Invoices"
     }
 
@@ -70,6 +78,24 @@ Describe "IncidentResponse" {
 
         ($result.FollowUp -join " ") | Should -Match "MFA method"
         ($result.FollowUp -join " ") | Should -Match "2 countries: NG, US"
+    }
+
+    It "revokes the user's own app consents, not the tenant's" {
+        $result = Invoke-IncidentResponse -UserPrincipalName "jdoe@corp.com" -LogFile $logFile -Apply $true
+
+        Test-Path (Join-Path $result.Evidence "oauth-grants.json") | Should -BeTrue
+        Should -Invoke Remove-MgOauth2PermissionGrant -ModuleName IncidentResponse -Times 1 -Exactly -ParameterFilter { $OAuth2PermissionGrantId -eq "g1" }
+        # g2 is an admin consent for everyone: pulling it would cut the whole company off that app
+        Should -Invoke Remove-MgOauth2PermissionGrant -ModuleName IncidentResponse -Times 0 -Exactly -ParameterFilter { $OAuth2PermissionGrantId -eq "g2" }
+    }
+
+    It "skips the step when the user consented to nothing" {
+        Mock Get-MgUserOauth2PermissionGrant { } -ModuleName IncidentResponse
+
+        $result = Invoke-IncidentResponse -UserPrincipalName "jdoe@corp.com" -LogFile $logFile -Apply $true
+
+        @($result.Plan | Where-Object { $_ -like "RevokeAppConsents*" }) | Should -BeNullOrEmpty
+        Should -Invoke Remove-MgOauth2PermissionGrant -ModuleName IncidentResponse -Times 0 -Exactly
     }
 
     It "resets a cloud-only user's password in Entra" {

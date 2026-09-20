@@ -27,6 +27,7 @@ function Invoke-IncidentResponse {
             DisableAccount   = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Disable-IncidentAccount -Identity $p.Identity -LogFile $LogFile } }
             ResetPassword    = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Reset-IncidentPassword -Identity $p.Identity -LogFile $LogFile } }
             RevokeSessions   = @{ MaxRetries = 4; DelaySeconds = 5; Run = { param($p, $t) Revoke-OffboardingSession -Identity $p.Identity -LogFile $LogFile } }
+            RevokeAppConsents = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Revoke-IncidentAppConsent -PipelineObject $p -LogFile $LogFile } }
             RemoveForwarding = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t) Remove-IncidentForwarding -Identity $p.Identity -LogFile $LogFile } }
             DisableInboxRule = @{ MaxRetries = 3; DelaySeconds = 5; Run = { param($p, $t, $item) Disable-IncidentInboxRule -Identity $p.Identity -RuleIdentity $item.RuleIdentity -LogFile $LogFile } }
         }

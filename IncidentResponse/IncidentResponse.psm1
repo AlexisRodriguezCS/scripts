@@ -22,5 +22,6 @@
 . $PSScriptRoot\Actions\Reset-IncidentPassword.ps1
 . $PSScriptRoot\Actions\Remove-IncidentForwarding.ps1
 . $PSScriptRoot\Actions\Disable-IncidentInboxRule.ps1
+. $PSScriptRoot\Actions\Revoke-IncidentAppConsent.ps1
 
 Export-ModuleMember -Function *
