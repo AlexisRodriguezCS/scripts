@@ -43,6 +43,7 @@ On-prem AD ──(Entra Connect sync)──► Entra ID ──► Exchange Onlin
 
 | Script | What it does |
 |--------|--------------|
+| [AD Structure](ADStructure/README.md) | Builds a new client's OU tree and groups from a JSON file, and points new users and computers at real OUs so Group Policy can reach them |
 | [Compromised Account Response](IncidentResponse/README.md) | Collects evidence (inbox rules, sign-ins, MFA methods), then disables, resets, signs out, removes forwarding and malicious inbox rules |
 | [Restore from Snapshot](Rollback/README.md) | Undoes a mistake: puts a user back the way their before-snapshot recorded (account, groups, attributes, OU) |
 | [User Activity](UserActivity/README.md) | "My password doesn't work": one timeline of sign-ins, SSPR resets, lockouts and changes, with a plain-English summary of what went wrong |

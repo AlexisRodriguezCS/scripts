@@ -1,0 +1,68 @@
+{
+    "Description": "Default OU layout for a new client. Copy to Config/Clients/<Client>/structure.json and change to taste.",
+    "ProtectFromDeletion": true,
+    "OUs": [
+        {
+            "Name": "Identity",
+            "Children": [
+                {
+                    "Name": "Users",
+                    "Children": [
+                        { "Name": "Employees", "Children": [
+                            { "Name": "Finance" },
+                            { "Name": "IT" },
+                            { "Name": "Sales" },
+                            { "Name": "HR" },
+                            { "Name": "Marketing" }
+                        ]},
+                        { "Name": "Contractors" },
+                        { "Name": "ServiceAccounts" },
+                        { "Name": "Disabled" }
+                    ]
+                },
+                {
+                    "Name": "Computers",
+                    "Children": [
+                        { "Name": "Workstations" },
+                        { "Name": "Laptops" },
+                        { "Name": "Kiosks" },
+                        { "Name": "Disabled" }
+                    ]
+                },
+                {
+                    "Name": "Servers",
+                    "Children": [
+                        { "Name": "Application" },
+                        { "Name": "Database" },
+                        { "Name": "Infrastructure" }
+                    ]
+                },
+                {
+                    "Name": "Groups",
+                    "Children": [
+                        { "Name": "Role" },
+                        { "Name": "Security" },
+                        { "Name": "Distribution" }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Groups": [
+        { "Name": "GRP-AllStaff",              "Path": "OU=Security,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_User",             "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_IT_Admin",         "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_IT_User",          "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_IT_Helpdesk",      "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_Finance_User",     "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_Finance_PowerUser","Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_HR_User",          "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_HR_PowerUser",     "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_Sales_User",       "Path": "OU=Role,OU=Groups,OU=Identity" },
+        { "Name": "GRP_ROLE_Marketing_User",   "Path": "OU=Role,OU=Groups,OU=Identity" }
+    ],
+    "Redirect": {
+        "Users": "OU=Employees,OU=Users,OU=Identity",
+        "Computers": "OU=Workstations,OU=Computers,OU=Identity"
+    }
+}
