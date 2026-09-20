@@ -36,17 +36,26 @@ function Save-IncidentEvidence {
     $methods | Select-Object Id, @{ n = "Type"; e = { $_.AdditionalProperties.'@odata.type' } }, @{ n = "Created"; e = { $_.AdditionalProperties.createdDateTime } } |
         ConvertTo-Json -Depth 5 | Out-File (Join-Path $Folder "mfa-methods.json") -Encoding utf8
 
+    # Apps this user consented to. Only their own grants (consentType "Principal"): a grant made
+    # for "AllPrincipals" is an admin consent for the whole tenant, and pulling that would cut
+    # everyone off from a legitimate app.
+    $grants = @(Get-MgUserOauth2PermissionGrant -UserId $identity.Id -All -ErrorAction SilentlyContinue |
+                Where-Object { "$($_.ConsentType)" -eq "Principal" })
+    $grants | Select-Object Id, ClientId, ResourceId, Scope |
+        ConvertTo-Json -Depth 5 | Out-File (Join-Path $Folder "oauth-grants.json") -Encoding utf8
+
     $PipelineObject.Evidence = [pscustomobject]@{
         Folder     = $Folder
         Mailbox    = $mailbox
         Forwarding = if ($mailbox) { @($mailbox.ForwardingSmtpAddress, $mailbox.ForwardingAddress) | Where-Object { $_ } } else { @() }
         Rules      = $rules
+        Grants     = $grants
         SignIns    = $signIns
         Countries  = @($signIns | ForEach-Object { $_.Location.CountryOrRegion } | Where-Object { $_ } | Sort-Object -Unique)
         # Methods added in the sign-in window deserve a human look
         NewMethods = @($methods | Where-Object { $_.AdditionalProperties.createdDateTime -and [datetime]$_.AdditionalProperties.createdDateTime -gt (Get-Date).AddDays(-$SignInDays) })
     }
 
-    Write-Log -Message "[$($identity.EntraUPN)] Evidence saved to $Folder ($($rules.Count) rules, $($signIns.Count) sign-ins, $($methods.Count) MFA methods)" `
+    Write-Log -Message "[$($identity.EntraUPN)] Evidence saved to $Folder ($($rules.Count) rules, $($signIns.Count) sign-ins, $($methods.Count) MFA methods, $($grants.Count) app consents)" `
               -Level "INFO" -LogFile $LogFile
 }

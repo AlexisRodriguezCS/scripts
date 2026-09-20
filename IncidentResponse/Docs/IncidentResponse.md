@@ -28,6 +28,7 @@ Written to `Backups/Incidents/<user>_<date>/` — outside `Reports/`, so the 90-
 | `inbox-rules.json` | Every inbox rule with its targets | Attackers add rules to forward, delete or hide mail |
 | `sign-ins.csv` | Sign-ins for the last `-SignInDays` days: time, IP, app, country, result | Shows where they got in from |
 | `mfa-methods.json` | Registered MFA methods and when they were added | Attackers register their own so they can come back |
+| `oauth-grants.json` | Apps the user personally consented to, and what they can do | A consented app holds its own token and keeps working after the password changes |
 
 ---
 
@@ -40,10 +41,19 @@ Order matters: lock the attacker out first, then stop data leaving.
 1. **DisableAccount**
 2. **ResetPassword** — random, nobody is told it
 3. **RevokeSessions** — existing tokens keep working until revoked, so a disabled account can still be in use without this
-4. **RemoveForwarding** — if the mailbox forwards outside
-5. **DisableInboxRule** — one per suspicious rule: forwards, redirects, deletes, or files mail into a folder nobody reads (RSS Feeds, Conversation History, Archive, Junk)
+4. **RevokeAppConsents** — apps the user approved
+5. **RemoveForwarding** — if the mailbox forwards outside
+6. **DisableInboxRule** — one per suspicious rule: forwards, redirects, deletes, or files mail into a folder nobody reads (RSS Feeds, Conversation History, Archive, Junk)
 
 Rules are **disabled, not deleted**: they stay as evidence.
+
+### Why app consents matter
+
+The modern phishing page doesn't ask for a password. It asks the user to approve an app — "Document Viewer" wanting `Mail.Read` and `offline_access`. The user clicks Accept, and the app gets its **own refresh token**.
+
+That token doesn't care that you disabled the account, reset the password and revoked sessions. It keeps reading their mail until the consent is pulled. This is why the step is in the plan at all.
+
+Only the user's **own** grants are revoked (`consentType = "Principal"`). A grant recorded as `AllPrincipals` is an admin consent covering the whole tenant — revoking that during an incident would cut every employee off a legitimate app, turning one compromised mailbox into a company-wide outage.
 
 ---
 
@@ -83,4 +93,4 @@ An alert is **always** sent, contained or not: an incident is never routine.
 
 ## Permissions
 
-Graph: `User.ReadWrite.All`, `AuditLog.Read.All`, `UserAuthenticationMethod.Read.All`. Exchange: `Exchange.ManageAsApp`.
+Graph: `User.ReadWrite.All`, `AuditLog.Read.All`, `UserAuthenticationMethod.Read.All`, `DelegatedPermissionGrant.ReadWrite.All`. Exchange: `Exchange.ManageAsApp`.

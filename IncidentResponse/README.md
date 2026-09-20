@@ -13,21 +13,23 @@ Pipeline details: [Docs/IncidentResponse.md](Docs/IncidentResponse.md)
    * `inbox-rules.json`: every inbox rule
    * `sign-ins.csv`: sign-ins from the last 7 days (time, IP, country, app, result)
    * `mfa-methods.json`: registered MFA methods and when they were added
+   * `oauth-grants.json`: apps the user gave access to
    * Mailbox forwarding settings
 3. Plan the containment
 4. Save a **before** snapshot
 5. **Disable the account** (in AD for synced users, so the next sync doesn't undo it, and in Entra)
 6. **Reset the password** to a long random one nobody knows
 7. **Sign out every session** (refresh tokens revoked)
-8. **Remove mailbox forwarding**
-9. **Disable suspicious inbox rules**: ones that forward, redirect, delete, or move mail to folders nobody checks (RSS Feeds, Conversation History, Archive...). Disabled, not deleted, so they stay as evidence
-10. Save an **after** snapshot
-11. Write a report with a **FOLLOW UP** list for a human:
+8. **Revoke app consents the user gave**: an app with its own refresh token keeps reading their mail even after the account is disabled
+9. **Remove mailbox forwarding**
+10. **Disable suspicious inbox rules**: ones that forward, redirect, delete, or move mail to folders nobody checks (RSS Feeds, Conversation History, Archive...). Disabled, not deleted, so they stay as evidence
+11. Save an **after** snapshot
+12. Write a report with a **FOLLOW UP** list for a human:
     * MFA methods added recently (attackers register their own to get back in)
     * Sign-ins from more than one country
     * Check sent items and recently shared files
     * Give the user new sign-in details once it's safe
-12. Alert the team (always: an incident is never routine)
+13. Alert the team (always: an incident is never routine)
 
 Steps 4–10 only run with `-Apply`. If one containment step fails, the rest still run: partly contained is better than open.
 
